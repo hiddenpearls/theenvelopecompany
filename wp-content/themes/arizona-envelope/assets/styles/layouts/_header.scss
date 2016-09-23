@@ -75,6 +75,11 @@
 		float: right;
 	}
 }
+.admin-bar{
+  .site-header{
+    top: rem(28);
+  }
+}
 
 //remove this to a single hero panels components scss file
 .hero-panel{
