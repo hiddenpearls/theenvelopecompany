@@ -1,0 +1,273 @@
+.site-header{
+    z-index: 2;
+    &.transparent-header{
+        background-color: transparent;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    &.solid-header{
+        background-color: $sand;
+        position: static;
+    }
+    .search-form{
+        .search-field{
+            border-radius: 0;
+        }
+    }
+}
+.main-site-nav{
+	.nav{
+		li.menu-item{
+			display: inline-block;
+			vertical-align: top;
+			a{
+				color: $medium-gray;
+                text-transform: uppercase;
+                display: inline-block;
+				&:hover{
+					color: $dark-gray;
+                    background-color: transparent;
+				}
+			}
+		}
+	}
+	.nav-utilities{
+		float: right;
+        margin-top: 56px;
+        .phone-icon, .cart-icon{
+            a{
+                &:before{
+                    font: normal normal normal 14px/1 FontAwesome;
+                    content: "\f095";
+                    display: inline-block;
+                    color: $brand-orange;
+                    margin-right: 8px;
+                }
+            }
+        }
+        .cart-icon{
+            a{
+                &:before{
+                    content: "\f07a";
+                }
+            }
+        }
+        .white-btn{
+            a{
+                border: 2px solid $medium-gray;
+                color: $dark-gray;
+                padding: 8px 15px;
+            }
+        }
+    }
+	.nav-primary{
+		width: auto;
+		display: block;
+		clear: left;
+		.menu-site-navigation-container{
+			float: left;
+		}
+	}
+	.search-form{
+		
+		float: right;
+	}
+}
+
+//remove this to a single hero panels components scss file
+.hero-panel{
+    position: relative;
+    z-index: 1;
+	> img{
+		width: 100%;
+	}
+    .container{
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        .slider-caption{
+            max-width: 40%;
+            h1, p {
+                color: $medium-gray;
+                max-width: 80%;
+                margin-bottom: 20px;
+            }
+            h1{
+                font-size: 42px;
+            }
+            p{
+                margin-bottom: 64px;
+            }
+            a{
+                width: 200px;
+                margin-right: 22px;
+                padding: 10px 0;
+            }
+        }
+    }
+}
+
+//search nav
+.search-form{
+    background-color: #fff;
+    border: 2px solid $medium-gray;
+    height: rem(42);
+    .search-field{
+        border: none;
+        min-width: rem(280);
+        height: rem(38);
+        padding: 0;
+        outline: none;
+        box-shadow: none;
+        text-indent: rem(8);
+        &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            font-family: $heading-font;
+            color: $light-gray;
+            font-style: italic;
+        }
+        &::-moz-placeholder { /* Firefox 19+ */
+            font-family: $heading-font;
+            color: $light-gray;
+            font-style: italic;
+        }
+        &:-ms-input-placeholder { /* IE 10+ */
+            font-family: $heading-font;
+            color: $light-gray;
+            font-style: italic;
+        }
+        &:-moz-placeholder { /* Firefox 18- */
+            font-family: $heading-font;
+            color: $light-gray;
+            font-style: italic;
+        }
+    }
+    .search-submit{
+        border: none;
+        height: 80%;
+        border-left: 2px solid $light-gray;
+        i{
+            color: $brand-orange;
+        }
+        &:hover{
+            background-color: transparent;
+            opacity: 0.8;
+            border-color: $light-gray;
+        }
+    }
+}
+
+//Responsive Nav
+// vars
+
+$button-width: 50px;                    // The width of the button area
+$button-height: 50px;                   // The height of the button area
+$bar-thickness: 5px;                    // The thickness of the button bars
+$button-pad: 8px;                      // The left/right padding between button area and bars.
+$button-bar-space: 5px;                // The spacing between button bars
+$button-transistion-duration: 0.3s;     // The transition duration
+.c-hamburger {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: $button-width;
+  height: $button-height;
+  font-size: 0;
+  text-indent: -9999px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  cursor: pointer;
+  transition: background $button-transistion-duration;
+  @media screen and (min-width: $breakpoint--medium){
+    display: none;
+  }
+
+}
+
+.c-hamburger:focus {
+  outline: none;
+}
+
+.c-hamburger span {
+  display: block;
+  position: absolute;
+  top: ($button-height / 2) - ($bar-thickness / 2);
+  left: $button-pad;
+  right: $button-pad;
+  height: $bar-thickness;
+  background: $brand-orange;
+}
+
+.c-hamburger span::before,
+.c-hamburger span::after {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: $bar-thickness;
+  background: $brand-orange;
+  content: "";
+}
+
+.c-hamburger span::before {
+  top: -$bar-thickness - $button-bar-space;
+}
+
+.c-hamburger span::after {
+  bottom: -$bar-thickness - $button-bar-space;
+}
+
+.c-hamburger--htx {
+  background-color: transparent;
+}
+
+.c-hamburger--htx span {
+  transition: background 0s $button-transistion-duration;
+}
+
+.c-hamburger--htx span::before,
+.c-hamburger--htx span::after {
+  transition-duration: $button-transistion-duration, $button-transistion-duration;
+  transition-delay: $button-transistion-duration, 0s;
+}
+
+.c-hamburger--htx span::before {
+  transition-property: top, transform;
+}
+
+.c-hamburger--htx span::after {
+  transition-property: bottom, transform;
+}
+
+/* active state, i.e. menu open */
+
+.c-hamburger--htx.is-active {
+  background-color: transparent;
+}
+
+.c-hamburger--htx.is-active span {
+  background: none;
+}
+
+.c-hamburger--htx.is-active span::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.c-hamburger--htx.is-active span::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+.c-hamburger--htx.is-active span::before,
+.c-hamburger--htx.is-active span::after {
+  transition-delay: 0s, $button-transistion-duration;
+}

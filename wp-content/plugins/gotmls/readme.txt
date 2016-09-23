@@ -5,8 +5,8 @@ Author URI: http://wordpress.ieonly.com/category/my-plugins/anti-malware/
 Contributors: scheeeli, gotmls
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZHD8QHZ2E7PE
 Tags: security, firewall, anti-malware, scanner, automatic, repair, remove, malware, virus, threat, hacked, malicious, infection, timthumb, exploit, block, brute-force, wp-login, patch, antimalware, revslider, Revolution Slider
-Version: 4.16.36
-Stable tag: 4.16.36
+Version: 4.16.39
+Stable tag: 4.16.39
 Requires at least: 3.3
 Tested up to: 4.6.1
 
@@ -27,7 +27,7 @@ This Anti-Malware scanner searches for Malware, Viruses, and other security thre
 * Check the integrity of your WordPress Core files.
 * Automatically download new Definition Updates when running a Complete Scan.
 
-Updated September 12th
+Updated September 16th
 
 Register this plugin at [GOTMLS.NET](http://gotmls.net/) and get access to new definitions of "Known Threats" and added features like Automatic Removal, plus patches for specific security vulnerabilities like old versions of timthumb. Updated definition files can be downloaded automatically within the admin once your Key is registered. Otherwise, this plugin just scans for "Potential Threats" and leaves it up to you to identify and remove the malicious ones.
 
@@ -93,10 +93,10 @@ sucuri.net caches their scan results and will not refresh the scan until you cli
 
 == Changelog ==
 
-= 4.16.36 =
+= 4.16.38 =
 * Added more firewall options.
 * Moved Scan Log from the Quarantine page to the main Setings page.
-* Fixed PHP Warning about an invalid argument in foreach.
+* Fixed PHP Warning about an invalid argument in foreach and some other bugs too.
 
 = 4.16.26 =
 * Fixed "What to look for" Options so that changes are saved.
@@ -301,102 +301,47 @@ sucuri.net caches their scan results and will not refresh the scan until you cli
 
 = 1.3.02.15 =
 * Improved security on the Quarantine directory to fix the 500 error on some servers.
-
-= 1.2.12.31 =
 * Fixed count of Quarantined items.
 * Added htaccess security to the Uploads directory.
-
-= 1.2.12.30 =
-* Fixed progress bar bug in the last release.
 * Linked the Quarantined items to the File Examiner.
-
-= 1.2.12.29 =
-* Brought back the TimThumb and htaccess scan categories.
 * Added a scan category for Backdoor Scripts.
-
-= 1.2.12.14 =
-* Fixed bugs in the last release.
-
-= 1.2.12.12 =
 * Consolidated the Definition Types and added a Whitelist category.
 * Completely redesigned the Definition Updates to handle incremental updates.
 * Added "View Quarantine" to the menu.
-
-= 1.2.11.15 =
 * Enhanced Output Buffer to work with compression enabled (like ob_gzhandler).
 * Moved the quarantine to the uploads directory to protect against blanket inclusion.
-
-= 1.2.10.31 =
 * Fixed Output Buffer issue for when ob_start has already been called.
-
-= 1.2.10.27 =
 * Enhanced the Automatic Fix process to handle bad directory permissions.
 * Added more detailed error messages for different types of file errors.
-* Fixed calculation for Time Remaining on the Progress Bar.
-
-= 1.2.10.16 =
-* Re-calibrated the Progress Bar on the Quick Scan.
 * Improved overall error handling.
 * Minor UI enhancements and a few bug fixes.
-
-= 1.2.10.05 =
 * Completely revamped the scan engine to handle large file systems with better error handling.
 * Enhanced the results for the Automatic Fix process.
 * Fixed a few other small bugs.
-
-= 1.2.09.22 =
 * Enhanced the iFrame for the File Viewer and Automatic Fix process.
 * Improved error handling during the scan.
-* Fixed update checker script.
-
-= 1.2.09.15 =
-* Fixed major bug in unregistered scan definition interpretation that causes many false positives.
 * Moved the File Viewer and Automatic Fix process into an iFrame to decrease scan time and memory usage.
 * Enhanced the Automatic Fix process for better success with read-only files.
 * Improved code cleanup process and general efficiency of the scan.
-
-= 1.2.08.31 =
 * Encoded definition update for better compatibility with some servers that have post limitation.
-* Improved the code cleanup expression that is applied after removal of known threats.
-
-= 1.2.07.29 =
-* Fixed return URL on Donate form.
-
-= 1.2.07.20 =
 * Fixed XSS vulnerability.
-
-= 1.2.05.20 =
 * Changed registration to allow for multiple sites/keys to be registered under one user/email.
-
-= 1.2.05.04 =
-* Fixed "Invalid Threat level" Error on default values for pre-registration scans.
 * Changed auto-update path to update threat level array for all new definition updates.
-
-= 1.2.04.24 =
-* Fixed auto-update script to update scan level even if there is no new definitions.
-
-= 1.2.04.09 =
-* Added more info about registration to the readme file.
 * Updated timthumb replacement patch to version 2.8.10 per WordPress.org plugins requirement.
-* Fixed menu option placement to work just as well as a sub-menu under tools.
-
-= 1.2.04.08 =
 * Fixed option to exclude directories so that the scan would not get stuck if omitted.
 * Added support for winblows servers using BACKSLASH directory structures.
-* Added option to exclude directories.
 * Changed definition updates to write to the DB instead of a file.
-* Added better messages about available updates.
-
-= 1.2.03.28 =
-* Fixed registration form and some of the links on the settings page.
 
 = 1.2.03.23 =
-* First BETA versions available for WordPress.
+* First versions available for WordPress (code removed, no longer compatible).
 
 == Upgrade Notice ==
 
-= 4.16.36 =
-Added more firewall options, moved Scan Log from to the main Setings page, and fixed PHP Warning about an invalid argument.
+= 4.16.39 =
+Fixed PHP Notice about an array to string conversion with some rare global variable conditions.
+
+= 4.16.38 =
+Added more firewall options, moved Scan Log from to the main Setings page, and fixed PHP Warning about an invalid argument and some other bugs too.
 
 = 4.16.26 =
 Fixed "What to look for" Options so that changes are saved, and changed get_currentuserinfo to wp_get_current_user.
@@ -546,70 +491,7 @@ Fixed a major bug in yesterdays release broke the login page on some sites.
 Added a patch for the wp-login.php brute force attack and fixed a few other small bugs.
 
 = 1.3.02.15 =
-Improved security on the Quarantine directory to fix the 500 error on some servers.
-
-= 1.2.12.31 =
-Fixed count of Quarantined items and added htaccess security to the Uploads directory.
-
-= 1.2.12.30 =
-Fixed progress bar bug and linked the Quarantined items to the File Examiner.
-
-= 1.2.12.29 =
-Brought back the TimThumb and htaccess scan categories and added a category for  Backdoor Scripts.
-
-= 1.2.12.14 =
-Fixed bugs in the last release.
-
-= 1.2.12.12 =
-BETA Release: Consolidated Definition Types and completely redesigned the Definition Updates.
-
-= 1.2.11.15 =
-Enhanced Output Buffer to work with compression enabled and moved the quarantine.
-
-= 1.2.10.31 =
-Fixed Output Buffer issue for when ob_start has already been called.
-
-= 1.2.10.27 =
-Enhanced the Automatic Fix to handle bad directory permissions, added more detailed error messages, and fixed calculation for Time Remaining.
-
-= 1.2.10.16 =
-Re-calibrated the Progress Bar, improved error handling, and fixed a few minor bugs.
-
-= 1.2.10.05 =
-Completely revamped the scan engine, enhanced the Automatic Fix results, and fixed a few other small bugs.
-
-= 1.2.09.22 =
-Enhanced the iFrame for the File Viewer and Automatic Fix process and improved error handling.
-
-= 1.2.09.15 =
-Fixed major bug in unregistered scan definition interpretation and moved the File Viewer and Automatic Fix into an iFrame for efficiency and enhanced for better success with read-only files.
-
-= 1.2.08.31 =
-Encoded definition update to broaden server compatibility and improved the code cleanup expression after threat removal.
-
-= 1.2.07.29 =
-Fixed return URL on Donate form.
-
-= 1.2.07.20 =
-Fixed XSS vulnerability.
-
-= 1.2.05.20 =
-Changed registration to allow for multiple sites/keys to be registered under one user/email.
-
-= 1.2.05.04 =
-Fixed Threat Level error and changed auto-update path to update threat level array for all new definition updates.
-
-= 1.2.04.24 =
-Fixed auto-update script to update scan level even if there is no new definitions.
-
-= 1.2.04.09 =
-Added more info about registration to the readme file, Updated timthumb replacement patch to version 2.8.10, and fixed menu option placement.
-
-= 1.2.04.08 =
-Fixed option to exclude directories, added support for winblows servers using BACKSLASHES, changed definition updates to write to the DB instead of a file, and added better messages about available updates.
-
-= 1.2.03.28 =
-Fixed registration form and some of the links on the settings page.
+Improved security on the Quarantine directory to fix the 500 error on some servers (Plus many other improvement from v1.2: see Changelog for details)
 
 = 1.2.03.23 =
-First BETA versions available for WordPress.
+First versions available for WordPress (code removed, no longer compatible).
