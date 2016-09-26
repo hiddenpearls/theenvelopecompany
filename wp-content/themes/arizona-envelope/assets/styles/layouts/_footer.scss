@@ -1,0 +1,47 @@
+.site-footer{
+	.top-footer{
+		border-bottom: 1px solid $medium-gray;
+		section{
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.menu-top-footer-menu-container{
+			ul{
+				list-style-type: none;
+				li{
+					display: inline-block;
+					vertical-align: top;
+					margin-right: rem(50);
+					a{
+						color: $medium-gray;
+					}
+					&.white-btn{
+						a{
+							border: 2px solid $medium-gray;
+			                color: $dark-gray;
+			                padding: 8px 15px;
+						}
+					}
+				}
+			}
+		}
+	}
+	.bottom-footer{
+		padding-top: rem(20);
+		ul{
+			list-style-type: none;
+			display: inline-block;
+			li{
+				display: inline-block;
+				margin-right: rem(50);
+				a{
+					color: $medium-gray;
+					font-size: rem(12);
+				}
+			}
+		}
+		small{
+			float: right;
+		}
+	}
+}
