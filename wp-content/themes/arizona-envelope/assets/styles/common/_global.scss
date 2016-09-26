@@ -1,1 +1,56 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto|Playfair+Display';
+html {
+	font-size: 100%;
+	font-family: $copy-font;
+}
+body{
+	font-size: 1em;
+	font-family: inherit;
+}
+h1{
+	font: bold rem(50) $heading-font;
+}
+h2{
+	font: regular rem(23) $copy-font;
+	span{
+		font-weight: 700;
+	}
+}
+h3{
+	font: regular rem(20) $copy-font;
+}
+p{
+	font: regular rem(13) $copy-font;
+}
+p, small, li, span{
+	color: $medium-gray;
+}
 
+
+.dark-gray{
+	color: $dark-gray;
+}
+.medium-gray{
+	color: $medium-gray;
+}
+.light-gray{
+	color: $light-gray
+}
+.orange{
+	color: $brand-orange;
+}
+.copy-text{
+	font-family: $copy-font;
+}
+.heading-text{
+	font-family: $heading-font;
+}
+.italic{
+	font-style: italic;
+}
+input, textarea{
+	border: 2px solid $light-gray;
+}
+a:hover{
+	text-decoration: none;
+}
