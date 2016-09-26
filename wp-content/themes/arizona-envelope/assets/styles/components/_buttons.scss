@@ -1,0 +1,48 @@
+//buttons
+.btn{
+	font-family: $copy-font;
+	padding: 14px 0;
+	font-weight: medium;
+	text-transform: uppercase;
+	border-radius: 0;
+	border: 2px solid;
+	@include transition(0.2s all ease-in-out);
+	&.orange-btn{
+		background-color: $brand-orange;
+		color: #fff;
+		border-color: $brand-orange;
+		&:hover{
+			background-color: $dark-gray;
+			border-color: $dark-gray;
+			color: #fff;
+		}
+	}
+	&.white-btn{
+		background-color: transparent;
+		border-color: $light-gray;
+		color: $dark-gray;
+		&:hover{
+			background-color: $light-gray;
+			color: $dark-gray;
+			border-color: $light-gray;
+		}
+	}
+	&.shop-btn{
+		background-color: transparent;
+		border-color: $medium-gray;
+		color: $dark-gray;
+		&:hover{
+			background-color: $brand-orange;
+			color: #fff;
+			border-color: $brand-orange;
+		}
+	}
+	&.big{
+		width: rem(200);
+		height: rem(50);
+	}
+	&.small{
+		width: rem(125);
+		height: rem(50);
+	}
+}

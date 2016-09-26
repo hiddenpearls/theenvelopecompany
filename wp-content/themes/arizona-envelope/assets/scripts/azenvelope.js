@@ -8,7 +8,11 @@ jQuery(document).ready(function( $ ) {
 	  function toggleHandler(toggle) {
 	    toggle.addEventListener( "click", function(e) {
 	      e.preventDefault();
-	      (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
+	      if(this.classList.contains("is-active") === true) { 
+	      	this.classList.remove("is-active");
+	      } else {
+	      	this.classList.add("is-active");
+	      }
 	    });
 	  }
 
@@ -18,6 +22,7 @@ jQuery(document).ready(function( $ ) {
 	    var toggle = toggles[i];
 	    toggleHandler(toggle);
 	  }
+
 	  
 
 	})();

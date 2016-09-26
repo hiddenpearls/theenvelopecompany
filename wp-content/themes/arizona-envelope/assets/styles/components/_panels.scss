@@ -1,0 +1,161 @@
+main.main{
+	padding: 0;
+}
+section{
+	padding: 40px 0;
+}
+.panel-wbgd{
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.sand-bgd{
+	background-color: $sand;
+}
+
+.products-section{
+	h1{
+		color: $medium-gray;
+	}
+	.product-category-extract{
+		border: 2px solid $medium-gray;
+		text-align: center;
+		min-height: rem(380);
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9f9f9+0,f5f5f5+50,f1f1f1+100 */
+		background: #f9f9f9; /* Old browsers */
+		background: -moz-linear-gradient(top,  #f9f9f9 0%, #f5f5f5 50%, #f1f1f1 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top,  #f9f9f9 0%,#f5f5f5 50%,#f1f1f1 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom,  #f9f9f9 0%,#f5f5f5 50%,#f1f1f1 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#f1f1f1',GradientType=0 ); /* IE6-9 */
+		padding: 20px;
+		img, span{
+			display: block;
+		}
+		span{
+			font-size: 24px;
+			text-transform: uppercase;
+			max-width: 95%;
+			margin: 0 auto 12px;
+			color: $dark-gray;
+		}
+		&.col-md-4{
+			width: 29.3333333333%;
+			padding-left: 15px;
+    		padding-right: 15px;
+    		margin: 2%;
+		}
+	}	
+}
+
+.submit-file-section{
+	color: #fff;
+	margin-bottom: rem(40);
+	h2{
+		font-family: $copy-font;
+	}
+	p{
+		color: #fff;
+	}
+	.white-btn{
+		color: #fff;
+	}
+}
+
+.contact-section{
+	.contact-information{
+		h2{
+			margin-top: 0;
+		}
+		h2, h3{
+			font-family: $copy-font;
+			color: $brand-orange;
+		}
+		ul{
+			list-style-type: none;
+			padding: 0;
+			li{
+				font-weight: 300;
+				i{
+					margin-right: 16px;
+				}
+				strong{
+					font-weight: 700;
+				}
+			}
+		}
+	}
+	.contact-form{
+		> p{
+			margin-bottom: 8px;
+		}
+		form{
+			position: relative;
+			.gform_fields{
+				.gfield{
+					width: 50%;
+					clear: none;
+
+					input{
+						width: 100%;
+					}
+					&:last-child{
+						position: absolute;
+						top: 0;
+						right: 0;
+						margin-top: 0;
+						.ginput_container{
+							margin-top: 0;
+						}
+					}
+					textarea.medium{
+						max-height: rem(130);
+					}
+				}
+			}
+			.gform_footer{
+				position: absolute;
+				padding-bottom: 0;
+				padding-right: 16px;
+				right: 0;
+				bottom: 0;
+				width: 50%;
+				.gform_button{
+					text-transform: uppercase;
+					height: rem(50);
+					border-radius: 0;
+					border: 2px solid;
+					@include transition(0.2s all ease-in-out);
+					background-color: transparent;
+					border-color: $medium-gray;
+					color: $dark-gray;
+					width: 100%;
+					&:hover{
+						background-color: $brand-orange;
+						color: #fff;
+						border-color: $brand-orange;
+					}
+				}
+			}
+			label{
+				display: none!important;
+			}
+			input{
+				&::-webkit-input-placeholder {
+				   font-family: $heading-font;
+				   font-style: italic;
+				}
+				&:-moz-placeholder { /* Firefox 18- */
+				   font-family: $heading-font;
+				   font-style: italic; 
+				}
+				&::-moz-placeholder {  /* Firefox 19+ */
+				   font-family: $heading-font;
+				   font-style: italic; 
+				}
+				&:-ms-input-placeholder {  
+				   font-family: $heading-font;
+				   font-style: italic; 
+				}
+			}
+		}
+	}
+}
