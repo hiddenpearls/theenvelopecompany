@@ -59,3 +59,42 @@ if( function_exists('acf_add_options_page') ) {
   
 }
 
+/**
+ * WooCommerce Theme integration
+ */
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+
+add_action('woocommerce_before_main_content', 'Roots\Sage\Extras\my_theme_wrapper_start', 10);
+add_action('woocommerce_after_main_content', 'Roots\Sage\Extras\my_theme_wrapper_end', 10);
+
+function my_theme_wrapper_start() {
+  echo '<div class="main-content">';
+}
+function my_theme_wrapper_end() {
+  echo '</div>';
+}
+
+/**
+ * Remove WooCommerce Breadcrumbs
+ */
+add_action( 'init', 'Roots\Sage\Extras\shop_remove_wc_breadcrumbs' );
+function shop_remove_wc_breadcrumbs() {
+  remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+}
+
+/**
+ * Reinsert breadcrumbs
+ */
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+add_action( 'woocommerce_before_shop_loop', 'Roots\Sage\Extras\custom_breadcrumb', 30);
+function custom_breadcrumb() {
+  echo woocommerce_breadcrumb();
+}
+
+/**
+ * Change product's name position within the DOM.
+ */
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+add_action( 'woocommerce_before_single_product_summary', 'woocommerce_template_single_title', 5 );

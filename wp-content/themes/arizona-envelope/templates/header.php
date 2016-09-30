@@ -20,7 +20,7 @@ if( is_front_page() ){
         <div class="collapse navbar-collapse main-site-nav clearfix" id="main-site-nav">
             <div class="nav nav-utilities">
                 <?php
-                    if (has_nav_menu('primary_navigation')) :
+                    if (has_nav_menu('top_navigation')) :
                         wp_nav_menu(['theme_location' => 'top_navigation', 'menu_class' => 'nav top-nav']);
                     endif;
                 ?>
