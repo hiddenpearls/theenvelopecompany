@@ -45,14 +45,6 @@ function setup() {
   // Enable HTML5 markup support
   // http://codex.wordpress.org/Function_Reference/add_theme_support#HTML5
   add_theme_support('html5', ['caption', 'comment-form', 'comment-list', 'gallery', 'search-form']);
-
-  /**
-   * Add Woocommerce support
-   */
-  add_action( 'after_setup_theme', 'woocommerce_support' );
-  function woocommerce_support() {
-      add_theme_support( 'woocommerce' );
-  }
   
   // Use main stylesheet for visual editor
   // To add custom styles edit /assets/styles/layouts/_tinymce.scss
@@ -96,6 +88,7 @@ function display_sidebar() {
     is_404(),
     is_front_page(),
     is_page_template('template-custom.php'),
+    is_woocommerce()
   ]);
 
   return apply_filters('sage/display_sidebar', $display);
@@ -116,18 +109,9 @@ function assets() {
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
 
 /**
- * WooCommerce Theme integration
+ * Add Woocommerce support
  */
-remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
-remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
-
-add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
-add_action('woocommerce_after_main_content', 'my_theme_wrapper_end', 10);
-
-function my_theme_wrapper_start() {
-  echo '<div class="wrap" role="document"><div class="content clearfix">';
-}
-
-function my_theme_wrapper_end() {
-  echo '</div></div>';
+add_action( 'after_setup_theme', 'Roots\Sage\Setup\woocommerce_support' );
+function woocommerce_support() {
+    add_theme_support( 'woocommerce' );
 }
