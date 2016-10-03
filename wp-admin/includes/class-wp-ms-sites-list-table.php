@@ -59,9 +59,6 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * Prepares the list of sites for display.
-	 *
-	 * @since 3.1.0
 	 *
 	 * @global string $s
 	 * @global string $mode
@@ -70,12 +67,9 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	public function prepare_items() {
 		global $s, $mode, $wpdb;
 
-		if ( ! empty( $_REQUEST['mode'] ) ) {
-			$mode = $_REQUEST['mode'] === 'excerpt' ? 'excerpt' : 'list';
-			set_user_setting( 'sites_list_mode', $mode );
-		} else {
-			$mode = get_user_setting( 'sites_list_mode', 'list' );
-		}
+		$current_site = get_current_site();
+
+		$mode = ( empty( $_REQUEST['mode'] ) ) ? 'list' : $_REQUEST['mode'];
 
 		$per_page = $this->get_items_per_page( 'sites_network_per_page' );
 
@@ -84,13 +78,13 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 		$s = isset( $_REQUEST['s'] ) ? wp_unslash( trim( $_REQUEST[ 's' ] ) ) : '';
 		$wild = '';
 		if ( false !== strpos($s, '*') ) {
-			$wild = '*';
+			$wild = '%';
 			$s = trim($s, '*');
 		}
 
 		/*
 		 * If the network is large and a search is not being performed, show only
-		 * the latest sites with no paging in order to avoid expensive count queries.
+		 * the latest blogs with no paging in order to avoid expensive count queries.
 		 */
 		if ( !$s && wp_is_large_network() ) {
 			if ( !isset($_REQUEST['orderby']) )
@@ -99,11 +93,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 				$_GET['order'] = $_REQUEST['order'] = 'DESC';
 		}
 
-		$args = array(
-			'number'     => intval( $per_page ),
-			'offset'     => intval( ( $pagenum - 1 ) * $per_page ),
-			'network_id' => get_current_network_id(),
-		);
+		$query = "SELECT * FROM {$wpdb->blogs} WHERE site_id = '{$wpdb->siteid}' ";
 
 		if ( empty($s) ) {
 			// Nothing to do.
@@ -112,75 +102,67 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 					preg_match( '/^[0-9]{1,3}\.[0-9]{1,3}\.?$/', $s ) ||
 					preg_match( '/^[0-9]{1,3}\.$/', $s ) ) {
 			// IPv4 address
-			$sql = $wpdb->prepare( "SELECT blog_id FROM {$wpdb->registration_log} WHERE {$wpdb->registration_log}.IP LIKE %s", $wpdb->esc_like( $s ) . ( ! empty( $wild ) ? '%' : '' ) );
+			$sql = $wpdb->prepare( "SELECT blog_id FROM {$wpdb->registration_log} WHERE {$wpdb->registration_log}.IP LIKE %s", $wpdb->esc_like( $s ) . $wild );
 			$reg_blog_ids = $wpdb->get_col( $sql );
 
-			if ( $reg_blog_ids ) {
-				$args['site__in'] = $reg_blog_ids;
-			}
-		} elseif ( is_numeric( $s ) && empty( $wild ) ) {
-			$args['ID'] = $s;
-		} else {
-			$args['search'] = $s;
+			if ( !$reg_blog_ids )
+				$reg_blog_ids = array( 0 );
 
-			if ( ! is_subdomain_install() ) {
-				$args['search_columns'] = array( 'path' );
+			$query = "SELECT *
+				FROM {$wpdb->blogs}
+				WHERE site_id = '{$wpdb->siteid}'
+				AND {$wpdb->blogs}.blog_id IN (" . implode( ', ', $reg_blog_ids ) . ")";
+		} else {
+			if ( is_numeric($s) && empty( $wild ) ) {
+				$query .= $wpdb->prepare( " AND ( {$wpdb->blogs}.blog_id = %s )", $s );
+			} elseif ( is_subdomain_install() ) {
+				$blog_s = str_replace( '.' . $current_site->domain, '', $s );
+				$blog_s = $wpdb->esc_like( $blog_s ) . $wild . $wpdb->esc_like( '.' . $current_site->domain );
+				$query .= $wpdb->prepare( " AND ( {$wpdb->blogs}.domain LIKE %s ) ", $blog_s );
+			} else {
+				if ( $s != trim('/', $current_site->path) ) {
+					$blog_s = $wpdb->esc_like( $current_site->path . $s ) . $wild . $wpdb->esc_like( '/' );
+				} else {
+					$blog_s = $wpdb->esc_like( $s );
+				}
+				$query .= $wpdb->prepare( " AND  ( {$wpdb->blogs}.path LIKE %s )", $blog_s );
 			}
 		}
 
 		$order_by = isset( $_REQUEST['orderby'] ) ? $_REQUEST['orderby'] : '';
-		if ( 'registered' === $order_by ) {
-			// registered is a valid field name.
-		} elseif ( 'lastupdated' === $order_by ) {
-			$order_by = 'last_updated';
-		} elseif ( 'blogname' === $order_by ) {
+		if ( $order_by === 'registered' ) {
+			$query .= ' ORDER BY registered ';
+		} elseif ( $order_by === 'lastupdated' ) {
+			$query .= ' ORDER BY last_updated ';
+		} elseif ( $order_by === 'blogname' ) {
 			if ( is_subdomain_install() ) {
-				$order_by = 'domain';
+				$query .= ' ORDER BY domain ';
 			} else {
-				$order_by = 'path';
+				$query .= ' ORDER BY path ';
 			}
-		} elseif ( 'blog_id' === $order_by ) {
-			$order_by = 'id';
-		} elseif ( ! $order_by ) {
-			$order_by = false;
-		}
-
-		$args['orderby'] = $order_by;
-
-		if ( $order_by ) {
-			$args['order'] = ( isset( $_REQUEST['order'] ) && 'DESC' === strtoupper( $_REQUEST['order'] ) ) ? "DESC" : "ASC";
-		}
-
-		if ( wp_is_large_network() ) {
-			$args['no_found_rows'] = true;
+		} elseif ( $order_by === 'blog_id' ) {
+			$query .= ' ORDER BY blog_id ';
 		} else {
-			$args['no_found_rows'] = false;
+			$order_by = null;
 		}
 
-		/**
-		 * Filters the arguments for the site query in the sites list table.
-		 *
-		 * @since 4.6.0
-		 *
-		 * @param array $args An array of get_sites() arguments.
-		 */
-		$args = apply_filters( 'ms_sites_list_table_query_args', $args );
-
-		$_sites = get_sites( $args );
-		if ( is_array( $_sites ) ) {
-			update_site_cache( $_sites );
-
-			$this->items = array_slice( $_sites, 0, $per_page );
+		if ( isset( $order_by ) ) {
+			$order = ( isset( $_REQUEST['order'] ) && 'DESC' === strtoupper( $_REQUEST['order'] ) ) ? "DESC" : "ASC";
+			$query .= $order;
 		}
 
-		$total_sites = get_sites( array_merge( $args, array(
-			'count' => true,
-			'offset' => 0,
-			'number' => 0,
-		) ) );
+		// Don't do an unbounded count on large networks
+		if ( ! wp_is_large_network() )
+			$total = $wpdb->get_var( str_replace( 'SELECT *', 'SELECT COUNT( blog_id )', $query ) );
+
+		$query .= " LIMIT " . intval( ( $pagenum - 1 ) * $per_page ) . ", " . intval( $per_page );
+		$this->items = $wpdb->get_results( $query, ARRAY_A );
+
+		if ( wp_is_large_network() )
+			$total = count($this->items);
 
 		$this->set_pagination_args( array(
-			'total_items' => $total_sites,
+			'total_items' => $total,
 			'per_page' => $per_page,
 		) );
 	}
@@ -237,7 +219,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 		}
 
 		/**
-		 * Filters the displayed site columns in Sites list table.
+		 * Filter the displayed site columns in Sites list table.
 		 *
 		 * @since MU
 		 *
@@ -290,14 +272,14 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * Handles the site name column output.
+	 * Handles the blogname column output.
 	 *
 	 * @since 4.3.0
 	 * @access public
 	 *
 	 * @global string $mode
 	 *
-	 * @param array $blog Current site.
+	 * @param array $blog Current blog.
 	 */
 	public function column_blogname( $blog ) {
 		global $mode;
@@ -328,14 +310,8 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 		<?php
 		if ( 'list' !== $mode ) {
 			switch_to_blog( $blog['blog_id'] );
-			echo '<p>';
-			printf(
-				/* translators: 1: site name, 2: site tagline. */
-				__( '%1$s &#8211; %2$s' ),
-				get_option( 'blogname' ),
-				'<em>' . get_option( 'blogdescription ' ) . '</em>'
-			);
-			echo '</p>';
+			/* translators: 1: site name, 2: site tagline. */
+			echo '<p>' . sprintf( __( '%1$s &#8211; <em>%2$s</em>' ), get_option( 'blogname' ), get_option( 'blogdescription ' ) ) . '</p>';
 			restore_current_blog();
 		}
 	}
@@ -458,7 +434,6 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	 */
 	public function display_rows() {
 		foreach ( $this->items as $blog ) {
-			$blog = $blog->to_array();
 			$class = '';
 			reset( $this->status_list );
 
@@ -494,7 +469,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	 * @since 4.3.0
 	 * @access protected
 	 *
-	 * @param object $blog        Site being acted upon.
+	 * @param object $blog        Blog being acted upon.
 	 * @param string $column_name Current column name.
 	 * @param string $primary     Primary column name.
 	 * @return string Row actions output.
@@ -545,7 +520,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 		$actions['visit']	= "<a href='" . esc_url( get_home_url( $blog['blog_id'], '/' ) ) . "' rel='permalink'>" . __( 'Visit' ) . '</a>';
 
 		/**
-		 * Filters the action links displayed for each site in the Sites list table.
+		 * Filter the action links displayed for each site in the Sites list table.
 		 *
 		 * The 'Edit', 'Dashboard', 'Delete', and 'Visit' links are displayed by
 		 * default for each site. The site's status determines whether to show the

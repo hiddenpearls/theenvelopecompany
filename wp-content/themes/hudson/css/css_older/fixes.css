@@ -1,0 +1,102 @@
+.header .top_menu .menu li a:hover,
+.header .top_menu .menu li a.active,
+.header .top_menu .menu li.current-menu-item > a,
+.header .top_menu .menu li.current-page-item > a {
+    border: 3px solid #a3d9b0;
+    color: #93bf9e;
+    box-shadow: 0px 2px 3px #fe3817;
+}
+.menu_line .category_menu li a:hover,
+.menu_line .category_menu > li.current-menu-item > a,
+.menu_line .category_menu > li.current-product_cat-ancestor > a{
+    background: #40362e;
+    color: #fff;
+}
+.menu_line .category_menu li ul {
+    z-index: 999;
+}
+.content .info_line.strip_no_padding {
+    padding:0;
+}
+.content .info_line p {
+    padding:0;
+    margin:0;
+}
+.cart_top .cart_top_button {
+    display: inline-block;
+    margin-right:8px;
+}
+.cart_top {
+    z-index: 999;
+}
+.rubric_b h1 {
+    font-size:22px;
+    margin:0;
+    padding:0;
+    line-height: 1em;
+}
+#map-canvas {
+    height: 700px;
+}
+.form-submit #submit {
+    text-transform: uppercase;
+    color: #fff;
+    display: block;
+    width: 140px !important;
+    padding: 20px 0px;
+    text-align: center;
+    background: #40362e;
+    font-size: 10px;
+    line-height: 1em;
+    box-shadow: 0px 1px 2px #40362e;
+}
+.form-submit #submit:hover {
+    background: #9a9281;
+    box-shadow: 0px 1px 2px #40362e;
+}
+.comments h3#reply-title {
+    color: #40362e;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    text-shadow: 0px 0px 1px;
+    margin: 0px 0px 20px 0px;
+}
+.about_slide {
+    padding-top: 0;
+    margin-bottom: 50px;
+}
+
+.fixed_cart {
+    position: absolute;
+    width: 180px;
+    background: #f2f0d5;
+    box-shadow: 0px 2px 3px #9a9281;
+    padding: 5px;
+    border-radius: 3px;
+    margin-left: 30px; 
+}
+.fixed_cart.affix {
+    position: fixed;
+    top: 20px;
+}
+.fixed_cart.affix-bottom {
+    position: absolute;
+    bottom: 0;
+}
+.product_images .large_preview {
+    min-width:190px;
+    min-height: 253px;
+    background: url('../images/ajax-loader.gif') no-repeat center;
+}
+#comment-nav-below .nav-previous {
+    float: left;
+}
+#comment-nav-below .nav-next {
+    float: right;
+}
+.woocommerce div.product div.images, .woocommerce-page div.product div.images, .woocommerce #content div.product div.images, .woocommerce-page #content div.product div.images{
+    float: none !important;
+    width: 100% !important;
+
+}

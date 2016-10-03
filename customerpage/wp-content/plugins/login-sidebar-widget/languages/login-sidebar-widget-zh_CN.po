@@ -1,0 +1,23 @@
+msgid "This is a simple login form in the widget."
+msgstr "这是一个简单的侧边栏登录小部件。"
+
+msgid "Username"
+msgstr "用户名"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Login"
+msgstr "登录"
+
+msgid "Howdy"
+msgstr "您好"
+
+msgid "Logout"
+msgstr "登出"
+
+msgid "Error in login!"
+msgstr "登录失败！"
+
+msgid "Username or password is empty!"
+msgstr "用户名或密码为空！"

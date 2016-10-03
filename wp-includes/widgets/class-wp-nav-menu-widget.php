@@ -14,7 +14,7 @@
  *
  * @see WP_Widget
  */
-class WP_Nav_Menu_Widget extends WP_Widget {
+ class WP_Nav_Menu_Widget extends WP_Widget {
 
 	/**
 	 * Sets up a new Custom Menu widget instance.
@@ -23,10 +23,7 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 	 * @access public
 	 */
 	public function __construct() {
-		$widget_ops = array(
-			'description' => __( 'Add a custom menu to your sidebar.' ),
-			'customize_selective_refresh' => true,
-		);
+		$widget_ops = array( 'description' => __('Add a custom menu to your sidebar.') );
 		parent::__construct( 'nav_menu', __('Custom Menu'), $widget_ops );
 	}
 
@@ -61,7 +58,7 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 		);
 
 		/**
-		 * Filters the arguments for the Custom Menu widget.
+		 * Filter the arguments for the Custom Menu widget.
 		 *
 		 * @since 4.2.0
 		 * @since 4.4.0 Added the `$instance` parameter.
@@ -95,7 +92,7 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 		if ( ! empty( $new_instance['title'] ) ) {
-			$instance['title'] = sanitize_text_field( $new_instance['title'] );
+			$instance['title'] = sanitize_text_field( stripslashes( $new_instance['title'] ) );
 		}
 		if ( ! empty( $new_instance['nav_menu'] ) ) {
 			$instance['nav_menu'] = (int) $new_instance['nav_menu'];
@@ -110,10 +107,8 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 	 * @access public
 	 *
 	 * @param array $instance Current settings.
-	 * @global WP_Customize_Manager $wp_customize
 	 */
 	public function form( $instance ) {
-		global $wp_customize;
 		$title = isset( $instance['title'] ) ? $instance['title'] : '';
 		$nav_menu = isset( $instance['nav_menu'] ) ? $instance['nav_menu'] : '';
 
@@ -124,7 +119,7 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 		?>
 		<p class="nav-menu-widget-no-menus-message" <?php if ( ! empty( $menus ) ) { echo ' style="display:none" '; } ?>>
 			<?php
-			if ( $wp_customize instanceof WP_Customize_Manager ) {
+			if ( isset( $GLOBALS['wp_customize'] ) && $GLOBALS['wp_customize'] instanceof WP_Customize_Manager ) {
 				$url = 'javascript: wp.customize.panel( "nav_menus" ).focus();';
 			} else {
 				$url = admin_url( 'nav-menus.php' );
@@ -148,11 +143,6 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 					<?php endforeach; ?>
 				</select>
 			</p>
-			<?php if ( $wp_customize instanceof WP_Customize_Manager ) : ?>
-				<p class="edit-selected-nav-menu" style="<?php if ( ! $nav_menu ) { echo 'display: none;'; } ?>">
-					<button type="button" class="button"><?php _e( 'Edit Menu' ) ?></button>
-				</p>
-			<?php endif; ?>
 		</div>
 		<?php
 	}

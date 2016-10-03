@@ -1,0 +1,326 @@
+0000.001 (0) Opened log file at time: Thu, 18 Dec 2014 02:17:07 +0000 on http://www.arizonaenvelope.com/customerpage
+0000.005 (0) UpdraftPlus WordPress backup plugin (http://updraftplus.com): 1.9.30 WP: 4.0.1 PHP: 5.2.17 (Linux p3nlhg519.shr.prod.phx3.secureserver.net 2.6.32-531.1.2.lve1.2.54.el6.nfsfixes.x86_64 #1 SMP Wed Apr 2 14:06:52 MST 2014 x86_64) MySQL: 5.0.96-log Server: Apache safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 36.5M | 36.8M) multisite: N mcrypt: Y LANG:  ZipArchive::addFile: Y
+0000.007 (0) Free space on disk containing Updraft's temporary directory: 2079756.3 Mb
+0000.013 (0) Tasks: Backup files: 1 (schedule: manual) Backup DB: 1 (schedule: manual)
+0000.019 (0) Requesting semaphore lock (fd)
+0000.021 (0) Set semaphore last lock (fd) time to 2014-12-18 02:17:07
+0000.022 (0) Semaphore lock (fd) complete
+0000.028 (0) Backup run: resumption=0, nonce=285cdac2b2f5, begun at=1418869027 (0s ago), job type=backup
+0000.030 (0) Scheduling a resumption (1) after 300 seconds (1418869327) in case this run gets aborted
+0000.078 (0) Checking if we have a zip executable available
+0000.080 (0) Testing: /usr/bin/zip
+0000.092 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.096 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.097 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.098 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=127) (out=105) (deflated 17%)
+0000.099 (0) Output: total bytes=127, compressed=105 -> 17% savings
+0000.126 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=134) (out=109) (deflated 19%)
+0000.128 (0) Output: total bytes=261, compressed=214 -> 18% savings
+0000.148 (0) Working binary zip found: /usr/bin/zip
+0000.151 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.153 (0) Creation of backups of directories: beginning
+0000.164 (0) Beginning creation of dump of plugins (split every: 500 Mb)
+0011.892 (0) Total entities for the zip file: 596 directories, 4048 files (0 skipped as non-modified), 65.6 Mb
+0011.906 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 2.0 seconds have passed since the last write (0 Mb, 1 (1) files added so far); re-opening (prior size: 0 Kb)
+0012.035 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: size is now: 0.10 Mb
+0012.282 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 100 files added (on-disk size: 136.3 Kb)
+0012.412 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 200 files added (on-disk size: 136.3 Kb)
+0012.500 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 300 files added (on-disk size: 136.3 Kb)
+0012.604 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 400 files added (on-disk size: 136.3 Kb)
+0012.697 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 500 files added (on-disk size: 136.3 Kb)
+0012.715 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.3 Mb, 4048 files batched, 501 (502) added so far); re-opening (prior size: 136.3 Kb)
+0018.560 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: size is now: 3.80 Mb
+0018.700 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 600 files added (on-disk size: 3897.7 Kb)
+0018.795 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 700 files added (on-disk size: 3897.7 Kb)
+0019.073 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 800 files added (on-disk size: 3897.7 Kb)
+0019.352 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 900 files added (on-disk size: 3897.7 Kb)
+0019.729 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 1000 files added (on-disk size: 3897.7 Kb)
+0019.735 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.7 Mb, 4048 files batched, 501 (1003) added so far); re-opening (prior size: 3897.7 Kb)
+0027.336 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: size is now: 6.60 Mb
+0027.646 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 1100 files added (on-disk size: 6791.8 Kb)
+0027.907 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 1200 files added (on-disk size: 6791.8 Kb)
+0028.102 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 1300 files added (on-disk size: 6791.8 Kb)
+0028.224 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 1400 files added (on-disk size: 6791.8 Kb)
+0028.349 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 1500 files added (on-disk size: 6791.8 Kb)
+0028.356 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.5 Mb, 4048 files batched, 501 (1504) added so far); re-opening (prior size: 6791.8 Kb)
+0035.705 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: size is now: 8.50 Mb
+0035.848 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 1600 files added (on-disk size: 8704.1 Kb)
+0036.074 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 1700 files added (on-disk size: 8704.1 Kb)
+0036.260 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 1800 files added (on-disk size: 8704.1 Kb)
+0036.415 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 1900 files added (on-disk size: 8704.1 Kb)
+0036.583 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 2000 files added (on-disk size: 8704.1 Kb)
+0036.590 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (19.1 Mb, 4048 files batched, 501 (2005) added so far); re-opening (prior size: 8704.1 Kb)
+0044.589 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: size is now: 15.50 Mb
+0044.766 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 2100 files added (on-disk size: 15915.1 Kb)
+0044.929 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 2200 files added (on-disk size: 15915.1 Kb)
+0045.092 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 2300 files added (on-disk size: 15915.1 Kb)
+0045.266 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 2400 files added (on-disk size: 15915.1 Kb)
+0045.394 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 2500 files added (on-disk size: 15915.1 Kb)
+0045.400 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8 Mb, 4048 files batched, 501 (2506) added so far); re-opening (prior size: 15915.1 Kb)
+0052.470 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 2600 files added (on-disk size: 18495.7 Kb)
+0052.638 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 2700 files added (on-disk size: 18495.7 Kb)
+0052.757 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 2800 files added (on-disk size: 18495.7 Kb)
+0052.872 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 2900 files added (on-disk size: 18495.7 Kb)
+0053.022 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 3000 files added (on-disk size: 18495.7 Kb)
+0053.052 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (9.6 Mb, 4048 files batched, 501 (3007) added so far); re-opening (prior size: 18495.7 Kb)
+0061.574 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 3100 files added (on-disk size: 21863.3 Kb)
+0061.748 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 3200 files added (on-disk size: 21863.3 Kb)
+0061.869 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 3300 files added (on-disk size: 21863.3 Kb)
+0062.003 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 3400 files added (on-disk size: 21863.3 Kb)
+0062.163 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 3500 files added (on-disk size: 21863.3 Kb)
+0062.175 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.9 Mb, 4048 files batched, 501 (3508) added so far); re-opening (prior size: 21863.3 Kb)
+0068.978 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 3600 files added (on-disk size: 24332.7 Kb)
+0069.067 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 3700 files added (on-disk size: 24332.7 Kb)
+0069.147 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 3800 files added (on-disk size: 24332.7 Kb)
+0069.221 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 3900 files added (on-disk size: 24332.7 Kb)
+0069.318 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip.tmp: 4000 files added (on-disk size: 24332.7 Kb)
+0069.325 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.1 Mb, 4048 files batched, 501 (4009) added so far); re-opening (prior size: 24332.7 Kb)
+0079.360 (0) Created plugins zip (0) - 26130.2 Kb in 79.2 s (330 Kb/s) (SHA1 checksum: af86e45924d2b9196c7286e58c2707c1004624de)
+0079.369 (0) Beginning creation of dump of themes (split every: 500 Mb)
+0080.770 (0) Total entities for the zip file: 71 directories, 649 files (0 skipped as non-modified), 4.5 Mb
+0080.856 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-themes.zip.tmp: 100 files added (on-disk size: 0 Kb)
+0080.924 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-themes.zip.tmp: 200 files added (on-disk size: 0 Kb)
+0080.991 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-themes.zip.tmp: 300 files added (on-disk size: 0 Kb)
+0081.115 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-themes.zip.tmp: 400 files added (on-disk size: 0 Kb)
+0081.231 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-themes.zip.tmp: 500 files added (on-disk size: 0 Kb)
+0081.233 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4 Mb, 649 files batched, 501 (501) added so far); re-opening (prior size: 0 Kb)
+0085.999 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-themes.zip.tmp: size is now: 2.50 Mb
+0086.119 (0) Zip: backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-themes.zip.tmp: 600 files added (on-disk size: 2594 Kb)
+0087.676 (0) Created themes zip (0) - 2903.6 Kb in 8.3 s (349.8 Kb/s) (SHA1 checksum: 23cae44c276b76260488bfa1dd6bb41d99c63704)
+0087.697 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone
+0087.700 (0) Looking for candidates to back up in: /home/content/06/7648006/html/azenvyouareheremedia/customerpage/wp-content/uploads
+0087.763 (0) finding files: gravity_forms: adding to list (1)
+0087.765 (0) finding files: woocommerce_uploads: adding to list (2)
+0087.766 (0) finding files: wpcf7_uploads: adding to list (3)
+0087.767 (0) finding files: 2013: adding to list (4)
+0087.769 (0) finding files: 2014: adding to list (5)
+0087.770 (0) finding files: user_uploads: adding to list (6)
+0087.772 (0) Beginning creation of dump of uploads (split every: 500 Mb)
+0088.196 (0) Total entities for the zip file: 31 directories, 39 files (0 skipped as non-modified), 41.6 Mb
+0088.205 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 25 Mb added on this batch (38.7 Mb, 39 files batched, 13 (13) added so far); re-opening (prior size: 0 Kb)
+0090.875 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-uploads.zip.tmp: size is now: 37.60 Mb
+0090.880 (0) A useful amount of data was added after this amount of zip processing: 3.8 s (normalised: 2.5 s, rate: 10371.7 Kb/s)
+0090.885 (0) Performance is good - will increase the amount of data we attempt to batch (time=3.82011699677, normalised_time=2.4682521058, max_time=-1, data points known=0, old_max_bytes=26214400, new_max_bytes=63723798)
+0095.435 (0) Created uploads zip (0) - 41196.7 Kb in 7.7 s (5383.3 Kb/s) (SHA1 checksum: 83ccf56255cfe10bfb9d0f0c54fb945beda7e1c9)
+0095.448 (0) Beginning backup of other directories found in the content directory (index: 0)
+0095.449 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups
+0095.451 (0) Looking for candidates to back up in: /home/content/06/7648006/html/azenvyouareheremedia/customerpage/wp-content
+0095.454 (0) finding files: Cimy_User_Extra_Fields: adding to list (1)
+0095.457 (0) finding files: plugins: skipping: this is the plugins directory
+0095.460 (0) finding files: index.php: adding to list (2)
+0095.462 (0) finding files: themes: skipping: this is the themes directory
+0095.465 (0) finding files: updraft: skipping: this is the updraft directory
+0095.467 (0) finding files: upgrade: skipping: excluded by options
+0095.470 (0) finding files: uploads: skipping: this is the uploads directory
+0095.521 (0) Total entities for the zip file: 1 directories, 1 files (0 skipped as non-modified), 0 Mb
+0095.584 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-others.zip.tmp: size is now: 0.00 Mb
+0095.599 (0) Created others zip (0) - 0.4 Kb in 0.1 s (3.2 Kb/s) (SHA1 checksum: 96ff35f1cf3e474cf68bdd8ef4e188d879b3c7ed)
+0095.613 (0) Saving backup status to database (elements: 8)
+0095.629 (0) Beginning creation of database dump (WordPress DB)
+0095.639 (0) Testing: /usr/bin/mysqldump
+0095.798 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0096.022 (0) Table wp_options: Total expected rows (approximate): 1152
+0096.166 (0) Table wp_options: Total rows added: 1151 in 0.14 seconds
+0096.177 (0) Table wp_options: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_options.table.gz - 153.1 Kb)
+0096.193 (0) Table wp_users: Total expected rows (approximate): 24
+0096.209 (0) Table wp_users: Total rows added: 24 in 0.01 seconds
+0096.213 (0) Table wp_users: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_users.table.gz - 1.9 Kb)
+0096.250 (0) Table wp_usermeta: Total expected rows (approximate): 584
+0096.300 (0) Table wp_usermeta: Total rows added: 584 in 0.05 seconds
+0096.304 (0) Table wp_usermeta: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_usermeta.table.gz - 6.3 Kb)
+0096.326 (0) Table wp_commentmeta: Total expected rows (approximate): 310
+0096.350 (0) Table wp_commentmeta: Total rows added: 310 in 0.02 seconds
+0096.353 (0) Table wp_commentmeta: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_commentmeta.table.gz - 1.7 Kb)
+0096.367 (0) Table wp_comments: Total expected rows (approximate): 313
+0096.417 (0) Table wp_comments: Total rows added: 313 in 0.05 seconds
+0096.420 (0) Table wp_comments: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_comments.table.gz - 5.1 Kb)
+0096.435 (0) Table wp_links: Total expected rows (approximate): 0
+0096.439 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0096.442 (0) Table wp_links: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_links.table.gz - 0.4 Kb)
+0096.460 (0) Table wp_postmeta: Total expected rows (approximate): 5078
+0096.679 (0) Table wp_postmeta: Total rows added: 5078 in 0.22 seconds
+0096.691 (0) Table wp_postmeta: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_postmeta.table.gz - 37.6 Kb)
+0096.711 (0) Table wp_posts: Total expected rows (approximate): 183
+0096.759 (0) Table wp_posts: Total rows added: 183 in 0.05 seconds
+0096.762 (0) Table wp_posts: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_posts.table.gz - 11.7 Kb)
+0096.769 (0) Table wp_term_relationships: Total expected rows (approximate): 133
+0096.776 (0) Table wp_term_relationships: Total rows added: 133 in 0.01 seconds
+0096.782 (0) Table wp_term_relationships: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_term_relationships.table.gz - 0.7 Kb)
+0096.789 (0) Table wp_term_taxonomy: Total expected rows (approximate): 21
+0096.797 (0) Table wp_term_taxonomy: Total rows added: 21 in 0.01 seconds
+0096.799 (0) Table wp_term_taxonomy: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_term_taxonomy.table.gz - 0.6 Kb)
+0096.806 (0) Table wp_terms: Total expected rows (approximate): 21
+0096.822 (0) Table wp_terms: Total rows added: 21 in 0.01 seconds
+0096.826 (0) Table wp_terms: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_terms.table.gz - 0.7 Kb)
+0096.886 (0) Table wp_woocommerce_order_itemmeta: Total expected rows (approximate): 964
+0096.930 (0) Table wp_woocommerce_order_itemmeta: Total rows added: 964 in 0.04 seconds
+0096.932 (0) Table wp_woocommerce_order_itemmeta: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_woocommerce_order_itemmeta.table.gz - 5.9 Kb)
+0096.941 (0) Table wp_woocommerce_termmeta: Total expected rows (approximate): 15
+0096.947 (0) Table wp_woocommerce_termmeta: Total rows added: 15 in 0.00 seconds
+0096.949 (0) Table wp_woocommerce_termmeta: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_woocommerce_termmeta.table.gz - 0.5 Kb)
+0096.956 (0) Table wp_advanced_notification_triggers: Total expected rows (approximate): 2
+0096.960 (0) Table wp_advanced_notification_triggers: Total rows added: 2 in 0.00 seconds
+0096.963 (0) Table wp_advanced_notification_triggers: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_advanced_notification_triggers.table.gz - 0.3 Kb)
+0096.970 (0) Table wp_advanced_notifications: Total expected rows (approximate): 1
+0096.975 (0) Table wp_advanced_notifications: Total rows added: 1 in 0.00 seconds
+0096.977 (0) Table wp_advanced_notifications: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_advanced_notifications.table.gz - 0.5 Kb)
+0096.984 (0) Table wp_cimy_uef_data: Total expected rows (approximate): 48
+0096.990 (0) Table wp_cimy_uef_data: Total rows added: 48 in 0.00 seconds
+0096.992 (0) Table wp_cimy_uef_data: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_cimy_uef_data.table.gz - 0.6 Kb)
+0097.016 (0) Table wp_cimy_uef_fields: Total expected rows (approximate): 2
+0097.021 (0) Table wp_cimy_uef_fields: Total rows added: 2 in 0.00 seconds
+0097.023 (0) Table wp_cimy_uef_fields: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_cimy_uef_fields.table.gz - 0.6 Kb)
+0097.041 (0) Table wp_cimy_uef_wp_fields: Total expected rows (approximate): 0
+0097.046 (0) Table wp_cimy_uef_wp_fields: Total rows added: 0 in 0.00 seconds
+0097.049 (0) Table wp_cimy_uef_wp_fields: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_cimy_uef_wp_fields.table.gz - 0.3 Kb)
+0097.062 (0) Table wp_login_redirects: Total expected rows (approximate): 3
+0097.067 (0) Table wp_login_redirects: Total rows added: 3 in 0.00 seconds
+0097.069 (0) Table wp_login_redirects: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_login_redirects.table.gz - 0.4 Kb)
+0097.078 (0) Table wp_nm_forms: Total expected rows (approximate): 0
+0097.086 (0) Table wp_nm_forms: Total rows added: 0 in 0.01 seconds
+0097.088 (0) Table wp_nm_forms: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_nm_forms.table.gz - 0.4 Kb)
+0097.100 (0) Table wp_redirection_404: Total expected rows (approximate): 2
+0097.106 (0) Table wp_redirection_404: Total rows added: 2 in 0.00 seconds
+0097.108 (0) Table wp_redirection_404: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_redirection_404.table.gz - 0.6 Kb)
+0097.116 (0) Table wp_redirection_groups: Total expected rows (approximate): 2
+0097.122 (0) Table wp_redirection_groups: Total rows added: 2 in 0.00 seconds
+0097.124 (0) Table wp_redirection_groups: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_redirection_groups.table.gz - 0.4 Kb)
+0097.132 (0) Table wp_redirection_items: Total expected rows (approximate): 0
+0097.136 (0) Table wp_redirection_items: Total rows added: 0 in 0.00 seconds
+0097.138 (0) Table wp_redirection_items: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_redirection_items.table.gz - 0.5 Kb)
+0097.145 (0) Table wp_redirection_logs: Total expected rows (approximate): 0
+0097.150 (0) Table wp_redirection_logs: Total rows added: 0 in 0.00 seconds
+0097.152 (0) Table wp_redirection_logs: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_redirection_logs.table.gz - 0.4 Kb)
+0097.161 (0) Table wp_redirection_modules: Total expected rows (approximate): 2
+0097.168 (0) Table wp_redirection_modules: Total rows added: 2 in 0.01 seconds
+0097.171 (0) Table wp_redirection_modules: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_redirection_modules.table.gz - 0.4 Kb)
+0097.182 (0) Table wp_rg_form: Total expected rows (approximate): 1
+0097.186 (0) Table wp_rg_form: Total rows added: 1 in 0.00 seconds
+0097.188 (0) Table wp_rg_form: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_rg_form.table.gz - 0.4 Kb)
+0097.196 (0) Table wp_rg_form_meta: Total expected rows (approximate): 1
+0097.202 (0) Table wp_rg_form_meta: Total rows added: 1 in 0.00 seconds
+0097.206 (0) Table wp_rg_form_meta: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_rg_form_meta.table.gz - 1.7 Kb)
+0097.215 (0) Table wp_rg_form_view: Total expected rows (approximate): 33
+0097.222 (0) Table wp_rg_form_view: Total rows added: 33 in 0.01 seconds
+0097.224 (0) Table wp_rg_form_view: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_rg_form_view.table.gz - 0.8 Kb)
+0097.234 (0) Table wp_rg_lead: Total expected rows (approximate): 11
+0097.250 (0) Table wp_rg_lead: Total rows added: 11 in 0.01 seconds
+0097.257 (0) Table wp_rg_lead: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_rg_lead.table.gz - 1 Kb)
+0097.268 (0) Table wp_rg_lead_detail: Total expected rows (approximate): 46
+0097.275 (0) Table wp_rg_lead_detail: Total rows added: 46 in 0.01 seconds
+0097.280 (0) Table wp_rg_lead_detail: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_rg_lead_detail.table.gz - 1.1 Kb)
+0097.303 (0) Table wp_rg_lead_detail_long: Total expected rows (approximate): 2
+0097.310 (0) Table wp_rg_lead_detail_long: Total rows added: 2 in 0.01 seconds
+0097.314 (0) Table wp_rg_lead_detail_long: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_rg_lead_detail_long.table.gz - 0.5 Kb)
+0097.328 (0) Table wp_rg_lead_meta: Total expected rows (approximate): 0
+0097.332 (0) Table wp_rg_lead_meta: Total rows added: 0 in 0.00 seconds
+0097.334 (0) Table wp_rg_lead_meta: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_rg_lead_meta.table.gz - 0.4 Kb)
+0097.352 (0) Table wp_rg_lead_notes: Total expected rows (approximate): 0
+0097.362 (0) Table wp_rg_lead_notes: Total rows added: 0 in 0.01 seconds
+0097.365 (0) Table wp_rg_lead_notes: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_rg_lead_notes.table.gz - 0.4 Kb)
+0097.374 (0) Table wp_woocommerce_attribute_taxonomies: Total expected rows (approximate): 1
+0097.379 (0) Table wp_woocommerce_attribute_taxonomies: Total rows added: 1 in 0.00 seconds
+0097.383 (0) Table wp_woocommerce_attribute_taxonomies: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_woocommerce_attribute_taxonomies.table.gz - 0.4 Kb)
+0097.410 (0) Table wp_woocommerce_downloadable_product_permissions: Total expected rows (approximate): 0
+0097.415 (0) Table wp_woocommerce_downloadable_product_permissions: Total rows added: 0 in 0.00 seconds
+0097.417 (0) Table wp_woocommerce_downloadable_product_permissions: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_woocommerce_downloadable_product_permissions.table.gz - 0.4 Kb)
+0097.426 (0) Table wp_woocommerce_order_items: Total expected rows (approximate): 125
+0097.435 (0) Table wp_woocommerce_order_items: Total rows added: 125 in 0.01 seconds
+0097.437 (0) Table wp_woocommerce_order_items: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_woocommerce_order_items.table.gz - 1.2 Kb)
+0097.447 (0) Table wp_woocommerce_tax_rate_locations: Total expected rows (approximate): 0
+0097.452 (0) Table wp_woocommerce_tax_rate_locations: Total rows added: 0 in 0.00 seconds
+0097.471 (0) Table wp_woocommerce_tax_rate_locations: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_woocommerce_tax_rate_locations.table.gz - 0.3 Kb)
+0097.501 (0) Table wp_woocommerce_tax_rates: Total expected rows (approximate): 0
+0097.506 (0) Table wp_woocommerce_tax_rates: Total rows added: 0 in 0.00 seconds
+0097.509 (0) Table wp_woocommerce_tax_rates: finishing file (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_woocommerce_tax_rates.table.gz - 0.4 Kb)
+0097.523 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_options.table.gz (1/38): adding to final database dump
+0097.595 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_users.table.gz (2/38): adding to final database dump
+0097.604 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_usermeta.table.gz (3/38): adding to final database dump
+0097.626 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_commentmeta.table.gz (4/38): adding to final database dump
+0097.631 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_comments.table.gz (5/38): adding to final database dump
+0097.643 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_links.table.gz (6/38): adding to final database dump
+0097.657 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_postmeta.table.gz (7/38): adding to final database dump
+0097.706 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_posts.table.gz (8/38): adding to final database dump
+0097.719 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_term_relationships.table.gz (9/38): adding to final database dump
+0097.723 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_term_taxonomy.table.gz (10/38): adding to final database dump
+0097.726 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_terms.table.gz (11/38): adding to final database dump
+0097.730 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_woocommerce_order_itemmeta.table.gz (12/38): adding to final database dump
+0097.742 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_woocommerce_termmeta.table.gz (13/38): adding to final database dump
+0097.746 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_advanced_notification_triggers.table.gz (14/38): adding to final database dump
+0097.750 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_advanced_notifications.table.gz (15/38): adding to final database dump
+0097.752 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_cimy_uef_data.table.gz (16/38): adding to final database dump
+0097.755 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_cimy_uef_fields.table.gz (17/38): adding to final database dump
+0097.768 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_cimy_uef_wp_fields.table.gz (18/38): adding to final database dump
+0097.771 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_login_redirects.table.gz (19/38): adding to final database dump
+0097.777 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_nm_forms.table.gz (20/38): adding to final database dump
+0097.781 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_redirection_404.table.gz (21/38): adding to final database dump
+0097.800 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_redirection_groups.table.gz (22/38): adding to final database dump
+0097.807 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_redirection_items.table.gz (23/38): adding to final database dump
+0097.813 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_redirection_logs.table.gz (24/38): adding to final database dump
+0097.827 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_redirection_modules.table.gz (25/38): adding to final database dump
+0097.835 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_rg_form.table.gz (26/38): adding to final database dump
+0097.838 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_rg_form_meta.table.gz (27/38): adding to final database dump
+0097.842 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_rg_form_view.table.gz (28/38): adding to final database dump
+0097.849 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_rg_lead.table.gz (29/38): adding to final database dump
+0097.857 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_rg_lead_detail.table.gz (30/38): adding to final database dump
+0097.860 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_rg_lead_detail_long.table.gz (31/38): adding to final database dump
+0097.864 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_rg_lead_meta.table.gz (32/38): adding to final database dump
+0097.866 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_rg_lead_notes.table.gz (33/38): adding to final database dump
+0097.868 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_woocommerce_attribute_taxonomies.table.gz (34/38): adding to final database dump
+0097.873 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_woocommerce_downloadable_product_permissions.table.gz (35/38): adding to final database dump
+0097.878 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_woocommerce_order_items.table.gz (36/38): adding to final database dump
+0097.883 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_woocommerce_tax_rate_locations.table.gz (37/38): adding to final database dump
+0097.885 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db-table-wp_woocommerce_tax_rates.table.gz (38/38): adding to final database dump
+0097.896 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db.gz: finished writing out complete database file (224 Kb)
+0097.955 (0) Total database tables backed up: 38 (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db.gz, size: 238065, checksum (SHA1): e042905f2000c711a551dcbe187554784064db05)
+0097.963 (0) Saving backup history
+0097.981 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0097.983 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0097.985 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0097.987 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-others.zip: others: This file has not yet been successfully uploaded: will queue
+0097.990 (0) backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db.gz: db: This file has not yet been successfully uploaded: will queue
+0097.997 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0098.001 (0) Cloud backup selection: none
+0098.011 (0) No remote despatch: user chose no remote backup service
+0098.018 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=14, retain_db=14
+0098.020 (0) Number of backup sets in history: 11
+0098.022 (0) Examining backup set with datestamp: 1418869027 (Dec 18 2014 02:17:07)
+0098.023 (0) 1418869027: db: this set includes a database (backup_2014-12-18-0217_Arizona_Envelopes_285cdac2b2f5-db.gz); db count is now 1
+0098.026 (0) 1418869027: this backup set remains non-empty (1/1); will retain in history
+0098.027 (0) Examining backup set with datestamp: 1417663611 (Dec 04 2014 03:26:51)
+0098.028 (0) 1417663611: db: this set includes a database (backup_2014-12-04-0326_Arizona_Envelopes_17ef35b91594-db.gz); db count is now 2
+0098.031 (0) 1417663611: this backup set remains non-empty (1/1); will retain in history
+0098.032 (0) Examining backup set with datestamp: 1417583466 (Dec 03 2014 05:11:06)
+0098.033 (0) 1417583466: db: this set includes a database (backup_2014-12-03-0511_Arizona_Envelopes_5e59d13d7565-db.gz); db count is now 3
+0098.036 (0) 1417583466: this backup set remains non-empty (1/1); will retain in history
+0098.038 (0) Examining backup set with datestamp: 1417494721 (Dec 02 2014 04:32:01)
+0098.040 (0) 1417494721: db: this set includes a database (backup_2014-12-02-0432_Arizona_Envelopes_5f6812211834-db.gz); db count is now 4
+0098.043 (0) 1417494721: this backup set remains non-empty (1/1); will retain in history
+0098.044 (0) Examining backup set with datestamp: 1416712976 (Nov 23 2014 03:22:56)
+0098.045 (0) 1416712976: db: this set includes a database (backup_2014-11-23-0322_Arizona_Envelopes_a2687e5f454a-db.gz); db count is now 5
+0098.049 (0) 1416712976: this backup set remains non-empty (1/1); will retain in history
+0098.050 (0) Examining backup set with datestamp: 1415881241 (Nov 13 2014 12:20:41)
+0098.051 (0) 1415881241: db: this set includes a database (backup_2014-11-13-1220_Arizona_Envelopes_032f7dd5ac41-db.gz); db count is now 6
+0098.054 (0) 1415881241: this backup set remains non-empty (1/1); will retain in history
+0098.056 (0) Examining backup set with datestamp: 1414781372 (Oct 31 2014 18:49:32)
+0098.058 (0) 1414781372: db: this set includes a database (backup_2014-10-31-1849_Arizona_Envelopes_cce24f731e94-db.gz); db count is now 7
+0098.060 (0) 1414781372: this backup set remains non-empty (1/1); will retain in history
+0098.062 (0) Examining backup set with datestamp: 1414778523 (Oct 31 2014 18:02:03)
+0098.063 (0) 1414778523: db: this set includes a database (backup_2014-10-31-1802_Arizona_Envelopes_679f83663999-db.gz); db count is now 8
+0098.065 (0) 1414778523: this backup set remains non-empty (1/1); will retain in history
+0098.067 (0) Examining backup set with datestamp: 1414729411 (Oct 31 2014 04:23:31)
+0098.069 (0) 1414729411: db: this set includes a database (backup_2014-10-31-0423_Arizona_Envelopes_3d8c3789d185-db.gz); db count is now 9
+0098.072 (0) 1414729411: this backup set remains non-empty (1/1); will retain in history
+0098.073 (0) Examining backup set with datestamp: 1414729120 (Oct 31 2014 04:18:40)
+0098.074 (0) 1414729120: db: this set includes a database (backup_2014-10-31-0418_Arizona_Envelopes_7352cb11d6dc-db.gz); db count is now 10
+0098.077 (0) 1414729120: this backup set remains non-empty (1/1); will retain in history
+0098.078 (0) Examining backup set with datestamp: 1413741675 (Oct 19 2014 18:01:15)
+0098.080 (0) 1413741675: db: this set includes a database (backup_2014-10-19-1801_Arizona_Envelopes_ff042429a399-db.gz); db count is now 11
+0098.083 (0) 1413741675: this backup set remains non-empty (1/1); will retain in history
+0098.085 (0) Retain: saving new backup history (sets now: 11) and finishing retain operation
+0098.090 (0) Resume backup (285cdac2b2f5, 0): finish run
+0098.093 (0) Decremented the semaphore (fd) by 1
+0098.095 (0) Semaphore (fd) unlocked
+0098.096 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0098.101 (0) No email will/can be sent - the user has not configured an email address.
+0098.102 (0) The backup apparently succeeded and is now complete

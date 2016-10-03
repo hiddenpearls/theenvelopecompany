@@ -1,0 +1,4 @@
+<br />
+<b>Warning</b>:  readfile() [<a href='function.readfile'>function.readfile</a>]: URL file-access is disabled in the server configuration in <b>/home/content/06/7648006/html/arizonaenvelope_v2.com/store/wp-content/themes/hudson/tesla_framework/helpers/download.php</b> on line <b>10</b><br />
+<br />
+<b>Warning</b>:  readfile(http://aze.youareheremedia.com/store/wp-content/themes/hudson/tesla_framework/../theme_config/theme_options.txt) [<a href='function.readfile'>function.readfile</a>]: failed to open stream: no suitable wrapper could be found in <b>/home/content/06/7648006/html/arizonaenvelope_v2.com/store/wp-content/themes/hudson/tesla_framework/helpers/download.php</b> on line <b>10</b><br />

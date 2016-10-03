@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Borisa Djuraskovic <borisad@webhostinghub.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+
+msgid "This is a simple login form in the widget."
+msgstr "Ovo je jednostavan obrazac za prijavljivanje u widget-u."
+
+msgid "Username"
+msgstr "Korisničko ime"
+
+msgid "User Email"
+msgstr "Email korisnika"
+
+msgid "Password"
+msgstr "Lozinka"
+
+msgid "Retype Password"
+msgstr "Ponovo unesite lozinku"
+
+msgid "First Name"
+msgstr "Ime"
+
+msgid "Last Name"
+msgstr "Prezime"
+
+msgid "Display Name"
+msgstr "Prikaži ime"
+
+msgid "About User"
+msgstr "O korisniku"
+
+msgid "Website"
+msgstr "Website"
+
+msgid "Register"
+msgstr "Registrujte se"
+
+msgid "Sorry. Registration is not allowed in this site."
+msgstr "Žao nam je. Registracija nije odobrena za ovaj site."
+
+msgid "Username already exists. Please use a different one!"
+msgstr "Korisničko ime već postoji. Odaberite drugo!"
+
+msgid "Email already exists. Please use a different one!"
+msgstr "Email već postoji. Odaberite drugi email."
+
+msgid "Password and Retype password donot match!"
+msgstr "Lozinka i ponovljena lozinka se ne podudaraju!"
+
+msgid ""
+"You are successfully registered to the site. Please check your email for "
+"login details."
+msgstr ""
+"Uspešno ste se registrovali na site. Proverite svoj mail za detalje o "
+"prijavljivanju."
+
+msgid "Update"
+msgstr "Ažurirajte"
+
+msgid "Login to update profile!"
+msgstr "Prijavite se da biste ažurirali profil!"
+
+msgid "Your new password dont match with retype password!"
+msgstr "Vaša nova lozinka ne podudara se sa ponovljenom lozinkom!"
+
+msgid "Your password updated successfully."
+msgstr "Vaša lozinka uspešno je ažurirana."
+
+msgid "New Password"
+msgstr "Nova lozinka"

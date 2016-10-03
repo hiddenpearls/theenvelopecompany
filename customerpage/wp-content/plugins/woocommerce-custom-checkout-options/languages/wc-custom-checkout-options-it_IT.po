@@ -1,0 +1,158 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Custom Checkout Options v1.0.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2012-11-26 15:37:46+0000\n"
+"Last-Translator: dartwin <dartwin.italia@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: wc-custom-checkout-options.php:69
+#@ woothemes
+msgid "Custom Checkout"
+msgstr ""
+
+#: wc-custom-checkout-options.php:129
+#: wc-custom-checkout-options.php:130
+#: wc-custom-checkout-options.php:261
+#: wc-custom-checkout-options.php:262
+#@ woocommerce_init
+msgid "First Name"
+msgstr "Nome"
+
+#: wc-custom-checkout-options.php:141
+#: wc-custom-checkout-options.php:142
+#: wc-custom-checkout-options.php:273
+#: wc-custom-checkout-options.php:274
+#@ woocommerce_init
+msgid "Last Name"
+msgstr "Cognome"
+
+#: wc-custom-checkout-options.php:153
+#: wc-custom-checkout-options.php:154
+#: wc-custom-checkout-options.php:285
+#: wc-custom-checkout-options.php:286
+#@ woocommerce_init
+msgid "Company (optional)"
+msgstr "Ditta (opzionale)"
+
+#: wc-custom-checkout-options.php:165
+#: wc-custom-checkout-options.php:166
+#: wc-custom-checkout-options.php:297
+#: wc-custom-checkout-options.php:298
+#@ woocommerce_init
+msgid "Address"
+msgstr "Indirizzo"
+
+#: wc-custom-checkout-options.php:177
+#: wc-custom-checkout-options.php:178
+#: wc-custom-checkout-options.php:309
+#: wc-custom-checkout-options.php:310
+#@ woocommerce_init
+msgid "Address 2"
+msgstr "Indirizzo 2"
+
+#: wc-custom-checkout-options.php:189
+#: wc-custom-checkout-options.php:190
+#: wc-custom-checkout-options.php:321
+#: wc-custom-checkout-options.php:322
+#@ woocommerce_init
+msgid "Town/City"
+msgstr "Città"
+
+#: wc-custom-checkout-options.php:201
+#: wc-custom-checkout-options.php:202
+#: wc-custom-checkout-options.php:333
+#: wc-custom-checkout-options.php:334
+#@ woocommerce_init
+msgid "Postcode/Zip"
+msgstr "CAP"
+
+#: wc-custom-checkout-options.php:213
+#: wc-custom-checkout-options.php:214
+#: wc-custom-checkout-options.php:345
+#: wc-custom-checkout-options.php:346
+#@ woocommerce_init
+msgid "Country"
+msgstr "Paese"
+
+#: wc-custom-checkout-options.php:219
+#: wc-custom-checkout-options.php:351
+#@ woocommerce_init
+msgid "Select a country&hellip;"
+msgstr "Scegli una nazione&hellip;"
+
+#: wc-custom-checkout-options.php:225
+#: wc-custom-checkout-options.php:226
+#: wc-custom-checkout-options.php:357
+#: wc-custom-checkout-options.php:358
+#@ woocommerce_init
+msgid "State/County"
+msgstr "Provincia"
+
+#: wc-custom-checkout-options.php:237
+#: wc-custom-checkout-options.php:238
+#@ woocommerce_init
+msgid "Email Address"
+msgstr "Indirizzo Email"
+
+#: wc-custom-checkout-options.php:249
+#: wc-custom-checkout-options.php:250
+#@ woocommerce_init
+msgid "Phone"
+msgstr "Telefono"
+
+#: wc-custom-checkout-options.php:369
+#@ woocommerce_init
+msgid "Account username"
+msgstr ""
+
+#: wc-custom-checkout-options.php:370
+#@ woocommerce_init
+msgid "Username"
+msgstr ""
+
+#: wc-custom-checkout-options.php:381
+#: wc-custom-checkout-options.php:393
+#@ woocommerce_init
+msgid "Account password"
+msgstr ""
+
+#: wc-custom-checkout-options.php:382
+#: wc-custom-checkout-options.php:394
+#@ woocommerce_init
+msgid "Password"
+msgstr ""
+
+#: wc-custom-checkout-options.php:405
+#@ woocommerce_init
+msgid "Order Notes"
+msgstr "Note d'ordine"
+
+#: wc-custom-checkout-options.php:406
+#@ woocommerce_init
+msgid "Notes about your order, e.g. special notes for delivery."
+msgstr "Note relative al tuo ordine."
+
+#: wc-custom-checkout-options.php:467
+#@ woocommerce-custom-checkout-options
+msgid "Customize Checkout Options"
+msgstr ""
+
+#: wc-custom-checkout-options.php:990
+#@ default
+msgid " is a required field."
+msgstr ""
+

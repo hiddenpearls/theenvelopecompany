@@ -12,10 +12,6 @@
  * a time which you specify. The action will fire off when someone visits your
  * WordPress site, if the schedule time has passed.
  *
- * Note that scheduling an event to occur within 10 minutes of an existing event
- * with the same action hook will be ignored, unless you pass unique `$args` values
- * for each scheduled event.
- *
  * @since 2.1.0
  * @link https://codex.wordpress.org/Function_Reference/wp_schedule_single_event
  *
@@ -39,7 +35,7 @@ function wp_schedule_single_event( $timestamp, $hook, $args = array()) {
 	$crons = _get_cron_array();
 	$event = (object) array( 'hook' => $hook, 'timestamp' => $timestamp, 'schedule' => false, 'args' => $args );
 	/**
-	 * Filters a single event before it is scheduled.
+	 * Filter a single event before it is scheduled.
 	 *
 	 * @since 3.1.0
 	 *
@@ -66,7 +62,7 @@ function wp_schedule_single_event( $timestamp, $hook, $args = array()) {
  * visits your WordPress site, if the scheduled time has passed.
  *
  * Valid values for the recurrence are hourly, daily and twicedaily. These can
- * be extended using the {@see 'cron_schedules'} filter in wp_get_schedules().
+ * be extended using the cron_schedules filter in wp_get_schedules().
  *
  * Use wp_next_scheduled() to prevent duplicates
  *
@@ -195,7 +191,7 @@ function wp_clear_scheduled_hook( $hook, $args = array() ) {
 	// Backward compatibility
 	// Previously this function took the arguments as discrete vars rather than an array like the rest of the API
 	if ( !is_array($args) ) {
-		_deprecated_argument( __FUNCTION__, '3.0.0', __('This argument has changed to an array to match the behavior of the other cron functions.') );
+		_deprecated_argument( __FUNCTION__, '3.0', __('This argument has changed to an array to match the behavior of the other cron functions.') );
 		$args = array_slice( func_get_args(), 1 );
 	}
 
@@ -236,11 +232,9 @@ function wp_next_scheduled( $hook, $args = array() ) {
 }
 
 /**
- * Sends a request to run cron through HTTP request that doesn't halt page loading.
+ * Send request to run cron through HTTP request that doesn't halt page loading.
  *
  * @since 2.1.0
- *
- * @param int $gmt_time Optional. Unix timestamp. Default 0 (current time is used).
  */
 function spawn_cron( $gmt_time = 0 ) {
 	if ( ! $gmt_time )
@@ -299,10 +293,9 @@ function spawn_cron( $gmt_time = 0 ) {
 	set_transient( 'doing_cron', $doing_wp_cron );
 
 	/**
-	 * Filters the cron request arguments.
+	 * Filter the cron request arguments.
 	 *
 	 * @since 3.5.0
-	 * @since 4.5.0 The `$doing_wp_cron` parameter was added.
 	 *
 	 * @param array $cron_request_array {
 	 *     An array of cron request URL arguments.
@@ -317,7 +310,6 @@ function spawn_cron( $gmt_time = 0 ) {
 	 *         @type bool $sslverify Whether SSL should be verified for the request. Default false.
 	 *     }
 	 * }
-	 * @param string $doing_wp_cron The unix timestamp of the cron lock.
 	 */
 	$cron_request = apply_filters( 'cron_request', array(
 		'url'  => add_query_arg( 'doing_wp_cron', $doing_wp_cron, site_url( 'wp-cron.php' ) ),
@@ -328,7 +320,7 @@ function spawn_cron( $gmt_time = 0 ) {
 			/** This filter is documented in wp-includes/class-wp-http-streams.php */
 			'sslverify' => apply_filters( 'https_local_ssl_verify', false )
 		)
-	), $doing_wp_cron );
+	) );
 
 	wp_remote_post( $cron_request['url'], $cron_request['args'] );
 }
@@ -367,7 +359,7 @@ function wp_cron() {
  * Retrieve supported and filtered Cron recurrences.
  *
  * The supported recurrences are 'hourly' and 'daily'. A plugin may add more by
- * hooking into the {@see 'cron_schedules'} filter. The filter accepts an array of
+ * hooking into the 'cron_schedules' filter. The filter accepts an array of
  * arrays. The outer array has a key that is the name of the schedule or for
  * example 'weekly'. The value is an array with two keys, one is 'interval' and
  * the other is 'display'.
@@ -400,7 +392,7 @@ function wp_get_schedules() {
 		'daily'      => array( 'interval' => DAY_IN_SECONDS,       'display' => __( 'Once Daily' ) ),
 	);
 	/**
-	 * Filters the non-default cron schedules.
+	 * Filter the non-default cron schedules.
 	 *
 	 * @since 2.1.0
 	 *
@@ -461,7 +453,7 @@ function _get_cron_array()  {
  * @since 2.1.0
  * @access private
  *
- * @param array $cron Cron info array from _get_cron_array().
+ * @param array $cron Cron info array from {@link _get_cron_array()}.
  */
 function _set_cron_array($cron) {
 	$cron['version'] = 2;
@@ -476,7 +468,7 @@ function _set_cron_array($cron) {
  * @since 2.1.0
  * @access private
  *
- * @param array $cron Cron info array from _get_cron_array().
+ * @param array $cron Cron info array from {@link _get_cron_array()}.
  * @return array An upgraded Cron info array.
  */
 function _upgrade_cron_array($cron) {

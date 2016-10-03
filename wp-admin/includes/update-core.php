@@ -598,10 +598,9 @@ $_old_files = array(
 'wp-admin/css/colors.min.css',
 'wp-admin/css/colors-rtl.css',
 'wp-admin/css/colors-rtl.min.css',
-// Following files added back in 4.5 see #36083
-// 'wp-admin/css/media-rtl.min.css',
-// 'wp-admin/css/media.min.css',
-// 'wp-admin/css/farbtastic-rtl.min.css',
+'wp-admin/css/media-rtl.min.css',
+'wp-admin/css/media.min.css',
+'wp-admin/css/farbtastic-rtl.min.css',
 'wp-admin/images/lock-2x.png',
 'wp-admin/images/lock.png',
 'wp-admin/js/theme-preview.js',
@@ -701,10 +700,6 @@ $_old_files = array(
 'wp-admin/js/wp-fullscreen.min.js',
 'wp-includes/js/tinymce/wp-mce-help.php',
 'wp-includes/js/tinymce/plugins/wpfullscreen',
-// 4.5
-'wp-includes/theme-compat/comments-popup.php',
-// 4.6
-'wp-admin/includes/class-wp-automatic-upgrader.php', // Wrong file name, see #37628.
 );
 
 /**
@@ -746,16 +741,16 @@ if ( ! defined( 'CORE_UPGRADE_SKIP_NEW_BUNDLED' ) || CORE_UPGRADE_SKIP_NEW_BUNDL
 }
 
 /**
- * Upgrades the core of WordPress.
+ * Upgrade the core of WordPress.
  *
  * This will create a .maintenance file at the base of the WordPress directory
  * to ensure that people can not access the web site, when the files are being
  * copied to their locations.
  *
- * The files in the `$_old_files` list will be removed and the new files
+ * The files in the {@link $_old_files} list will be removed and the new files
  * copied from the zip file after the database is upgraded.
  *
- * The files in the `$_new_bundled_files` list will be added to the installation
+ * The files in the {@link $_new_bundled_files} list will be added to the installation
  * if the version is greater than or equal to the old version being upgraded.
  *
  * The steps for the upgrader for after the new release is downloaded and
@@ -805,7 +800,7 @@ function update_core($from, $to) {
 	@set_time_limit( 300 );
 
 	/**
-	 * Filters feedback messages displayed during the core update process.
+	 * Filter feedback messages displayed during the core update process.
 	 *
 	 * The filter is first evaluated after the zip file for the latest version
 	 * has been downloaded and unzipped. It is evaluated five more times during
@@ -1098,7 +1093,7 @@ function update_core($from, $to) {
 
 	// Clear the cache to prevent an update_option() from saving a stale db_version to the cache
 	wp_cache_flush();
-	// (Not all cache back ends listen to 'flush')
+	// (Not all cache backends listen to 'flush')
 	wp_cache_delete( 'alloptions', 'options' );
 
 	// Remove working directory

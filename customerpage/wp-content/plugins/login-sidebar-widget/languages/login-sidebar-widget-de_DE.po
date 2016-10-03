@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Benjamin Hartwich <mail@benjaminhartwich.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 1.8.5\n"
+
+msgid "This is a simple login form in the widget."
+msgstr "Das ist ein einfaches Loginformular im Widget"
+
+msgid "Username"
+msgstr "Benutzername"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Login"
+msgstr "Anmelden"
+
+msgid "Howdy"
+msgstr "Hallo"
+
+msgid "Logout"
+msgstr "Abmelden"
+
+msgid "Error in login!"
+msgstr "Login war nicht erfolgreich. Bitte pr&uuml;fe deine Anmeldedaten!"
+
+msgid "Username or password is empty!"
+msgstr "Benutzername oder Passwort waren leer!"

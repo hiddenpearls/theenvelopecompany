@@ -1,0 +1,6 @@
+.filter_check span {
+    display: none;
+}
+.filter_check input {
+    display: block;
+}

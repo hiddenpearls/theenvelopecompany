@@ -1,0 +1,128 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Login Widget With Shortcode\n"
+"POT-Creation-Date: 2014-11-09 22:07-0500\n"
+"PO-Revision-Date: 2014-11-09 22:16-0500\n"
+"Last-Translator: Nelson Therrien <nelson@nelmedia.ca>\n"
+"Language-Team: Nelson Therrien <nelson@nelmedia.ca>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: forgot_pass_class.php:16
+msgid "Email"
+msgstr "Courriel"
+
+#: forgot_pass_class.php:18
+msgid "Submit"
+msgstr "Connexion"
+
+#: forgot_pass_class.php:64
+msgid "Your new password for the account at:"
+msgstr "Votre nouveau mot de passe pour le compte à :"
+
+#: forgot_pass_class.php:66 forgot_pass_class.php:116
+#, php-format
+msgid "Username: %s"
+msgstr "Nom d'utilisateur : %s"
+
+#: forgot_pass_class.php:67
+#, php-format
+msgid "Password: %s"
+msgstr "Mot de passe : %s"
+
+#: forgot_pass_class.php:68
+msgid "You can now login with your new password at: "
+msgstr ""
+"Vous pouvez maintenant vous connecter avec votre nouveau mot de passe à : "
+
+#: forgot_pass_class.php:91
+msgid "Email is empty!"
+msgstr "Le courriel est vide!"
+
+#: forgot_pass_class.php:99
+msgid "Invalid E-mail address!"
+msgstr "Adresse de courriel invalide!"
+
+#: forgot_pass_class.php:114
+msgid "Someone requested that the password be reset for the following account:"
+msgstr ""
+"Quelqu'un a demandé à ce que le mot de passe soit réinitialisé pour le "
+"compte suivant :"
+
+#: forgot_pass_class.php:117
+msgid "If this was a mistake, just ignore this email and nothing will happen."
+msgstr ""
+"Si cela était une erreur, veuillez ignorer ce courriel et rien ne se "
+"produira."
+
+#: forgot_pass_class.php:118
+msgid "To reset your password, visit the following address:"
+msgstr "Pour réinitialiser votre mot de passe, visitez l'adresse suivante :"
+
+#: forgot_pass_class.php:123
+msgid "Email failed to send for some unknown reason."
+msgstr "Le courriel n'a pu être envoyé pour une raison inconnue."
+
+#: forgot_pass_class.php:127
+msgid "We have just sent you an email with Password reset instructions."
+msgstr ""
+"Nous vous avons envoyé un courriel avec les instructions pour réinitialiser "
+"votre mot de passe."
+
+#: login_afo_widget.php:11
+msgid "This is a simple login form in the widget."
+msgstr "Ceci est un formulaire de connexion simple dans le widget."
+
+#: login_afo_widget.php:37
+msgid "Title:"
+msgstr "Titre :"
+
+#: login_afo_widget.php:46
+msgid "Remember Me"
+msgstr "Se souvenir de moi"
+
+#: login_afo_widget.php:57
+msgid "Lost Password?"
+msgstr "Mot de passe oublié?"
+
+#: login_afo_widget.php:60
+msgid "Register"
+msgstr "S'enregistrer"
+
+#: login_afo_widget.php:95
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: login_afo_widget.php:97
+msgid "Password"
+msgstr "Mot de passe"
+
+#: login_afo_widget.php:100
+msgid "Login"
+msgstr "Connexion"
+
+#: login_afo_widget.php:110 login_afo_widget.php:112
+msgid "Howdy"
+msgstr "Salut"
+
+#: login_afo_widget.php:116
+msgid "Logout"
+msgstr "Se déconnecter"
+
+#: login_afo_widget.php:172
+msgid "Error in login!"
+msgstr "Erreur dans la connexion!"
+
+#: login_afo_widget.php:180
+msgid "Username or password is empty!"
+msgstr "Le nom d'utilisateur ou le mot de passe est vide!"

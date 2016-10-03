@@ -23,17 +23,12 @@ class WP_Widget_Recent_Comments extends WP_Widget {
 	 * @access public
 	 */
 	public function __construct() {
-		$widget_ops = array(
-			'classname' => 'widget_recent_comments',
-			'description' => __( 'Your site&#8217;s most recent comments.' ),
-			'customize_selective_refresh' => true,
-		);
-		parent::__construct( 'recent-comments', __( 'Recent Comments' ), $widget_ops );
+		$widget_ops = array('classname' => 'widget_recent_comments', 'description' => __( 'Your site&#8217;s most recent comments.' ) );
+		parent::__construct('recent-comments', __('Recent Comments'), $widget_ops);
 		$this->alt_option_name = 'widget_recent_comments';
 
-		if ( is_active_widget( false, false, $this->id_base ) || is_customize_preview() ) {
-			add_action( 'wp_head', array( $this, 'recent_comments_style' ) );
-		}
+		if ( is_active_widget(false, false, $this->id_base) )
+			add_action( 'wp_head', array($this, 'recent_comments_style') );
 	}
 
  	/**
@@ -44,7 +39,7 @@ class WP_Widget_Recent_Comments extends WP_Widget {
 	 */
 	public function recent_comments_style() {
 		/**
-		 * Filters the Recent Comments default widget styles.
+		 * Filter the Recent Comments default widget styles.
 		 *
 		 * @since 3.1.0
 		 *
@@ -85,7 +80,7 @@ class WP_Widget_Recent_Comments extends WP_Widget {
 			$number = 5;
 
 		/**
-		 * Filters the arguments for the Recent Comments widget.
+		 * Filter the arguments for the Recent Comments widget.
 		 *
 		 * @since 3.4.0
 		 *
@@ -173,6 +168,6 @@ class WP_Widget_Recent_Comments extends WP_Widget {
 	 * @deprecated 4.4.0 Fragment caching was removed in favor of split queries.
 	 */
 	public function flush_widget_cache() {
-		_deprecated_function( __METHOD__, '4.4.0' );
+		_deprecated_function( __METHOD__, '4.4' );
 	}
 }

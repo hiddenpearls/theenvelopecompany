@@ -1,0 +1,23 @@
+msgid "This is a simple login form in the widget."
+msgstr "Prosta formatka do logowania."
+
+msgid "Username"
+msgstr "Użytkownik"
+
+msgid "Password"
+msgstr "Hasło"
+
+msgid "Login"
+msgstr "Zaloguj"
+
+msgid "Howdy"
+msgstr "Witaj"
+
+msgid "Logout"
+msgstr "Wyloguj"
+
+msgid "Error in login!"
+msgstr "Błąd logowania!"
+
+msgid "Username or password is empty!"
+msgstr "Nie podano użytkownika lub hasła!"

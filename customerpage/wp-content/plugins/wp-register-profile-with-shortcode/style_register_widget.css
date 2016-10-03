@@ -1,0 +1,93 @@
+.reg_error {
+    background-color: #FFEBE8;
+    border:1px solid #FF0000;
+    color: #FF0000;
+    float: left;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: 500;
+    padding: 6px;
+    width: 100%;
+	clear:both !important;
+	margin-bottom:10px;
+}
+
+.reg_success {
+    background-color: #EEFBF2;
+    border:1px solid #6B8E79;
+    color: #477C55;
+    float: left;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: 500;
+    padding: 6px;
+    width: 100%;
+	clear:both !important;
+	margin-bottom:10px;
+}
+
+.success_msg_rp {
+    background-color: #EAFFF4;
+    border:1px solid #003300;
+    color: #000000; 
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: 500;
+    padding: 6px;
+    width: 97%;
+	margin-top:10px;
+	border-radius: 5px;
+	clear:both !important;
+}
+
+
+.field_form_table td{
+padding:8px;
+}
+
+.reg-form-group{
+margin: 5px;
+padding:10px 0;
+}  
+
+
+/* Makes reg_forms fields.Sets size and field alignment.*/
+.reg-form-group > input[type=text],
+input[type=email],
+input[type=password],
+input[type=url],
+input[type=tel]
+{
+  width:100% !important;
+  padding: 5px !important;
+  border:1px solid #CCCCCC !important;
+  margin-top:5px !important;
+}
+.reg-form-group > textarea{
+	width:100%;
+    border:1px solid #CCCCCC;
+  }
+
+.reg-form-group > select{
+  width:100%;
+  padding: 5px !important;
+  border:1px solid #CCCCCC;
+  margin-top:5px;
+}
+ 
+.reg-form-group > input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus,
+input[type=url]:focus,
+input[type=tel]:focus,
+textarea:focus {
+  border:1px solid #00A0D5 !important;
+}
+
+.reg-form-group > label{
+	margin-left:0;
+}
+
+/* Sets form button size*/
+.reg-form-group > input[type=submit]{
+width: auto;
+/*border-radius:5px;*/
+margin-right:1%
+}

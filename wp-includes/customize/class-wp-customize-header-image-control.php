@@ -121,12 +121,15 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 				<# if (data.random) { #>
 
 			<div class="placeholder">
-				<span class="dashicons dashicons-randomize dice"></span>
-				<# if ( data.type === 'uploaded' ) { #>
-					<?php _e( 'Randomizing uploaded headers' ); ?>
-				<# } else if ( data.type === 'default' ) { #>
-					<?php _e( 'Randomizing suggested headers' ); ?>
-				<# } #>
+				<div class="inner">
+					<span><span class="dashicons dashicons-randomize dice"></span>
+					<# if ( data.type === 'uploaded' ) { #>
+						<?php _e( 'Randomizing uploaded headers' ); ?>
+					<# } else if ( data.type === 'default' ) { #>
+						<?php _e( 'Randomizing suggested headers' ); ?>
+					<# } #>
+					</span>
+				</div>
 			</div>
 
 				<# } else { #>
@@ -137,7 +140,11 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 			<# } else { #>
 
 			<div class="placeholder">
-				<?php _e( 'No image set' ); ?>
+				<div class="inner">
+					<span>
+						<?php _e( 'No image set' ); ?>
+					</span>
+				</div>
 			</div>
 
 			<# } #>
@@ -169,20 +176,11 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 			<p class="customizer-section-intro">
 				<?php
 				if ( $width && $height ) {
-					/* translators: %s: header size in pixels */
-					printf( __( 'While you can crop images to your liking after clicking <strong>Add new image</strong>, your theme recommends a header size of %s pixels.' ),
-						sprintf( '<strong>%s &times; %s</strong>', $width, $height )
-					);
+					printf( __( 'While you can crop images to your liking after clicking <strong>Add new image</strong>, your theme recommends a header size of <strong>%s &times; %s</strong> pixels.' ), $width, $height );
 				} elseif ( $width ) {
-					/* translators: %s: header width in pixels */
-					printf( __( 'While you can crop images to your liking after clicking <strong>Add new image</strong>, your theme recommends a header width of %s pixels.' ),
-						sprintf( '<strong>%s</strong>', $width )
-					);
+					printf( __( 'While you can crop images to your liking after clicking <strong>Add new image</strong>, your theme recommends a header width of <strong>%s</strong> pixels.' ), $width );
 				} else {
-					/* translators: %s: header height in pixels */
-					printf( __( 'While you can crop images to your liking after clicking <strong>Add new image</strong>, your theme recommends a header height of %s pixels.' ),
-						sprintf( '<strong>%s</strong>', $height )
-					);
+					printf( __( 'While you can crop images to your liking after clicking <strong>Add new image</strong>, your theme recommends a header height of <strong>%s</strong> pixels.' ), $height );
 				}
 				?>
 			</p>

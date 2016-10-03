@@ -1,0 +1,33 @@
+<?php
+/**
+ * Pagination - Show numbered pagination for catalog pages.
+ *
+ * @author      WooThemes
+ * @package     WooCommerce/Templates
+ * @version     2.2.2
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
+
+global $wp_query;
+
+
+?>
+
+<div style="margin: 0 auto !important;">
+<p class="woocommerce-result-count" id="pre-result"><?php
+	previous_posts_link(__('<span id="pre-btn">Previous Page</span>', 'hudson'));
+  ?>
+</p><span style="width:100px;"></span>
+<?php add_filter('<div></div>', woocommerce_result_count()); ?>
+<div style="width:100px;"></div>
+<p class="woocommerce-result-count" id="post-result"><?php    
+next_posts_link(__('<span id="post-btn">Next Page</span>', 'hudson'));
+ ?></p>
+
+</div>
+<div style="clear:both;"></div>
+
+

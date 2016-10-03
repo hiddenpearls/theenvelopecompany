@@ -1,0 +1,23 @@
+msgid "This is a simple login form in the widget."
+msgstr "Dette er et enkelt innloggingsskjema i widget'en."
+
+msgid "Username"
+msgstr "Brukernavn"
+
+msgid "Password"
+msgstr "Passord"
+
+msgid "Login"
+msgstr "Logg inn"
+
+msgid "Howdy"
+msgstr "Heisan"
+
+msgid "Logout"
+msgstr "Logg ut"
+
+msgid "Error in login!"
+msgstr "Feil i innlogging!"
+
+msgid "Username or password is empty!"
+msgstr "Brukernavn eller passord mangler!"

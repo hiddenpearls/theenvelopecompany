@@ -1,0 +1,191 @@
+# Translation of Development (trunk) in Portuguese (Portugal)
+# This file is distributed under the same license as the Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2015-10-21 11:03:16+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/1.0-alpha-1100\n"
+"Project-Id-Version: Development (trunk)\n"
+
+#: ap_news.php:62
+msgid "Click on <strong>Load News</strong> for news feed."
+msgstr "Clique em <strong>Carregar Notícias</strong> para o feed de notícias. "
+
+#: forgot_pass_class.php:17
+msgid "Email"
+msgstr "Email"
+
+#: forgot_pass_class.php:20
+msgid "Submit"
+msgstr "Enviar"
+
+#: forgot_pass_class.php:21
+msgid "Please enter your email. The password reset link will be provided in your email."
+msgstr "Por favor introduza o seu email. Irá receber um email com um link para repor a sua senha. "
+
+#: forgot_pass_class.php:72
+msgid "Your new password for the account at:"
+msgstr "Nova senha para a sua conta em:"
+
+#: forgot_pass_class.php:74 forgot_pass_class.php:128
+msgid "Username: %s"
+msgstr "Utilizador: %s"
+
+#: forgot_pass_class.php:75
+msgid "Password: %s"
+msgstr "Senha: %s"
+
+#: forgot_pass_class.php:76
+msgid "You can now login with your new password at: "
+msgstr "Pode entrar com a sua nova senha em:"
+
+#: forgot_pass_class.php:99
+msgid "Email is empty!"
+msgstr "O endereço de email está vazio!"
+
+#: forgot_pass_class.php:107
+msgid "Invalid E-mail address!"
+msgstr "Endereço de email inválido!"
+
+#: forgot_pass_class.php:126
+msgid "Someone requested that the password be reset for the following account:"
+msgstr "Alguém pediu que a senha fosse reposta para a seguinte conta:"
+
+#: forgot_pass_class.php:129
+msgid "If this was a mistake, just ignore this email and nothing will happen."
+msgstr "Se isto foi um erro ignore este email e tudo permanecerá igual."
+
+#: forgot_pass_class.php:130
+msgid "To reset your password, visit the following address:"
+msgstr "Para repor a sua senha visite o seguinte endereço:"
+
+#: forgot_pass_class.php:135
+msgid "Email failed to send for some unknown reason."
+msgstr "Não foi possível enviar o email por causa desconhecida."
+
+#: forgot_pass_class.php:139
+msgid "We have just sent you an email with Password reset instructions."
+msgstr "Enviámos-lhe um email com instruções para repor a senha."
+
+#: login_afo_widget.php:11
+msgid "This is a simple login form in the widget."
+msgstr "Este é um simples formulário de entrada no widget."
+
+#: login_afo_widget.php:38
+msgid "Title:"
+msgstr "Título:"
+
+#: login_afo_widget.php:47
+msgid "Remember Me"
+msgstr "Recordar-me"
+
+#: login_afo_widget.php:55
+msgid "Lost Password?"
+msgstr "Perdeu a senha?"
+
+#: login_afo_widget.php:58
+msgid "Register"
+msgstr "Registar"
+
+#: login_afo_widget.php:109
+msgid "Username"
+msgstr "Utilizador"
+
+#: login_afo_widget.php:113
+msgid "Password"
+msgstr "Senha"
+
+#: login_afo_widget.php:119
+msgid "Login"
+msgstr "Entrar"
+
+#: login_afo_widget.php:131 login_afo_widget.php:133
+msgid "Howdy"
+msgstr "Olá"
+
+#: login_afo_widget.php:137
+msgid "Logout"
+msgstr "Sair"
+
+#: login_afo_widget.php:193
+msgid "Error in login!"
+msgstr "Erro ao entrar!"
+
+#: login_afo_widget.php:201
+msgid "Username or password is empty!"
+msgstr "O utilizador ou a senha estão vazios!"
+
+#: settings.php:99
+msgid "Login Widget AFO Settings"
+msgstr "Definições Login Widget AFO"
+
+#: settings.php:103
+msgid "Login Redirect Page"
+msgstr "Página de redirecionamento de entrada"
+
+#: settings.php:114
+msgid "Or"
+msgstr "Ou"
+
+#: settings.php:118
+msgid "Logout Redirect Page"
+msgstr "Página de redirecionamento de saída"
+
+#: settings.php:133
+msgid "Link in Username"
+msgstr "Link no utilizador"
+
+#: settings.php:147
+msgid "Add Remember Me"
+msgstr "Adicionar Lembrar-se de mim"
+
+#: settings.php:151
+msgid "Forgot Password Link"
+msgstr "Link Perdeu a Senha"
+
+#: settings.php:181
+msgid "Leave blank to not include the link"
+msgstr "Deixe em branco para não incluir o link"
+
+#: settings.php:185
+msgid "Forgot Password From Email"
+msgstr "Email de envio de Perdeu a Senha"
+
+#: settings.php:187
+msgid "This will make sure that the mail does not go to spam folder."
+msgstr "Esta opção certifica-se que o email não vai parar à pasta de spam."
+
+#: settings.php:191
+msgid "Styling"
+msgstr "Estilo"
+
+#: settings.php:195
+msgid "Load Default Styles"
+msgstr "Carregar os estilos por defeito"
+
+#: settings.php:196
+msgid "Check this and hit the save button to go back to default styling."
+msgstr "Coloque aqui um visto e clique em Gravar para carregar o estilo por defeito."
+
+#. Plugin Name of the plugin/theme
+msgid "Login Widget With Shortcode"
+msgstr "Login Widget With Shortcode"
+
+#. Plugin URI of the plugin/theme
+msgid "http://avifoujdar.wordpress.com/category/my-wp-plugins/"
+msgstr "http://avifoujdar.wordpress.com/category/my-wp-plugins/"
+
+#. Description of the plugin/theme
+msgid "This is a simple login form in the widget. just install the plugin and add the login widget in the sidebar. Thats it. :)"
+msgstr "Este é um widget que contém um simples formulário de entrada. Instale e adicione o widget na sidebar."
+
+#. Author of the plugin/theme
+msgid "avimegladon"
+msgstr "avimegladon"
+
+#. Author URI of the plugin/theme
+msgid "http://avifoujdar.wordpress.com/"
+msgstr "http://avifoujdar.wordpress.com/"

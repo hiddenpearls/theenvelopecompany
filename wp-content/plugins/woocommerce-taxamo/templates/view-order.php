@@ -1,0 +1,1 @@
+<a class="button" href="<?php echo esc_url( $invoice_url ); ?>" target="blank"><?php _e( 'Generate Invoice', 'woocommerce-taxamo' ); ?></a>

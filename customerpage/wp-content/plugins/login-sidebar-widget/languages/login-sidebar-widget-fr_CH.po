@@ -1,0 +1,23 @@
+msgid "This is a simple login form in the widget."
+msgstr "Ceci est gestionnaire de connexion minimaliste dans un widget."
+
+msgid "Username"
+msgstr "Utilisateur"
+
+msgid "Password"
+msgstr "Mot de passe"
+
+msgid "Login"
+msgstr "Connexion"
+
+msgid "Howdy"
+msgstr "Salut !"
+
+msgid "Logout"
+msgstr "D&eacute;connection"
+
+msgid "Error in login!"
+msgstr "Erreur de connexion !"
+
+msgid "Username or password is empty!"
+msgstr "L'utilisateur ou le mot de passe est vide !"

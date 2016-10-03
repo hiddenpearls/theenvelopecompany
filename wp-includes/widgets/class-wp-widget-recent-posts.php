@@ -23,12 +23,8 @@ class WP_Widget_Recent_Posts extends WP_Widget {
 	 * @access public
 	 */
 	public function __construct() {
-		$widget_ops = array(
-			'classname' => 'widget_recent_entries',
-			'description' => __( 'Your site&#8217;s most recent Posts.' ),
-			'customize_selective_refresh' => true,
-		);
-		parent::__construct( 'recent-posts', __( 'Recent Posts' ), $widget_ops );
+		$widget_ops = array('classname' => 'widget_recent_entries', 'description' => __( "Your site&#8217;s most recent Posts.") );
+		parent::__construct('recent-posts', __('Recent Posts'), $widget_ops);
 		$this->alt_option_name = 'widget_recent_entries';
 	}
 
@@ -58,7 +54,7 @@ class WP_Widget_Recent_Posts extends WP_Widget {
 		$show_date = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
 
 		/**
-		 * Filters the arguments for the Recent Posts widget.
+		 * Filter the arguments for the Recent Posts widget.
 		 *
 		 * @since 3.4.0
 		 *

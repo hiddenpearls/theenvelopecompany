@@ -1,0 +1,74 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: jonas müller <jonas@hallo.de>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "This is a simple login form in the widget."
+msgstr "Ein einfaches Registrierungs Formular Widget."
+
+msgid "Username"
+msgstr "Benutzername"
+
+msgid "User Email"
+msgstr "E-Mail"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Retype Password"
+msgstr "Passwort wiederholen"
+
+msgid "First Name"
+msgstr "Vorname"
+
+msgid "Last Name"
+msgstr "Nachname"
+
+msgid "Display Name"
+msgstr "Spitzname"
+
+msgid "About User"
+msgstr "Über den Benutzer"
+
+msgid "Website"
+msgstr "Webseite"
+
+msgid "Register"
+msgstr "Registrieren"
+
+msgid "Sorry. Registration is not allowed in this site."
+msgstr "Entschuldigung. Die Registrierung ist auf dieser Seite nicht erlaubt."
+
+msgid "Username already exists. Please use a different one!"
+msgstr "Der Benutzername existiert bereits. Bitte wählen Sie einen anderen."
+
+msgid "Email already exists. Please use a different one!"
+msgstr "Die E-Mail Adresse existiert bereits. Bitte wählen Sie eine andere."
+
+msgid "Password and Retype password donot match!"
+msgstr "Passwort und Passwortwiederholung stimmer nicht überein!"
+
+msgid "You are successfully registered to the site. Please check your email for login details."
+msgstr "Sie haben sich erfolgreich registriert. Bitte überprüfen Sie Ihre Emails."
+
+msgid "Update"
+msgstr "Update"
+
+msgid "Login to update profile!"
+msgstr "Loggen Sie sich ein um Ihr Profil upzudaten!"
+
+msgid "Your new password dont match with retype password!"
+msgstr "Ihr neues Passwort und die Passwortwiederholung stimmer nicht überein!"
+
+msgid "Your password updated successfully."
+msgstr "Ihr Passwort wurde erfolgreich geändert."
+
+msgid "New Password"
+msgstr "Neues Passwort"
+

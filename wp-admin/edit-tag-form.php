@@ -7,8 +7,13 @@
  */
 
 // don't load directly
-if ( ! defined( 'ABSPATH' ) ) {
-	die( '-1' );
+if ( !defined('ABSPATH') )
+	die('-1');
+
+if ( empty($tag_ID) ) { ?>
+	<div id="message" class="updated notice is-dismissible"><p><strong><?php _e( 'You did not select an item for editing.' ); ?></strong></p></div>
+<?php
+	return;
 }
 
 // Back compat hooks
@@ -45,7 +50,7 @@ if ( 'category' == $taxonomy ) {
 }
 
 /**
- * Use with caution, see https://codex.wordpress.org/Function_Reference/wp_reset_vars
+ * Use with caution, see http://codex.wordpress.org/Function_Reference/wp_reset_vars
  */
 wp_reset_vars( array( 'wp_http_referer' ) );
 
@@ -74,15 +79,9 @@ do_action( "{$taxonomy}_pre_edit_form", $tag, $taxonomy ); ?>
 <div id="message" class="updated">
 	<p><strong><?php echo $message; ?></strong></p>
 	<?php if ( $wp_http_referer ) { ?>
-	<p><a href="<?php echo esc_url( $wp_http_referer ); ?>"><?php
-		/* translators: %s: taxonomy name */
-		printf( _x( '&larr; Back to %s', 'admin screen' ), $tax->labels->name );
-	?></a></p>
+	<p><a href="<?php echo esc_url( $wp_http_referer ); ?>"><?php printf( __( '&larr; Back to %s' ), $tax->labels->name ); ?></a></p>
 	<?php } else { ?>
-	<p><a href="<?php echo esc_url( wp_get_referer() ); ?>"><?php
-		/* translators: %s: taxonomy name */
-		printf( _x( '&larr; Back to %s', 'admin screen' ), $tax->labels->name );
-	?></a></p>
+	<p><a href="<?php echo esc_url( wp_get_referer() ); ?>"><?php printf( __( '&larr; Back to %s' ), $tax->labels->name ); ?></a></p>
 	<?php } ?>
 </div>
 <?php endif; ?>
@@ -101,27 +100,10 @@ do_action( "{$taxonomy}_pre_edit_form", $tag, $taxonomy ); ?>
  */
 do_action( "{$taxonomy}_term_edit_form_tag" );
 ?>>
-<input type="hidden" name="action" value="editedtag"/>
-<input type="hidden" name="tag_ID" value="<?php echo esc_attr( $tag_ID ) ?>"/>
-<input type="hidden" name="taxonomy" value="<?php echo esc_attr( $taxonomy ) ?>"/>
-<?php
-wp_original_referer_field( true, 'previous' );
-wp_nonce_field( 'update-tag_' . $tag_ID );
-
-/**
- * Fires at the beginning of the Edit Term form.
- *
- * At this point, the required hidden fields and nonces have already been output.
- *
- * The dynamic portion of the hook name, `$taxonomy`, refers to the taxonomy slug.
- *
- * @since 4.5.0
- *
- * @param object $tag      Current taxonomy term object.
- * @param string $taxonomy Current $taxonomy slug.
- */
-do_action( "{$taxonomy}_term_edit_form_top", $tag, $taxonomy );
-?>
+<input type="hidden" name="action" value="editedtag" />
+<input type="hidden" name="tag_ID" value="<?php echo esc_attr($tag->term_id) ?>" />
+<input type="hidden" name="taxonomy" value="<?php echo esc_attr($taxonomy) ?>" />
+<?php wp_original_referer_field(true, 'previous'); wp_nonce_field('update-tag_' . $tag_ID); ?>
 	<table class="form-table">
 		<tr class="form-field form-required term-name-wrap">
 			<th scope="row"><label for="name"><?php _ex( 'Name', 'term name' ); ?></label></th>
@@ -133,7 +115,7 @@ do_action( "{$taxonomy}_term_edit_form_top", $tag, $taxonomy );
 			<th scope="row"><label for="slug"><?php _e( 'Slug' ); ?></label></th>
 			<?php
 			/**
-			 * Filters the editable slug.
+			 * Filter the editable slug.
 			 *
 			 * Note: This is a multi-use hook in that it is leveraged both for editable
 			 * post URIs and term slugs.

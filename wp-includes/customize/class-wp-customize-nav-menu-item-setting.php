@@ -67,11 +67,10 @@ class WP_Customize_Nav_Menu_Item_Setting extends WP_Customize_Setting {
 	 * Default transport.
 	 *
 	 * @since 4.3.0
-	 * @since 4.5.0 Default changed to 'refresh'
 	 * @access public
 	 * @var string
 	 */
-	public $transport = 'refresh';
+	public $transport = 'postMessage';
 
 	/**
 	 * The post ID represented by this setting instance. This is the db_id.
@@ -131,8 +130,6 @@ class WP_Customize_Nav_Menu_Item_Setting extends WP_Customize_Setting {
 
 	/**
 	 * Status for calling the update method, used in customize_save_response filter.
-	 *
-	 * See {@see 'customize_save_response'}.
 	 *
 	 * When status is inserted, the placeholder post ID is stored in $previous_post_id.
 	 * When status is error, the error is stored in $update_error.
@@ -406,7 +403,7 @@ class WP_Customize_Nav_Menu_Item_Setting extends WP_Customize_Setting {
 	}
 
 	/**
-	 * Filters the wp_get_nav_menu_items() result to supply the previewed menu items.
+	 * Filter the wp_get_nav_menu_items() result to supply the previewed menu items.
 	 *
 	 * @since 4.3.0
 	 * @access public
@@ -497,7 +494,7 @@ class WP_Customize_Nav_Menu_Item_Setting extends WP_Customize_Setting {
 		// @todo We should probably re-apply some constraints imposed by $args.
 		unset( $args['include'] );
 
-		// Remove invalid items only in front end.
+		// Remove invalid items only in frontend.
 		if ( ! is_admin() ) {
 			$items = array_filter( $items, '_is_valid_nav_menu_item' );
 		}
@@ -572,9 +569,6 @@ class WP_Customize_Nav_Menu_Item_Setting extends WP_Customize_Setting {
 		/** This filter is documented in wp-includes/nav-menu.php */
 		$post->description = apply_filters( 'nav_menu_description', wp_trim_words( $post->description, 200 ) );
 
-		/** This filter is documented in wp-includes/nav-menu.php */
-		$post = apply_filters( 'wp_setup_nav_menu_item', $post );
-
 		return $post;
 	}
 
@@ -644,9 +638,9 @@ class WP_Customize_Nav_Menu_Item_Setting extends WP_Customize_Setting {
 		$menu_item_value['original_title'] = sanitize_text_field( $menu_item_value['original_title'] );
 
 		// Apply the same filters as when calling wp_insert_post().
-		$menu_item_value['title'] = wp_unslash( apply_filters( 'title_save_pre', wp_slash( $menu_item_value['title'] ) ) );
-		$menu_item_value['attr_title'] = wp_unslash( apply_filters( 'excerpt_save_pre', wp_slash( $menu_item_value['attr_title'] ) ) );
-		$menu_item_value['description'] = wp_unslash( apply_filters( 'content_save_pre', wp_slash( $menu_item_value['description'] ) ) );
+		$menu_item_value['title'] = apply_filters( 'title_save_pre', $menu_item_value['title'] );
+		$menu_item_value['attr_title'] = apply_filters( 'excerpt_save_pre', $menu_item_value['attr_title'] );
+		$menu_item_value['description'] = apply_filters( 'content_save_pre', $menu_item_value['description'] );
 
 		$menu_item_value['url'] = esc_url_raw( $menu_item_value['url'] );
 		if ( 'publish' !== $menu_item_value['status'] ) {
@@ -660,11 +654,11 @@ class WP_Customize_Nav_Menu_Item_Setting extends WP_Customize_Setting {
 	}
 
 	/**
-	 * Creates/updates the nav_menu_item post for this setting.
+	 * Create/update the nav_menu_item post for this setting.
 	 *
 	 * Any created menu items will have their assigned post IDs exported to the client
-	 * via the {@see 'customize_save_response'} filter. Likewise, any errors will be
-	 * exported to the client via the customize_save_response() filter.
+	 * via the customize_save_response filter. Likewise, any errors will be exported
+	 * to the client via the customize_save_response() filter.
 	 *
 	 * To delete a menu, the client can send false as the value.
 	 *
@@ -781,7 +775,7 @@ class WP_Customize_Nav_Menu_Item_Setting extends WP_Customize_Setting {
 			$r = wp_update_nav_menu_item(
 				$value['nav_menu_term_id'],
 				$is_placeholder ? 0 : $this->post_id,
-				wp_slash( $menu_item_data )
+				$menu_item_data
 			);
 
 			if ( is_wp_error( $r ) ) {

@@ -1,0 +1,50 @@
+*** WooCommerce Taxamo ***
+
+2015.08.10 - version 1.2.4
+* Added option to display Taxamo VAT invoice to users
+* Add e-service option to products
+
+2015.04.28 - version 1.2.3
+* Fixed an checkout loop when location can't be confirmed.
+
+2015.04.15 - version 1.2.2
+* Added Subscriptions compatibility.
+* Fixed error when calculating taxes on manually created orders.
+* Strip unwanted characters from VAT # field via JS.
+* Added Source-Id header to API requests.
+* Added filter 'woocommerce_taxamo_vat_number_field' to filter VAT field.
+* Added filter 'woocommerce_taxamo_validation_error_message_location' to filter location validation error message.
+* Added filter 'woocommerce_taxamo_validation_error_message_manually_validate' to filter manually validate error message.
+
+2015.03.06 - version 1.2.1
+* Fixed a bug that caused shipping costs not being send to Taxamo.
+* Use country code field instead of tax_number_country_code field because these differ for some countries. Fixes bug with Greece.
+* Improved the way of detecting user's IP address.
+* Remove spaces in VAT number on checkout processing fixing a bug that caused VAT to be incorrectly charged.
+
+2015.02.11 - version 1.2.0
+* Refund support added - Refunded line items in WooCommerce are automatically refunded in Taxamo.
+* Remove spaces from VAT numbers to fix VAT field formatting errors.
+
+2015.01.27 - version 1.1.3
+* Better customer country lookup for faster loading.
+
+2015.01.09 - version 1.1.2
+* Fixed a fatal error on completing payed orders in admin.
+
+2015.01.05 - version 1.1.1
+* Use product object in Cart instead of fetching new object by ID.
+* Forcing 0 tax rate if product is not taxable.
+* Fixed a line total bug where the quantity was higher than 1.
+* Fixed a bug where discounts weren't applied.
+* Fixed a bug where VAT was exempt in domestic B2B transactions.
+
+2014.12.31 - version 1.1
+* Displaying VAT number field is now an option.
+* Resetting self declaration when country is switched.
+* Fixed Variable product compatibility.
+* Variations can now be marked as E-Book as well.
+* WooCommerce tax settings will no be used for countries that are not tax supported.
+
+2014.12.18 - version 1.0
+* First Release

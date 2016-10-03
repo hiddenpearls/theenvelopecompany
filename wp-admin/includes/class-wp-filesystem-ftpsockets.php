@@ -39,7 +39,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 		if ( empty($opt['port']) )
 			$this->options['port'] = 21;
 		else
-			$this->options['port'] = (int) $opt['port'];
+			$this->options['port'] = $opt['port'];
 
 		if ( empty($opt['hostname']) )
 			$this->errors->add('empty_hostname', __('FTP hostname is required'));
@@ -121,10 +121,8 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 
 		$temp = wp_tempnam( $file );
 
-		if ( ! $temphandle = fopen( $temp, 'w+' ) ) {
-			unlink( $temp );
+		if ( ! $temphandle = fopen($temp, 'w+') )
 			return false;
-		}
 
 		mbstring_binary_safe_encoding();
 

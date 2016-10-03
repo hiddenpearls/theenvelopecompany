@@ -1,0 +1,55 @@
+{"event":"details","time":1474711322,"u":"36","run":"2.81","mem":"57.51","data":"Verifying comment in zip archive."}
+{"event":"details","time":1474711322,"u":"38","run":"2.83","mem":"57.51","data":"exec (unzip) retrieved comment in file \/home\/azenvelope1\/public_html\/wp-content\/uploads\/backupbuddy_backups\/backup-shop_azenvelope_com-2016_06_27-08_06am-db-ytrx8ng613.zip"}
+{"event":"details","time":1474711322,"u":"38","run":"2.83","mem":"57.51","data":"NOTE: It is normal to see several \"File not found\" messages in the next several log lines."}
+{"event":"details","time":1474711322,"u":"38","run":"2.83","mem":"57.51","data":"Verifying DAT file in zip archive."}
+{"event":"details","time":1474711322,"u":"39","run":"2.84","mem":"57.51","data":"File not found (exec): wp-content\/uploads\/backupbuddy_temp\/ytrx8ng613\/backupbuddy_dat.php"}
+{"event":"details","time":1474711322,"u":"40","run":"2.85","mem":"57.51","data":"File not found (exec): wp-content\/uploads\/temp_ytrx8ng613\/backupbuddy_dat.php"}
+{"event":"details","time":1474711322,"u":"40","run":"2.85","mem":"57.51","data":"File found (exec): backupbuddy_dat.php"}
+{"event":"details","time":1474711322,"u":"40","run":"2.85","mem":"57.51","data":"Verifying database SQL file in zip archive."}
+{"event":"details","time":1474711322,"u":"40","run":"2.85","mem":"57.51","data":"Forcing to a single db_1.sql file was NOT enabled for this backup."}
+{"event":"details","time":1474711322,"u":"40","run":"2.85","mem":"57.51","data":"BackupBuddy v5.0+ format database detected."}
+{"event":"details","time":1474711322,"u":"40","run":"2.85","mem":"57.51","data":"Database-only type backup."}
+{"event":"details","time":1474711322,"u":"41","run":"2.86","mem":"57.51","data":"File not found (exec): db_1.sql"}
+{"event":"details","time":1474711322,"u":"41","run":"2.86","mem":"57.51","data":"PHP based database dump type."}
+{"event":"details","time":1474711322,"u":"43","run":"2.88","mem":"57.51","data":"File found (exec): wp_advanced_notification_triggers.sql"}
+{"event":"details","time":1474711322,"u":"44","run":"2.89","mem":"57.51","data":"File found (exec): wp_advanced_notifications.sql"}
+{"event":"details","time":1474711322,"u":"45","run":"2.90","mem":"57.51","data":"File found (exec): wp_commentmeta.sql"}
+{"event":"details","time":1474711322,"u":"46","run":"2.91","mem":"57.51","data":"File found (exec): wp_comments.sql"}
+{"event":"details","time":1474711322,"u":"47","run":"2.92","mem":"57.51","data":"File found (exec): wp_fpd_products.sql"}
+{"event":"details","time":1474711322,"u":"48","run":"2.92","mem":"57.51","data":"File found (exec): wp_fpd_views.sql"}
+{"event":"details","time":1474711322,"u":"48","run":"2.93","mem":"57.51","data":"File found (exec): wp_groups_capability.sql"}
+{"event":"details","time":1474711322,"u":"49","run":"2.94","mem":"57.51","data":"File found (exec): wp_groups_group.sql"}
+{"event":"details","time":1474711322,"u":"50","run":"2.95","mem":"57.51","data":"File found (exec): wp_groups_group_capability.sql"}
+{"event":"details","time":1474711322,"u":"50","run":"2.95","mem":"57.51","data":"File found (exec): wp_groups_user_capability.sql"}
+{"event":"details","time":1474711322,"u":"58","run":"3.03","mem":"57.51","data":"File found (exec): wp_groups_user_group.sql"}
+{"event":"details","time":1474711322,"u":"59","run":"3.04","mem":"57.51","data":"File found (exec): wp_links.sql"}
+{"event":"details","time":1474711322,"u":"74","run":"3.19","mem":"57.51","data":"File found (exec): wp_options.sql"}
+{"event":"details","time":1474711322,"u":"83","run":"3.28","mem":"57.51","data":"File found (exec): wp_postmeta.sql"}
+{"event":"details","time":1474711322,"u":"84","run":"3.29","mem":"57.51","data":"File found (exec): wp_posts.sql"}
+{"event":"details","time":1474711322,"u":"85","run":"3.30","mem":"57.51","data":"File found (exec): wp_rg_form.sql"}
+{"event":"details","time":1474711322,"u":"86","run":"3.31","mem":"57.51","data":"File found (exec): wp_rg_form_meta.sql"}
+{"event":"details","time":1474711322,"u":"87","run":"3.31","mem":"57.51","data":"File found (exec): wp_rg_form_view.sql"}
+{"event":"details","time":1474711322,"u":"87","run":"3.32","mem":"57.51","data":"File found (exec): wp_rg_incomplete_submissions.sql"}
+{"event":"details","time":1474711322,"u":"88","run":"3.33","mem":"57.51","data":"File found (exec): wp_rg_lead.sql"}
+{"event":"details","time":1474711322,"u":"88","run":"3.33","mem":"57.51","data":"File found (exec): wp_rg_lead_detail.sql"}
+{"event":"details","time":1474711322,"u":"89","run":"3.34","mem":"57.51","data":"File found (exec): wp_rg_lead_detail_long.sql"}
+{"event":"details","time":1474711322,"u":"89","run":"3.34","mem":"57.51","data":"File found (exec): wp_rg_lead_meta.sql"}
+{"event":"details","time":1474711322,"u":"90","run":"3.35","mem":"57.51","data":"File found (exec): wp_rg_lead_notes.sql"}
+{"event":"details","time":1474711322,"u":"90","run":"3.35","mem":"57.51","data":"File found (exec): wp_term_relationships.sql"}
+{"event":"details","time":1474711322,"u":"91","run":"3.36","mem":"57.51","data":"File found (exec): wp_term_taxonomy.sql"}
+{"event":"details","time":1474711322,"u":"91","run":"3.36","mem":"57.51","data":"File found (exec): wp_termmeta.sql"}
+{"event":"details","time":1474711322,"u":"92","run":"3.37","mem":"57.51","data":"File found (exec): wp_terms.sql"}
+{"event":"details","time":1474711322,"u":"92","run":"3.37","mem":"57.51","data":"File found (exec): wp_usermeta.sql"}
+{"event":"details","time":1474711322,"u":"93","run":"3.38","mem":"57.51","data":"File found (exec): wp_users.sql"}
+{"event":"details","time":1474711322,"u":"93","run":"3.38","mem":"57.51","data":"File found (exec): wp_woocommerce_api_keys.sql"}
+{"event":"details","time":1474711322,"u":"93","run":"3.38","mem":"57.51","data":"File found (exec): wp_woocommerce_attribute_taxonomies.sql"}
+{"event":"details","time":1474711322,"u":"94","run":"3.39","mem":"57.51","data":"File found (exec): wp_woocommerce_downloadable_product_permissions.sql"}
+{"event":"details","time":1474711322,"u":"94","run":"3.39","mem":"57.51","data":"File found (exec): wp_woocommerce_order_itemmeta.sql"}
+{"event":"details","time":1474711322,"u":"95","run":"3.40","mem":"57.51","data":"File found (exec): wp_woocommerce_order_items.sql"}
+{"event":"details","time":1474711322,"u":"95","run":"3.40","mem":"57.51","data":"File found (exec): wp_woocommerce_sessions.sql"}
+{"event":"details","time":1474711322,"u":"96","run":"3.41","mem":"57.51","data":"File found (exec): wp_woocommerce_tax_rate_locations.sql"}
+{"event":"details","time":1474711322,"u":"96","run":"3.41","mem":"57.51","data":"File found (exec): wp_woocommerce_tax_rates.sql"}
+{"event":"details","time":1474711322,"u":"97","run":"3.42","mem":"57.51","data":"File found (exec): wp_woocommerce_termmeta.sql"}
+{"event":"details","time":1474711322,"u":"97","run":"3.42","mem":"57.51","data":"File found (exec): wp_wooexim_export_archive.sql"}
+{"event":"details","time":1474711322,"u":"97","run":"3.42","mem":"57.51","data":"Retrieving zip scan log."}
+{"event":"details","time":1474711322,"u":"97","run":"3.42","mem":"57.51","data":"Getting status for serial `zipbuddy_test`. Clear: `true`"}

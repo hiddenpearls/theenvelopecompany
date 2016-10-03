@@ -1,0 +1,74 @@
+msgid "This is a simple register form in the widget."
+msgstr "Esta es una forma simple registro en el widget."
+
+msgid "Username"
+msgstr "Nombre de usuario"
+
+msgid "User Email"
+msgstr "User Correo electr&oacute;nico"
+
+msgid "Password"
+msgstr "contrase&ntilde;a"
+
+msgid "Retype Password"
+msgstr "Vuelva a escribir la contrase&ntilde;a"
+
+msgid "First Name"
+msgstr "Nombre de pila"
+
+msgid "Last Name"
+msgstr "apellido"
+
+msgid "Display Name"
+msgstr "nombre para mostrar"
+
+msgid "About User"
+msgstr "Sobre el Usuario"
+
+msgid "Website"
+msgstr "sitio web"
+
+msgid "Register"
+msgstr "Registro"
+
+msgid "Sorry. Registration is not allowed in this site."
+msgstr "Lo siento. El registro no est&aacute; permitido en este sitio."
+
+msgid "Registration Successfull"
+msgstr "registro de &eacute;xito"
+
+msgid "Thankyou for registration"
+msgstr "Gracias por registro"
+
+msgid "Site Link"
+msgstr "sitio Enlace"
+
+msgid "Username already exists. Please use a different one!"
+msgstr "Nombre de usuario ya existe. Por favor, use uno diferente!"
+
+msgid "Email already exists. Please use a different one!"
+msgstr "Correo ya existe. Por favor, use uno diferente!"
+
+msgid "Password and Retype password donot match!"
+msgstr "Contrase&ntilde;a y Vuelva a escribir la contrase&ntilde;a nose coincidir!"
+
+msgid "You are successfully registered to the site. Please check your email for login details."
+msgstr "Usted est&aacute; registrado correctamente en el sitio . Por favor revise su correo electr&oacute;nico para obtener m&aacute;s informaci&oacute;n de inicio de sesi&oacute;n."
+
+msgid "Update"
+msgstr "actualizaci&oacute;n"
+
+msgid "Login to update profile!"
+msgstr "Inicia sesi&oacute;n para actualizar el perfil!"
+
+msgid "Your new password dont match with retype password!"
+msgstr "Su nueva contrase&ntilde;a no haga que coincida con Repetir contrase&ntilde;a!"
+
+msgid "Your password updated successfully."
+msgstr "Su contrase&ntilde;a ha actualizado correctamente."
+
+msgid "New Password"
+msgstr "Lo siento. ning&uacute;n usuario ha sido encontrado!"
+
+msgid "Profile data updated successfully."
+msgstr "Datos del perfil actualizado correctamente ."

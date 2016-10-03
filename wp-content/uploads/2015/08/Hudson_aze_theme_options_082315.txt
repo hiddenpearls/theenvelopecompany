@@ -1,0 +1,4 @@
+<br />
+<b>Warning</b>:  readfile(): http:// wrapper is disabled in the server configuration by allow_url_fopen=0 in <b>/home/content/06/7648006/html/arizonaenvelope_v2.com/shop/wp-content/themes/hudson/tesla_framework/helpers/download.php</b> on line <b>10</b><br />
+<br />
+<b>Warning</b>:  readfile(http://aze.youareheremedia.com/shop/wp-content/themes/hudson/tesla_framework/../theme_config/theme_options.txt): failed to open stream: no suitable wrapper could be found in <b>/home/content/06/7648006/html/arizonaenvelope_v2.com/shop/wp-content/themes/hudson/tesla_framework/helpers/download.php</b> on line <b>10</b><br />

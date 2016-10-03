@@ -1,0 +1,667 @@
+/*
+
+Theme Name: Image Theme Responsive
+
+Theme URI: http://www.dessign.net/imagewordpresstheme/
+
+Description: Image Responsive Theme for WordPress is stylish, customizable, simple, and readable. Perfect for any illustrator, designer and blogger. 
+
+Version: 2.0
+
+Author: Marios Lublinski
+
+Author URI: http://www.dessign.net
+
+Tags: 2 column theme, clean, portfolio, blogger
+
+*/
+
+
+
+/* =WordPress Core
+
+-------------------------------------------------------------- */
+
+
+
+.alignnone {
+
+    margin: 5px 20px 20px 0;
+
+}
+
+
+
+.aligncenter,
+
+div.aligncenter {
+
+    display: block;
+
+    margin: 5px auto 5px auto;
+
+}
+
+
+
+.alignright {
+
+    float:right;
+
+    margin: 5px 0 20px 20px;
+
+}
+
+
+
+.alignleft {
+
+    float: left;
+
+    margin: 5px 20px 20px 0;
+
+}
+
+
+
+.aligncenter {
+
+    display: block;
+
+    margin: 5px auto 5px auto;
+
+}
+
+
+
+a img.alignright {
+
+    float: right;
+
+    margin: 5px 0 20px 20px;
+
+}
+
+
+
+a img.alignnone {
+
+    margin: 5px 20px 20px 0;
+
+}
+
+
+
+a img.alignleft {
+
+    float: left;
+
+    margin: 5px 20px 20px 0;
+
+}
+
+
+
+a img.aligncenter {
+
+    display: block;
+
+    margin-left: auto;
+
+    margin-right: auto
+
+}
+
+
+
+.wp-caption {
+
+    background: #fff;
+
+    border: 1px solid #f0f0f0;
+
+    max-width: 96%; /* Image does not overflow the content area */
+
+    padding: 5px 3px 10px;
+
+    text-align: center;
+
+}
+
+
+
+.wp-caption.alignnone {
+
+    margin: 5px 20px 20px 0;
+
+}
+
+
+
+.wp-caption.alignleft {
+
+    margin: 5px 20px 20px 0;
+
+}
+
+
+
+.wp-caption.alignright {
+
+    margin: 5px 0 20px 20px;
+
+}
+
+
+
+.wp-caption img {
+
+    border: 0 none;
+
+    height: auto;
+
+    margin: 0;
+
+    max-width: 98.5%;
+
+    padding: 0;
+
+    width: auto;
+
+}
+
+
+
+.wp-caption p.wp-caption-text {
+
+    margin: 0;
+
+    padding: 0 4px 5px;
+
+}
+
+
+
+/* Global */
+
+/* @font-face kit by Fonts2u (http://www.fonts2u.com) */ 
+@font-face {font-family:"Airbus Special";
+src:url("lib/aispec.eot?") format("eot"),
+url("lib/aispec.woff") format("woff"),
+url("lib/aispec.ttf") format("truetype"),
+url("lib/aispec.svg#AirbusSpecial") format("svg");
+font-weight:normal;
+font-style:normal;}
+
+
+body, div { margin: 0; padding: 0; }
+
+body { font-size: 13px; font-family: verdana, arial; color: #444; line-height:18px; }
+
+h1,h2,h3,h4,h5,p { margin: 5px 0; }
+
+hr { height:1px; color: #666; background-color:#666; }
+
+img { border: none; }
+
+.left { float: left; }
+
+.right { float: right; }
+
+.clear { clear: both; }
+
+a { color: #ff3715; text-decoration:none;}
+
+
+a:hover { text-decoration:none; color:#999; }
+
+#main_container { width: 976px; margin: 0 auto; }
+
+/* customized css */
+
+.page-wrapper {width:1040px; margin:0 auto;}
+.page-top {
+	background-color: #ff3715;
+	height: 4px;
+	width: 980px;
+	margin:0 auto;
+}
+.page-top-content {
+	background-image: url(/wp-content/themes/imagethemeresponsive/images/page-top-content.jpg);
+	background-repeat: no-repeat;
+	height: 120px;
+	width: 1040px;
+}
+.page-top-content-noback {
+	height: 120px;
+	width: 1040px;
+}
+.page-top-logo {
+	width: 275px;
+	margin-right: 20px;
+	float: left;
+}
+.page-top-menu {
+	float: left;
+	width: 600px;
+}
+.page-top-right {
+	float: left;
+	width: 125px;
+	padding-right: 20px;
+}
+.page-content {
+	background-image: url(/wp-content/themes/imagethemeresponsive/images/body-home-main.jpg);
+	background-repeat: no-repeat;
+	height: 480px;
+	width: 1040px;
+}
+.page-content-text { padding-top:80px; padding-left:100px; }
+.page-content-sub {
+	background-image: url(/wp-content/themes/imagethemeresponsive/images/body-page-center.jpg);
+	background-repeat: repeat-y;
+	width: 1040px;
+	margin-bottom: 20px;
+}
+.page-bottom-box {
+	float: left;
+	height: 180px;
+	width: 322px;
+	background-image: url(/wp-content/themes/imagethemeresponsive/images/bottom-box.jpg);
+	margin-right:5px;
+
+}
+.page-bottom {
+	height: 180px;
+	width: 1040px;
+	margin-right: 20px;
+	margin-left: 30px;
+}
+.page-footer-top {
+	background-color: #ff3715;
+	height: 4px;
+	width: 980px;
+	margin:0 auto;
+	margin-top: 20px;
+}
+.page-footer-text {
+	width: 980px;
+	padding-top: 20px;
+	margin: 0 auto;
+	;
+}
+.page-top-container {
+	width: 980px;
+	padding-right: 30px;
+	padding-left: 30px;
+}
+
+#box1:hover{ background-image:url(/wp-content/themes/imagethemeresponsive/images/bottom-box-over.jpg); }
+#box2:hover{ background-image:url(/wp-content/themes/imagethemeresponsive/images/bottom-box-over.jpg); }
+#box3:hover{ background-image:url(/wp-content/themes/imagethemeresponsive/images/bottom-box-over.jpg); }
+
+.page-content-text-sub {
+	padding-top:60px;
+	padding-left:100px;
+	padding-right:100px;
+	background-image: url(/wp-content/themes/imagethemeresponsive/images/body-page-top.jpg);
+	background-position: top center;
+	background-repeat: no-repeat;
+	min-height: 400px;
+}
+
+.homepage-content-top1 { width:430px; padding-bottom:35px;}
+.homepage-content-top1 h3 { font-weight: bold; font-size:15px; text-shadow: 0px 1px 1px #666; color:#ff3715; }
+.homepage-content-top1 .textwidget { padding:0px; }
+.homepage-content-top h3 { font-weight: bold; font-size:14px; color:#999; padding:0px; }
+.homepage-content-top .textwidget ul { font-size:12px; padding-top:0px; line-height:14px; color:#999;}
+
+#slim-line { height:1px; color:#ccc; background-color:#ccc; width:100%; }
+
+/* Header */
+
+#header { border-top: 8px solid #f6f6f8; padding-bottom: 20px; }
+
+.head_social_cont { float: right; margin-top: 5px; }
+
+.head_social_cont ul { list-style-type: none; margin: 0; padding: 0; }
+
+.head_social_cont ul li { float: left; margin-right: 10px; }
+
+.head_social_cont ul li:last-child { margin-right: 0; }
+
+
+
+.logo { float: left; margin-top: -20px; max-width: 222px; height: inherit; }
+.quotebtn { float: right; margin-top: 15px; max-width: 166px; height: inherit; }
+
+
+
+.head_menu_cont { float: left; margin-left: 40px; width: 540px; margin-top: 10px; }
+
+
+
+.page_menu { margin-bottom: 20px; }
+
+.page_menu ul { list-style-type: none; margin: 0; padding: 0; }
+
+.page_menu ul li { font-size: 16px; float: left; margin-right: 40px; }
+
+.page_menu ul li:last-child { margin-right: 0; }
+
+.page_menu ul li a { color: #bfbfbf; text-decoration: none; }
+
+.page_menu ul li a:hover { color: #ff3715; }
+
+.page_menu ul li.current-menu-item a, .page_menu ul li.current_page_item a { color: #ff3715; }
+
+
+
+.cat_menu { }
+
+.cat_menu ul { list-style-type: none; margin: 0; padding: 0; }
+
+.cat_menu ul li { font-size: 13px; float: left; margin-right: 10px; padding-right: 14px; background: url('images/menu-divider.jpg') no-repeat; background-position: center right; }
+
+.cat_menu ul li:last-child { background: none; margin-right: 0; padding-right: 0; }
+
+.cat_menu ul li a { color: #c0c0c0; text-decoration: none; }
+
+.cat_menu ul li a:hover { text-decoration: underline; }
+
+.cat_menu ul li.current-menu-item a, .cat_menu ul li.current_page_item a { text-decoration: underline; color: #ff3715; }
+
+
+
+/* Content */
+
+#slideshow_cont { height: 550px; overflow: hidden; }
+#slideshow { position: relative; }
+#slideshow .slide_cont { display: none; width: 976px; height: 550px; }
+#slideshow .slide_cont img { width: 976px; height: 550px; position: absolute; top: 0; left: 0; z-index: 10; }
+#slideshow .active { display: block; }
+
+
+
+.slide_prev { position: absolute; top: 180px; left: 15px; cursor: pointer; z-index: 25; }
+.slide_next { position: absolute; top: 180px; right: 15px; cursor: pointer; z-index: 25; }
+
+.hover_content { display: none;  position: absolute; top: 0; left: 0; color: #000; text-decoration: none; text-align: center; font-size: 13px; color: #a6a5a5; }
+.hover_content h3 { font-size: 18px; color: #fff; font-weight: normal; }
+
+
+
+
+.home_big_box { float: left; width: 480px; margin-top: 15px; margin-right: 15px; position: relative; }
+
+.home_big_box img { width: 480px; height: 400px; }
+.home_big_box img:hover { opacity:0.9; filter:alpha(opacity=90);  /* For IE8 and earlier */ }
+
+.home_big_box .hover_content { width: 480px; height: 400px; padding: 40px 60px 0;  }
+
+.home_big_box_last { margin-right: 0; float: right; }
+
+
+
+.home_small_box { float: left; width: 314px; margin-top: 15px; margin-right: 17px; text-align: center; font-size: 13px; color: #a6a5a5; }
+
+.home_small_box img { width: 314px; height: 263px; }
+
+.home_small_box img:hover { opacity:0.9; filter:alpha(opacity=90);  /* For IE8 and earlier */ }
+
+.home_small_box h3 { padding: 0 10px; }
+
+.home_small_box h3 a { font-size: 16px; font-weight: normal; text-decoration: none; color: #333; }
+
+.home_small_box h3 a:hover { text-decoration: none; color:#888; }
+
+.home_small_box p { margin: 0; padding: 0 10px; }
+
+
+
+.home_small_box_last { margin-right: 0; }
+
+
+
+.archive_nav { padding: 20px 0; }
+
+.archive_nav a { color: #000; text-decoration: none; }
+
+.archive_nav a:hover { text-decoration: underline; }
+
+
+
+#single_cont { padding: 25px 0 0; }
+
+#single_left { width: 525px; float: left; }
+
+#single_left p { line-height: 18px; }
+
+#single_content p { line-height: 18px; }
+
+.single_content p { line-height: 18px; }
+
+.single_left p { line-height: 18px; }
+
+
+.blog_box { padding-bottom: 10px; margin-bottom: 15px; border-bottom: 1px solid #DDDDDD; font-size: 14px; }
+
+.blog_box img { width: 612px; height: 265px; }
+
+.blog_box h3 { font-size: 14px; }
+
+.blog_box h3 a { color: #333; text-decoration: none; }
+.blog_box h3 a:hover { text-decoration: none; color: #888; }
+
+
+
+.single_title { margin: 0 0 15px; font-size: 16px; }
+
+#commentform input[type=submit] { background-color: #161616; color: #fff; border: 1px solid #6E6E6E; padding: 3px 5px; }
+
+
+#sample-left {float:left;}
+#sample-right {float:right; }
+
+/* Sidebar */
+
+#sidebar { width: 260px; float: right; }
+
+
+
+.side_box { margin-bottom: 25px; }
+
+.side_box h3.side_title { margin: 0 0 10px; padding: 5px 10px; background-color: #fff; }
+
+.side_box a { color: #666; text-decoration: none; }
+
+.side_box a:hover { text-decoration: underline; }
+
+.side_box ul { list-style-type: none; margin: 0; padding: 0; }
+
+.side_box ul li { margin-bottom: 10px; padding: 0 10px; }
+
+
+
+.t1_search_cont { position: relative; width: 257px; }
+
+.t1_search_cont input[type=text] { width: 237px; height: 17px; border: 1px solid #E5E5E5; padding: 3px 15px 3px 5px;  }
+
+.t1_search_icon { position: absolute; top: 6px; right: 3px; }
+
+
+
+.textwidget { padding: 0 10px; line-height: 18px; }
+
+#footer-box1 {display:block; padding:10px 40px;}
+#footer-box1 .textwidget { padding: 0 15px; line-height: 18px; }
+#footer-box1 h3 { padding: 0 0 0 10px; line-height: 18px; text-shadow: 0px 2px 3px #999; font-family:'airbus special'; font-size:18pt; padding-top:25px; color:#ff3715;}
+#footer-box1 a{ font-weight: bold; text-shadow: 0px 2px 3px #999; color:#ff3715;}
+
+#footer-box2 {display:block; padding:10px 40px;}
+#footer-box2 .textwidget { padding: 0 15px; line-height: 18px; }
+#footer-box2 h3 { padding: 0 0 0 10px; line-height: 18px; text-shadow: 0px 2px 3px #999; font-family:'airbus special'; font-size:18pt; padding-top:25px; color:#ff3715;}
+#footer-box2 a{ font-weight: bold; text-shadow: 0px 2px 3px #999; color:#ff3715;}
+
+#footer-box3 {display:block; padding:10px 40px;}
+#footer-box3 .textwidget { padding: 0 15px; line-height: 18px; }
+#footer-box3 h3 { padding: 0 0 0 10px; line-height: 18px; text-shadow: 0px 2px 3px #999; font-family:'airbus special'; font-size:18pt; padding-top:25px; color:#ff3715;}
+#footer-box3 a{ font-weight: bold; text-shadow: 0px 2px 3px #999; color:#ff3715;}
+
+.page-footer-copyright { float:right; font-size:8pt; color:#999; padding-right: 30px; }
+
+/* Footer */
+
+#footer { padding: 10px 0; text-align: right; font-size: 11px; color: #a6a5a5; border-top: 1px solid #DBDBDB; margin-top: 45px; }
+
+#footer a { color: #a6a5a5; text-decoration: none; }
+
+#footer a:hover { text-decoration: underline; }
+
+
+
+
+
+/* for tablet */
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+
+
+#main_container { width: 728px; }
+
+
+
+.head_menu_cont { margin-left: 40px; width: 375px; }
+
+.page_menu ul li { margin-right: 20px; margin-bottom: 10px; }
+
+
+
+#slideshow_cont { height: 383px; }
+
+#slideshow .slide_cont { width: 728px; height: 383px; }
+
+#slideshow .slide_cont img { width: 728px; height: 383px; }
+
+
+
+.slide_prev { top: 130px; }
+
+.slide_next { top: 130px; }
+
+
+
+.slide_desc { top: 210px; }
+
+
+
+.hover_content h3 { font-size: 15px; }
+
+.home_big_box { width: 350px; }
+
+.home_big_box img { width: 350px; height: 331px; }
+
+.home_big_box .hover_content { width: 300px; height: 300px; padding: 10px 30px 0; overflow: hidden; }
+
+
+
+.home_small_box { width: 230px; margin-right: 19px; }
+
+.home_small_box img { width: 230px; height: 219px; }
+
+.home_small_box_last { margin-right: 0; }
+
+
+
+#single_left { width: 510px; float: left; }
+
+#single_left .single_content img { max-width: 450px; height: inherit; }
+
+.blog_box img { width: 510px; height: 221px; }
+
+
+
+.t1_search_cont { width: 175px; }
+
+.t1_search_cont input[type=text] { width: 155px; }
+
+
+
+#sidebar { width: 180px; float: right; }
+
+
+
+}
+
+
+
+
+
+/* for mobile */
+
+
+
+@media screen and (max-width: 480px) {
+
+
+
+#main_container { width: 320px; }
+
+
+
+.head_social_cont { display: none; }
+
+#slideshow_cont { display: none; }
+
+.logo { float: none; }
+
+
+
+.head_menu_cont { margin-left: 0px; width: 300px; padding: 0 10px; }
+
+.page_menu { margin-bottom: 10px; }
+
+.page_menu ul li { margin-right: 20px; margin-bottom: 10px; font-size: 13px; }
+
+
+
+.cat_menu ul li { margin-bottom: 10px; }
+
+
+
+.hover_content h3 { font-size: 14px; opacity:0.8; filter:alpha(opacity=80);}
+
+
+
+.home_big_box { float: none; width: 300px; margin: 0 auto 20px; position: relative; }
+
+.home_big_box img { width: 300px; height: 280px; }
+
+.home_big_box .hover_content { width: 270px; height: 280px; padding: 5px 15px 0; overflow: hidden; }
+
+.home_big_box_last { margin-right: auto; float: none; }
+
+
+
+.home_small_box { display: none; }
+
+#single_left { width: 300px; float: none; margin: 0 auto; }
+
+#single_left .single_content img { max-width: 300px; height: inherit; }
+
+
+
+.blog_box img { width: 300px; height: 150px; }
+
+#commentform textarea { max-width: 300px; }
+
+
+
+#sidebar { display: none; }
+
+
+
+}

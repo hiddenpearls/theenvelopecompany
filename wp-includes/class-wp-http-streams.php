@@ -89,7 +89,7 @@ class WP_Http_Streams {
 		$ssl_verify = isset( $r['sslverify'] ) && $r['sslverify'];
 		if ( $is_local ) {
 			/**
-			 * Filters whether SSL should be verified for local requests.
+			 * Filter whether SSL should be verified for local requests.
 			 *
 			 * @since 2.8.0
 			 *
@@ -98,7 +98,7 @@ class WP_Http_Streams {
 			$ssl_verify = apply_filters( 'https_local_ssl_verify', $ssl_verify );
 		} elseif ( ! $is_local ) {
 			/**
-			 * Filters whether SSL should be verified for non-local requests.
+			 * Filter whether SSL should be verified for non-local requests.
 			 *
 			 * @since 2.8.0
 			 *
@@ -377,14 +377,13 @@ class WP_Http_Streams {
 	}
 
 	/**
-	 * Determines whether this class can be used for retrieving a URL.
+	 * Whether this class can be used for retrieving a URL.
 	 *
 	 * @static
 	 * @access public
 	 * @since 2.7.0
 	 * @since 3.7.0 Combined with the fsockopen transport and switched to stream_socket_client().
 	 *
-	 * @param array $args Optional. Array of request arguments. Default empty array.
 	 * @return bool False means this class can not be used, true means it can.
 	 */
 	public static function test( $args = array() ) {
@@ -401,7 +400,7 @@ class WP_Http_Streams {
 		}
 
 		/**
-		 * Filters whether streams can be used as a transport for retrieving a URL.
+		 * Filter whether streams can be used as a transport for retrieving a URL.
 		 *
 		 * @since 2.7.0
 		 *
@@ -415,7 +414,7 @@ class WP_Http_Streams {
 /**
  * Deprecated HTTP Transport method which used fsockopen.
  *
- * This class is not used, and is included for backward compatibility only.
+ * This class is not used, and is included for backwards compatibility only.
  * All code should make use of WP_Http directly through its API.
  *
  * @see WP_HTTP::request
@@ -424,5 +423,5 @@ class WP_Http_Streams {
  * @deprecated 3.7.0 Please use WP_HTTP::request() directly
  */
 class WP_HTTP_Fsockopen extends WP_HTTP_Streams {
-	// For backward compatibility for users who are using the class directly.
+	// For backwards compatibility for users who are using the class directly.
 }

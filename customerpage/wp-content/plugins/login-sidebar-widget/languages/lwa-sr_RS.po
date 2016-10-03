@@ -1,0 +1,35 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Borisa Djuraskovic <borisad@webhostinghub.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+
+msgid "This is a simple login form in the widget."
+msgstr "To je jednostavna forma Prijave uwidget-u."
+
+msgid "Username"
+msgstr "Korisničko ime"
+
+msgid "Password"
+msgstr "Lozinka"
+
+msgid "Login"
+msgstr "Ulogovati se"
+
+msgid "Howdy"
+msgstr "Howdy"
+
+msgid "Logout"
+msgstr "Izlogovati se "
+
+msgid "Error in login!"
+msgstr "Greska u logovanju"
+
+msgid "Username or password is empty!"
+msgstr "Korisničko ime ili lozinka su prazni!"

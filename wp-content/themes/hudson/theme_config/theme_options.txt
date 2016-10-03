@@ -1,0 +1,69 @@
+a:33:{s:10:"logo_image";s:82:"https://shop.azenvelope.com/wp-content/uploads/2015/08/arizona-envelope-logo11.jpg";s:9:"logo_text";s:0:"";s:15:"logo_text_color";s:0:"";s:14:"logo_text_font";s:0:"";s:14:"logo_text_size";s:0:"";s:7:"favicon";s:65:"http://shop.azenvelope.com/wp-content/uploads/2015/09/favicon.ico";s:10:"custom_css";s:2032:".header {
+  background:url('https://shop.azenvelope.com/wp-content/themes/hudson/images/header-background-2.jpg') #ffffff top center no-repeat;}
+.error_404 { 
+  background: URL('') repeat !important;
+} 
+.menu_line {
+  background-image:url('http://www.azenvelope.com/wp-content/themes/imagethemeresponsive/images/body-home-main.jpg_');
+}
+.tm-extra-product-options-field {
+  margin:0 !important;
+  line-height:1em !important;
+}
+.tm-epo-field-label {
+  line-height:20px !important;
+  vertical-align:text-top !important;
+}
+
+.after-amount{
+  float:right !important; 
+}
+.tm_divider { 
+  border:0px !important;
+}
+.tm-section-link a {
+  color:#ffffff;}
+a.tm-section-link {
+  color:#ffffff;
+}
+.tm-extra-product-options-field { 
+  padding:0px; 
+}  
+.section_popup { 
+  padding:10px 10px 10px 0px !important;
+}
+
+button .main_add_to_cart_button { 
+  margin:10px 40px 10px 0 !important; 
+  color:#ffffff !important; 
+  font-size: 20px !important;
+  text-align:center !important;
+  width:220px;
+  top:120px;
+}
+.button .wc-forward {
+  margin:10px !important;
+  top:0px !important;
+}
+.product h1 { 
+  font-size:20px; 
+  color:#fe3815 !important;
+}
+.content .item h1 a { 
+  font-size: 20px; 
+  color:#fe3815 !important; 
+}
+.collection_box_mini {
+  display:none; 
+  height:1px;
+}
+.tm_section_link { a color:#e6e6e6 !important;}
+.right_1-div {padding:10px -5px !important; background-color:#fff !important; border:2px solid #fe3815 !important;}
+.middle_2-div- {background-color:#e6e6e6 !important;}
+
+.row.img-color-bkgd {border:6px solid #f4f0d3 !important;
+  background-image:url('https://shop.azenvelope.com/wp-content/uploads/2015/08/product-bkgd.jpg') !important;
+  background:url('https://shop.azenvelope.com/wp-content/uploads/2015/08/product-bkgd.jpg') !important;}
+.tm-extra-product-options-container {padding-left:25px !important;}
+.quantity {height:1px !important;padding:0px !important;}
+.single_add_to_cart_button {color:#FFF !important;background-color:#FFF !important;}";s:8:"bg_color";s:0:"";s:10:"site_color";s:0:"";s:12:"site_color_2";s:7:"#fe3815";s:12:"site_color_3";s:0:"";s:25:"social_platforms_facebook";s:0:"";s:24:"social_platforms_twitter";s:0:"";s:23:"social_platforms_google";s:0:"";s:26:"social_platforms_pinterest";s:0:"";s:26:"social_platforms_instagram";s:0:"";s:25:"social_platforms_linkedin";s:0:"";s:25:"social_platforms_dribbble";s:0:"";s:24:"social_platforms_behance";s:0:"";s:24:"social_platforms_youtube";s:0:"";s:23:"social_platforms_flickr";s:0:"";s:20:"social_platforms_rss";s:0:"";s:17:"copyright_message";s:0:"";s:14:"show_top_rated";s:14:"show_top_rated";s:18:"contact_map_coords";s:24:"42.6, -41.15999999999997";s:25:"contact_map_marker_coords";s:0:"";s:16:"contact_map_zoom";s:1:"2";s:13:"contact_title";s:0:"";s:13:"contact_email";s:0:"";s:15:"contact_address";s:0:"";s:13:"contact_phone";s:0:"";s:11:"contact_fax";s:0:"";s:13:"address_title";s:0:"";}

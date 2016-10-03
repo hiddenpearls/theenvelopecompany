@@ -1,0 +1,1369 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Hudson\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-19 11:47+0200\n"
+"PO-Revision-Date: 2015-10-19 11:47+0200\n"
+"Last-Translator: Anatolii Bivol <bivol@red-sky.pl>\n"
+"Language-Team: TeslaThemes <support@teslathemes.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_x\n"
+"X-Poedit-Basepath: ./\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: ../search.php:15 ../index.php:22 ../single-collection.php:19
+#: ../archive-collection.php:18 ../404.php:15 ../tag.php:21 ../single.php:15
+#: ../category.php:21 ../archive.php:18 ../page.php:14
+#: ../page-templates/page-contact.php:24 ../page-templates/page-about.php:20
+#: ../theme_config/theme-details.php:206
+msgid "Home"
+msgstr ""
+
+#: ../search.php:15
+msgid "Search results for: "
+msgstr ""
+
+#: ../search.php:36
+msgid "No results"
+msgstr ""
+
+#: ../search.php:37
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for."
+msgstr ""
+
+#: ../search.php:42 ../404.php:31
+msgid "continue shopping"
+msgstr ""
+
+#: ../content-pagination.php:14 ../woocommerce/loop/pagination.php:30
+msgid "Previous"
+msgstr ""
+
+#: ../content-pagination.php:15 ../woocommerce/loop/pagination.php:31
+msgid "Next"
+msgstr ""
+
+#: ../single-collection.php:19 ../single-collection.php:23
+#: ../archive-collection.php:23
+msgid "collections"
+msgstr ""
+
+#: ../archive-collection.php:18
+msgid "COLLECTIONS"
+msgstr ""
+
+#: ../archive-collection.php:67
+msgid "No collections posted yet."
+msgstr ""
+
+#: ../content-page.php:7 ../content-page_hudson.php:10 ../content.php:39
+msgid "Continue reading <span class=\"meta-nav meta-read-more\">&raquo;</span>"
+msgstr ""
+
+#: ../content-page.php:8 ../post_head.php:38 ../content-page_hudson.php:11
+#: ../image.php:84 ../content.php:40
+msgid "Pages:"
+msgstr ""
+
+#: ../post_head.php:23
+msgid "Categories:"
+msgstr ""
+
+#: ../post_head.php:24
+msgid "Comments"
+msgstr ""
+
+#: ../post_head.php:34
+msgid "Continue reading <span class=\"meta-nav\">&raquo;</span>"
+msgstr ""
+
+#: ../author.php:32
+#, php-format
+msgid "Author Archives: %s"
+msgstr ""
+
+#: ../author.php:54 ../content.php:53
+#, php-format
+msgid "About %s"
+msgstr ""
+
+#: ../404.php:15
+msgid "404: Page not found"
+msgstr ""
+
+#: ../404.php:20 ../404.php:25
+msgid "error 404"
+msgstr ""
+
+#: ../404.php:26
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: ../functions.php:239
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: ../functions.php:265
+msgid "Pingback:"
+msgstr ""
+
+#: ../functions.php:265
+msgid "(Edit)"
+msgstr ""
+
+#: ../functions.php:280
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: ../functions.php:285
+msgid "Reply"
+msgstr ""
+
+#: ../functions.php:286 ../image.php:29 ../content.php:46
+msgid "Edit"
+msgstr ""
+
+#: ../functions.php:317
+msgid "Post navigation"
+msgstr ""
+
+#: ../functions.php:318
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: ../functions.php:319
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../functions.php:338 ../functions.php:341
+msgid ", "
+msgstr ""
+
+#: ../functions.php:346
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: ../functions.php:351
+#, php-format
+msgid ""
+"This entry was posted in %1$s and tagged %2$s on %3$s<span class=\"by-author"
+"\"> by %4$s</span>."
+msgstr ""
+
+#: ../functions.php:353
+#, php-format
+msgid ""
+"This entry was posted in %1$s on %3$s<span class=\"by-author\"> by %4$s</"
+"span>."
+msgstr ""
+
+#: ../functions.php:355
+#, php-format
+msgid "This entry was posted on %3$s<span class=\"by-author\"> by %4$s</span>."
+msgstr ""
+
+#: ../functions.php:510 ../template_parts/cart-mini_custom.php:29
+msgid "Remove this item"
+msgstr ""
+
+#: ../functions.php:514 ../template_parts/cart-mini_custom.php:33
+msgid "q-ty"
+msgstr ""
+
+#: ../functions.php:514 ../template_parts/cart-mini_custom.php:33
+msgid "Price"
+msgstr ""
+
+#: ../functions.php:521 ../template_parts/cart-mini_custom.php:40
+msgid "Total"
+msgstr ""
+
+#: ../functions.php:524 ../template_parts/cart-mini_custom.php:43
+msgid "No products in cart. Keep shopping."
+msgstr ""
+
+#: ../functions.php:527 ../template_parts/cart-mini_custom.php:46
+#: ../template_parts/cart-floating.php:11
+msgid "Checkout"
+msgstr ""
+
+#: ../functions.php:528 ../template_parts/cart-mini_custom.php:47
+msgid "View Cart"
+msgstr ""
+
+#: ../header.php:33
+msgid "Sign in"
+msgstr ""
+
+#: ../header.php:35 ../template_parts/account-login_register.php:43
+msgid "Register"
+msgstr ""
+
+#: ../header.php:40
+msgid "My Account"
+msgstr ""
+
+#: ../header.php:42
+msgid "Log Out"
+msgstr ""
+
+#: ../header.php:79
+msgid "My cart"
+msgstr ""
+
+#: ../header.php:109
+msgid "Menu"
+msgstr ""
+
+#: ../header.php:127 ../theme_config/main_slider_view.php:11
+msgid "Categories"
+msgstr ""
+
+#: ../content-none.php:13
+msgid "Nothing Found"
+msgstr ""
+
+#: ../content-none.php:17
+msgid ""
+"Apologies, but no results were found. Perhaps searching will help find a "
+"related post."
+msgstr ""
+
+#: ../front-page.php:33
+msgid "// Our Services"
+msgstr ""
+
+#: ../tag.php:21 ../single.php:15 ../category.php:21 ../archive.php:18
+msgid "Blog"
+msgstr ""
+
+#: ../tag.php:21
+#, php-format
+msgid "Tag: %s"
+msgstr ""
+
+#: ../category.php:21
+#, php-format
+msgid "Category: %s"
+msgstr ""
+
+#: ../archive.php:21
+#, php-format
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: ../archive.php:23
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: ../archive.php:23
+msgid "F Y"
+msgstr ""
+
+#: ../archive.php:25
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: ../archive.php:25
+msgid "Y"
+msgstr ""
+
+#: ../archive.php:27
+msgid "Archives"
+msgstr ""
+
+#: ../comments.php:44
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: ../comments.php:45
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: ../image.php:26
+#, php-format
+msgid ""
+"<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class="
+"\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></"
+"span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; "
+"%5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%8$s</"
+"a>."
+msgstr ""
+
+#: ../image.php:33
+msgid "&larr; Previous"
+msgstr ""
+
+#: ../image.php:34
+msgid "Next &rarr;"
+msgstr ""
+
+#: ../content.php:14
+msgid "Featured post"
+msgstr ""
+
+#: ../content.php:23
+#, php-format
+msgid "Permalink to %s"
+msgstr ""
+
+#: ../content.php:28
+msgid "Leave a reply"
+msgstr ""
+
+#: ../content.php:28
+msgid "1 Reply"
+msgstr ""
+
+#: ../content.php:28
+msgid "% Replies"
+msgstr ""
+
+#: ../content.php:57
+#, php-format
+msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../widgets/contact_info.php:16
+msgid "Displays Contact Info."
+msgstr ""
+
+#: ../widgets/contact_info.php:17
+msgid "Contact Info"
+msgstr ""
+
+#: ../widgets/contact_info.php:26
+msgid "Select Contact Info Heading"
+msgstr ""
+
+#: ../widgets/latest_popular.php:17
+msgid "Displays Posts tabs."
+msgstr ""
+
+#: ../widgets/latest_popular.php:18
+msgid "Latest and Popular Posts"
+msgstr ""
+
+#: ../widgets/latest_popular.php:26
+msgid "Nr of posts to show:"
+msgstr ""
+
+#: ../widgets/subscribe.php:16
+msgid "Displays Subscription Form."
+msgstr ""
+
+#: ../widgets/subscribe.php:17
+msgid "Subscription Form"
+msgstr ""
+
+#: ../widgets/subscribe.php:30
+msgid "Enter Subscription Heading"
+msgstr ""
+
+#: ../widgets/subscribe.php:36
+msgid "Enter Email Placeholder"
+msgstr ""
+
+#: ../widgets/footer_logo.php:16
+msgid "Displays Footer Logo."
+msgstr ""
+
+#: ../widgets/footer_logo.php:17
+msgid "Footer Logo"
+msgstr ""
+
+#: ../widgets/footer_logo.php:28
+msgid "Select Footer Logo:"
+msgstr ""
+
+#: ../widgets/sidebar_ads.php:16
+msgid "Displays sidebar ads."
+msgstr ""
+
+#: ../widgets/sidebar_ads.php:17
+msgid "Sidebar Ads"
+msgstr ""
+
+#: ../widgets/sidebar_ads.php:35
+msgid "Ad Slot #1:"
+msgstr ""
+
+#: ../widgets/sidebar_ads.php:36
+msgid "Ad Slot #2:"
+msgstr ""
+
+#: ../widgets/sidebar_ads.php:37
+msgid "Ad Slot #3:"
+msgstr ""
+
+#: ../widgets/sidebar_ads.php:38
+msgid "Ad Slot #4:"
+msgstr ""
+
+#: ../widgets/views/latest_posts_widget.php:7
+msgid "Latest Posts"
+msgstr ""
+
+#: ../widgets/views/latest_posts_widget.php:10
+msgid "Popular"
+msgstr ""
+
+#: ../page-templates/page-contact.php:24
+msgid "Contact"
+msgstr ""
+
+#: ../page-templates/page-contact.php:39
+msgid "Message sent successfully."
+msgstr ""
+
+#: ../page-templates/page-contact.php:49
+#: ../theme_includes/class-tesla-widget-subscribe.php:19
+msgid "Name"
+msgstr ""
+
+#: ../page-templates/page-contact.php:50
+msgid "E-mail"
+msgstr ""
+
+#: ../page-templates/page-contact.php:51
+msgid "Web site"
+msgstr ""
+
+#: ../page-templates/page-contact.php:52
+msgid "Message"
+msgstr ""
+
+#: ../page-templates/page-about.php:33
+msgid "Meet our team"
+msgstr ""
+
+#: ../page-templates/page-about.php:35
+msgid "Our services"
+msgstr ""
+
+#: ../theme_includes/class-tesla-collections.php:54
+#: ../theme_includes/class-tesla-collections.php:55
+msgid "Collection"
+msgstr ""
+
+#: ../theme_includes/class-tesla-collections.php:56
+#: ../theme_includes/class-tesla-partners.php:57
+#: ../theme_includes/class-tesla-offers.php:143
+#: ../theme_includes/class-tesla-team.php:56
+msgid "Add New"
+msgstr ""
+
+#: ../theme_includes/class-tesla-collections.php:57
+msgid "Add New Collection"
+msgstr ""
+
+#: ../theme_includes/class-tesla-collections.php:58
+msgid "Edit Collection"
+msgstr ""
+
+#: ../theme_includes/class-tesla-collections.php:59
+msgid "New Collection"
+msgstr ""
+
+#: ../theme_includes/class-tesla-collections.php:60
+msgid "All Collections"
+msgstr ""
+
+#: ../theme_includes/class-tesla-collections.php:61
+msgid "View Collection"
+msgstr ""
+
+#: ../theme_includes/class-tesla-collections.php:62
+msgid "Search Collections"
+msgstr ""
+
+#: ../theme_includes/class-tesla-collections.php:63
+msgid "No collections found"
+msgstr ""
+
+#: ../theme_includes/class-tesla-collections.php:64
+msgid "No collections found in Trash"
+msgstr ""
+
+#: ../theme_includes/class-tesla-collections.php:66
+msgid "Collections"
+msgstr ""
+
+#: ../theme_includes/class-tesla-partners.php:55
+#: ../theme_includes/class-tesla-partners.php:67
+msgid "Partners"
+msgstr ""
+
+#: ../theme_includes/class-tesla-partners.php:56
+msgid "Partner"
+msgstr ""
+
+#: ../theme_includes/class-tesla-partners.php:58
+msgid "Add New Partner"
+msgstr ""
+
+#: ../theme_includes/class-tesla-partners.php:59
+msgid "Edit Partner"
+msgstr ""
+
+#: ../theme_includes/class-tesla-partners.php:60
+msgid "New Partner"
+msgstr ""
+
+#: ../theme_includes/class-tesla-partners.php:61
+msgid "All Partners"
+msgstr ""
+
+#: ../theme_includes/class-tesla-partners.php:62
+msgid "View Partner"
+msgstr ""
+
+#: ../theme_includes/class-tesla-partners.php:63
+msgid "Search Partners"
+msgstr ""
+
+#: ../theme_includes/class-tesla-partners.php:64
+msgid "No partners found"
+msgstr ""
+
+#: ../theme_includes/class-tesla-partners.php:65
+msgid "No partners found in Trash"
+msgstr ""
+
+#: ../theme_includes/class-tesla-offers.php:141
+#: ../theme_includes/class-tesla-offers.php:153
+msgid "Offers"
+msgstr ""
+
+#: ../theme_includes/class-tesla-offers.php:142
+msgid "Offer"
+msgstr ""
+
+#: ../theme_includes/class-tesla-offers.php:144
+msgid "Add New Offer"
+msgstr ""
+
+#: ../theme_includes/class-tesla-offers.php:145
+msgid "Edit Offer"
+msgstr ""
+
+#: ../theme_includes/class-tesla-offers.php:146
+msgid "New Offer"
+msgstr ""
+
+#: ../theme_includes/class-tesla-offers.php:147
+msgid "All Offers"
+msgstr ""
+
+#: ../theme_includes/class-tesla-offers.php:148
+msgid "View Offer"
+msgstr ""
+
+#: ../theme_includes/class-tesla-offers.php:149
+msgid "Search Offers"
+msgstr ""
+
+#: ../theme_includes/class-tesla-offers.php:150
+msgid "No offers found"
+msgstr ""
+
+#: ../theme_includes/class-tesla-offers.php:151
+msgid "No offers found in Trash"
+msgstr ""
+
+#: ../theme_includes/class-tesla-team.php:54
+#: ../theme_includes/class-tesla-team.php:55
+#: ../theme_includes/class-tesla-team.php:66
+msgid "Team"
+msgstr ""
+
+#: ../theme_includes/class-tesla-team.php:57
+msgid "Add New Team Member"
+msgstr ""
+
+#: ../theme_includes/class-tesla-team.php:58
+msgid "Edit Team Member"
+msgstr ""
+
+#: ../theme_includes/class-tesla-team.php:59
+msgid "New Team Member"
+msgstr ""
+
+#: ../theme_includes/class-tesla-team.php:60
+msgid "All Team Members"
+msgstr ""
+
+#: ../theme_includes/class-tesla-team.php:61
+msgid "View Team Member"
+msgstr ""
+
+#: ../theme_includes/class-tesla-team.php:62
+msgid "Search Team Members"
+msgstr ""
+
+#: ../theme_includes/class-tesla-team.php:63
+msgid "No team members found"
+msgstr ""
+
+#: ../theme_includes/class-tesla-team.php:64
+msgid "No team members found in Trash"
+msgstr ""
+
+#: ../theme_includes/class-tesla-widget-subscribe.php:15
+msgid "Tesla Subscribe Widget"
+msgstr ""
+
+#: ../theme_includes/class-tesla-widget-subscribe.php:18
+msgid "New title"
+msgstr ""
+
+#: ../theme_includes/class-tesla-widget-subscribe.php:20
+#: ../template_parts/account-login_register.php:30
+msgid "Email"
+msgstr ""
+
+#: ../theme_includes/class-tesla-widget-subscribe.php:21
+msgid "Subscribe"
+msgstr ""
+
+#: ../theme_includes/class-tesla-widget-subscribe.php:62
+msgid "Title:"
+msgstr ""
+
+#: ../theme_includes/class-tesla-widget-subscribe.php:66
+msgid "Placeholder for name input:"
+msgstr ""
+
+#: ../theme_includes/class-tesla-widget-subscribe.php:70
+msgid "Placeholder for email input:"
+msgstr ""
+
+#: ../theme_includes/class-tesla-widget-subscribe.php:74
+msgid "Submit button text:"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:196
+#: ../theme_config/theme-details.php:95
+msgid "Install Required Plugins"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:197
+#: ../theme_config/theme-details.php:96
+msgid "Install Plugins"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:198
+#: ../theme_config/theme-details.php:97
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:199
+msgid "Something went wrong."
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:210
+#: ../theme_config/theme-details.php:109
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:211
+msgid "Return to the dashboard"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:212
+#: ../theme_includes/class-tgm-plugin-activation.php:1951
+#: ../theme_config/theme-details.php:110
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:213
+msgid "The following plugin was activated successfully:"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:214
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:215
+msgid "Dismiss this notice"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:544
+#: ../theme_includes/class-tgm-plugin-activation.php:2168
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1174
+msgid "Private Repository"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1177
+msgid "Pre-Packaged"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1182
+msgid "WordPress Repository"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1185
+msgid "Required"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1185
+msgid "Recommended"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1188
+msgid "Not Installed"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1190
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1290
+#: ../theme_includes/class-tgm-plugin-activation.php:1398
+msgid "Install"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1312
+#: ../theme_includes/class-tgm-plugin-activation.php:1399
+msgid "Activate"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1361
+#, php-format
+msgid ""
+"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
+"Dashboard\">Return to the Dashboard</a>"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1377
+msgid "Plugin"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1378
+msgid "Source"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1379
+msgid "Type"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1380
+msgid "Status"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1508
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1616
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1934
+msgid "Install package not available."
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1935
+#, php-format
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1936
+msgid "Unpacking the package&#8230;"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1937
+msgid "Installing the plugin&#8230;"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1938
+msgid "Plugin install failed."
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1939
+msgid "Plugin installed successfully."
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:1950
+msgid "Plugin activation failed."
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:2064
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:2065
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:2065
+#: ../theme_includes/class-tgm-plugin-activation.php:2074
+msgid "Show Details"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:2065
+#: ../theme_includes/class-tgm-plugin-activation.php:2074
+msgid "Hide Details"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:2066
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:2067
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:2071
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:2072
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:2073
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:2074
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:2075
+msgid "All installations have been completed."
+msgstr ""
+
+#: ../theme_includes/class-tgm-plugin-activation.php:2076
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../theme_includes/class-tesla-contact.php:12
+msgid "Comment form message *"
+msgstr ""
+
+#: ../theme_includes/class-tesla-contact.php:13
+msgid "New message through comment form:"
+msgstr ""
+
+#: ../theme_includes/class-tesla-wc-shortcodes.php:27
+msgid "// Latest products"
+msgstr ""
+
+#: ../tesla_framework/views/admin.php:21
+msgid "Documentation"
+msgstr ""
+
+#: ../tesla_framework/views/admin.php:24
+msgid "Support"
+msgstr ""
+
+#: ../tesla_framework/views/admin.php:27
+msgid "Latest News"
+msgstr ""
+
+#: ../tesla_framework/views/admin.php:31
+msgid " Version "
+msgstr ""
+
+#: ../tesla_framework/views/admin.php:32
+msgid "Framework "
+msgstr ""
+
+#: ../tesla_framework/views/admin.php:32
+msgid "Version "
+msgstr ""
+
+#: ../tesla_framework/views/admin.php:53 ../tesla_framework/views/admin.php:81
+#: ../tesla_framework/views/admin.php:115
+#: ../tesla_framework/views/admin.php:157
+#: ../tesla_framework/views/options/image_upload.php:13
+#: ../tesla_framework/views/options/button.php:5
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: ../tesla_framework/views/admin.php:137
+#: ../tesla_framework/extensions/Tax-meta-class/Tax-meta-class.php:582
+#: ../tesla_framework/extensions/Tax-meta-class/Tax-meta-class.php:629
+#: ../tesla_framework/extensions/meta-box-class/my-meta-box-class.php:438
+#: ../tesla_framework/extensions/meta-box-class/my-meta-box-class.php:477
+msgid "Remove"
+msgstr ""
+
+#: ../tesla_framework/views/admin.php:155
+msgid "Save Changes"
+msgstr ""
+
+#: ../tesla_framework/views/options/image_upload.php:15
+msgid "Upload Image"
+msgstr ""
+
+#: ../tesla_framework/views/options/image_upload.php:17
+msgid "Remove Image"
+msgstr ""
+
+#: ../tesla_framework/views/options/image_upload.php:19
+msgid "Preview"
+msgstr ""
+
+#: ../tesla_framework/views/options/text.php:45
+msgid "Text Logo Preview"
+msgstr ""
+
+#: ../tesla_framework/widgets/twitter.php:10
+msgid "Twitter feed."
+msgstr ""
+
+#: ../tesla_framework/widgets/instagram.php:13
+msgid "Instagram feed."
+msgstr ""
+
+#: ../tesla_framework/widgets/instagram.php:35
+msgid "Instagram"
+msgstr ""
+
+#: ../tesla_framework/extensions/Tax-meta-class/Tax-meta-class.php:250
+msgid "Delete this image"
+msgstr ""
+
+#: ../tesla_framework/extensions/Tax-meta-class/Tax-meta-class.php:250
+#: ../tesla_framework/extensions/Tax-meta-class/Tax-meta-class.php:882
+msgid "Delete"
+msgstr ""
+
+#: ../tesla_framework/extensions/Tax-meta-class/Tax-meta-class.php:357
+msgid "Cannot delete file. Something's wrong."
+msgstr ""
+
+#: ../tesla_framework/extensions/Tax-meta-class/Tax-meta-class.php:595
+#: ../tesla_framework/extensions/meta-box-class/my-meta-box-class.php:450
+msgid "Add"
+msgstr ""
+
+#: ../tesla_framework/extensions/Tax-meta-class/Tax-meta-class.php:878
+msgid "Uploaded files"
+msgstr ""
+
+#: ../tesla_framework/extensions/Tax-meta-class/Tax-meta-class.php:889
+msgid "Upload new files"
+msgstr ""
+
+#: ../tesla_framework/extensions/Tax-meta-class/Tax-meta-class.php:895
+msgid "Add more files"
+msgstr ""
+
+#: ../tesla_framework/extensions/Tax-meta-class/Tax-meta-class.php:947
+#: ../tesla_framework/extensions/meta-box-class/my-meta-box-class.php:804
+msgid "Select a color"
+msgstr ""
+
+#: ../tesla_framework/extensions/meta-box-class/my-meta-box-class.php:1884
+#: ../tesla_framework/extensions/meta-box-class/my-meta-box-class.php:1892
+msgid "Sorry, you cannot upload this file type for this field."
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:145
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:153
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:235
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:239
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:248
+msgid "Sorry, there has been an error."
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:146
+msgid "The file does not exist, please try again."
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:240
+#, php-format
+msgid ""
+"The export file could not be found at <code>%s</code>. It is likely that "
+"this was caused by a permissions problem."
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:256
+#, php-format
+msgid ""
+"This WXR file (version %s) may not be supported by this version of the "
+"importer. Please consider updating."
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:280
+#, php-format
+msgid ""
+"Failed to import author %s. Their posts will be attributed to the current "
+"user."
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:340
+#, php-format
+msgid ""
+"Failed to create new user for %s. Their posts will be attributed to the "
+"current user."
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:391
+#, php-format
+msgid "Failed to import category %s"
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:431
+#, php-format
+msgid "Failed to import post tag %s"
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:477
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:618
+#, php-format
+msgid "Failed to import %s %s"
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:503
+#, php-format
+msgid "Failed to import &#8220;%s&#8221;: Invalid post type %s"
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:525
+#, php-format
+msgid "%s &#8220;%s&#8221; already exists."
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:584
+#, php-format
+msgid "Failed to import %s &#8220;%s&#8221;"
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:749
+msgid "Menu item skipped due to missing menu slug"
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:756
+#, php-format
+msgid "Menu item skipped due to invalid menu slug: %s"
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:819
+msgid "Fetching attachments is not enabled"
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:832
+msgid "Invalid file type"
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:876
+msgid "Remote server did not respond"
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:882
+#, php-format
+msgid "Remote server returned error response %1$d %2$s"
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:889
+msgid "Remote file is incorrect size"
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:894
+msgid "Zero size file downloaded"
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/autoimporter.php:900
+#, php-format
+msgid "Remote file is too large, limit is %s"
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/parsers.php:43
+#: ../tesla_framework/extensions/autoimport/parsers.php:75
+#: ../tesla_framework/extensions/autoimport/parsers.php:83
+msgid "There was an error when reading this WXR file"
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/parsers.php:44
+msgid ""
+"Details are shown above. The importer will now try again with a different "
+"parser..."
+msgstr ""
+
+#: ../tesla_framework/extensions/autoimport/parsers.php:87
+#: ../tesla_framework/extensions/autoimport/parsers.php:92
+#: ../tesla_framework/extensions/autoimport/parsers.php:283
+#: ../tesla_framework/extensions/autoimport/parsers.php:473
+msgid ""
+"This does not appear to be a WXR file, missing/invalid WXR version number"
+msgstr ""
+
+#: ../tesla_framework/helpers/instagram.php:98
+msgid "No username inserted in instagram widget"
+msgstr ""
+
+#: ../tesla_framework/core/tt_subscription.php:69
+msgid "Subscribed"
+msgstr ""
+
+#: ../tesla_framework/core/tt_subscription.php:71
+msgid "Error"
+msgstr ""
+
+#: ../tesla_framework/core/tt_subscription.php:75
+msgid "MailChimp Error"
+msgstr ""
+
+#: ../tesla_framework/core/tt_subscription.php:82
+msgid "No data received"
+msgstr ""
+
+#: ../tesla_framework/core/tt_subscription.php:110
+msgid "No API key for mailchimp"
+msgstr ""
+
+#: ../tesla_framework/core/tt_subscription.php:124
+msgid "Not a valid mailchimp api key."
+msgstr ""
+
+#: ../tesla_framework/core/teslaframework.php:37
+msgid "Simple Meta Box fields"
+msgstr ""
+
+#: ../tesla_framework/core/tt_contact_form.php:69
+msgid "From "
+msgstr ""
+
+#: ../tesla_framework/core/tt_contact_form.php:69
+msgid " Contact Form "
+msgstr ""
+
+#: ../tesla_framework/core/tesla_slider.php:1269
+msgid "Order"
+msgstr ""
+
+#: ../woocommerce/content-product.php:44
+#: ../template_parts/slider_recent_products-loop.php:5
+msgid "quick view"
+msgstr ""
+
+#: ../woocommerce/content-single-product.php:38
+msgid "Reviews"
+msgstr ""
+
+#: ../woocommerce/content-single-product.php:38
+msgid "Write a review"
+msgstr ""
+
+#: ../woocommerce/content-single-product.php:55
+msgid "people who viewed this also viewed"
+msgstr ""
+
+#: ../woocommerce/archive-product.php:38
+msgid "filter by"
+msgstr ""
+
+#: ../woocommerce/archive-product.php:42
+msgid "best sellers"
+msgstr ""
+
+#: ../woocommerce/archive-product.php:109
+msgid "recent products"
+msgstr ""
+
+#: ../woocommerce/archive-product.php:116
+msgid "People considered these products"
+msgstr ""
+
+#: ../woocommerce/loop/add-to-cart.php:34
+#: ../woocommerce/loop/add-to-cart.php:58
+#: ../woocommerce/loop/add-to-cart.php:67
+msgid "Read More"
+msgstr ""
+
+#: ../woocommerce/loop/add-to-cart.php:50
+msgid "Select options"
+msgstr ""
+
+#: ../woocommerce/loop/add-to-cart.php:54
+msgid "View options"
+msgstr ""
+
+#: ../woocommerce/loop/add-to-cart.php:63
+msgid "Add to cart"
+msgstr ""
+
+#: ../woocommerce/loop/no-products-found.php:15
+msgid "No products found which match your selection."
+msgstr ""
+
+#: ../woocommerce/loop/orderby.php:42
+msgid "Order by"
+msgstr ""
+
+#: ../woocommerce/single-product/related.php:36
+msgid "Related Products"
+msgstr ""
+
+#: ../woocommerce/checkout/form-login.php:15
+msgid "Returning customer?"
+msgstr ""
+
+#: ../woocommerce/checkout/form-login.php:18
+msgid "Click here to login"
+msgstr ""
+
+#: ../woocommerce/checkout/form-login.php:23
+msgid ""
+"If you have shopped with us before, please enter your details in the boxes "
+"below. If you are a new customer please proceed to the Billing &amp; "
+"Shipping section."
+msgstr ""
+
+#: ../theme_config/theme-details.php:25
+msgid "Primary Menu"
+msgstr ""
+
+#: ../theme_config/theme-details.php:28
+msgid "Categories Menu"
+msgstr ""
+
+#: ../theme_config/theme-details.php:98
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: ../theme_config/theme-details.php:111
+#, php-format
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#: ../theme_config/theme-details.php:126
+msgid "Sidebar Blog"
+msgstr ""
+
+#: ../theme_config/theme-details.php:128
+msgid "Blog sidebar"
+msgstr ""
+
+#: ../theme_config/theme-details.php:136
+msgid "Footer Column 1"
+msgstr ""
+
+#: ../theme_config/theme-details.php:138
+msgid "First column in footer"
+msgstr ""
+
+#: ../theme_config/theme-details.php:146
+msgid "Footer Column 2"
+msgstr ""
+
+#: ../theme_config/theme-details.php:148
+msgid "Second column in footer"
+msgstr ""
+
+#: ../theme_config/theme-details.php:156
+msgid "Footer Column 3"
+msgstr ""
+
+#: ../theme_config/theme-details.php:158
+msgid "Third column in footer"
+msgstr ""
+
+#: ../theme_config/theme-details.php:166
+msgid "Footer Column 4"
+msgstr ""
+
+#: ../theme_config/theme-details.php:168
+msgid "Fourth column in footer"
+msgstr ""
+
+#: ../theme_config/theme-details.php:176
+msgid "Sidebar Contact Page"
+msgstr ""
+
+#: ../theme_config/theme-details.php:178
+msgid "Contact Page sidebar"
+msgstr ""
+
+#: ../theme_config/theme-details.php:186
+msgid "Sidebar Shop"
+msgstr ""
+
+#: ../theme_config/theme-details.php:188
+msgid "Shop Page sidebar"
+msgstr ""
+
+#: ../template_parts/account-login_register.php:7
+msgid "sign in"
+msgstr ""
+
+#: ../template_parts/account-login_register.php:10
+#: ../template_parts/account-login_register.php:27
+msgid "Username"
+msgstr ""
+
+#: ../template_parts/account-login_register.php:11
+#: ../template_parts/account-login_register.php:32
+msgid "Password"
+msgstr ""
+
+#: ../template_parts/account-login_register.php:13
+msgid "Lost Password?"
+msgstr ""
+
+#: ../template_parts/account-login_register.php:15
+msgid "Login"
+msgstr ""
+
+#: ../template_parts/account-login_register.php:22
+msgid "register now"
+msgstr ""
+
+#: ../template_parts/account-login_register.php:34
+msgid "Re-enter password"
+msgstr ""
+
+#: ../template_parts/account-login_register.php:37
+msgid "Anti-spam"
+msgstr ""
+
+#: ../template_parts/cart-floating.php:8
+msgid "my cart"
+msgstr ""
+
+#: ../template_parts/cart-floating.php:9
+msgid "Items"
+msgstr ""
+
+#: ../template_parts/quickview-popup.php:8
+msgid "View more details"
+msgstr ""
+
+#: ../template_parts/quickview-popup.php:23
+msgid "price"
+msgstr ""
+
+#: ../template_parts/quickview-popup.php:29
+msgid "View product"
+msgstr ""

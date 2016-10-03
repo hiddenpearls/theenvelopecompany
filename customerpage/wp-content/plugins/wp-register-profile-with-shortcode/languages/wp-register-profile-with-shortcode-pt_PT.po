@@ -1,0 +1,77 @@
+msgid "This is a simple register form in the widget."
+msgstr "Forma simples de registo no widget."
+
+msgid "Username"
+msgstr "Utilizador"
+
+msgid "User Email"
+msgstr "Email do utilizador"
+
+msgid "Password"
+msgstr "Senha"
+
+msgid "Retype Password"
+msgstr "Repetir senha"
+
+msgid "First Name"
+msgstr "Nome"
+
+msgid "Last Name"
+msgstr "Apelido"
+
+msgid "Display Name"
+msgstr "Nome a mostrar"
+
+msgid "About User"
+msgstr "Sobre o utilizador"
+
+msgid "Website"
+msgstr "Website"
+
+msgid "Register"
+msgstr "Registo"
+
+msgid "Sorry. Registration is not allowed in this site."
+msgstr "Oops. O registo n&atilde;o &eacute; permitido neste site."
+
+msgid "Registration Successfull"
+msgstr "Registo efetuado com sucesso"
+
+msgid "Thankyou for registration"
+msgstr "Obrigado pelo seu registo"
+
+msgid "Site Link"
+msgstr "Link do site"
+
+msgid "Username already exists. Please use a different one!"
+msgstr "O nome de utilizador j&aacute; existe. Por favor utilize um diferente!"
+
+msgid "Email already exists. Please use a different one!"
+msgstr "O endere&ccedil; de Email j&aacute; existe. Por favor utilize um diferente!"
+
+msgid "Password and Retype password donot match!"
+msgstr "A senha e a repeti&ccedil;&atilde;o n&atildeo coincidem!"
+
+msgid "You are successfully registered to the site. Please check your email for login details."
+msgstr "O registo foi efetuado com sucesso. Por favor verifique o seu email para ver os detalhes do login."
+
+msgid "Update"
+msgstr "Atualizar"
+
+msgid "Login to update profile!"
+msgstr "Inicie a sess&atilde;o para atualizar o perfil!"
+
+msgid "Your new password dont match with retype password!"
+msgstr "A sua nova senha não coincide com a repeti&ccedil;&atilde;o!"
+
+msgid "Your password updated successfully."
+msgstr "A sua senha foi atualizada com sucesso."
+
+msgid "New Password"
+msgstr "Nova senha"
+
+msgid "Profile data updated successfully."
+msgstr "O seu perfil foi atualizado com sucesso."
+
+msgid "Submit"
+msgstr "Enviar"

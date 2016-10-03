@@ -1,0 +1,47 @@
+*** WooCommerce Role Based Methods ***
+
+2015.10.27 - version 2.0.8
+ * Adding in wc_clean for additional sanitization.
+
+2015.04.28 - version 2.0.7
+ * Settings update sanitization
+
+2015.04.28 - version 2.0.6
+ * Undefined variable error fixed.
+
+2015.03.22 - version 2.0.5
+ * Bug Fixes, improved Groups interface and functionality.
+
+2015.01.22 - version 2.0.4
+ * AND/OR selection for groups integration, improved admin interface.
+
+2014.09.23 - version 2.0.3
+ * WooCommerce Mollie Payment Gateway support.
+
+2014.09.09 - version 2.0.2
+ * Code Cleanup
+
+2014.09.08 - version 2.0.1
+ * Add woo-includes back
+ * Fix admin css path
+
+2014.9.4 - version 2.0.0
+ * Plugin rewrite, Groups integration, and WC 2.2 Compatibility.
+
+2014.3.10 - version 1.1.4
+ * Bugs fixed, as reported by Hugh Campbell
+
+2014.1.19 - version 1.1.3
+ * WC 2.1 Support
+
+2013.3.19 - version 1.1.2
+ * Fixing CSS Include issue
+
+2013.1.31 - version 1.1.1
+ * Code Cleanup, Docblocks, only including custom CSS on relavent admin pages.
+
+2012.12.04 - version 1.1
+ * Fixed bug appearing with space-containing roles, additional compatibility improvements
+
+2012.08.23 - version 1.0
+ * First release

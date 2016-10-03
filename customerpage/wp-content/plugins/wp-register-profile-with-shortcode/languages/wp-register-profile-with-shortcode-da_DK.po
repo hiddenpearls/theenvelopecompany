@@ -1,0 +1,62 @@
+msgid "This is a simple register form in the widget."
+msgstr "Dette er et simpelt login-formular i widget."
+
+msgid "Username"
+msgstr "Brugernavn"
+
+msgid "User Email"
+msgstr "Bruger Email"
+
+msgid "Password"
+msgstr "adgangskode"
+
+msgid "Retype Password"
+msgstr "Skriv kodeord"
+
+msgid "First Name"
+msgstr "Fornavn"
+
+msgid "Last Name"
+msgstr "efternavn"
+
+msgid "Display Name"
+msgstr "Vist navn"
+
+msgid "About User"
+msgstr "om Bruger"
+
+msgid "Website"
+msgstr "websted"
+
+msgid "Register"
+msgstr "Tilmeld"
+
+msgid "Sorry. Registration is not allowed in this site."
+msgstr "Undskyld. Tilmelding er ikke tilladt p&aring; dette site."
+
+msgid "Username already exists. Please use a different one!"
+msgstr "Findes allerede brugernavn. Brug venligst en anden!"
+
+msgid "Email already exists. Please use a different one!"
+msgstr "Findes allerede Email. Brug venligst en anden!"
+
+msgid "Password and Retype password donot match!"
+msgstr "Password og Gentag adgangskode donot matche!"
+
+msgid "You are successfully registered to the site. Please check your email for login details."
+msgstr "Du er registreret korrekt p&aring; webstedet. Tjek venligst din e-mail for login detaljer."
+
+msgid "Update"
+msgstr "opdatering"
+
+msgid "Login to update profile!"
+msgstr "Log ind for at opdatere profil !"
+
+msgid "Your new password dont match with retype password!"
+msgstr "Din nye adgangskode Dont matche med Gentag adgangskode!"
+
+msgid "Your password updated successfully."
+msgstr "Din adgangskode opdateret."
+
+msgid "New Password"
+msgstr "ny adgangskode"

@@ -17,12 +17,10 @@ abstract class WP_Image_Editor {
 	protected $mime_type = null;
 	protected $default_mime_type = 'image/jpeg';
 	protected $quality = false;
-	protected $default_quality = 82;
+	protected $default_quality = 90;
 
 	/**
 	 * Each instance handles a single file.
-	 *
-	 * @param string $file Path to the file to load.
 	 */
 	public function __construct( $file ) {
 		$this->file = $file;
@@ -237,7 +235,7 @@ abstract class WP_Image_Editor {
 	public function set_quality( $quality = null ) {
 		if ( null === $quality ) {
 			/**
-			 * Filters the default image compression quality setting.
+			 * Filter the default image compression quality setting.
 			 *
 			 * Applies only during initial editor instantiation, or when set_quality() is run
 			 * manually without the `$quality` argument.
@@ -253,7 +251,7 @@ abstract class WP_Image_Editor {
 
 			if ( 'image/jpeg' == $this->mime_type ) {
 				/**
-				 * Filters the JPEG compression quality for backward-compatibility.
+				 * Filter the JPEG compression quality for backward-compatibility.
 				 *
 				 * Applies only during initial editor instantiation, or when set_quality() is run
 				 * manually without the `$quality` argument.
@@ -276,7 +274,7 @@ abstract class WP_Image_Editor {
 			}
 		}
 
-		// Allow 0, but squash to 1 due to identical images in GD, and for backward compatibility.
+		// Allow 0, but squash to 1 due to identical images in GD, and for backwards compatibility.
 		if ( 0 === $quality ) {
 			$quality = 1;
 		}
@@ -333,7 +331,7 @@ abstract class WP_Image_Editor {
 		// If not, choose a default instead.
 		if ( ! $this->supports_mime_type( $mime_type ) ) {
 			/**
-			 * Filters default mime type prior to getting the file extension.
+			 * Filter default mime type prior to getting the file extension.
 			 *
 			 * @see wp_get_mime_types()
 			 *
