@@ -1,5 +1,5 @@
 <?php
-    //register custom post type clients
+    //register custom post type samples
     function register_samples() {
         $labels = array(
             'name'               => _x( 'Samples', 'post type general name' ),
