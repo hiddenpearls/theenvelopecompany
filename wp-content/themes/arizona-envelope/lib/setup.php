@@ -89,6 +89,10 @@ function display_sidebar() {
     is_404(),
     is_front_page(),
     is_page_template('template-custom.php'),
+    is_page_template('template-resources.php'),
+    is_page('die-lines'),
+    is_page('helpful-information'),
+    is_page('equipment'),
     is_woocommerce()
   ]);
 

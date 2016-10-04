@@ -83,3 +83,19 @@ if( is_front_page() ){
     }
 
  ?>
+
+<?php if(is_page('die-lines') || is_page('resources') || is_page('helpful-information') | is_page('equipment')){?>
+    <div class="category-shop-header">
+        <div class="container">
+            <ul class="shop-navigation-bar">
+                <?php 
+                $menu = wp_get_nav_menu_items('resources-menu');
+                foreach ($menu as $key => $menu_item) {
+                    echo '<li>';    
+                    echo  '<a class="shop-nav-btn" href="'. $menu_item->url .'">'.$menu_item->title.'</a>';
+                    echo '</li>'; 
+                }?> 
+            </ul>
+        </div>
+    </div>
+<?php }?>

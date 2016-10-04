@@ -293,3 +293,10 @@ $button-transistion-duration: 0.3s;     // The transition duration
 .c-hamburger--htx.is-active span::after {
   transition-delay: 0s, $button-transistion-duration;
 }
+
+.active-resources-menu{
+  border-color: #fff;
+  a{
+    color: #fff;
+  }
+}
