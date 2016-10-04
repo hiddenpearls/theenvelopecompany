@@ -1,0 +1,1216 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WOOEXIM v2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2016-04-06 10:25:13+0000\n"
+"Last-Translator: admin <admin@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED STATES\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: core/classes/wooexim_import_export.class.php:171
+#@ wooexim
+msgid "License Deactivated Successfully."
+msgstr "License Deactivated Successfully."
+
+#: core/classes/wooexim_import_export.class.php:175
+#: core/classes/wooexim_import_export.class.php:347
+#@ wooexim
+msgid "Invalid Request Data."
+msgstr "Invalid Request Data."
+
+#: core/classes/wooexim_import_export.class.php:335
+#: core/views/wooexim_settings.php:28
+#@ wooexim
+msgid "License Activated Successfully."
+msgstr "License Activated Successfully."
+
+#: core/classes/wooexim_import_export.class.php:339
+#@ wooexim
+msgid "License already activated on other site."
+msgstr "License already activated on other site."
+
+#: core/classes/wooexim_import_export.class.php:475
+#: core/views/wooexim_export.php:176
+#: core/views/wooexim_export.php:317
+#: core/views/wooexim_export.php:437
+#: core/views/wooexim_export.php:523
+#: core/views/wooexim_export.php:623
+#@ wooexim
+msgid "Export"
+msgstr "Export"
+
+#: core/classes/wooexim_import_export.class.php:477
+#: core/views/wooexim_import.php:67
+#: core/views/wooexim_import.php:103
+#: core/views/wooexim_import.php:136
+#: core/views/wooexim_import.php:169
+#: core/views/wooexim_import.php:202
+#@ wooexim
+msgid "Import"
+msgstr "Import"
+
+#: core/classes/wooexim_import_export.class.php:481
+#: core/views/wooexim_export_log.php:10
+#@ wooexim
+msgid "Export Log"
+msgstr "Export Log"
+
+#: core/classes/wooexim_import_export.class.php:483
+#: core/views/wooexim_settings.php:24
+#@ wooexim
+msgid "Settings"
+msgstr "Settings"
+
+#: core/classes/wooexim_import_export.class.php:521
+#@ wooexim
+msgid "manage woocommerce export."
+msgstr "manage woocommerce export."
+
+#: core/classes/wooexim_import_export.class.php:522
+#@ wooexim
+msgid "manage woocommerce import."
+msgstr "manage woocommerce import."
+
+#: core/classes/wooexim_import_export.class.php:523
+#@ wooexim
+msgid "manage woocommerce import/export."
+msgstr "manage woocommerce import/export."
+
+#: core/classes/wooexim_import_export.class.php:525
+#@ wooexim
+msgid "manage woocommerce import/export settings."
+msgstr "manage woocommerce import/export settings."
+
+#: core/classes/wooexim_coupon.class.php:561
+#: core/classes/wooexim_order.class.php:989
+#: core/classes/wooexim_product.class.php:1121
+#: core/classes/wooexim_product_cat.class.php:496
+#: core/classes/wooexim_user.class.php:587
+#@ wooexim
+msgid "File Not Uploaded. Please check file size for exceeds the limit."
+msgstr "File Not Uploaded. Please check file size for exceeds the limit."
+
+#: core/classes/wooexim_coupon.class.php:609
+#: core/classes/wooexim_order.class.php:1031
+#: core/classes/wooexim_product.class.php:1169
+#: core/classes/wooexim_product_cat.class.php:544
+#: core/classes/wooexim_user.class.php:635
+#@ wooexim
+msgid "Could not open file."
+msgstr "Could not open file."
+
+#: core/classes/wooexim_order.class.php:1408
+#@ wooexim
+msgid "Backordered"
+msgstr "Backordered"
+
+#: core/classes/wooexim_product.class.php:1081
+#: core/views/wooexim_export_log.php:13
+#: core/views/wooexim_scheduled_export.php:61
+#@ wooexim
+msgid "Successfully Deleted."
+msgstr "Successfully Deleted."
+
+#: core/classes/wooexim_product.class.php:1489
+#: core/classes/wooexim_product.class.php:1963
+#: core/classes/wooexim_product_cat.class.php:890
+#, php-format
+#@ wooexim
+msgid "A valid file extension wasn't found in %s. Extension found was %s. Allowed extensions are: %s."
+msgstr "A valid file extension wasn't found in %s. Extension found was %s. Allowed extensions are: %s."
+
+#: core/classes/wooexim_product.class.php:1506
+#: core/classes/wooexim_product.class.php:1977
+#: core/classes/wooexim_product_cat.class.php:907
+#, php-format
+#@ wooexim
+msgid "%s encountered while attempting to download %s"
+msgstr "%s encountered while attempting to download %s"
+
+#: core/classes/wooexim_product.class.php:1539
+#: core/classes/wooexim_product.class.php:2010
+#: core/classes/wooexim_product_cat.class.php:940
+#, php-format
+#@ wooexim
+msgid "HTTP status %s encountered while attempting to download %s"
+msgstr "HTTP status %s encountered while attempting to download %s"
+
+#: core/classes/wooexim_product.class.php:1543
+#: core/classes/wooexim_product.class.php:2014
+#: core/classes/wooexim_product_cat.class.php:944
+#, php-format
+#@ wooexim
+msgid "Looks like %s is off and %s is not enabled. No images were imported."
+msgstr "Looks like %s is off and %s is not enabled. No images were imported."
+
+#: core/classes/wooexim_product.class.php:1550
+#: core/classes/wooexim_product.class.php:2021
+#: core/classes/wooexim_product_cat.class.php:951
+#, php-format
+#@ wooexim
+msgid "Couldn't download file %s."
+msgstr "Couldn't download file %s."
+
+#: core/classes/wooexim_product.class.php:1602
+#, php-format
+#@ wooexim
+msgid "Skipping import of duplicate image %s."
+msgstr "Skipping import of duplicate image %s."
+
+#: core/classes/wooexim_product.class.php:1610
+#: core/classes/wooexim_product_cat.class.php:971
+#, php-format
+#@ wooexim
+msgid "Couldn't find local file %s."
+msgstr "Couldn't find local file %s."
+
+#: core/classes/wooexim_import_export.class.php:343
+#@ wooexim
+msgid "Invalid Purchase code."
+msgstr "Invalid Purchase code."
+
+#: core/classes/wooexim_product.class.php:2094
+#@ wooexim
+msgid "Created/Updated Products"
+msgstr "Created/Updated Products"
+
+#: core/views/wooexim_export.php:64
+#: core/views/wooexim_export.php:219
+#: core/views/wooexim_export.php:445
+#@ wooexim
+msgid "Filter By Product Category"
+msgstr "Filter By Product Category"
+
+#: core/views/wooexim_export.php:66
+#: core/views/wooexim_export.php:221
+#: core/views/wooexim_export.php:447
+#: core/views/wooexim_import.php:45
+#@ wooexim
+msgid "Select Product Category"
+msgstr "Select Product Category"
+
+#: core/views/wooexim_export.php:68
+#: core/views/wooexim_export.php:79
+#: core/views/wooexim_export.php:223
+#: core/views/wooexim_export.php:234
+#: core/views/wooexim_export.php:333
+#: core/views/wooexim_export.php:449
+#: core/views/wooexim_export.php:536
+#: core/views/wooexim_import.php:47
+#@ wooexim
+msgid "ID"
+msgstr "ID"
+
+#: core/views/wooexim_export.php:71
+#: core/views/wooexim_export.php:452
+#@ wooexim
+msgid "Default : All Categories."
+msgstr "Default : All Categories."
+
+#: core/views/wooexim_export.php:75
+#: core/views/wooexim_export.php:230
+#@ wooexim
+msgid "Filter By Product ID / Name"
+msgstr "Filter By Product ID / Name"
+
+#: core/views/wooexim_export.php:77
+#: core/views/wooexim_export.php:232
+#@ wooexim
+msgid "Select Product"
+msgstr "Select Product"
+
+#: core/views/wooexim_export.php:82
+#@ wooexim
+msgid "Default : All Products."
+msgstr "Default : All Products."
+
+#: core/views/wooexim_export.php:86
+#@ wooexim
+msgid "Filter By Product Author Name / Email"
+msgstr "Filter By Product Author Name / Email"
+
+#: core/views/wooexim_export.php:88
+#@ wooexim
+msgid "Select Product Author"
+msgstr "Select Product Author"
+
+#: core/views/wooexim_export.php:93
+#@ wooexim
+msgid "Default : All Authors."
+msgstr "Default : All Authors."
+
+#: core/views/wooexim_export.php:97
+#: core/views/wooexim_export.php:358
+#: core/views/wooexim_export.php:456
+#: core/views/wooexim_export.php:544
+#@ wooexim
+msgid "Limit Records"
+msgstr "Limit Records"
+
+#: core/views/wooexim_export.php:99
+#: core/views/wooexim_export.php:360
+#: core/views/wooexim_export.php:458
+#: core/views/wooexim_export.php:546
+#@ wooexim
+msgid "Enter Limit Records"
+msgstr "Enter Limit Records"
+
+#: core/views/wooexim_export.php:100
+#: core/views/wooexim_export.php:361
+#: core/views/wooexim_export.php:459
+#: core/views/wooexim_export.php:547
+#@ wooexim
+msgid "Default : All Records."
+msgstr "Default : All Records."
+
+#: core/views/wooexim_export.php:104
+#: core/views/wooexim_export.php:365
+#: core/views/wooexim_export.php:463
+#: core/views/wooexim_export.php:551
+#@ wooexim
+msgid "Offset Records"
+msgstr "Offset Records"
+
+#: core/views/wooexim_export.php:106
+#: core/views/wooexim_export.php:126
+#: core/views/wooexim_export.php:267
+#: core/views/wooexim_export.php:367
+#: core/views/wooexim_export.php:387
+#: core/views/wooexim_export.php:465
+#: core/views/wooexim_export.php:473
+#: core/views/wooexim_export.php:553
+#: core/views/wooexim_export.php:573
+#@ wooexim
+msgid "Enter Offset Records"
+msgstr "Enter Offset Records"
+
+#: core/views/wooexim_export.php:107
+#: core/views/wooexim_export.php:368
+#: core/views/wooexim_export.php:466
+#: core/views/wooexim_export.php:554
+#@ wooexim
+msgid "Default : 0."
+msgstr "Default : 0."
+
+#: core/views/wooexim_export.php:107
+#: core/views/wooexim_export.php:368
+#: core/views/wooexim_export.php:466
+#: core/views/wooexim_export.php:554
+#@ wooexim
+msgid "Note : Fetch Records after XX Records."
+msgstr "Note : Fetch Records after XX Records."
+
+#: core/views/wooexim_export.php:111
+#: core/views/wooexim_export.php:252
+#: core/views/wooexim_export.php:372
+#: core/views/wooexim_export.php:558
+#@ wooexim
+msgid "Filter By Date"
+msgstr "Filter By Date"
+
+#: core/views/wooexim_export.php:114
+#: core/views/wooexim_export.php:255
+#: core/views/wooexim_export.php:375
+#: core/views/wooexim_export.php:561
+#@ wooexim
+msgid "Start Date"
+msgstr "Start Date"
+
+#: core/views/wooexim_export.php:115
+#: core/views/wooexim_export.php:119
+#: core/views/wooexim_export.php:256
+#: core/views/wooexim_export.php:260
+#: core/views/wooexim_export.php:376
+#: core/views/wooexim_export.php:380
+#: core/views/wooexim_export.php:562
+#: core/views/wooexim_export.php:566
+#@ wooexim
+msgid "Date Format"
+msgstr "Date Format"
+
+#: core/views/wooexim_export.php:118
+#: core/views/wooexim_export.php:259
+#: core/views/wooexim_export.php:379
+#: core/views/wooexim_export.php:565
+#@ wooexim
+msgid "End Date"
+msgstr "End Date"
+
+#: core/views/wooexim_export.php:175
+#: core/views/wooexim_export.php:316
+#: core/views/wooexim_export.php:436
+#: core/views/wooexim_export.php:522
+#: core/views/wooexim_export.php:622
+#@ wooexim
+msgid "Preview"
+msgstr "Preview"
+
+#: core/views/wooexim_export.php:184
+#@ wooexim
+msgid "Filter By Order Status"
+msgstr "Filter By Order Status"
+
+#: core/views/wooexim_export.php:186
+#@ wooexim
+msgid "Select Order Status"
+msgstr "Select Order Status"
+
+#: core/views/wooexim_export.php:215
+#@ wooexim
+msgid "Default : All Status"
+msgstr "Default : All Status"
+
+#: core/views/wooexim_export.php:226
+#@ wooexim
+msgid "Default : All Category."
+msgstr "Default : All Category."
+
+#: core/views/wooexim_export.php:237
+#@ wooexim
+msgid "Default : All Product."
+msgstr "Default : All Product."
+
+#: core/views/wooexim_export.php:241
+#@ wooexim
+msgid "Filter By Order Id"
+msgstr "Filter By Order Id"
+
+#: core/views/wooexim_export.php:243
+#@ wooexim
+msgid "Select Order ID"
+msgstr "Select Order ID"
+
+#: core/views/wooexim_export.php:245
+#@ wooexim
+msgid "Order ID :"
+msgstr "Order ID :"
+
+#: core/views/wooexim_export.php:248
+#@ wooexim
+msgid "Default : All Order ID."
+msgstr "Default : All Order ID."
+
+#: core/views/wooexim_export.php:634
+#: core/views/wooexim_export_log.php:65
+#: core/views/wooexim_import.php:212
+#: core/views/wooexim_scheduled_export.php:214
+#: core/views/wooexim_settings.php:253
+#@ wooexim
+msgid "Documentation"
+msgstr "Documentation"
+
+#: core/views/wooexim_export.php:634
+#: core/views/wooexim_export_log.php:65
+#: core/views/wooexim_import.php:212
+#: core/views/wooexim_scheduled_export.php:214
+#: core/views/wooexim_settings.php:253
+#@ wooexim
+msgid "Support"
+msgstr "Support"
+
+#: core/views/wooexim_export_log.php:18
+#: core/views/wooexim_export_log.php:49
+#@ wooexim
+msgid "File Type"
+msgstr "File Type"
+
+#: core/views/wooexim_export_log.php:19
+#: core/views/wooexim_export_log.php:50
+#@ wooexim
+msgid "File Name"
+msgstr "File Name"
+
+#: core/views/wooexim_export_log.php:21
+#: core/views/wooexim_export_log.php:52
+#@ wooexim
+msgid "Date"
+msgstr "Date"
+
+#: core/views/wooexim_export_log.php:22
+#: core/views/wooexim_export_log.php:53
+#@ wooexim
+msgid "Action"
+msgstr "Action"
+
+#: core/views/wooexim_export_log.php:34
+#@ wooexim
+msgid "Download"
+msgstr "Download"
+
+#: core/views/wooexim_export_log.php:34
+#@ wooexim
+msgid "Delete"
+msgstr "Delete"
+
+#: core/views/wooexim_export_log.php:40
+#@ wooexim
+msgid "No Records found."
+msgstr "No Records found."
+
+#: core/views/wooexim_import.php:20
+#@ wooexim
+msgid "Product Imported successfully."
+msgstr "Product Imported successfully."
+
+#: core/views/wooexim_import.php:29
+#: core/views/wooexim_import.php:73
+#: core/views/wooexim_import.php:109
+#: core/views/wooexim_import.php:142
+#: core/views/wooexim_import.php:175
+#@ wooexim
+msgid "Select File to Import"
+msgstr "Select File to Import"
+
+#: core/views/wooexim_import.php:32
+#: core/views/wooexim_import.php:76
+#: core/views/wooexim_import.php:112
+#: core/views/wooexim_import.php:145
+#: core/views/wooexim_import.php:178
+#@ wooexim
+msgid "Note : Select only this plugin exported file."
+msgstr "Note : Select only this plugin exported file."
+
+#: core/views/wooexim_import.php:36
+#: core/views/wooexim_import.php:80
+#: core/views/wooexim_import.php:116
+#: core/views/wooexim_import.php:149
+#: core/views/wooexim_import.php:182
+#@ wooexim
+msgid "Enter URL to Import"
+msgstr "Enter URL to Import"
+
+#: core/views/wooexim_import.php:38
+#: core/views/wooexim_import.php:82
+#: core/views/wooexim_import.php:118
+#: core/views/wooexim_import.php:151
+#: core/views/wooexim_import.php:184
+#@ wooexim
+msgid "Enter URL"
+msgstr "Enter URL"
+
+#: core/views/wooexim_import.php:39
+#: core/views/wooexim_import.php:83
+#: core/views/wooexim_import.php:119
+#: core/views/wooexim_import.php:152
+#: core/views/wooexim_import.php:185
+#@ wooexim
+msgid "Note : Leave blank if upload file."
+msgstr "Note : Leave blank if upload file."
+
+#: core/views/wooexim_import.php:43
+#@ wooexim
+msgid "Select Category for Product"
+msgstr "Select Category for Product"
+
+#: core/views/wooexim_import.php:50
+#@ wooexim
+msgid "Note : Category for new product imported."
+msgstr "Note : Category for new product imported."
+
+#: core/views/wooexim_import.php:56
+#@ wooexim
+msgid "Select Product Create"
+msgstr "Select Product Create"
+
+#: core/views/wooexim_settings.php:30
+#@ wooexim
+msgid "Invalid Request."
+msgstr "Invalid Request."
+
+#: core/views/wooexim_settings.php:42
+#: core/views/wooexim_settings.php:81
+#@ wooexim
+msgid "Product License"
+msgstr "Product License"
+
+#: core/views/wooexim_settings.php:47
+#: core/views/wooexim_settings.php:48
+#@ wooexim
+msgid "Customer Name"
+msgstr "Customer Name"
+
+#: core/views/wooexim_settings.php:53
+#: core/views/wooexim_settings.php:54
+#@ wooexim
+msgid "Customer Email"
+msgstr "Customer Email"
+
+#: core/views/wooexim_settings.php:59
+#: core/views/wooexim_settings.php:60
+#@ wooexim
+msgid "Purchase Code"
+msgstr "Purchase Code"
+
+#: core/views/wooexim_settings.php:65
+#@ wooexim
+msgid "Domain Name"
+msgstr "Domain Name"
+
+#: core/views/wooexim_settings.php:72
+#@ wooexim
+msgid "Activate"
+msgstr "Activate"
+
+#: core/views/wooexim_settings.php:85
+#@ wooexim
+msgid "License Status"
+msgstr "License Status"
+
+#: core/views/wooexim_settings.php:87
+#@ wooexim
+msgid "Active"
+msgstr "Active"
+
+#: core/views/wooexim_settings.php:93
+#@ wooexim
+msgid "Deactivate"
+msgstr "Deactivate"
+
+#: core/classes/wooexim_import_export.class.php:473
+#@ wooexim
+msgid "Import Export"
+msgstr "Import Export"
+
+#: core/classes/wooexim_import_export.class.php:473
+#@ wooexim
+msgid "Woo Imp Exp"
+msgstr "Woo Imp Exp"
+
+#: core/classes/wooexim_order.class.php:1027
+#@ wooexim
+msgid "Order Imported successfully."
+msgstr "Order Imported successfully."
+
+#: core/classes/wooexim_order.class.php:1099
+#, php-format
+#@ wooexim
+msgid "Order #%s already Exist."
+msgstr "Order #%s already Exist."
+
+#: core/classes/wooexim_order.class.php:1530
+#@ wooexim
+msgid "Created/Existing Orders"
+msgstr "Created/Existing Orders"
+
+#: core/views/wooexim_import.php:99
+#@ wooexim
+msgid "Note : Product SKU or ID must be same for import and export both side."
+msgstr "Note : Product SKU or ID must be same for import and export both side."
+
+#: core/classes/wooexim_product.class.php:1242
+#, php-format
+#@ wooexim
+msgid "Product #%s already Exist."
+msgstr "Product #%s already Exist."
+
+#: core/views/wooexim_import.php:57
+#@ wooexim
+msgid "Skip Product if Exist."
+msgstr "Skip Product if Exist."
+
+#: core/views/wooexim_import.php:58
+#@ wooexim
+msgid "Create New Product and ignore if Exist."
+msgstr "Create New Product and ignore if Exist."
+
+#: core/views/wooexim_import.php:59
+#@ wooexim
+msgid "Update Product if Exist."
+msgstr "Update Product if Exist."
+
+#: core/views/wooexim_import.php:89
+#@ wooexim
+msgid "Select order create option"
+msgstr "Select order create option"
+
+#: core/views/wooexim_import.php:90
+#@ wooexim
+msgid "Skip Order if Exist."
+msgstr "Skip Order if Exist."
+
+#: core/views/wooexim_import.php:91
+#@ wooexim
+msgid "Create New Order and ignore if Exist."
+msgstr "Create New Order and ignore if Exist."
+
+#: core/views/wooexim_import.php:92
+#@ wooexim
+msgid "Update Order if Exist."
+msgstr "Update Order if Exist."
+
+#: core/views/wooexim_import.php:95
+#@ wooexim
+msgid "Note : Imported order is created, updated or skip if already exist."
+msgstr "Note : Imported order is created, updated or skip if already exist."
+
+#: core/views/wooexim_import.php:87
+#@ wooexim
+msgid "Order Create / Update / Skip"
+msgstr "Order Create / Update / Skip"
+
+#: core/views/wooexim_import.php:54
+#@ wooexim
+msgid "Product Create / Update / Skip"
+msgstr "Product Create / Update / Skip"
+
+#: core/views/wooexim_import.php:62
+#@ wooexim
+msgid "Note : Imported product is skip, updated or created if already exist."
+msgstr "Note : Imported product is skip, updated or created if already exist."
+
+#: core/classes/wooexim_import_export.class.php:479
+#@ wooexim
+msgid "Manage Scheduled"
+msgstr "Manage Scheduled"
+
+#: core/classes/wooexim_import_export.class.php:524
+#@ wooexim
+msgid "manage scheduled export."
+msgstr "manage scheduled export."
+
+#: core/classes/wooexim_coupon.class.php:527
+#: core/classes/wooexim_order.class.php:1715
+#: core/classes/wooexim_product.class.php:2271
+#: core/classes/wooexim_product_cat.class.php:462
+#: core/classes/wooexim_user.class.php:260
+#: core/views/wooexim_settings.php:29
+#@ wooexim
+msgid "Changes Saved Successfully."
+msgstr "Changes Saved Successfully."
+
+#: core/classes/wooexim_scheduled.class.php:43
+#@ wooexim
+msgid "30 minutes"
+msgstr "30 minutes"
+
+#: core/classes/wooexim_scheduled.class.php:47
+#@ wooexim
+msgid "Once Weekly"
+msgstr "Once Weekly"
+
+#: core/views/wooexim_export.php:60
+#@ wooexim
+msgid "Export Data Successfully Scheduled."
+msgstr "Export Data Successfully Scheduled."
+
+#: core/views/wooexim_export.php:124
+#: core/views/wooexim_export.php:126
+#: core/views/wooexim_export.php:265
+#: core/views/wooexim_export.php:267
+#: core/views/wooexim_export.php:385
+#: core/views/wooexim_export.php:387
+#: core/views/wooexim_export.php:471
+#: core/views/wooexim_export.php:473
+#: core/views/wooexim_export.php:571
+#: core/views/wooexim_export.php:573
+#: core/views/wooexim_scheduled_export.php:58
+#@ wooexim
+msgid "Scheduled Export"
+msgstr "Scheduled Export"
+
+#: core/views/wooexim_export.php:130
+#: core/views/wooexim_export.php:271
+#: core/views/wooexim_export.php:391
+#: core/views/wooexim_export.php:477
+#: core/views/wooexim_export.php:577
+#@ wooexim
+msgid "Export Interval"
+msgstr "Export Interval"
+
+#: core/views/wooexim_export.php:132
+#: core/views/wooexim_export.php:273
+#: core/views/wooexim_export.php:393
+#: core/views/wooexim_export.php:479
+#: core/views/wooexim_export.php:579
+#@ wooexim
+msgid "Select Interval"
+msgstr "Select Interval"
+
+#: core/views/wooexim_export.php:140
+#: core/views/wooexim_export.php:281
+#: core/views/wooexim_export.php:401
+#: core/views/wooexim_export.php:487
+#: core/views/wooexim_export.php:587
+#: core/views/wooexim_scheduled_export.php:69
+#: core/views/wooexim_scheduled_export.php:98
+#: core/views/wooexim_scheduled_export.php:128
+#: core/views/wooexim_scheduled_export.php:158
+#: core/views/wooexim_scheduled_export.php:188
+#@ wooexim
+msgid "Send E-mail"
+msgstr "Send E-mail"
+
+#: core/views/wooexim_export.php:143
+#: core/views/wooexim_export.php:284
+#: core/views/wooexim_export.php:404
+#: core/views/wooexim_export.php:490
+#: core/views/wooexim_export.php:590
+#@ wooexim
+msgid "Send E-mail with attachment."
+msgstr "Send E-mail with attachment."
+
+#: core/views/wooexim_export.php:149
+#: core/views/wooexim_export.php:151
+#: core/views/wooexim_export.php:290
+#: core/views/wooexim_export.php:292
+#: core/views/wooexim_export.php:410
+#: core/views/wooexim_export.php:412
+#: core/views/wooexim_export.php:496
+#: core/views/wooexim_export.php:498
+#: core/views/wooexim_export.php:596
+#: core/views/wooexim_export.php:598
+#@ wooexim
+msgid "Enter Email Recipient(s)"
+msgstr "Enter Email Recipient(s)"
+
+#: core/views/wooexim_export.php:156
+#: core/views/wooexim_export.php:158
+#: core/views/wooexim_export.php:297
+#: core/views/wooexim_export.php:299
+#: core/views/wooexim_export.php:417
+#: core/views/wooexim_export.php:419
+#: core/views/wooexim_export.php:503
+#: core/views/wooexim_export.php:505
+#: core/views/wooexim_export.php:603
+#: core/views/wooexim_export.php:605
+#@ wooexim
+msgid "Enter Email Subject"
+msgstr "Enter Email Subject"
+
+#: core/views/wooexim_export.php:162
+#: core/views/wooexim_export.php:164
+#: core/views/wooexim_export.php:303
+#: core/views/wooexim_export.php:305
+#: core/views/wooexim_export.php:423
+#: core/views/wooexim_export.php:425
+#: core/views/wooexim_export.php:509
+#: core/views/wooexim_export.php:511
+#: core/views/wooexim_export.php:609
+#: core/views/wooexim_export.php:611
+#@ wooexim
+msgid "Enter Email message"
+msgstr "Enter Email message"
+
+#: core/views/wooexim_export.php:177
+#: core/views/wooexim_export.php:319
+#: core/views/wooexim_export.php:438
+#: core/views/wooexim_export.php:524
+#: core/views/wooexim_export.php:624
+#@ wooexim
+msgid "Save Scheduled"
+msgstr "Save Scheduled"
+
+#: core/views/wooexim_export.php:327
+#@ wooexim
+msgid "Filter By User ID / Username / Email"
+msgstr "Filter By User ID / Username / Email"
+
+#: core/views/wooexim_export.php:329
+#@ wooexim
+msgid "Select User"
+msgstr "Select User"
+
+#: core/views/wooexim_export.php:337
+#@ wooexim
+msgid "Default : All Users."
+msgstr "Default : All Users."
+
+#: core/views/wooexim_export.php:341
+#@ wooexim
+msgid "Filter By User Role"
+msgstr "Filter By User Role"
+
+#: core/views/wooexim_export.php:343
+#@ wooexim
+msgid "Select User Role"
+msgstr "Select User Role"
+
+#: core/views/wooexim_export.php:347
+#@ wooexim
+msgid "Default : All User Roles."
+msgstr "Default : All User Roles."
+
+#: core/views/wooexim_export_log.php:20
+#: core/views/wooexim_export_log.php:51
+#@ wooexim
+msgid "Export Data"
+msgstr "Export Data"
+
+#: core/views/wooexim_scheduled_export.php:62
+#@ wooexim
+msgid "Product Scheduled Export"
+msgstr "Product Scheduled Export"
+
+#: core/views/wooexim_scheduled_export.php:67
+#: core/views/wooexim_scheduled_export.php:96
+#: core/views/wooexim_scheduled_export.php:126
+#: core/views/wooexim_scheduled_export.php:156
+#: core/views/wooexim_scheduled_export.php:186
+#@ wooexim
+msgid "Scheduled ID"
+msgstr "Scheduled ID"
+
+#: core/views/wooexim_scheduled_export.php:68
+#: core/views/wooexim_scheduled_export.php:97
+#: core/views/wooexim_scheduled_export.php:127
+#: core/views/wooexim_scheduled_export.php:157
+#: core/views/wooexim_scheduled_export.php:187
+#@ wooexim
+msgid "Recurrence Time"
+msgstr "Recurrence Time"
+
+#: core/views/wooexim_scheduled_export.php:70
+#: core/views/wooexim_scheduled_export.php:99
+#: core/views/wooexim_scheduled_export.php:129
+#: core/views/wooexim_scheduled_export.php:159
+#: core/views/wooexim_scheduled_export.php:189
+#@ wooexim
+msgid "Recipients"
+msgstr "Recipients"
+
+#: core/views/wooexim_scheduled_export.php:71
+#: core/views/wooexim_scheduled_export.php:100
+#: core/views/wooexim_scheduled_export.php:130
+#: core/views/wooexim_scheduled_export.php:160
+#: core/views/wooexim_scheduled_export.php:190
+#@ wooexim
+msgid "Next event"
+msgstr "Next event"
+
+#: core/views/wooexim_scheduled_export.php:72
+#: core/views/wooexim_scheduled_export.php:101
+#: core/views/wooexim_scheduled_export.php:131
+#: core/views/wooexim_scheduled_export.php:161
+#: core/views/wooexim_scheduled_export.php:191
+#@ wooexim
+msgid "Actions"
+msgstr "Actions"
+
+#: core/views/wooexim_scheduled_export.php:81
+#: core/views/wooexim_scheduled_export.php:110
+#: core/views/wooexim_scheduled_export.php:140
+#: core/views/wooexim_scheduled_export.php:170
+#: core/views/wooexim_scheduled_export.php:200
+#@ wooexim
+msgid "Yes"
+msgstr "Yes"
+
+#: core/views/wooexim_scheduled_export.php:81
+#: core/views/wooexim_scheduled_export.php:110
+#: core/views/wooexim_scheduled_export.php:140
+#: core/views/wooexim_scheduled_export.php:170
+#: core/views/wooexim_scheduled_export.php:200
+#@ wooexim
+msgid "No"
+msgstr "No"
+
+#: core/views/wooexim_scheduled_export.php:91
+#@ wooexim
+msgid "Order Scheduled Export"
+msgstr "Order Scheduled Export"
+
+#: core/views/wooexim_scheduled_export.php:121
+#@ wooexim
+msgid "User Scheduled Export"
+msgstr "User Scheduled Export"
+
+#: core/views/wooexim_settings.php:102
+#@ wooexim
+msgid "Product Fields"
+msgstr "Product Fields"
+
+#: core/views/wooexim_settings.php:123
+#: core/views/wooexim_settings.php:152
+#: core/views/wooexim_settings.php:181
+#: core/views/wooexim_settings.php:211
+#: core/views/wooexim_settings.php:241
+#@ wooexim
+msgid "Save"
+msgstr "Save"
+
+#: core/views/wooexim_settings.php:132
+#@ wooexim
+msgid "Order Fields"
+msgstr "Order Fields"
+
+#: core/views/wooexim_settings.php:161
+#@ wooexim
+msgid "User Fields"
+msgstr "User Fields"
+
+#: core/classes/wooexim_user.class.php:631
+#@ wooexim
+msgid "User Imported successfully."
+msgstr "User Imported successfully."
+
+#: core/classes/wooexim_user.class.php:680
+#: core/classes/wooexim_user.class.php:712
+#, php-format
+#@ wooexim
+msgid "User #%s %s already Exist."
+msgstr "User #%s %s already Exist."
+
+#: core/views/wooexim_import.php:123
+#@ wooexim
+msgid "User Create / Update / Skip"
+msgstr "User Create / Update / Skip"
+
+#: core/views/wooexim_import.php:125
+#@ wooexim
+msgid "Select user create option"
+msgstr "Select user create option"
+
+#: core/views/wooexim_import.php:126
+#@ wooexim
+msgid "Skip User if Exist."
+msgstr "Skip User if Exist."
+
+#: core/views/wooexim_import.php:128
+#@ wooexim
+msgid "Update User if Exist."
+msgstr "Update User if Exist."
+
+#: core/views/wooexim_import.php:131
+#@ wooexim
+msgid "Note : Imported user is created, updated or skip if already exist."
+msgstr "Note : Imported user is created, updated or skip if already exist."
+
+#: core/classes/wooexim_product_cat.class.php:616
+#, php-format
+#@ wooexim
+msgid "Product Category #%d %s already Exist."
+msgstr "Product Category #%d %s already Exist."
+
+#: core/classes/wooexim_scheduled.class.php:39
+#@ wooexim
+msgid "2 minutes"
+msgstr "2 minutes"
+
+#: core/views/wooexim_export.php:38
+#: core/views/wooexim_import.php:12
+#@ wooexim
+msgid "Products"
+msgstr "Products"
+
+#: core/views/wooexim_export.php:42
+#: core/views/wooexim_import.php:13
+#@ wooexim
+msgid "Orders"
+msgstr "Orders"
+
+#: core/views/wooexim_export.php:46
+#: core/views/wooexim_import.php:14
+#@ wooexim
+msgid "Users"
+msgstr "Users"
+
+#: core/views/wooexim_export.php:50
+#: core/views/wooexim_import.php:15
+#@ wooexim
+msgid "Product Categories"
+msgstr "Product Categories"
+
+#: core/views/wooexim_export.php:64
+#: core/views/wooexim_export.php:219
+#: core/views/wooexim_export.php:445
+#@ wooexim
+msgid "Total Categories"
+msgstr "Total Categories"
+
+#: core/views/wooexim_export.php:68
+#: core/views/wooexim_export.php:75
+#: core/views/wooexim_export.php:223
+#: core/views/wooexim_export.php:230
+#: core/views/wooexim_export.php:449
+#@ wooexim
+msgid "Total Products"
+msgstr "Total Products"
+
+#: core/views/wooexim_export.php:86
+#@ wooexim
+msgid "Total Authors"
+msgstr "Total Authors"
+
+#: core/views/wooexim_export.php:97
+#: core/views/wooexim_export.php:456
+#: core/views/wooexim_export.php:544
+#@ wooexim
+msgid "Total Records"
+msgstr "Total Records"
+
+#: core/views/wooexim_export.php:184
+#@ wooexim
+msgid "Total Status"
+msgstr "Total Status"
+
+#: core/views/wooexim_export.php:241
+#@ wooexim
+msgid "Total Order"
+msgstr "Total Order"
+
+#: core/views/wooexim_export.php:327
+#: core/views/wooexim_export.php:358
+#@ wooexim
+msgid "Total Users"
+msgstr "Total Users"
+
+#: core/views/wooexim_export.php:341
+#@ wooexim
+msgid "Total Roles"
+msgstr "Total Roles"
+
+#: core/views/wooexim_import.php:156
+#@ wooexim
+msgid "Product Category Update / Skip"
+msgstr "Product Category Update / Skip"
+
+#: core/views/wooexim_import.php:158
+#@ wooexim
+msgid "Select Product Category Create"
+msgstr "Select Product Category Create"
+
+#: core/views/wooexim_import.php:159
+#@ wooexim
+msgid "Skip Product Category if Exist."
+msgstr "Skip Product Category if Exist."
+
+#: core/views/wooexim_import.php:160
+#@ wooexim
+msgid "Create New Product Category and ignore if Exist."
+msgstr "Create New Product Category and ignore if Exist."
+
+#: core/views/wooexim_import.php:161
+#@ wooexim
+msgid "Update Product Category if Exist."
+msgstr "Update Product Category if Exist."
+
+#: core/views/wooexim_import.php:164
+#@ wooexim
+msgid "Note : Imported product category is skip or updated if already exist."
+msgstr "Note : Imported product category is skip or updated if already exist."
+
+#: core/views/wooexim_scheduled_export.php:151
+#@ wooexim
+msgid "Product Category Scheduled Export"
+msgstr "Product Category Scheduled Export"
+
+#: core/views/wooexim_settings.php:190
+#@ wooexim
+msgid "Product Category Fields"
+msgstr "Product Category Fields"
+
+#: core/views/wooexim_settings.php:44
+#@ wooexim
+msgid "A valid license key entitles you to support and enable automatic upgrades."
+msgstr "A valid license key entitles you to support and enable automatic upgrades."
+
+#: core/classes/wooexim_product_cat.class.php:540
+#@ wooexim
+msgid "Product Categories Imported successfully."
+msgstr "Product Categories Imported successfully."
+
+#: core/views/wooexim_export.php:54
+#: core/views/wooexim_import.php:16
+#@ wooexim
+msgid "Coupons"
+msgstr "Coupons"
+
+#: core/views/wooexim_export.php:532
+#@ wooexim
+msgid "Filter By Coupons ID / Code"
+msgstr "Filter By Coupons ID / Code"
+
+#: core/views/wooexim_export.php:532
+#@ wooexim
+msgid "Total Coupons"
+msgstr "Total Coupons"
+
+#: core/views/wooexim_export.php:534
+#@ wooexim
+msgid "Select Coupons"
+msgstr "Select Coupons"
+
+#: core/views/wooexim_export.php:539
+#@ wooexim
+msgid "Default : All Coupons."
+msgstr "Default : All Coupons."
+
+#: core/views/wooexim_import.php:189
+#@ wooexim
+msgid "Coupon Update / Skip"
+msgstr "Coupon Update / Skip"
+
+#: core/views/wooexim_import.php:191
+#@ wooexim
+msgid "Select Coupon Create"
+msgstr "Select Coupon Create"
+
+#: core/views/wooexim_import.php:192
+#@ wooexim
+msgid "Skip Coupon if Exist."
+msgstr "Skip Coupon if Exist."
+
+#: core/views/wooexim_import.php:193
+#@ wooexim
+msgid "Create New Coupon and ignore if Exist."
+msgstr "Create New Coupon and ignore if Exist."
+
+#: core/views/wooexim_import.php:194
+#@ wooexim
+msgid "Update Coupon if Exist."
+msgstr "Update Coupon if Exist."
+
+#: core/views/wooexim_import.php:197
+#@ wooexim
+msgid "Note : Imported Coupon is skip or updated if already exist."
+msgstr "Note : Imported Coupon is skip or updated if already exist."
+
+#: core/views/wooexim_scheduled_export.php:181
+#@ wooexim
+msgid "Coupon Scheduled Export"
+msgstr "Coupon Scheduled Export"
+
+#: core/views/wooexim_settings.php:220
+#@ wooexim
+msgid "Coupon Fields"
+msgstr "Coupon Fields"
+
+#: core/classes/wooexim_coupon.class.php:605
+#@ wooexim
+msgid "Coupons Imported successfully."
+msgstr "Coupons Imported successfully."
+
+#: core/classes/wooexim_coupon.class.php:659
+#, php-format
+#@ wooexim
+msgid "Coupon Code %s already Exist."
+msgstr "Coupon Code %s already Exist."
+
+#: core/views/wooexim_export.php:351
+#@ wooexim
+msgid "Filter By User Minimum Spend"
+msgstr "Filter By User Minimum Spend"
+
+#: core/views/wooexim_export.php:353
+#@ wooexim
+msgid "Enter Amount"
+msgstr "Enter Amount"
+
+#: core/views/wooexim_export.php:354
+#@ wooexim
+msgid "Default"
+msgstr "Default"
+

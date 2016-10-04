@@ -20,6 +20,7 @@ section{
 		border: 2px solid $medium-gray;
 		text-align: center;
 		min-height: rem(380);
+		
 		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9f9f9+0,f5f5f5+50,f1f1f1+100 */
 		background: #f9f9f9; /* Old browsers */
 		background: -moz-linear-gradient(top,  #f9f9f9 0%, #f5f5f5 50%, #f1f1f1 100%); /* FF3.6-15 */
@@ -27,15 +28,8 @@ section{
 		background: linear-gradient(to bottom,  #f9f9f9 0%,#f5f5f5 50%,#f1f1f1 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#f1f1f1',GradientType=0 ); /* IE6-9 */
 		padding: 20px;
-		@media screen and (max-width: $breakpoint--xlarge){
-			width: 48%!important;
-			margin: 0 1% 2.992em!important;
-			min-height: auto;
-		}
-		@media screen and (max-width: $breakpoint--small){
-			width: 100%!important;
-			float: none!important;
-
+		img{
+			margin: 0 auto;
 		}
 		img, span{
 			display: block;
@@ -52,6 +46,20 @@ section{
 			padding-left: 15px;
     		padding-right: 15px;
     		margin: 2%;
+		}
+		@media screen and (max-width: $breakpoint--xlarge){
+			width: 48%!important;
+			margin: 0 1% 2.992em!important;
+			min-height: auto;
+			float: left;
+			span{
+				max-width: 90%;
+			}
+		}
+		@media screen and (max-width: $breakpoint--small){
+			width: 100%!important;
+			float: none!important;
+
 		}
 	}	
 }
@@ -93,7 +101,83 @@ section{
 			}
 		}
 	}
-	
+	.contact-form{
+		.gform_body{
+			.gform_fields#gform_fields_3{
+				list-style-type: none;
+				padding: 0;
+				position: relative;
+				.gfield{
+					width: 48%;
+					input{
+						height: rem(40);
+					}
+					input, textarea{
+						width: 100%;
+						text-indent: rem(6);
+						&::-webkit-input-placeholder {
+							color: $light-gray;
+							font-family: $heading-font;
+							font-style: italic;
+						}
+
+						&:-moz-placeholder { /* Firefox 18- */
+							color: $light-gray;
+							font-family: $heading-font;
+							font-style: italic;
+						}
+
+						&::-moz-placeholder {  /* Firefox 19+ */
+							color: $light-gray;
+							font-family: $heading-font;
+							font-style: italic;
+						}
+
+						&:-ms-input-placeholder {  
+							color: $light-gray;
+							font-family: $heading-font;
+							font-style: italic;
+						}
+					}
+					textarea{
+						max-height: rem(150);
+					}
+					&:last-child{
+						position: absolute;
+						top: 0;
+						right: 0;
+
+					}
+						
+				}
+			}
+		}
+		.gform_footer{
+			width: 48%;
+			position: absolute;
+			right: 0;
+			bottom: 10px;
+			padding-right: 15px;
+			.gform_button{
+				width: 100%;
+				background-color: transparent;
+				border-color: $light-gray;
+				color: $dark-gray;
+				font-family: $copy-font;
+				padding: 14px 0;
+				font-weight: medium;
+				text-transform: uppercase;
+				border-radius: 0;
+				border: 2px solid;
+				@include transition(0.2s all ease-in-out);
+				&:hover{
+					background-color: $light-gray;
+					color: $dark-gray;
+					border-color: $light-gray;
+				}	
+			}
+		}
+	}
 }
 
 /*
@@ -114,12 +198,14 @@ section{
 				max-width: 16.6666666%;
 				padding: 0 rem(12);
 				text-align: center;
+				box-sizing: border-box;
 				a{
 					color: $dark-gray;
 					text-transform: uppercase;
 					padding: 0;
 					&:hover{
 						color: #fff;
+						background-color: transparent;
 					}
 				}
 				&.current-menu-item{
@@ -128,6 +214,11 @@ section{
 					a{
 						color: #fff;
 					}
+				}
+				@media screen and (max-width: $breakpoint--xlarge){
+					max-width: 33.333%;
+					width: 33%;
+					margin-bottom: rem(20);
 				}
 			}
 		}

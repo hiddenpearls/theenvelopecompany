@@ -44,6 +44,7 @@
         </div>
     </div>
 </section>
+<?php if( get_field('panel_title') ): ?>
 <section class="panel-wbgd submit-file-section" style="background-image: url('<?php the_field('panel_background_image'); ?>');">
     <div class="container">
         <div class="row">
@@ -57,6 +58,7 @@
         </div>
     </div>
 </section>
+<?php endif; ?>
 <section class="sand-bgd contact-section">
     <div class="container">
         <div class="row">
@@ -75,7 +77,8 @@
                 <p><?php the_field('contact_us_form_title'); ?></p>
                 <p class="orange heading-text"><?php the_field('contact_us_form_subtitle'); ?></p>
                 <?php
-                gravity_form( 1, false, false, false, '', false );
+                //gravity_form( 3, false, false, false, '', false );
+                echo do_shortcode(get_field('contact_form_shortcode'));
                 ?>
             </div>
         </div>
