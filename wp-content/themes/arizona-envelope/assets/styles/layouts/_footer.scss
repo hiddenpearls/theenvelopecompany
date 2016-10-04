@@ -5,7 +5,8 @@
 			display: inline-block;
 			vertical-align: middle;
 		}
-		.menu-top-footer-menu-container{
+		.menu-footer-nav-container{
+			margin-top: rem(70);
 			ul{
 				list-style-type: none;
 				li{
@@ -27,7 +28,7 @@
 		}
 	}
 	.bottom-footer{
-		padding-top: rem(20);
+		padding: rem(12) 0 rem(20);
 		ul{
 			list-style-type: none;
 			display: inline-block;
@@ -42,6 +43,7 @@
 		}
 		small{
 			float: right;
+			font-size: rem(12);
 		}
 	}
 }

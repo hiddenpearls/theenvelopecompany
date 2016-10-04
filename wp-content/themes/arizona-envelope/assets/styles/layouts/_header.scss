@@ -1,12 +1,21 @@
 .site-header{
     z-index: 2;
     padding-bottom: rem(30);
+    .container{
+        @media screen and (max-width: $breakpoint--large){
+            width: 100%;
+        }
+    }
     &.transparent-header{
         background-color: transparent;
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
+        @media screen and (max-width: $breakpoint--medium){
+            position: static;
+            background-color: $sand;
+        }
     }
     &.solid-header{
         background-color: $sand;
@@ -19,6 +28,13 @@
     }
     .navbar-collapse{
         padding: 0 8px;
+    }
+    .brand{
+        @media screen and (max-width: $breakpoint--large){
+            img{
+                max-width: 180px;
+            }
+        }
     }
 }
 .main-site-nav{
@@ -38,7 +54,13 @@
             &:first-child{
                 a{
                     padding-left: 0;
+                    @media screen and (max-width: $breakpoint--medium){
+                        padding-left: rem(15);
+                    }
                 }
+            }
+            @media screen and (max-width: $breakpoint--medium){
+                display: block;
             }
 		}
 	}
@@ -47,7 +69,12 @@
         margin-top: 12px;
         .phone-icon{
             float: right;
-            margin-bottom: 20px;
+            margin-bottom: rem(20);
+            @media screen and (max-width: $breakpoint--medium){
+                float: none;
+                margin-bottom: 0;
+                padding-left: rem(15);
+            }
         }
         .menu-top-navigation-container{
             clear: both;
@@ -78,6 +105,12 @@
                 padding: 8px 15px;
             }
         }
+        @media screen and (max-width: $breakpoint--large){
+            margin-bottom: rem(20);
+        }
+        @media screen and (max-width: $breakpoint--medium){
+            float: none;
+        }
     }
 	.nav-primary{
 		width: auto;
@@ -85,11 +118,16 @@
 		clear: left;
 		.menu-site-navigation-container{
 			float: left;
+            @media screen and (max-width: $breakpoint--medium){
+                float: none;
+            }
 		}
 	}
 	.search-form{
-		
 		float: right;
+        @media screen and (max-width: $breakpoint--medium){
+            float: none;
+        }
 	}
 }
 .admin-bar{
@@ -110,23 +148,60 @@
         bottom: 50px;
         left: 50%;
         transform: translateX(-50%);
+        @media screen and (max-width: $breakpoint--large){
+            bottom: 20px;
+        }
+        @media screen and (max-width: $breakpoint--medium){
+            width: 90%;
+        }
         .slider-caption{
             max-width: 40%;
             h1, p {
                 color: $medium-gray;
                 max-width: 80%;
-                margin-bottom: 20px;
+                margin-bottom: rem(20);
             }
             h1{
-                font-size: 42px;
+                font-size: rem(42);
             }
             p{
-                margin-bottom: 64px;
+                margin-bottom: rem(64);
             }
             a{
                 width: 200px;
-                margin-right: 22px;
-                padding: 10px 0;
+                margin-right: rem(22);
+                padding: 12px 0;
+            }
+            @media screen and (max-width: $breakpoint--xlarge){
+                max-width: 65%;
+            }
+            @media screen and (max-width: $breakpoint--large){
+                max-width: 75%;
+                h1{
+                    font-size: rem(32);
+                    margin-bottom: rem(10);
+                }
+                p{
+                    margin-bottom: rem(10);
+                }
+                a{
+                    width: rem(160);
+                    
+                }
+            }
+            @media screen and (max-width: $breakpoint--medium){
+                max-width: 75%;
+                h1{
+                    font-size: rem(32);
+                    margin-bottom: rem(10);
+                }
+                p{
+                    margin-bottom: rem(10);
+                }
+                a{
+                    width: rem(160);
+                    
+                }
             }
         }
     }
@@ -194,7 +269,7 @@ $button-transistion-duration: 0.3s;     // The transition duration
   display: block;
   position: relative;
   overflow: hidden;
-  margin: 0;
+  margin: rem(30) rem(20) 0 0;
   padding: 0;
   width: $button-width;
   height: $button-height;

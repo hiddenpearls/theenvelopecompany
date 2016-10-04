@@ -95,7 +95,9 @@ function display_sidebar() {
     is_page('die-lines'),
     is_page('helpful-information'),
     is_page('equipment'),
-    is_woocommerce()
+    is_woocommerce(),
+    is_page('checkout'),
+    is_page('cart'),
   ]);
 
   return apply_filters('sage/display_sidebar', $display);

@@ -78,9 +78,9 @@ class WC_Gateway_Stripe_Addons extends WC_Gateway_Stripe {
 		parent::save_source( $order, $source );
 
 		// Also store it on the subscriptions being purchased or paid for in the order
-		if ( wcs_order_contains_subscription( $order->id ) ) {
+		if ( function_exists( 'wcs_order_contains_subscription' ) && wcs_order_contains_subscription( $order->id ) ) {
 			$subscriptions = wcs_get_subscriptions_for_order( $order->id );
-		} elseif ( wcs_order_contains_renewal( $order->id ) ) {
+		} elseif ( function_exists( 'wcs_order_contains_renewal' ) && wcs_order_contains_renewal( $order->id ) ) {
 			$subscriptions = wcs_get_subscriptions_for_renewal_order( $order->id );
 		} else {
 			$subscriptions = array();
@@ -117,7 +117,7 @@ class WC_Gateway_Stripe_Addons extends WC_Gateway_Stripe {
 			return new WP_Error( 'stripe_error', __( 'Customer not found', 'woocommerce-gateway-stripe' ) );
 		}
 
-		WC_Stripe::log( "Info: Begin processing subscriotion payment for order {$order->id} for the amount of {$amount}" );
+		WC_Stripe::log( "Info: Begin processing subscription payment for order {$order->id} for the amount of {$amount}" );
 
 		// Make the request
 		$request             = $this->generate_payment_request( $order, $source );
@@ -255,27 +255,10 @@ class WC_Gateway_Stripe_Addons extends WC_Gateway_Stripe {
 	 * @param $renewal_order WC_Order A WC_Order object created to record the renewal payment.
 	 */
 	public function scheduled_subscription_payment( $amount_to_charge, $renewal_order ) {
-		// Define some callbacks if the first attempt fails.
-		$retry_callbacks = array(
-			'remove_order_source_before_retry',
-			'remove_order_customer_before_retry',
-		);
+		$response = $this->process_subscription_payment( $renewal_order, $amount_to_charge );
 
-		while ( 1 ) {
-			$response = $this->process_subscription_payment( $renewal_order, $amount_to_charge );
-
-			if ( is_wp_error( $response ) ) {
-				if ( 0 === sizeof( $retry_callbacks ) ) {
-					$renewal_order->update_status( 'failed', sprintf( __( 'Stripe Transaction Failed (%s)', 'woocommerce-gateway-stripe' ), $response->get_error_message() ) );
-					break;
-				} else {
-					$retry_callback = array_shift( $retry_callbacks );
-					call_user_func( array( $this, $retry_callback ), $renewal_order );
-				}
-			} else {
-				// Successful
-				break;
-			}
+		if ( is_wp_error( $response ) ) {
+			$renewal_order->update_status( 'failed', sprintf( __( 'Stripe Transaction Failed (%s)', 'woocommerce-gateway-stripe' ), $response->get_error_message() ) );
 		}
 	}
 

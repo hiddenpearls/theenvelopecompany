@@ -1,0 +1,953 @@
+#screen-meta,#wpfooter,#wphead,.update-nag,div.error,div.updated {
+    display: none!important
+}
+
+.wooexim_product_export_wrapper {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.wooexim_product_export_belt_wrapper {
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    /* position: fixed; */
+    z-index: 999;
+    padding: 0;
+    background: transparent;
+    border-radius: 50px 0;
+    -o-border-radius: 50px 0;
+    -webkit-border-radius: 50px 0;
+    -moz-border-radius: 50px 0;
+}
+
+.wooexim_product_export_belt {
+    background: #23282d;
+    color: #fff!important;
+    cursor: pointer;
+    float: left;
+    font-size: 16px;
+    font-weight: 700;
+    height: 25px;
+    line-height: 25px;
+    margin: 0;
+    padding: 10px 20px;
+    width: auto;
+    opacity: 1;
+    border-radius: 25px;
+    -o-border-radius: 25px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 25px;
+    text-align: center;
+    min-width: 90px;
+}
+
+.wooexim_product_export_belt.wooexim_selected,.wooexim_product_export_belt:hover {
+    background: #ffffff;
+    color: #000!important;
+}
+
+.wooexim_product_export_container {
+    float: left;
+    width: 98%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 20px 15px;
+    background: #fff;
+    border-left: 1px solid #e3e3e3;
+    border-right: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
+    height: auto;
+    margin: 0px 0 0;
+    border-radius: 0 80px;
+    -o-border-radius: 0 80px;
+    -webkit-border-radius: 0 80px;
+    -moz-border-radius: 0 80px;
+}
+
+.wooexim_product_export_belt + .wooexim_product_export_belt {
+    border-left: 1px solid rgba(121, 71, 111, 1);
+}
+
+.wooexim_deactivate_licence_settings_frm,.wooexim_order_field_setting,.wooexim_product_export_frm,.wooexim_product_export_inner_container,.wooexim_product_field_setting,.wooexim_product_import_frm,.wooexim_settings_frm,.wooexim_settings_purchase_frm,.wooexim_user_field_setting {
+    float: left;
+    width: 100%
+}
+
+.wooexim_export_field_container {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    float: left;
+    margin: 0px 1% 10px;
+    padding: 10px 0px;
+    width: 48%;
+}
+
+.wooexim_export_field_title {
+    float: left;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    border-bottom: 1px solid #dfdfdf;
+    margin: 0 0 15px;
+    padding: 0;
+    color: #666;
+    font-weight: 700
+}
+
+.wooexim_default_notice {
+    float: left;
+    width: 100%;
+    color: #999;
+    font-size: 13px
+}
+
+.wooexim_export_field_input_element,.wooexim_export_field_select_element {
+    float: left;
+    width: 100%;
+    height: 40px!important;
+    padding: 10px!important;
+    margin: 0!important;
+    color: #666!important;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-shadow: none!important;
+    outline: 0
+}
+
+.wooexim_export_field_btn_container {
+    float: left;
+    width: 100%;
+    margin: 20px 0
+}
+
+.wooexim_export_field_btn_wrapper {
+    text-align: center;
+    float: left;
+    width: 100%;
+    margin: 0
+}
+
+.wooexim_product_export_settings_wrapper .wooexim_export_field_btn_container {
+    margin: 0
+}
+
+.wooexim_product_export_settings_wrapper .wooexim_export_field_btn_wrapper {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0 0 0 150px
+}
+
+.wooexim_form_submit_btn {
+    background: #79476f;
+    border: 1px solid #75466c;
+    border-radius: 2px;
+    -o-border-radius: 2px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 2px;
+    font-size: 16px;
+    font-weight: 700;
+    height: 40px;
+    min-width: 120px;
+    padding: 0 25px;
+    width: auto;
+    color: #ffffff!important;
+    margin: 0 20px;
+    cursor: pointer;
+    outline: 0!important;
+}
+
+.wooexim_form_submit_btn:hover {
+    background: rgb(93, 50, 84);
+    border: 1px solid rgb(93, 50, 84);
+    -webkit-transition: all linear 0.3s;
+    /* For Safari 3.1 to 6.0 */
+    transition: all linear 0.3s;
+}
+
+.wooexim_export_start_date_field_wrapper {
+    float: left;
+    width: 48%;
+    margin: 0 2% 0 0;
+    height: auto
+}
+
+.wooexim_export_end_date_field_wrapper {
+    float: left;
+    width: 48%;
+    margin: 0 0 0 2%;
+    height: auto
+}
+
+.wooexim_export_field_wrapper {
+    float: left;
+    width: 100%
+}
+
+.wooexim_export_field_wrapper ul.chosen-choices,.wooexim_export_field_wrapper ul.chzn-choices {
+    margin: 0;
+    min-height: 40px!important;
+    padding: 5px;
+    background: #fff!important;
+    border: 1px solid #dfdfdf!important;
+    box-shadow: none!important;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box
+}
+
+.wooexim_export_field_wrapper ul.chosen-choices .search-field input,.wooexim_export_field_wrapper ul.chzn-choices .search-field input {
+    height: 25px!important
+}
+
+.wooexim_export_field_wrapper .chosen-container,.wooexim_export_field_wrapper .chosen-container .search-field input,.wooexim_export_field_wrapper .chzn-container,.wooexim_export_field_wrapper .chzn-container .search-field input,.wooexim_export_field_wrapper .chzn-drop,.wooexim_export_field_wrapper .chzn-search,.wooexim_export_field_wrapper .chzn-search input {
+    box-sizing: border-box;
+    float: left;
+    width: 100%!important
+}
+
+.wooexim_export_field_date_element {
+    text-align: center
+}
+
+.wooexim_export_field_file_element {
+    float: left;
+    width: 100%;
+    border: 1px solid #dfdfdf;
+    height: 40px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0!important;
+    margin: 0!important
+}
+
+.wooexim_settings_btn.wooexim_form_submit_btn {
+    float: left;
+    margin: 0 20px
+}
+
+.wooexim_export_settings_title {
+    float: left;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    border-bottom: 1px solid #dfdfdf;
+    margin: 0 0 15px;
+    padding: 0;
+    color: #666;
+    font-weight: 700;
+    cursor: pointer
+}
+
+.wooexim_export_settings_field_container {
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 10px 20px
+}
+
+.wooexim_export_settings_field_wrapper {
+    float: left;
+    width: 100%;
+    margin: 0 0 10px
+}
+
+.wooexim_export_settings_container {
+    float: left;
+    width: 100%
+}
+
+.wooexim_export_settings_purchase_title {
+    float: left;
+    width: 190px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px
+}
+
+.wooexim_export_settings_purchase_element {
+    float: left;
+    width: 400px;
+    height: 40px;
+    font-size: 14px;
+    box-shadow: none!important;
+    border: 1px solid #dfdfdf;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0 10px
+}
+
+.wooexim_export_settings_domain_name {
+    float: left;
+    width: 400px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px
+}
+
+.wooexim_product_licence_element {
+    float: left;
+    width: 400px
+}
+
+.wooexim_license_status {
+    background: #4CAF50;
+    border-radius: 2px;
+    -o-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    color: #fff;
+    font-weight: 700;
+    height: 25px;
+    line-height: 25px;
+    margin: 8px 0 0 5px;
+    text-align: center;
+    width: 100px;
+}
+
+.wooexim_export_preview_wrapper,.wooexim_product_filter_data {
+    width: 100%;
+    float: left
+}
+
+.wooexim_filter_data_container {
+    float: left;
+    width: 98%;
+    margin: 50px 0 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.wooexim_product_log {
+    text-align: center;
+    font-size: 16px!important
+}
+
+.wooexim_product_import_log tr td {
+    vertical-align: middle!important
+}
+
+.wooexim_filename_list {
+    font-weight: 700;
+    font-size: 14px!important
+}
+
+.wooexim_log_download_action {
+    float: left;
+    color: #00F;
+    margin: 0 20px 0 0;
+    cursor: pointer
+}
+
+.wooexim_log_delete_action {
+    float: left;
+    color: #A00;
+    margin: 0;
+    cursor: pointer
+}
+
+.wooexim_error_msg,.wooexim_success_msg {
+    font-size: 16px;
+    margin: 0 0 20px;
+    display: none;
+    color: #fff;
+    width: 100%;
+    font-weight: 700
+}
+
+.wooexim_success_msg {
+    background: #4CAF50;
+    border: 1px solid #dfdfdf;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    height: 40px;
+    line-height: 40px!important;
+    text-align: center;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px
+}
+
+.wooexim_error_msg {
+    background: #E64A19;
+    border: 1px solid #dfdfdf;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    min-height: 40px;
+    text-align: left;
+    padding: 10px 20px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px
+}
+
+.wooexim_documantation_links_wrapper {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    float: left;
+    padding: 50px 40px 0 0;
+    width: 100%
+}
+
+.wooexim_documantation_links_outer {
+    float: right;
+    width: auto
+}
+
+.wooexim_product_filter_data p {
+    margin: 0!important
+}
+
+.ui-datepicker {
+    position: absolute;
+    left: -1000px;
+    top: 0
+}
+
+.wooexim_import_file_error_msg {
+    display: block;
+    text-align: left
+}
+
+#uploadForm {
+    border-top: #F0F0F0 2px solid;
+    background: #FAF8F8;
+    padding: 10px
+}
+
+#uploadForm label {
+    margin: 2px;
+    font-size: 1em;
+    font-weight: 700
+}
+
+.demoInputBox {
+    padding: 5px;
+    border: 1px solid #F0F0F0;
+    border-radius: 4px;
+    -o-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    background-color: #FFF
+}
+
+.wooexim_process_bar {
+    background-color: #12CC1A;
+    color: #FFF;
+    width: 0;
+    -webkit-transition: width .3s;
+    -moz-transition: width .3s;
+    transition: width .3s;
+    height: 25px
+}
+
+.btnSubmit {
+    background-color: #09f;
+    padding: 10px 40px;
+    color: #FFF;
+    border: 1px solid #F0F0F0;
+    border-radius: 4px
+}
+
+#wooexim_targetLayer {
+    width: 100%;
+    text-align: center;
+    display: none
+}
+
+.wooexim_process_bar_wrapper {
+    height: auto;
+    position: relative;
+    margin: 10px 0 20px;
+    background: #555;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px;
+    -webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,.3);
+    -moz-box-shadow: inset 0 -1px 1px rgba(255,255,255,.3);
+    box-shadow: inset 0 -1px 1px rgba(255,255,255,.3);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    float: left;
+    width: 100%;
+    display: none
+}
+
+.wooexim_process_bar_wrapper .wooexim_process_bar {
+    display: block;
+    height: 100%;
+    height: 25px;
+    float: left;
+    -moz-border-radius-topright: 8px;
+    -moz-border-radius-bottomright: 8px;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-bottomleft: 20px;
+    background-color: #2bc253;
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0,#2bc253),color-stop(1,#54f054));
+    background-image: -moz-linear-gradient(center bottom,#2bc253 37%,#54f054 69%);
+    -webkit-box-shadow: inset 0 2px 9px rgba(255,255,255,.3),inset 0 -2px 6px rgba(0,0,0,.4);
+    -moz-box-shadow: inset 0 2px 9px rgba(255,255,255,.3),inset 0 -2px 6px rgba(0,0,0,.4);
+    box-shadow: inset 0 2px 9px rgba(255,255,255,.3),inset 0 -2px 6px rgba(0,0,0,.4);
+    position: relative;
+    overflow: hidden;
+    -webkit-border-radius: 20px 8px 8px 20px;
+    border-radius: 20px 8px 8px 20px
+}
+
+.animate>span>span,.wooexim_process_bar_wrapper .wooexim_process_bar:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: -webkit-gradient(linear,0 0,100% 100%,color-stop(.25,rgba(255,255,255,.2)),color-stop(.25,transparent),color-stop(.5,transparent),color-stop(.5,rgba(255,255,255,.2)),color-stop(.75,rgba(255,255,255,.2)),color-stop(.75,transparent),to(transparent));
+    background-image: -moz-linear-gradient(-45deg,rgba(255,255,255,.2) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.2) 50%,rgba(255,255,255,.2) 75%,transparent 75%,transparent);
+    z-index: 1;
+    -webkit-background-size: 50px 50px;
+    -moz-background-size: 50px 50px;
+    background-size: 50px 50px;
+    -webkit-animation: move 2s linear infinite;
+    -moz-animation: move 2s linear infinite;
+    -moz-border-radius-topright: 8px;
+    -moz-border-radius-bottomright: 8px;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-bottomleft: 20px;
+    overflow: hidden;
+    -webkit-border-radius: 20px 8px 8px 20px;
+    border-radius: 20px 8px 8px 20px
+}
+
+.animate>span:after {
+    display: none
+}
+
+@-webkit-keyframes move {
+    0% {
+        background-position: 0 0
+    }
+
+    100% {
+        background-position: 50px 50px
+    }
+}
+
+@-moz-keyframes move {
+    0% {
+        background-position: 0 0
+    }
+
+    100% {
+        background-position: 50px 50px
+    }
+}
+
+.orange>span {
+    background-color: #f1a165;
+    background-image: -moz-linear-gradient(top,#f1a165,#f36d0a);
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#f1a165),color-stop(1,#f36d0a));
+    background-image: -webkit-linear-gradient(#f1a165,#f36d0a)
+}
+
+.red>span {
+    background-color: #f0a3a3;
+    background-image: -moz-linear-gradient(top,#f0a3a3,#f42323);
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#f0a3a3),color-stop(1,#f42323));
+    background-image: -webkit-linear-gradient(#f0a3a3,#f42323)
+}
+
+.nostripes>span:after,.nostripes>span>span {
+    -webkit-animation: none;
+    -moz-animation: none;
+    background-image: none
+}
+
+.wooexim_process_bar_process {
+    float: left;
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    font-weight: 700;
+    color: #FFF;
+    font-size: 18px;
+    position: absolute
+}
+
+.wooexim_loader_icon {
+    height: 130px;
+    width: 130px
+}
+
+.wooexim_loader_icon_wrapper {
+    width: 100%;
+    text-align: center;
+    margin: -60px 0 0;
+    display: none
+}
+
+.wooexim_product_imported_data_title_wrapper {
+    float: left;
+    width: 100%
+}
+
+.wooexim_product_imported_data_title {
+    float: left;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 0 15px;
+    border-bottom: 1px solid #dfdfdf
+}
+
+.wooexim_import_preview_wrapper,.wooexim_product_filter_data_wrapper {
+    float: left;
+    width: 100%
+}
+
+.wooexim_import_preview_wrapper .wooexim_filter_data_container {
+    float: left;
+    width: 98%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 20px;
+    background: #fff
+}
+
+.wooexim_import_error_log {
+    display: block!important
+}
+
+.wooexim_ajax_loader {
+    background: url(../images/wooexim_ajax_loader.gif);
+    float: left;
+    height: 45px;
+    left: -60px;
+    position: absolute;
+    top: -4px;
+    width: 45px;
+    display: none;
+    outline: 0
+}
+
+.wooexim_activation_loader,.wooexim_deactivation_loader,.wooexim_order_field,.wooexim_product_field,.wooexim_user_field {
+    background: url(../images/wooexim_ajax_loader.gif);
+    float: left;
+    height: 45px;
+    width: 45px;
+    margin: -3px 0 0;
+    display: none;
+    outline: 0
+}
+
+.wooexim_coupon_preview_btn,.wooexim_order_preview_btn,.wooexim_product_cat_preview_btn,.wooexim_product_preview_btn,.wooexim_user_preview_btn {
+    position: relative;
+    overflow: visible
+}
+
+.wooexim_order_export_frm {
+    float: left;
+    width: 100%;
+    display: none
+}
+
+.wooexim_order_import_notice_wrapper {
+    width: 96%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    float: left;
+    margin: 0 2% 10px;
+    padding: 10px
+}
+
+.wooexim_default_import_notice {
+    color: red;
+    float: left;
+    width: auto;
+    font-size: 12px
+}
+
+.wooexim_export_settings_field_title {
+    float: left;
+    width: 190px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px
+}
+
+.wooexim_export_settings_field_element {
+    float: left;
+    width: 400px;
+    height: 40px;
+    font-size: 14px;
+    box-shadow: none!important;
+    border: 1px solid #dfdfdf;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0 10px
+}
+
+.wooexim_setting_field_outer_wrapper {
+    float: left;
+    width: 100%;
+    display: none
+}
+
+.wooexim_toggle_close,.wooexim_toggle_open {
+    height: 22px;
+    margin: 9px 10px 0 0;
+    width: 22px;
+    float: left
+}
+
+.wooexim_toggle_open {
+    background: url(../images/toggle-open.png) center center no-repeat rgba(0,0,0,0)
+}
+
+.wooexim_toggle_close {
+    background: url(../images/toggle-close.png) center center no-repeat rgba(0,0,0,0);
+    display: none
+}
+
+.wooexim_product_scheduled_export_label {
+    float: left;
+    width: auto;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #666
+}
+
+.wooexim_scheduled_export_check_element {
+    float: left;
+    width: auto;
+    height: auto!important;
+    margin: 8px 8px 0 0!important;
+    padding: 0!important
+}
+
+.wooexim_scheduled_export_wrapper {
+    float: left;
+    width: 100%
+}
+
+.wooexim_scheduled_export_inner {
+    float: left;
+    width: 100%;
+    padding: 10px 0 0
+}
+
+.wooexim_scheduled_export_data_label {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    float: left;
+    width: 40%;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    color: #666
+}
+
+.wooexim_scheduled_export_data_element_wrapper {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    float: left;
+    width: 60%
+}
+
+.wooexim_scheduled_export_email_details,.wooexim_scheduled_export_outer_details {
+    float: left;
+    width: 100%;
+    display: none
+}
+
+.wooexim_scheduled_export_text_area {
+    box-shadow: none!important;
+    box-sizing: border-box;
+    color: #666!important;
+    float: left;
+    height: 100px!important;
+    margin: 0!important;
+    outline: 0;
+    padding: 10px!important;
+    width: 100%
+}
+
+.wooexim_scheduled_export_frm {
+    float: left;
+    width: 100%
+}
+
+.wooexim_scheduled_export_btn {
+    display: none
+}
+
+.wooexim_scheduled_export_title {
+    float: left;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 0;
+    border-bottom: 1px solid #aaa;
+    margin: 0 0 20px
+}
+
+.wooexim_delete_coupon_cron,.wooexim_delete_order_cron,.wooexim_delete_product_cat_cron,.wooexim_delete_product_cron,.wooexim_delete_user_cron {
+    cursor: pointer;
+    color: #00F;
+    text-align: center
+}
+
+.wooexim_user_export_frm {
+    float: left;
+    width: 100%;
+    display: none
+}
+
+.wooexim_scheduled_export_container {
+    margin: 0 0 30px
+}
+
+.wooexim_scheduled_send_email {
+    width: auto!important;
+    padding: 0!important;
+    height: auto!important;
+    margin: 8px 0 5px!important
+}
+
+.wooexim_total_export_count {
+    float: right;
+    min-width: 25px;
+    width: auto;
+    padding: 0 5px;
+    height: 25px;
+    font-weight: 400;
+    line-height: 25px;
+    background: #d54e21;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -o-border-radius: 30px;
+    border-radius: 25px;
+    margin: 0 0 0 5px;
+    text-align: center;
+    color: #FFF;
+    font-size: 14px;
+}
+
+.wooexim_field_tital_recordes {
+    float: right;
+    font-size: 12px;
+    width: auto
+}
+
+.wooexim_coupon_field_setting,.wooexim_license_notice,.wooexim_product_cat_field_setting {
+    width: 100%;
+    float: left
+}
+
+.wooexim_coupon_export_frm,.wooexim_product_cat_export_frm {
+    float: left;
+    width: 100%;
+    display: none
+}
+
+.wooexim_license_notice {
+    height: 30px;
+    color: red
+}
+
+.wooexim_total_coupon_export_count,.wooexim_total_data_export_title,.wooexim_total_order_export_count,.wooexim_total_product_cat_export_count,.wooexim_total_product_export_count,.wooexim_total_user_export_count {
+    float: left;
+    width: auto
+}
+
+@media (min-width: 0px) and (max-width:680px) {
+    .wooexim_export_field_container {
+        width:96%!important
+    }
+}
+
+.wooexim_product_export_wrapper .woo-banner {
+    background: #79476f;
+    display: block;
+    height: 106px;
+    width: 98%;
+    color: #fff;
+    padding: 3px 15px;
+    float: left;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin: 0px 0 0;
+}
+
+.wooexim_product_export_wrapper .woo-logo h3 {
+    font-size: 20px;
+    color: white;
+    line-height: 26px;
+    margin: 16px;
+}
+
+.wooexim_product_export_wrapper .woo-logo img {
+    width: 25px;
+    float: left;
+    margin-right: 5px;
+}
+
+.flexigrid div.hDivBox, .flexigrid div.bDiv table {
+    width: 100%;
+}
