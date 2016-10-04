@@ -19,6 +19,14 @@ if( is_front_page() ){
         </div>
         <div class="collapse navbar-collapse main-site-nav clearfix" id="main-site-nav">
             <div class="nav nav-utilities">
+                <div class="phone-icon phone-block">
+                    <?php 
+                        $phone = get_field('toll_free_phone', 'options'); 
+                        $cleaned_phone = $phone;
+                        $cleaned_phone = str_replace(array('(', ')', '-', ' '), "", $cleaned_phone);
+                    ?>
+                    <a href="tel:+1<?php echo $cleaned_phone; ?>" class="d-block"><?php echo $phone; ?></a>
+                </div>
                 <?php
                     if (has_nav_menu('top_navigation')) :
                         wp_nav_menu(['theme_location' => 'top_navigation', 'menu_class' => 'nav top-nav']);

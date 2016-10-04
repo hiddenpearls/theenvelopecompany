@@ -10,39 +10,13 @@
 
 	<div class="category-shop-header">
 		<div class="container">
-			<ul class="shop-navigation-bar">
+			<div>
 				<?php
-
-		              $taxonomy     = 'product_cat';
-		              $orderby      = 'name';  
-		              $show_count   = 0;      // 1 for yes, 0 for no
-		              $pad_counts   = 0;      // 1 for yes, 0 for no
-		              $hierarchical = 0;      // 1 for yes, 0 for no  
-		              $title        = '';  
-		              $empty        = 0;
-
-		              $args = array(
-		                     'taxonomy'     => $taxonomy,
-		                     'orderby'      => $orderby,
-		                     'show_count'   => $show_count,
-		                     'pad_counts'   => $pad_counts,
-		                     'hierarchical' => $hierarchical,
-		                     'title_li'     => $title,
-		                     'hide_empty'   => $empty
-		              );
-		             $all_categories = get_categories( $args );
-		             foreach ($all_categories as $cat) {
-		                $counter = 1;
-		                if($cat->category_parent == 0) {
-		                    $category_id = $cat->term_id;   
-		                    echo '<li>';    
-		                      echo  '<a class="shop-nav-btn" href="'. get_term_link($cat->slug, 'product_cat') .'">'.$cat->name.'</a>';
-		                      echo '</li>';
-		                } 
-		                $counter++;      
-		            }
+                    if (has_nav_menu('shop_navigation')) :
+                        wp_nav_menu(['theme_location' => 'shop_navigation', 'menu_class' => 'nav shop-navigation-bar']);
+                    endif;
 		            ?>
-			</ul>
+			</div>
 		</div>
 	</div>
 	<div class="cart-shop-header">
@@ -51,13 +25,13 @@
 				global $woocommerce;
 				$cart_url = $woocommerce->cart->get_cart_url(); 
 			?>
-			<a href="<?php echo $cart_url; ?>"><i class="fa fa-cart"></i>My Cart</a>
+			<a class="cart-btn" href="<?php echo $cart_url; ?>"><i class="fa fa-shopping-cart"></i>My Cart</a>
 			<a class="cart-contents" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>"><?php echo sprintf ( _n( 'item: (%d)', 'items: (%d)', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?>  <?php echo WC()->cart->get_cart_total(); ?></a>
 			<?php 
 			global $woocommerce;
 
 			if ( sizeof( $woocommerce->cart->cart_contents) > 0 ) :
-				echo '<a href="' . $woocommerce->cart->get_checkout_url() . '" title="' . __( 'Checkout' ) . '">' . __( 'Checkout' ) . '</a>';
+				echo '<a class="btn white-btn" href="' . $woocommerce->cart->get_checkout_url() . '" title="' . __( 'Checkout' ) . '">' . __( 'Check Out' ) . '</a>';
 			endif;
 
 			?>
@@ -67,6 +41,7 @@
 		<!--<h1 class="page-title"><?php //woocommerce_page_title(); ?></h1>-->
 	<?php //endif; ?>
 	<div class="container">
+		<h1 class="text-center"><?php single_cat_title(); ?></h1>
 	<?php
 		/**
 		 * woocommerce_archive_description hook.

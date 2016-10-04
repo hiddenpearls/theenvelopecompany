@@ -59,6 +59,7 @@ if( function_exists('acf_add_options_page') ) {
   
 }
 
+
 /**
  * WooCommerce Theme integration
  */
@@ -98,3 +99,33 @@ function custom_breadcrumb() {
  */
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
 add_action( 'woocommerce_before_single_product_summary', 'woocommerce_template_single_title', 5 );
+
+remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
+add_action( 'woocommerce_after_shop_loop_item_title', 'Roots\Sage\Extras\woocommerce_template_loop_attributes', 10 );
+function woocommerce_template_loop_attributes(){
+  global $product;
+  //echo $product->list_attributes();
+  $size = $product->get_attribute( 'size' ) ;
+  echo '<p>'.$size.'</p>';
+  $color = $product->get_attribute( 'color' ) ;
+  echo '<p>'.$color.'</p>';
+  
+
+}
+
+/**
+ * Change Add To Cart to Select Options
+ */
+function sfws_woocommerce_product_add_to_cart_text() {
+  global $product;
+  return __( 'View Product', 'woocommerce' );
+}
+//* Change the Add To Cart Link
+add_filter( 'woocommerce_loop_add_to_cart_link', 'Roots\Sage\Extras\sfws_add_product_link' );
+function sfws_add_product_link( $link ) {
+ global $product;
+ $product_id = $product->id;
+ $product_sku = $product->get_sku();
+ $link = '<a href="'.get_permalink().'" rel="nofollow" data-product_id="'.$product_id.'" data-product_sku="'.$product_sku.'" data-quantity="1" class="button add_to_cart_button product_type_variable">'.sfws_woocommerce_product_add_to_cart_text().'</a>';
+ return $link;
+}
