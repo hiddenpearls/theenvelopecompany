@@ -25,7 +25,12 @@ p{
 p, small, li, span{
 	color: $medium-gray;
 }
-
+a{
+	color: $dark-gray;
+	&:hover{
+		color: $brand-orange;
+	}
+}
 
 .dark-gray{
 	color: $dark-gray;
@@ -53,4 +58,8 @@ input, textarea{
 }
 a:hover{
 	text-decoration: none;
+}
+
+.title-pages{
+	color: $medium-gray;
 }

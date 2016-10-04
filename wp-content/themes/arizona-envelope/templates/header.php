@@ -19,6 +19,14 @@ if( is_front_page() ){
         </div>
         <div class="collapse navbar-collapse main-site-nav clearfix" id="main-site-nav">
             <div class="nav nav-utilities">
+                <div class="phone-icon phone-block">
+                    <?php 
+                        $phone = get_field('toll_free_phone', 'options'); 
+                        $cleaned_phone = $phone;
+                        $cleaned_phone = str_replace(array('(', ')', '-', ' '), "", $cleaned_phone);
+                    ?>
+                    <a href="tel:+1<?php echo $cleaned_phone; ?>" class="d-block"><?php echo $phone; ?></a>
+                </div>
                 <?php
                     if (has_nav_menu('top_navigation')) :
                         wp_nav_menu(['theme_location' => 'top_navigation', 'menu_class' => 'nav top-nav']);
@@ -75,3 +83,59 @@ if( is_front_page() ){
     }
 
  ?>
+
+<?php if(is_page('die-lines') || is_page('resources') || is_page('helpful-information') | is_page('equipment')){?>
+    <div class="category-shop-header">
+        <div class="container">
+            <ul class="shop-navigation-bar">
+                <?php 
+                $menu = wp_get_nav_menu_items('resources-menu');
+                foreach ($menu as $key => $menu_item) {
+                    echo '<li>';    
+                    echo  '<a class="shop-nav-btn" href="'. $menu_item->url .'">'.$menu_item->title.'</a>';
+                    echo '</li>'; 
+                }?> 
+            </ul>
+        </div>
+    </div>
+<?php }?>
+
+<?php if(is_page('contact-us')){?>
+    <div class="category-shop-header">
+        <div class="container">
+            <ul class="shop-navigation-bar">
+                <?php
+
+                      $taxonomy     = 'product_cat';
+                      $orderby      = 'name';  
+                      $show_count   = 0;      // 1 for yes, 0 for no
+                      $pad_counts   = 0;      // 1 for yes, 0 for no
+                      $hierarchical = 0;      // 1 for yes, 0 for no  
+                      $title        = '';  
+                      $empty        = 0;
+
+                      $args = array(
+                             'taxonomy'     => $taxonomy,
+                             'orderby'      => $orderby,
+                             'show_count'   => $show_count,
+                             'pad_counts'   => $pad_counts,
+                             'hierarchical' => $hierarchical,
+                             'title_li'     => $title,
+                             'hide_empty'   => $empty
+                      );
+                     $all_categories = get_categories( $args );
+                     foreach ($all_categories as $cat) {
+                        $counter = 1;
+                        if($cat->category_parent == 0) {
+                            $category_id = $cat->term_id;   
+                            echo '<li>';    
+                              echo  '<a class="shop-nav-btn" href="'. get_term_link($cat->slug, 'product_cat') .'">'.$cat->name.'</a>';
+                              echo '</li>';
+                        } 
+                        $counter++;      
+                    }
+                    ?>
+            </ul>
+        </div>
+    </div>
+<?php }?>
