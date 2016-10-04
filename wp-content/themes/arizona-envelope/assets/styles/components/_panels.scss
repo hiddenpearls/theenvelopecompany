@@ -12,11 +12,11 @@ section{
 	background-color: $sand;
 }
 
-.products-section{
+.products-section, .products{
 	h1{
 		color: $medium-gray;
 	}
-	.product-category-extract{
+	.product-category-extract, li.type-product{
 		border: 2px solid $medium-gray;
 		text-align: center;
 		min-height: rem(380);
@@ -27,6 +27,16 @@ section{
 		background: linear-gradient(to bottom,  #f9f9f9 0%,#f5f5f5 50%,#f1f1f1 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#f1f1f1',GradientType=0 ); /* IE6-9 */
 		padding: 20px;
+		@media screen and (max-width: $breakpoint--xlarge){
+			width: 48%!important;
+			margin: 0 1% 2.992em!important;
+			min-height: auto;
+		}
+		@media screen and (max-width: $breakpoint--small){
+			width: 100%!important;
+			float: none!important;
+
+		}
 		img, span{
 			display: block;
 		}
@@ -83,81 +93,7 @@ section{
 			}
 		}
 	}
-	.contact-form{
-		> p{
-			margin-bottom: 8px;
-		}
-		form{
-			position: relative;
-			.gform_fields{
-				.gfield{
-					width: 50%;
-					clear: none;
-
-					input{
-						width: 100%;
-					}
-					&:last-child{
-						position: absolute;
-						top: 0;
-						right: 0;
-						margin-top: 0;
-						.ginput_container{
-							margin-top: 0;
-						}
-					}
-					textarea.medium{
-						max-height: rem(130);
-					}
-				}
-			}
-			.gform_footer{
-				position: absolute;
-				padding-bottom: 0;
-				padding-right: 16px;
-				right: 0;
-				bottom: 0;
-				width: 50%;
-				.gform_button{
-					text-transform: uppercase;
-					height: rem(50);
-					border-radius: 0;
-					border: 2px solid;
-					@include transition(0.2s all ease-in-out);
-					background-color: transparent;
-					border-color: $medium-gray;
-					color: $dark-gray;
-					width: 100%;
-					&:hover{
-						background-color: $brand-orange;
-						color: #fff;
-						border-color: $brand-orange;
-					}
-				}
-			}
-			label{
-				display: none!important;
-			}
-			input{
-				&::-webkit-input-placeholder {
-				   font-family: $heading-font;
-				   font-style: italic;
-				}
-				&:-moz-placeholder { /* Firefox 18- */
-				   font-family: $heading-font;
-				   font-style: italic; 
-				}
-				&::-moz-placeholder {  /* Firefox 19+ */
-				   font-family: $heading-font;
-				   font-style: italic; 
-				}
-				&:-ms-input-placeholder {  
-				   font-family: $heading-font;
-				   font-style: italic; 
-				}
-			}
-		}
-	}
+	
 }
 
 /*
@@ -167,42 +103,60 @@ section{
 	background-color: $brand-orange;
 	width: 100%;
 	margin-bottom: rem(20);
-	ul{
-		list-style-type: none;
-		padding: rem(16) 0;
-		margin: 0;
-		li{
-			display: inline-block;
-			vertical-align: top;
-			border-left: 1px solid $brand-orange;
-			border-right: 1px solid $brand-orange;
-			max-width: 16.6666666%;
-			padding: 0 rem(12);
-			text-align: center;
-			a{
-				color: $dark-gray;
-				text-transform: uppercase;
-				&:hover{
-					color: #fff;
-				}
-			}
-			&.active{
-				border-left: 1px solid #fff;
-				border-right: 1px solid #fff;	
+	padding: 20px 0;
+	.menu-shop-navigation-container{
+		.shop-navigation-bar{
+			.menu-item{
+				display: inline-block;
+				vertical-align: top;
+				border-left: 1px solid $brand-orange;
+				border-right: 1px solid $brand-orange;
+				max-width: 16.6666666%;
+				padding: 0 rem(12);
+				text-align: center;
 				a{
-					color: #fff;
+					color: $dark-gray;
+					text-transform: uppercase;
+					padding: 0;
+					&:hover{
+						color: #fff;
+					}
 				}
-
+				&.current-menu-item{
+					border-left: 1px solid #fff;
+					border-right: 1px solid #fff;	
+					a{
+						color: #fff;
+					}
+				}
 			}
 		}
 	}
 }
 .cart-shop-header{
+	padding: rem(12) 0;
 	background-color: $sand;
 	width: 100%;
 	text-transform: uppercase;
 	margin-bottom: rem(20);
 	a{
-
+		color: $medium-gray;
+		&.cart-btn{
+			margin-right: rem(30);
+			display: inline-block;
+			padding-top: rem(14);
+			i{
+				margin-right: rem(20);
+				color: $brand-orange;
+			}
+		}
+		&.cart-contents{
+		    padding-top: rem(14);
+			display: inline-block;
+		}
+		&.white-btn{
+			float: right;
+			padding: rem(15) rem(25);
+		}
 	}
 }

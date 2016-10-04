@@ -17,6 +17,9 @@
             border-radius: 0;
         }
     }
+    .navbar-collapse{
+        padding: 0 8px;
+    }
 }
 .main-site-nav{
 	.nav{
@@ -32,13 +35,26 @@
                     background-color: transparent;
 				}
 			}
+            &:first-child{
+                a{
+                    padding-left: 0;
+                }
+            }
 		}
 	}
 	.nav-utilities{
 		float: right;
-        margin-top: 56px;
+        margin-top: 12px;
+        .phone-icon{
+            float: right;
+            margin-bottom: 20px;
+        }
+        .menu-top-navigation-container{
+            clear: both;
+        }
         .phone-icon, .cart-icon{
             a{
+                color: $dark-gray;
                 &:before{
                     font: normal normal normal 14px/1 FontAwesome;
                     content: "\f095";
