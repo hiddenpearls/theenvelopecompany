@@ -18,13 +18,13 @@
  * @package WordPress
  */
 
-define( 'DB_NAME', 'azenvelope' );
+define( 'DB_NAME', 'arizona-envelope-prod' );
 
 /** MySQL database username */
 define( 'DB_USER', 'root' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'lt2016' );
+define( 'DB_PASSWORD', 'root' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'localhost' );

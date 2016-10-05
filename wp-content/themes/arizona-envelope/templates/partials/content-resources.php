@@ -23,7 +23,7 @@
 				<div class="row">
 		    <?php 
 		    	while( $samples_query->have_posts() ) : $samples_query->the_post(); ?>
-					<div class="col-md-4 product-category-extract">
+					<div class="col-md-3 product-category-extract">
 						<img class="img-responsive" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>" alt="">
 						<h3><?php the_title(); ?></h3>
 						<p><?php the_content(); ?></p>

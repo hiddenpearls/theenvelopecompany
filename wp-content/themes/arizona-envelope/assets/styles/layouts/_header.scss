@@ -190,17 +190,26 @@
                 }
             }
             @media screen and (max-width: $breakpoint--medium){
-                max-width: 75%;
+                max-width: 100%;
+                h1,p{
+                  margin-bottom: rem(10);
+                  max-width: 100%;
+                }
                 h1{
                     font-size: rem(32);
-                    margin-bottom: rem(10);
-                }
-                p{
-                    margin-bottom: rem(10);
                 }
                 a{
                     width: rem(160);
+                    margin-right: rem(12);
                     
+                }
+            }
+            @media screen and (max-width: $breakpoint--small){
+                h1{
+                    font-size: rem(28);
+                }
+                a{
+                    width: rem(140);
                 }
             }
         }
@@ -245,6 +254,8 @@
         border: none;
         height: 80%;
         border-left: 2px solid $light-gray;
+        width: 32px;
+        padding: 0;
         i{
             color: $brand-orange;
         }

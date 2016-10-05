@@ -17,17 +17,54 @@ section{
 		color: $medium-gray;
 	}
 	.product-category-extract, li.type-product{
-		border: 2px solid $medium-gray;
-		text-align: center;
-		min-height: rem(380);
-		
-		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9f9f9+0,f5f5f5+50,f1f1f1+100 */
-		background: #f9f9f9; /* Old browsers */
-		background: -moz-linear-gradient(top,  #f9f9f9 0%, #f5f5f5 50%, #f1f1f1 100%); /* FF3.6-15 */
-		background: -webkit-linear-gradient(top,  #f9f9f9 0%,#f5f5f5 50%,#f1f1f1 100%); /* Chrome10-25,Safari5.1-6 */
-		background: linear-gradient(to bottom,  #f9f9f9 0%,#f5f5f5 50%,#f1f1f1 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#f1f1f1',GradientType=0 ); /* IE6-9 */
-		padding: 20px;
+		a.woocommerce-LoopProduct-link, &.col-md-4, &.col-md-3{
+			display: block;
+			border: 2px solid $medium-gray;
+			text-align: center;
+			min-height: rem(380);
+			margin-bottom: rem(60);
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9f9f9+0,f5f5f5+50,f1f1f1+100 */
+			background: #f9f9f9; /* Old browsers */
+			background: -moz-linear-gradient(top,  #f9f9f9 0%, #f5f5f5 50%, #f1f1f1 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top,  #f9f9f9 0%,#f5f5f5 50%,#f1f1f1 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom,  #f9f9f9 0%,#f5f5f5 50%,#f1f1f1 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#f1f1f1',GradientType=0 ); /* IE6-9 */
+			padding: 20px;
+		}
+		&.col-md-4{
+			width: 29.3333333333%;
+			padding-left: 15px;
+    		padding-right: 15px;
+    		margin: 2%;
+		}
+		&.col-md-3{
+			    margin: 0 3.8% 2.992em 0;
+			    width: 22.05%;
+		}
+		a.button.add_to_cart_button{
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			-webkit-transform: translateX(-50%);
+			transform: translateX(-50%);
+			background-color: $brand-orange;
+			font-family: $copy-font;
+			padding: rem(14) rem(15);
+			font-weight: medium;
+			text-transform: uppercase;
+			border-radius: 0;
+			border: 2px solid;
+			color: #fff;
+			border-color: $brand-orange;
+			width: rem(200);
+			height: rem(50);
+			text-align: center;
+			&:hover{
+				background-color: $dark-gray;
+				border-color: $dark-gray;
+				color: #fff;
+			}
+		}
 		img{
 			margin: 0 auto;
 		}
@@ -41,12 +78,6 @@ section{
 			margin: 0 auto 12px;
 			color: $dark-gray;
 		}
-		&.col-md-4{
-			width: 29.3333333333%;
-			padding-left: 15px;
-    		padding-right: 15px;
-    		margin: 2%;
-		}
 		@media screen and (max-width: $breakpoint--xlarge){
 			width: 48%!important;
 			margin: 0 1% 2.992em!important;
@@ -57,7 +88,8 @@ section{
 			}
 		}
 		@media screen and (max-width: $breakpoint--small){
-			width: 100%!important;
+			width: 98%!important;
+			padding: 1%;
 			float: none!important;
 
 		}
@@ -107,6 +139,9 @@ section{
 				list-style-type: none;
 				padding: 0;
 				position: relative;
+				.gfield_label{
+					display: none;
+				}
 				.gfield{
 					width: 48%;
 					input{
@@ -140,15 +175,24 @@ section{
 						}
 					}
 					textarea{
-						max-height: rem(150);
+						max-height: rem(140);
 					}
 					&:last-child{
 						position: absolute;
 						top: 0;
 						right: 0;
-
+						margin-top: 0;
+						.ginput_container_textarea{
+							margin-top: 0;
+						}
+						@media screen and (max-width: $breakpoint--medium){
+							position: static;
+							margin-top: 16px;
+						}
 					}
-						
+					@media screen and (max-width: $breakpoint--medium){
+						width: 100%;
+					}
 				}
 			}
 		}
@@ -156,8 +200,9 @@ section{
 			width: 48%;
 			position: absolute;
 			right: 0;
-			bottom: 10px;
-			padding-right: 15px;
+			bottom: 0;
+			padding: 0 15px 0 8px;
+			margin: 0 0 16px;
 			.gform_button{
 				width: 100%;
 				background-color: transparent;
@@ -175,6 +220,20 @@ section{
 					color: $dark-gray;
 					border-color: $light-gray;
 				}	
+				@media screen and (max-width: $breakpoint--medium){
+					margin-bottom: 0;
+					max-width: 100%;;
+					margin-top: rem(20);
+				}
+			}
+			@media screen and (max-width: $breakpoint--large){
+				margin-bottom: 0;
+			}
+			@media screen and (max-width: $breakpoint--medium){
+				margin-bottom: 0;
+				position: static;
+				width: 100%;
+				padding: 0;
 			}
 		}
 	}
@@ -217,7 +276,7 @@ section{
 				}
 				@media screen and (max-width: $breakpoint--xlarge){
 					max-width: 33.333%;
-					width: 33%;
+					width: 32%;
 					margin-bottom: rem(20);
 				}
 			}
@@ -248,6 +307,33 @@ section{
 		&.white-btn{
 			float: right;
 			padding: rem(15) rem(25);
+		}
+	}
+}
+
+/*
+	Contact Section
+*/
+.newsletter-signup-section{
+	.gform_wrapper .gform_footer input.button, .gform_wrapper .gform_footer input[type=submit]{
+		float: right;
+		margin-right: 0;
+		font-family: $copy-font;
+		padding: 14px 0;
+		font-weight: medium;
+		text-transform: uppercase;
+		border-radius: 0;
+		border: 2px solid;
+		@include transition(0.2s all ease-in-out);
+		background-color: transparent;
+		border-color: $light-gray;
+		color: $dark-gray;
+		width: rem(300);
+		height: rem(50);
+		&:hover{
+			background-color: $light-gray;
+			color: $dark-gray;
+			border-color: $light-gray;
 		}
 	}
 }

@@ -86,12 +86,12 @@ if( is_front_page() ){
 
 <?php if(is_page('die-lines') || is_page('resources') || is_page('helpful-information') | is_page('equipment')){?>
     <div class="category-shop-header">
-        <div class="container">
+        <div class="container menu-shop-navigation-container">
             <ul class="shop-navigation-bar">
                 <?php 
                 $menu = wp_get_nav_menu_items('resources-menu');
                 foreach ($menu as $key => $menu_item) {
-                    echo '<li>';    
+                    echo '<li class="menu-item">';    
                     echo  '<a class="shop-nav-btn" href="'. $menu_item->url .'">'.$menu_item->title.'</a>';
                     echo '</li>'; 
                 }?> 
@@ -99,43 +99,16 @@ if( is_front_page() ){
         </div>
     </div>
 <?php }?>
-
 <?php if(is_page('contact-us')){?>
     <div class="category-shop-header">
-        <div class="container">
-            <ul class="shop-navigation-bar">
-                <?php
-
-                      $taxonomy     = 'product_cat';
-                      $orderby      = 'name';  
-                      $show_count   = 0;      // 1 for yes, 0 for no
-                      $pad_counts   = 0;      // 1 for yes, 0 for no
-                      $hierarchical = 0;      // 1 for yes, 0 for no  
-                      $title        = '';  
-                      $empty        = 0;
-
-                      $args = array(
-                             'taxonomy'     => $taxonomy,
-                             'orderby'      => $orderby,
-                             'show_count'   => $show_count,
-                             'pad_counts'   => $pad_counts,
-                             'hierarchical' => $hierarchical,
-                             'title_li'     => $title,
-                             'hide_empty'   => $empty
-                      );
-                     $all_categories = get_categories( $args );
-                     foreach ($all_categories as $cat) {
-                        $counter = 1;
-                        if($cat->category_parent == 0) {
-                            $category_id = $cat->term_id;   
-                            echo '<li>';    
-                              echo  '<a class="shop-nav-btn" href="'. get_term_link($cat->slug, 'product_cat') .'">'.$cat->name.'</a>';
-                              echo '</li>';
-                        } 
-                        $counter++;      
-                    }
-                    ?>
-            </ul>
+  <div class="container">
+    <div>
+      <?php
+          if (has_nav_menu('shop_navigation')) :
+              wp_nav_menu(['theme_location' => 'shop_navigation', 'menu_class' => 'nav shop-navigation-bar']);
+          endif;
+          ?>
         </div>
+      </div>
     </div>
 <?php }?>
