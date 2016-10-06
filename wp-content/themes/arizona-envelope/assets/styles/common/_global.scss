@@ -66,3 +66,18 @@ a:hover{
 .title-pages{
 	color: $medium-gray;
 }
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  @media screen and (max-width: $breakpoint--medium){
+  	display: block;
+  	.main, .sidebar{
+  		display: block;
+  		width: 100%;
+  		float: none;
+  	}
+  }
+}

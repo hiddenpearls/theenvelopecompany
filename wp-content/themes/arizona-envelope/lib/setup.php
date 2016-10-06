@@ -87,7 +87,12 @@ function display_sidebar() {
     // The sidebar will NOT be displayed if ANY of the following return true.
     // @link https://codex.wordpress.org/Conditional_Tags
     is_404(),
-    is_front_page(),
+    is_page(),
+    is_woocommerce(),
+    is_single(),
+    is_home()
+    /*
+     is_front_page(),
     is_page_template('template-custom.php'),
     is_page_template('template-resources.php'),
     is_page_template('template-contact.php'),
@@ -95,9 +100,9 @@ function display_sidebar() {
     is_page('die-lines'),
     is_page('helpful-information'),
     is_page('equipment'),
-    is_woocommerce(),
     is_page('checkout'),
     is_page('cart'),
+    */
   ]);
 
   return apply_filters('sage/display_sidebar', $display);

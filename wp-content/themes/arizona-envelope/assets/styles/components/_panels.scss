@@ -65,6 +65,19 @@ section{
 				color: #fff;
 			}
 		}
+		&.button-down{
+			p{
+				margin-bottom: rem(60);
+			}
+			a.orange-btn{
+				position: absolute;
+				bottom: rem(10);
+				left: 50%;
+				-webkit-transform: translateX(-50%);
+				transform: translateX(-50%);
+			}
+		}
+			
 		img{
 			margin: 0 auto;
 		}
@@ -246,7 +259,8 @@ section{
 	background-color: $brand-orange;
 	width: 100%;
 	margin-bottom: rem(20);
-	padding: 20px 0;
+	padding: rem(20) 0;
+	margin-top: rem(20);
 	.menu-shop-navigation-container{
 		.shop-navigation-bar{
 			.menu-item{
@@ -262,7 +276,7 @@ section{
 					color: $dark-gray;
 					text-transform: uppercase;
 					padding: 0;
-					&:hover{
+					&:hover, &:active, &:focus{
 						color: #fff;
 						background-color: transparent;
 					}

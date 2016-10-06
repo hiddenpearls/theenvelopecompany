@@ -29,7 +29,7 @@
 						<p><?php the_content(); ?></p>
 					</div>
 			<?php $count++;
-                    if ($count%3 == 0){ ?>
+                    if ($count%4 == 0){ ?>
                         </div><div class="row">
             <?php  }
                 endwhile; ?>

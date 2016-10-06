@@ -58,7 +58,10 @@ if( function_exists('acf_add_options_page') ) {
   */
   
 }
-
+/**
+ * Remove wordpress' auto <p> tags on the excerpt
+ */
+remove_filter( 'the_excerpt', 'wpautop' );
 
 /**
  * WooCommerce Theme integration

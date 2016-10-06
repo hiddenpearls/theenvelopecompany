@@ -89,26 +89,35 @@ if( is_front_page() ){
         <div class="container menu-shop-navigation-container">
             <ul class="shop-navigation-bar">
                 <?php 
-                $menu = wp_get_nav_menu_items('resources-menu');
+                wp_nav_menu( array(
+                    'menu' => 'resources-menu'
+                ) );
+                /*$menu = wp_get_nav_menu_items('resources-menu');
                 foreach ($menu as $key => $menu_item) {
                     echo '<li class="menu-item">';    
                     echo  '<a class="shop-nav-btn" href="'. $menu_item->url .'">'.$menu_item->title.'</a>';
                     echo '</li>'; 
-                }?> 
+                }*/?> 
             </ul>
         </div>
     </div>
 <?php }?>
-<?php if(is_page('contact-us')){?>
+
+<?php if(is_page('about-us') || is_page('privacy-policy') || is_page('terms-conditions') | is_page('news-releases')){?>
     <div class="category-shop-header">
-  <div class="container">
-    <div>
-      <?php
-          if (has_nav_menu('shop_navigation')) :
-              wp_nav_menu(['theme_location' => 'shop_navigation', 'menu_class' => 'nav shop-navigation-bar']);
-          endif;
-          ?>
+        <div class="container menu-shop-navigation-container">
+            <ul class="shop-navigation-bar">
+                <?php 
+                wp_nav_menu( array(
+                    'menu' => 'about-us-menu'
+                ) );
+                /*$menu = wp_get_nav_menu_items('resources-menu');
+                foreach ($menu as $key => $menu_item) {
+                    echo '<li class="menu-item">';    
+                    echo  '<a class="shop-nav-btn" href="'. $menu_item->url .'">'.$menu_item->title.'</a>';
+                    echo '</li>'; 
+                }*/?> 
+            </ul>
         </div>
-      </div>
     </div>
 <?php }?>
