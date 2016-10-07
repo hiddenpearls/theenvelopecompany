@@ -10,15 +10,30 @@
 				text-align: center;
 			}
 		}
-		.menu-footer-nav-container{
+		.brand{
+			max-width: rem(130);
 			margin-top: rem(70);
+			float: left;
+		    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+		        .retina-logo{
+		            max-width: rem(130);
+		        }
+		    }
+		    @media screen and (max-width: $breakpoint--medium) { 
+		        margin-left: 15px;
+		        margin-top: rem(0);
+		    }
+		}
+		.menu-footer-nav-container{
+			margin-top: rem(90);
+			float: left;
 			ul{
 				list-style-type: none;
 
 				li{
 					display: inline-block;
 					vertical-align: top;
-					margin-right: rem(50);
+					margin-right: rem(0);
 					a{
 						color: $medium-gray;
 					}
@@ -54,11 +69,13 @@
 			width: 70%;
 			float: left;
 			padding-top: rem(48);
+			@include clearfix;
 			@media screen and (max-width: $breakpoint--large){
 				width: 100%;
 				float: none;
 			}
 			@media screen and (max-width: $breakpoint--medium){
+				margin-bottom: rem(20);
 				section{
 					width: 100%;
 				}
@@ -81,10 +98,10 @@
 							input{
 								height: 50px;
 							}
-							/*&.gf_left_half, &.gf_right_half{
-								width: 100%;
-								float: none;
-							}*/
+							@media screen and (max-width: $breakpoint--medium){
+								display: block!important;
+								width: 100%!important; 
+							}
 						}
 					}
 					.gform_footer{
@@ -109,6 +126,10 @@
 								color: $dark-gray;
 								border-color: $light-gray;
 							}
+							@media screen and (max-width: $breakpoint--medium){
+								display: block!important;
+								width: 100%!important; 
+							}
 						}
 						@media screen and (max-width: $breakpoint--medium){
 							position: static;
@@ -125,21 +146,19 @@
 	}
 	.bottom-footer{
 		padding: rem(12) 0 rem(20);
-		ul{
-			list-style-type: none;
-			display: inline-block;
-			li{
-				display: inline-block;
-				margin-right: rem(50);
-				a{
-					color: $medium-gray;
-					font-size: rem(12);
-				}
-			}
-		}
 		small{
 			float: right;
 			font-size: rem(12);
+			@media screen and (max-width: $breakpoint--medium){
+				float: none;
+				text-align: center;
+			}
+		}
+		@media screen and (max-width: $breakpoint--medium){
+			text-align: center;
+			small{
+				float: none;
+			}
 		}
 	}
 }

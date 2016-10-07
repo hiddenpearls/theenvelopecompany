@@ -21,7 +21,7 @@ section{
 			display: block;
 			border: 2px solid $medium-gray;
 			text-align: center;
-			min-height: rem(380);
+			min-height: rem(340);
 			margin-bottom: rem(60);
 			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9f9f9+0,f5f5f5+50,f1f1f1+100 */
 			background: #f9f9f9; /* Old browsers */
@@ -66,12 +66,13 @@ section{
 			}
 		}
 		&.button-down{
+			position: relative;
 			p{
 				margin-bottom: rem(60);
 			}
-			a.orange-btn{
+			a.orange-btn, a.shop-btn{
 				position: absolute;
-				bottom: rem(10);
+				bottom: rem(20);
 				left: 50%;
 				-webkit-transform: translateX(-50%);
 				transform: translateX(-50%);
@@ -100,10 +101,11 @@ section{
 				max-width: 90%;
 			}
 		}
-		@media screen and (max-width: $breakpoint--small){
+		@media screen and (max-width: $breakpoint--medium){
 			width: 98%!important;
 			padding: 1%;
 			float: none!important;
+			min-height: rem(140);
 
 		}
 	}	
@@ -147,6 +149,10 @@ section{
 		}
 	}
 	.contact-form{
+		.validation_error{
+			color: $brand-orange;
+			border-color: $brand-orange;
+		}
 		.gform_body{
 			.gform_fields#gform_fields_3{
 				list-style-type: none;
@@ -159,6 +165,9 @@ section{
 					width: 48%;
 					input{
 						height: rem(40);
+					}
+					.validation_message{
+						color: $brand-orange;
 					}
 					input, textarea{
 						width: 100%;

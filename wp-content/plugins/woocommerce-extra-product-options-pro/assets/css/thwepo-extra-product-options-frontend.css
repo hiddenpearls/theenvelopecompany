@@ -1,0 +1,50 @@
+table.extra-options, .woocommerce div.product form.cart table.extra-options{
+	width: 100%;
+}
+
+table.extra-options td, .single-product div.product table.extra-options th {
+    background-color: transparent;
+}
+
+table.extra-options td.left, .single-product div.product table.extra-options th.left {
+    display: table-cell;
+}
+
+table.extra-options td.above, .single-product div.product table.extra-options th.above {
+   display: list-item;
+   padding: 0;
+   list-style: none;
+}
+
+.font-size-80-perc{
+	font-size:80% !important;
+}
+
+.display-table-cell{
+	display: table-cell !important;
+}
+.display-list-item{
+	display: list-item !important;
+}
+
+.label-field-cell{
+	display: table-cell !important;
+}
+
+.no-border, .no-border td{
+	border: 0!important;
+}
+
+.strong{
+	font-weight:bold!important;
+}
+
+.p-0, .cell-p-0 td, .cell-p-0 th{
+	padding: 0!important;
+}
+.p-5, .cell-p-5 td, .cell-p-5 th{
+	padding: 5!important;
+}
+.p-10, .cell-p-10 td, .cell-p-10 th{
+	padding: 10!important;
+}

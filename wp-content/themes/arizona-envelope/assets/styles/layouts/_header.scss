@@ -30,6 +30,9 @@
         padding: 0 8px;
     }
     .brand{
+        padding-left: rem(8);
+        margin: rem(12) 0 rem(30);
+        display: block;
         @media screen and (max-width: $breakpoint--large){
             img{
                 max-width: 180px;
@@ -46,17 +49,17 @@
 				color: $medium-gray;
                 text-transform: uppercase;
                 display: inline-block;
+                padding: 0 15px;
 				&:hover{
 					color: $dark-gray;
                     background-color: transparent;
 				}
-			}
-            &:first-child{
+			}           
+            &.current-menu-item{
                 a{
-                    padding-left: 0;
-                    @media screen and (max-width: $breakpoint--medium){
-                        padding-left: rem(15);
-                    }
+                    color: $dark-gray;
+                    border-left: 2px solid $brand-orange;
+                    border-right: 2px solid $brand-orange;
                 }
             }
             @media screen and (max-width: $breakpoint--medium){
@@ -66,7 +69,7 @@
 	}
 	.nav-utilities{
 		float: right;
-        margin-top: 12px;
+        margin: rem(12) 0 rem(30);
         .phone-icon{
             float: right;
             margin-bottom: rem(20);
@@ -118,6 +121,7 @@
 		clear: left;
 		.menu-site-navigation-container{
 			float: left;
+            max-width: 70%;
             @media screen and (max-width: $breakpoint--medium){
                 float: none;
             }
@@ -125,6 +129,10 @@
 	}
 	.search-form{
 		float: right;
+        max-width: 30%;
+        @media screen and (max-width: $breakpoint--large){
+            float: none;
+        }
         @media screen and (max-width: $breakpoint--medium){
             float: none;
         }

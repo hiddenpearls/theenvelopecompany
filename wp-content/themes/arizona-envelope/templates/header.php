@@ -14,7 +14,8 @@ if( is_front_page() ){
                 </span>
             </button>
             <a class="brand" href="<?= esc_url(home_url('/')); ?>">
-                <img src="<?php the_field('site_logo', 'option'); ?>" alt="<?php echo get_bloginfo(); ?> logo">
+                <img class="regular-logo" src="<?php the_field('site_logo', 'option'); ?>" alt="<?php echo get_bloginfo(); ?> logo">
+                <img class="retina-logo" src="<?php the_field('retina_site_logo', 'option'); ?>" alt="<?php echo get_bloginfo(); ?> logo">
             </a>
         </div>
         <div class="collapse navbar-collapse main-site-nav clearfix" id="main-site-nav">

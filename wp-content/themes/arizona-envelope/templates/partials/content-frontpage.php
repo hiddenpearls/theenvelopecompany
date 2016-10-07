@@ -25,10 +25,9 @@
               );
              $all_categories = get_categories( $args );
              foreach ($all_categories as $cat) {
-                $counter = 1;
                 if($cat->category_parent == 0) {
                     $category_id = $cat->term_id;   
-                    echo '<div class="col-md-4 product-category-extract">';    
+                    echo '<div class="col-md-4 product-category-extract button-down">';    
                       $thumbnail_id = get_woocommerce_term_meta($cat->term_id, 'thumbnail_id', true);
                       // get the image URL for child category
                       $image = wp_get_attachment_url($thumbnail_id);
@@ -37,8 +36,7 @@
                       echo  '<span>'.$cat->name.'</span>';
                       echo '<a class="shop-btn btn small" href="'. get_term_link($cat->slug, 'product_cat') .'">Shop';
                       echo '</a></div>';
-                } 
-                $counter++;      
+                }   
             }
             ?>
         </div>

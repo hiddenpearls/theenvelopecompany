@@ -1,0 +1,390 @@
+.woocommerce-message {
+  margin-top: 10px;
+}
+
+.err_msgs{
+	color: #FF0000;
+}
+
+.thwepo-notice a.button-primary{
+	font-size: 14px;
+	color: #FFF;
+	background-color: #D9534F;
+	border-color: #D43F3A;
+	line-height: 38px;
+	height: 40px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.thwepo-notice a.button-primary:hover{
+	background-color: #D2322D;
+	border-color: #AC2925;
+}
+
+
+/**************************************
+***** OPTIONS STYLES - START **********
+***************************************/
+#thwepo_product_fields tr.strikeout td {
+	background: rgba(255, 0, 0, .4)!important;
+	opacity: 0.6;
+  	text-decoration: line-through;
+}
+
+#thwepo_product_fields tr.thwepo-disabled td {
+	opacity: 0.4;
+}
+#thwepo_product_fields tr.thwepo-disabled td.td_select {
+	opacity: 1;
+}
+
+#thwepo_product_fields .td_edit{
+	width: 40px;
+}
+#thwepo_product_fields .td_enabled{
+	width: 60px;
+}
+#thwepo_product_fields .td_clear{
+	width: 70px;
+}
+#thwepo_product_fields .td_required{
+	width: 70px;
+}
+#thwepo_product_fields .td_select{
+	width: 23px;
+}
+/**************************************
+***** OPTIONS STYLES - END ************
+***************************************/
+
+
+/**************************************
+***** SECTION STYLES - START **********
+***************************************/
+.thwepo-sections {
+    list-style: outside none none;
+    margin: 8px 0 0;
+    padding: 0;
+    font-size: 13px;
+    color: #666;
+}
+.thwepo-sections li {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    white-space: nowrap;
+}
+.thwepo-sections a.current {
+    font-weight: 600;
+    border: medium none;
+	color: #000;
+}
+.thwepo-sections a {
+    line-height: 2;
+    padding: 0.2em;
+    text-decoration: none;
+}
+
+.thwepo-sections a.edit_section img, .thwepo-sections .delete_section img{
+	width: 12px;
+	height: 12px;
+}
+
+.thwepo-sections a.add_link{
+	margin-left: 30px;
+	background-color:#00A0D2;
+	border:1px solid #0073AA;
+	color:#FFFFFF;
+	padding:2px 5px;	
+	border-radius: 3px;
+}
+.thwepo-sections a.add_link:hover{
+	background-color:#0073AA;
+}
+/**************************************
+***** SECTION STYLES - END ************
+***************************************/
+
+
+/**************************************
+***** POPUP STYLES - START ************
+***************************************/
+.thwepo_popup_wrapper input[type="text"]:disabled, .thwepo_popup_wrapper select:disabled {
+    background: #f6f6f6;
+}
+.thwepo_popup_wrapper{
+	max-height: 400px;
+	overflow-y:scroll;
+}
+
+h1.nav-tab-wrapper, h2.nav-tab-wrapper, h3.nav-tab-wrapper {
+    border-bottom: 1px solid #CCC;
+    padding-bottom: 0px;
+    padding-left: 10px;
+}
+
+.thwepo-option-list a.add_link{
+	margin-left: 10px;
+	background-color:#00A0D2;
+	border:1px solid #0073AA;
+	color:#FFFFFF;
+	padding:2px 5px;	
+	border-radius: 3px;
+	font-size:12px;
+	text-decoration:none;
+}
+.thwepo-option-list a.remove_link{
+	margin-left: 10px;
+	background-color:#ff6666;
+	border:1px solid #ff4c4c;
+	color:#FFFFFF;
+	padding:2px 5px;	
+	border-radius: 3px;
+	font-size:12px;
+	text-decoration:none;
+}
+
+.thwepo-subtitle{
+	font-size:11px; 
+	color:#666666;
+}
+/**************************************
+***** POPUP STYLES - END **************
+***************************************/
+
+
+/**************************************
+***** RULES STYLES - START ************
+***************************************/
+.thwepo_logic_label, .thwepo_logic_link{
+	cursor: default;
+	display: block;
+	float: left;
+	border: 1px solid gray;
+	padding: 0 5px;
+	margin-left: 5px;
+	margin-right: 15px;
+	border-radius: 3px;  	
+}
+.thwepo_logic_link{
+	cursor: pointer;
+	text-decoration:none;
+	color: #FFFFFF !important;
+	background-color: #00A0D2;
+	border: 1px solid #0073AA;
+}
+/**************************************
+***** RULES STYLES - END **************
+***************************************/
+
+
+/**************************************
+***** TAB STYLES - END ****************
+***************************************/
+.thwepo-tabs-menu {
+	width: 100%;
+	margin: 0;
+	margin-top:10px;
+    float: left;
+    clear: both;
+	border-bottom: 1px solid #d3d3d3;
+}
+
+.thwepo-tabs-menu li {
+    float: left;
+    margin-right: 5px;
+	margin-bottom: -1px;
+    background-color: #ccc;
+    border: 1px solid #d3d3d3;
+	outline: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    background: #e6e6e6;
+    /*box-shadow: inset 0 -3px 3px rgba(0,0,0,0.05);*/
+}
+
+.thwepo-tabs-menu li.current {
+	color: #555555;
+    position: relative;
+    background-color: #fff;
+    border-bottom: 1px solid #fff;
+	box-shadow: none;
+}
+.thwepo-tabs-menu li.first {
+    margin-left: 20px;
+}
+
+.thwepo-tabs-menu li a {
+	font-size: 18px;
+	display: block;
+    padding: 12px 20px;
+    text-decoration: none; 
+	
+    color: #bbbbbb;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.thwepo-tabs-menu li a:focus {
+    outline: none;
+	box-shadow:none;
+}
+
+.thwepo-tabs-menu .current a {
+    color: #2e7da3;
+}
+
+.thwepo-tab {
+	width: 100%;
+    border: 0px solid #d4d4d1;
+	border-top: 0;
+    background-color: #fff;
+    float: left;
+}
+
+.thwepo-tab-content {
+    padding: 0px;
+    display: none;
+	min-height: 200px;
+}
+
+#thwepo-tab-general_new,  #thwepo-tab-general_edit{
+ 	display: block;   
+}
+/**************************************
+***** TAB STYLES - END ****************
+***************************************/
+
+/*-------------------------------
+ *----- RULES STYLES - START ----
+ *-------------------------------*/
+.thpl_logic_label, .thpl_logic_link{
+	cursor: default;
+	display: block;
+	float: left;
+	border: 1px solid gray;
+	padding: 0 5px;
+	margin-left: 5px;
+	margin-right: 15px;
+	border-radius: 3px;  	
+}
+.thpl_logic_link{
+	cursor: pointer;
+	text-decoration:none;
+	color: #FFFFFF !important;
+	background-color: #00A0D2;
+	border: 1px solid #0073AA;
+}
+/*-------------------------------
+ *----- RULES STYLES - START ----
+ *-------------------------------*/
+
+a.thpl_delete_icon {
+	float: left;
+  	width: 20px;
+  	height: 20px;
+	margin-left: 5px;
+  	display: block;
+  	background: url(delete.png) no-repeat 0 50%;
+}
+
+a.thpl_delete_icon:hover {
+  	opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+
+/**************************************
+***** Help Tooltip - START ************
+***************************************/
+.thwepo_tooltip{
+	float:right;
+	display: inline;
+	position: relative;
+	font-size: 12px;
+	height: 100%;
+}
+
+.thwepo_tooltip img{
+	padding: 0px;
+	vertical-align: middle;
+	cursor: help;
+	border: medium none;
+	height: 16px;
+	width: 16px;
+}
+
+.thwepo_tooltip:hover:after{
+	background: #333;
+	background: rgba(0,0,0,1);
+	border-radius: 5px;
+	bottom: 26px;
+	color: #fff;
+	content: attr(title);
+	left: -100px;
+	padding: 10px 15px;
+	position: absolute;
+	z-index: 9998;
+	width: 350px;
+}
+
+.thwepo_tooltip:hover:before{
+	border: solid;
+	border-color: #000 transparent;
+	border-width: 6px 6px 0 6px;
+	bottom: 20px;
+	content: "";
+	left: 50%;
+	position: absolute;
+	z-index: 9999;
+}
+/**************************************
+***** Help Tooltip - END **************
+***************************************/
+
+.thwepo_subtitle_row{
+	display: none;
+}
+.thwepo_price_row{
+	display: none;
+}
+
+
+
+.iris-picker{
+	z-index:100;
+	display:none;
+	position:absolute;
+	border:1px solid #ccc;
+	border-radius:3px;
+	box-shadow:0 1px 3px rgba(0,0,0,.2);
+}
+.iris-picker .ui-slider{
+	border:0!important;
+	margin:0!important;
+	width:auto!important;
+	height:auto!important;
+	background:none!important;
+}
+.iris-picker .ui-slider .ui-slider-handle{
+	margin-bottom:0!important;
+}
+.thwepo-colorpickpreview{
+	padding:3px 3px 3px 20px;
+	border:1px solid #ddd;
+	border-right:0;
+	background-color: #FFFFFF;
+}
+.thwepo-colorpick{
+	border-left:0 !important;
+	width: 6em !important;
+	margin-left: 0px !important;
+}
+.iris-picker{
+
+}
+
+.select2-drop-mask {
+	z-index: 99999998!important;
+}
+.select2-drop {
+    z-index: 99999999!important;
+}

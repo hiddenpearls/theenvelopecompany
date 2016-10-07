@@ -133,3 +133,20 @@ function sfws_add_product_link( $link ) {
  return $link;
 }
 
+/**
+ * Add login/logout link to the top navigation
+ */
+add_filter( 'wp_nav_menu_items', 'Roots\Sage\Extras\wti_loginout_menu_link', 10, 2 );
+function wti_loginout_menu_link( $items, $args ) {
+   if (($args->theme_location == 'top_navigation')||($args->theme_location == 'footer_navigation')) {
+      if (is_user_logged_in()) {
+         $items .= '<li class="pull-left menu-item"><a href="'. wp_logout_url("/") .'">'. __("Log Out") .'</a></li>';
+         $items .= '<li class="pull-left menu-item"><a href="/my-account/">'. __("My Account") .'</a></li>';
+      } else {
+        //wp_login_url(get_permalink()) >> wordpress login URL
+         $items .= '<li class="pull-left menu-item"><a href="/my-account/">'. __("Login") .'</a></li>';
+         $items .= '<li class="pull-left menu-item"><a href="/my-account/">'. __("Register") .'</a></li>';
+      }
+   }
+   return $items;
+}

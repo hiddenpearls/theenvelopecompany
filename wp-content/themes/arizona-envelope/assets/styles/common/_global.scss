@@ -81,3 +81,21 @@ a:hover{
   	}
   }
 }
+.brand{
+	.retina-logo{
+    	display: none;
+    }
+    .regular-logo{
+        display: block;
+    }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+        .retina-logo{
+            display: block;
+            max-width: rem(220);
+        }
+        .regular-logo{
+            
+            display: none;
+        }
+    }
+}
