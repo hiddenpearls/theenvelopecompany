@@ -281,7 +281,5 @@
 [Sep 24, 2016 08:09:24 0-error] [] Scheduled BackupBuddy backup `/home/azenvelope1/public_html/wp-content/uploads/backupbuddy_backups/backup-shop_azenvelope_com-2016_09_23-03_11am-full-q7bgb5m6fa.zip` started `1 day` ago likely timed out. The zip archive creation step appears to have timed out. Try turning off zip compression to significantly speed up the process or exclude large files. Select "View recently made backups" from the BackupBuddy Backups page to find this backup and view its log details and/or manually create a backup to test for problems.
 [Sep 26, 2016 16:33:59 0-error] [a6emyow8pi] Unable to create schedule as wp_schedule_single_event() returned false. A plugin may have prevented it.
 [Sep 26, 2016 16:33:59 0-error] [a6emyow8pi] Unable to schedule next cron step. Verify that another plugin is not preventing / conflicting.
-[Sep 30, 2016 20:41:21 0-error] [s1fwg4zceg] Unable to create schedule as wp_schedule_single_event() returned false. A plugin may have prevented it.
-[Sep 30, 2016 20:41:21 0-error] [s1fwg4zceg] Unable to schedule next cron step. Verify that another plugin is not preventing / conflicting.
-[Sep 30, 2016 20:41:24 0-error] [pzyw4kfqty] Unable to create schedule as wp_schedule_single_event() returned false. A plugin may have prevented it.
-[Sep 30, 2016 20:41:24 0-error] [pzyw4kfqty] Unable to schedule next cron step. Verify that another plugin is not preventing / conflicting.
+[Oct 6, 2016 17:24:13 0-error] [k1jo8z9pky] Unable to create schedule as wp_schedule_single_event() returned false. A plugin may have prevented it.
+[Oct 6, 2016 17:24:13 0-error] [k1jo8z9pky] Unable to schedule next cron step. Verify that another plugin is not preventing / conflicting.

@@ -18,7 +18,7 @@
  * @package WordPress
  */
 
-define( 'DB_NAME', 'arizona-envelope-prod' );
+define( 'DB_NAME', 'arizona-envelope-prod2' );
 
 /** MySQL database username */
 define( 'DB_USER', 'root' );
@@ -84,9 +84,9 @@ $table_prefix = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', true);
+define('WP_DEBUG', false);
 
-ini_set("memory_limit","128M");
+//ini_set("memory_limit","128M");
 
 /* That's all, stop editing! Happy blogging. */
 

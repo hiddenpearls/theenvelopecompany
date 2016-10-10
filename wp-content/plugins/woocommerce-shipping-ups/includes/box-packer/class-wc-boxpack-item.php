@@ -24,12 +24,12 @@ class WC_Boxpack_Item {
 
 		sort( $dimensions );
 
-		$this->length = $dimensions[2];
-		$this->width  = $dimensions[1];
-		$this->height = $dimensions[0];
+		$this->length = floatval( $dimensions[2] );
+		$this->width  = floatval( $dimensions[1] );
+		$this->height = floatval( $dimensions[0] );
 
-		$this->volume = $width * $height * $length;
-		$this->weight = $weight;
+		$this->volume = floatval( $width * $height * $length );
+		$this->weight = floatval( $weight );
 		$this->value  = $value;
 		$this->meta   = $meta;
 	}

@@ -35,18 +35,18 @@ class TeslaWidgetSubscribe extends WP_Widget {
 
         $title = apply_filters('widget_title', $instance['title']);
 
-        echo $before_widget;
+        print $before_widget;
         if (!empty($title))
-            echo $before_title . $title . $after_title;
+            print $before_title . $title . $after_title;
         ?>  
         <form id="tt_subscribe_form" class="subscribe_form" method="POST">
             <div id="tt_subscribe_form_result" class="alert hide"></div>
-            <input name="tesla_subscription_name" class="newsletter_line" type="text" placeholder="<?php echo $this->get_value('placeholder-name', $instance, $this->defaults) ?>" />
-            <input data-tt-subscription-required data-tt-subscription-type="email" name="tesla_subscription_email" class="newsletter_line" type="text" placeholder="<?php echo $this->get_value('placeholder-email', $instance, $this->defaults) ?>" />
-            <input type="submit" class="newsletter_send" value="<?php echo $this->get_value('submit-text', $instance, $this->defaults) ?>">
+            <input name="tesla_subscription_name" class="newsletter_line" type="text" placeholder="<?php echo esc_attr($this->get_value('placeholder-name', $instance, $this->defaults)) ?>" />
+            <input data-tt-subscription-required data-tt-subscription-type="email" name="tesla_subscription_email" class="newsletter_line" type="text" placeholder="<?php echo esc_attr($this->get_value('placeholder-email', $instance, $this->defaults)) ?>" />
+            <input type="submit" class="newsletter_send" value="<?php echo esc_attr($this->get_value('submit-text', $instance, $this->defaults)) ?>">
         </form>
         <?php
-        echo $after_widget;
+        print $after_widget;
     }
 
     /**
@@ -59,20 +59,20 @@ class TeslaWidgetSubscribe extends WP_Widget {
     public function form($instance) {
         ?>
         <p>
-            <label for="<?php echo $this->get_field_name('title'); ?>"><?php _e('Title:', 'hudson'); ?></label> 
-            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($this->get_value('title', $instance)); ?>" />
+            <label for="<?php echo esc_attr($this->get_field_name('title')); ?>"><?php _e('Title:', 'hudson'); ?></label> 
+            <input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo esc_attr($this->get_value('title', $instance)); ?>" />
         </p>
         <p>
-            <label for="<?php echo $this->get_field_name('placeholder-name'); ?>"><?php _e('Placeholder for name input:', 'hudson'); ?></label> 
-            <input class="widefat" id="<?php echo $this->get_field_id('placeholder-name'); ?>" name="<?php echo $this->get_field_name('placeholder-name'); ?>" type="text" value="<?php echo esc_attr($this->get_value('placeholder-name', $instance)); ?>" />
+            <label for="<?php echo esc_attr($this->get_field_name('placeholder-name')); ?>"><?php _e('Placeholder for name input:', 'hudson'); ?></label> 
+            <input class="widefat" id="<?php echo esc_attr($this->get_field_id('placeholder-name')); ?>" name="<?php echo esc_attr($this->get_field_name('placeholder-name')); ?>" type="text" value="<?php echo esc_attr($this->get_value('placeholder-name', $instance)); ?>" />
         </p>
         <p>
-            <label for="<?php echo $this->get_field_name('placeholder-email'); ?>"><?php _e('Placeholder for email input:', 'hudson'); ?></label> 
-            <input class="widefat" id="<?php echo $this->get_field_id('placeholder-email'); ?>" name="<?php echo $this->get_field_name('placeholder-email'); ?>" type="text" value="<?php echo esc_attr($this->get_value('placeholder-email', $instance)); ?>" />
+            <label for="<?php echo esc_attr($this->get_field_name('placeholder-email')); ?>"><?php _e('Placeholder for email input:', 'hudson'); ?></label> 
+            <input class="widefat" id="<?php echo esc_attr($this->get_field_id('placeholder-email')); ?>" name="<?php echo esc_attr($this->get_field_name('placeholder-email')); ?>" type="text" value="<?php echo esc_attr($this->get_value('placeholder-email', $instance)); ?>" />
         </p>   
         <p>
-            <label for="<?php echo $this->get_field_name('submit-text'); ?>"><?php _e('Submit button text:', 'hudson'); ?></label> 
-            <input class="widefat" id="<?php echo $this->get_field_id('submit-text'); ?>" name="<?php echo $this->get_field_name('submit-text'); ?>" type="text" value="<?php echo esc_attr($this->get_value('submit-text', $instance)); ?>" />
+            <label for="<?php echo esc_attr($this->get_field_name('submit-text')); ?>"><?php _e('Submit button text:', 'hudson'); ?></label> 
+            <input class="widefat" id="<?php echo esc_attr($this->get_field_id('submit-text')); ?>" name="<?php echo esc_attr($this->get_field_name('submit-text')); ?>" type="text" value="<?php echo esc_attr($this->get_value('submit-text', $instance)); ?>" />
         </p>
         <?php
     }

@@ -23,7 +23,7 @@
 							<tr>
 								<th>&nbsp;</th>
 								<?php foreach($shipping_methods as $col): ?>
-									<th><p><?php echo $col->title; ?></p></th>
+									<th><p><?php echo $this->get_shipping_method_title($col); ?></p></th>
 								<?php endforeach; ?>
 							</tr>
 						</thead>
@@ -62,7 +62,7 @@
 							<tr>
 							<th>&nbsp;</th>
 								<?php foreach($shipping_methods as $col): ?>
-									<th><p><?php echo $col->title; ?></p></th>
+									<th><p><?php echo $this->get_shipping_method_title($col); ?></p></th>
 								<?php endforeach; ?>
 							</tr>
 						</thead>

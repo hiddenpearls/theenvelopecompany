@@ -1,3 +1,52 @@
+------- 1.9.8 [1-07-2016] ------------
+================================================================
+Added	:	Google API key Field
+
+------- 1.9.7 [19-01-2016] ------------
+================================================================
+Added	:	Twitter API error handling
+
+------- 1.9.6 [22-12-2015] ------------
+================================================================
+Added	:	New design to import pages
+Added	:	Import chunked XML files
+
+------- 1.9.5 [18-12-2015] -------------
+================================================================
+Changed	:	Import Demo Content more user friendlly.
+
+------- 1.9.4 [23-11-2015] -------------
+================================================================
+Changed	:	Moving adding shortcode to fw ( in the plugin version ) , tt_register_sc() added
+
+------- 1.9.3 [23-10-2015] -------------
+================================================================
+Added	:	Constants checks
+
+------- 1.9.2 [12-09-2015] -------------
+================================================================
+Added	:	Social Widgets ( Instagram , Twitter ) . Twitter needs auth fields in admin-options.php to function properlly
+Added	:	Instagram helper
+Changed	:	Twitter ouauth library loading only when needed
+Update 	:	TwitterOauth library
+Changed :	Prefixed functions such as tt_twitter_generate_output
+
+------- 1.9.1 [01-09-2015] -------------
+================================================================
+Added	:	Security Retry Auth
+Changed	:	Google Fonts enqueue with add_query_arg
+Update 	:	Jquery-ui css
+Changed	:	Google Map API loading only on pages with maps registered by tt_gmap()
+Changed	:	Subscription config via wp_localize_script and no more ajax for it onload
+Added	:	Dashicons for custom post icons ( use in icon parameter in slider-options.php 'dashicon-' )
+Fixed 	:	Widgets Child theme ready and auto required
+Added	:	Plugin version auto check (RS & VC)
+Update 	:	Google Fonts list
+Fixed	:	Recursive in recursive meta option not saving correctlly
+Added	:	Map styles
+Fixed	:	Remove updates from wordpress.org with the same theme slug as our theme
+
+
 ------- 0.9 Used in 17 Templates ([...] + display,novelty,icook,zeon,zero,lovers,sevenfold,yopta) [17-07-2014] -------------
 ================================================================
 Fixed	:	Theme Options esc_attr

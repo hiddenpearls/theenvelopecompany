@@ -2,61 +2,50 @@
 function tesla_has_woocommerce() {
     static $flag = NULL;
     if ($flag === NULL) {
-        if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))))
+        if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))){
             $flag = TRUE;
-        else
+        }elseif(is_multisite()){
+            include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+            if(is_plugin_active_for_network('woocommerce/woocommerce.php'))
+                $flag = TRUE;
+        }else{
             $flag = FALSE;
+        }
     }
     return $flag;
 }
 
-function curl_mailchimp( $url, $postdata = array( ) , $grab_error = false , $get_response = false) {
-    $ch = curl_init( $url );
-    curl_setopt( $ch, CURLOPT_URL, $url );
-    curl_setopt( $ch, CURLOPT_HEADER, 0 );
-    curl_setopt( $ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY );
-    curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1 );
-    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, TRUE );
-    curl_setopt( $ch, CURLOPT_USERAGENT, "Mozilla/6.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.1) Gecko/2008070208 Firefox/3.0.3" );
-    curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
-    curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, 0 );
-    if ( ! empty( $postdata ) ) {
-        curl_setopt( $ch, CURLOPT_POST, 1 );
-        curl_setopt( $ch, CURLOPT_POSTFIELDS, json_encode( $postdata ));
-    }
-
-    $data = curl_exec( $ch );
-    $error = curl_error( $ch );
-    curl_close( $ch );
-
-    if ( $error != '' || empty($data))
-        return FALSE;
-    else{
-        $data = json_decode($data);
-        if ($get_response && empty($data->error))
+function tt_get_mailchimp( $url, $postdata = array( ), $grab_error = false, $get_response = false ) {
+    $args = array(
+        'sslverify' => false,
+        'body'      => json_encode($postdata)
+        );
+    if ( ! empty( $postdata ) ) 
+        $response = wp_remote_post( $url, $args );
+    else
+        $response = wp_remote_get( $url, $args );
+    
+    if ( empty( $response ) || is_wp_error( $response ) ){
+        if($grab_error)
+            return $response->get_error_message();
+    } else {
+        $data = json_decode( wp_remote_retrieve_body($response) );
+        if ( $get_response && empty($data->error) )
             return $data->data;
-        elseif(empty($data->error))
+        elseif( empty($data->error) )
             return TRUE;
-        elseif($grab_error)
+        elseif( $grab_error )
             return $data->error;
     }
     return FALSE;
 }
 
-function curl_get_file_contents($URL){
-    if(function_exists('curl_init')){
-        $c = curl_init();
-        curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($c, CURLOPT_URL, $URL);
-        $contents = curl_exec($c);
-        curl_close($c);
-
-        if ($contents) 
-            return $contents;
-        else 
-            return FALSE;
-    }else
-        return False;
+function tt_get_file_contents( $url ) {
+    $response = wp_remote_get( $url );
+    if ( !is_wp_error($contents) )
+        return wp_remote_retrieve_body( $response );
+    else 
+        return FALSE;
 }
 
 function _gstyle_changer($id,$units = 'px'){
@@ -185,4 +174,29 @@ function tt_get_page_id($shop=false){
     else
         $page_id = false;
     return $page_id;
+}
+
+function tt_get_plugin_version($plugin_folder){
+    $file_path = glob( TT_THEME_DIR . "/plugins/$plugin_folder/*.zip");
+    try{
+        if(empty($file_path[0]))
+            throw new Exception("==========Plugin $plugin_folder file not found.=========");
+        $filename = basename($file_path[0]);
+        preg_match('@_([0-9.]+).zip@is', $filename, $file_version);
+        if(empty($file_version[1]))
+            throw new Exception("======Plugin $plugin_folder file name does not contain the version.======");
+        return $file_version[1];
+    }catch (Exception $e) {
+        print $e->getMessage();
+    }
+}
+
+/**
+* Backwards compatibility for : Moving adding shortcode to fw ( in the plugin version )
+* @since 1.9.4
+*/
+if(!function_exists('tt_register_sc')){
+    function tt_register_sc($tag, $func){
+        add_shortcode( $tag, $func );
+    }
 }

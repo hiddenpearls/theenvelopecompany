@@ -7,7 +7,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<?php gravity_form( 5, false, false, false, '', false ); ?>
+				<?php gravity_form( 12, false, false, false, '', false ); ?>
 			</div>
 		</div>
 	</div>

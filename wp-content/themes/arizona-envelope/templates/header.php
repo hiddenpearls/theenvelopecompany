@@ -85,7 +85,7 @@ if( is_front_page() ){
 
  ?>
 
-<?php if(is_page('die-lines') || is_page('resources') || is_page('helpful-information') | is_page('equipment')){?>
+<?php if(is_page('layouts-die-lines') || is_page('resources') || is_page('helpful-information') | is_page('equipment')){?>
     <div class="category-shop-header">
         <div class="container menu-shop-navigation-container">
             <ul class="shop-navigation-bar">
@@ -122,3 +122,16 @@ if( is_front_page() ){
         </div>
     </div>
 <?php }?>
+<?php if(is_cart()){ ?>
+<div class="category-shop-header">
+    <div class="container">
+        <div>
+            <?php
+                if (has_nav_menu('shop_navigation')) :
+                    wp_nav_menu(['theme_location' => 'shop_navigation', 'menu_class' => 'nav shop-navigation-bar']);
+                endif;
+                ?>
+        </div>
+    </div>
+</div>
+<?php } ?>

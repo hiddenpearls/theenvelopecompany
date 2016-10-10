@@ -1,0 +1,41 @@
+/*Instagram*/
+.tt-instagram-feed {
+	margin: 0;
+	padding: 0;
+}
+.tt-instagram-feed li {
+	margin: 0 1% 2%;
+	width: 31%;
+	height: auto;
+	display: inline-block;
+	list-style: none;
+	*display: inline;
+	*zoom: 1;
+}
+.tt-instagram-feed li img {
+	width: 100%;
+	height: auto;
+}
+.tt-instagram-likes,
+.tt-instagram-caption {
+	display: none;
+}
+/*Twitter*/
+.tt_twitter ul {
+    margin: 0;
+    padding: 0; 
+}
+.tt_twitter ul li {
+    list-style: none;
+    font-size: 13px;
+    line-height: 1.5em;
+    margin-bottom: 8px;
+    border-bottom: 1px dotted #eee;
+    padding-bottom: 8px;
+    color: #555;
+}
+.tt_twitter ul li:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}

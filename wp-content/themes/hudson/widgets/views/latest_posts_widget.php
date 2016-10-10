@@ -1,6 +1,6 @@
 <?php $columns = (isset($columns) && $columns != '12') ? 'span'.$columns : 'span12'; ?>
 <?php if(isset($as_shortcode)): ?> <ul class="latest_posts_shortcode"> <?php endif; ?>
-    <li class="item posts <?php echo $columns; ?> <?php echo $class; ?>">
+    <li class="item posts <?php echo esc_attr($columns); ?> <?php echo esc_attr($class); ?>">
 
         <ul id="tabs" class="nav nav-tabs">
             <li class="tab active">
@@ -30,7 +30,7 @@
                                             <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(100,100)); ?></a>
                                         </figure>
                                     <?php endif; ?>
-                                    <div class="meta <?php echo $meta_class; ?>">
+                                    <div class="meta <?php echo esc_attr($meta_class); ?>">
                                         <h4 class="title tc14 bold"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
                                         <h5 class="author">By <?php the_author(); ?></h5>
                                         <h5 class="date"><?php the_date('j F Y'); ?></h5>
@@ -63,7 +63,7 @@
                                 <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(100,100)); ?></a>
                             </figure>
                             <?php endif; ?>
-                            <div class="meta <?php echo $meta_class; ?>">
+                            <div class="meta <?php echo esc_attr($meta_class); ?>">
                                 <h4 class="title tc14 bold"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
                                 <h5 class="author">By <?php the_author(); ?></h5>
                                 <h5 class="date"><?php the_date('j F Y'); ?></h5>

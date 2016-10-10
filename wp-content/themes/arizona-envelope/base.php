@@ -20,7 +20,7 @@ use Roots\Sage\Wrapper;
     ?>
     <div class="wrap" role="document">
 
-        <div class="content <?php if(is_single()){echo 'container';}else{echo 'clearfix';} ?>">
+        <div class="content <?php if( is_single() || is_home() ){echo 'container';}else{echo 'clearfix';} ?>">
             <?php //if( is_woocommerce() ) {echo "container";} ?>
             <main class="main">
                 <?php include Wrapper\template_path(); ?>

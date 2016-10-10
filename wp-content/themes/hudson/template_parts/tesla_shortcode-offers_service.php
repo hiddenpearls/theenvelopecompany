@@ -1,7 +1,7 @@
 <?php if ($_posts->have_posts()) { ?>
     <!--  =====  START SLIDER  =====  -->
     <?php if (!empty($headline)) { ?>
-        <h4 class="headline"><?php echo $headline; ?></h4>
+        <h4 class="headline"><?php print $headline; ?></h4>
     <?php } ?>
     <div class="services">
         <div class="row">
@@ -14,7 +14,7 @@
                     <?php
                     if ($url) {
                         ?>
-                        <a href="<?php echo $url; ?>">
+                        <a href="<?php echo esc_attr($url); ?>">
                             <?php
                         } the_post_thumbnail('large');
                         if ($url) {

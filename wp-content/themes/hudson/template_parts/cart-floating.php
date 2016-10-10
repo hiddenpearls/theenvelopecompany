@@ -6,9 +6,9 @@
         <div class="fixed_cart cart_affix">
             <div class="fixed_interior">
                 <h1><?php _e('my cart', 'hudson'); ?></h1>
-                <p><?php _e('Items', 'hudson'); ?> ( <span class="dynamic_cart_contents_count"><?php echo $woocommerce->cart->get_cart_contents_count(); ?></span> ) <span class="dynamic_cart_total"><?php echo $woocommerce->cart->get_cart_subtotal(); ?></span>
+                <p><?php _e('Items', 'hudson'); ?> ( <span class="dynamic_cart_contents_count"><?php print $woocommerce->cart->get_cart_contents_count(); ?></span> ) <span class="dynamic_cart_total"><?php print $woocommerce->cart->get_cart_subtotal(); ?></span>
             </div>
-            <a href="<?php echo $woocommerce->cart->get_checkout_url() ?>" class="fixed_cart_button"><?php _e('Checkout', 'hudson'); ?></a>
+            <a href="<?php echo esc_attr($woocommerce->cart->get_checkout_url()) ?>" class="fixed_cart_button"><?php _e('Checkout', 'hudson'); ?></a>
         </div>
     </div>
 </div>

@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-printf( __( 'Hi %s,', 'woocommerce-advanced-notifications' ), $recipient_name );
+printf( __( 'Hi %s,', 'woocommerce-advanced-notifications' ), esc_html( $recipient_name ) );
 
 echo "\n\n";
 
@@ -26,7 +26,7 @@ echo "============================================================";
 
 $displayed_total = 0;
 
-foreach ( $order->get_items() as $item ) {
+foreach ( $order->get_items() as $item_id => $item ) {
 
 	$_product = $order->get_product_from_item( $item );
 
@@ -66,9 +66,20 @@ foreach ( $order->get_items() as $item ) {
 
 	echo " X " . $item['qty'];
 
+	// allow other plugins to add additional product information here
+	do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order, $plain_text );
+
 	// Variation
 	echo $item_meta->meta ? ( "\n --> " . str_replace( "\n", '', $item_meta->display( true, true ) ) ) : '';
 
+	// File URLs
+	if ( $show_download_links ) {
+		$order->display_item_downloads( $item );
+	}
+
+	// allow other plugins to add additional product information here
+	do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, $plain_text );
+	
 	echo "\n";
 
 }
@@ -94,27 +105,11 @@ if ( $show_totals ) {
 
 echo "\n\n";
 
-_e('Customer details', 'woocommerce-advanced-notifications');
-
-echo "\n\n";
-
-echo __('Email:', 'woocommerce-advanced-notifications') . " ";
-echo $order->billing_email;
-
-echo "\n";
-
-echo __('Tel:', 'woocommerce-advanced-notifications') . " ";
-echo $order->billing_phone;
-
-echo "\n\n";
-
-echo __('Billing address:', 'woocommerce-advanced-notifications') . "\n";
-echo str_replace( '<br>', "\n", $order->get_formatted_billing_address() );
-
-echo "\n\n";
-
-echo __('Shipping address:', 'woocommerce-advanced-notifications') . "\n";
-echo str_replace( '<br>', "\n", $order->get_formatted_shipping_address() );
+/**
+* @hooked WC_Emails::customer_details() Shows customer details
+* @hooked WC_Emails::email_address() Shows email address
+*/
+do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email );
 
 echo "\n\n";
 

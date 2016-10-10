@@ -2,6 +2,7 @@
 	<div class="container">
         <div class="row">
             <div class="col-md-12">
+                <h1 class="title-pages text-center"><?php the_field('title');?></h1>
                 <p><?php the_field('description');?></p>
             </div>
         </div>
@@ -20,7 +21,7 @@
 			if ( $samples_query->have_posts() ){
 
 				$count=0; ?>
-				<div class="row">
+				<div class="row row-eq-height">
 		    <?php 
 		    	while( $samples_query->have_posts() ) : $samples_query->the_post(); ?>
 					<div class="col-md-3 product-category-extract">
@@ -30,7 +31,7 @@
 					</div>
 			<?php $count++;
                     if ($count%4 == 0){ ?>
-                        </div><div class="row">
+                        </div><div class="row row-eq-height">
             <?php  }
                 endwhile; ?>
             </div>

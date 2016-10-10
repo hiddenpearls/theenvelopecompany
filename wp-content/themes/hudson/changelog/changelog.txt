@@ -1,3 +1,57 @@
+Version 12.2 - Updated: 25.08.2016
+================================================
+Fixed 	:	Shop grid issue
+
+Version 12.1 - Updated: 12.08.2016
+================================================
+Fixed 	:	CSS Improvements
+
+Version 12.0 - Updated: 19.01.2016
+================================================
+Update 	:	WooCommerce major template update 2.6.0
+Update 	:	Tesla FW Plugin
+
+Version 11.0 - Updated: 19.01.2016
+================================================
+Update 	:	WooCommerce major template update 2.5.0
+Update 	:	Import Demo Content split in 2 steps to avoid 504 error on some servers
+
+Version 10.9.2 - Updated: 12.01.2016
+================================================
+Fix 	:	All sliders responsiveness
+Update 	:	All sliders added smoothness
+Update 	:	Product grid heights and order now done with CSS ( JS removed ) !!! Warning : Prices will float now and all depends on user's content!
+
+Version 10.9.1 - Updated: 11.01.2016
+================================================
+Fix 	:	Partner slider responsiveness
+Update 	:	Framework (importer UI friendlly)
+Update 	:	Import widgets during demo import
+
+Version 10.9 - Updated: 21.12.2015
+================================================
+Fix 	:	Contact Widget
+Update 	:	TeslaFramework - import XML more user friendly
+
+Version 10.8.9 - Updated: 16.12.2015
+================================================
+Fix 	:	Widget errors
+Update 	:	TeslaFramework (WP 4.4 compatibility)
+
+Version 10.8.8 - Updated: 19.10.2015
+================================================
+Update 	:	TeslaFramework (social widgets and optimizations)
+Update 	:	Localization strings
+Update 	:	Escaping and sanitizing
+Fix 	:	WC cart
+Fix 	:	Breadcrumbs
+Fix 	:	FW widgets styles
+Changed :	Code cleaning and optimization
+
+Version 10.8.7 - Updated: 24.09.2015
+================================================
+Fixed	:	Responsive menus fix
+
 Version 10.8.6 - Updated: 19.08.2015
 ================================================
 Fixed	:	Widget compatibility with WP 4.3

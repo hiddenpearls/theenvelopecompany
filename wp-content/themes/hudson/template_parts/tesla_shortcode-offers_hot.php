@@ -17,7 +17,7 @@
                         <?php
                         if ($url) {
                             ?>
-                            <a href="<?php echo $url; ?>">
+                            <a href="<?php echo esc_attr($url); ?>">
                                 <?php
                             } the_post_thumbnail('full', array('class' => 'rs_mainslider_items_image'));
                             if ($url) {

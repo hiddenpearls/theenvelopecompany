@@ -1,5 +1,9 @@
 *** WooCommerce Sequential Order Numbers Pro Changelog ***
 
+2016.06.02 - version 1.10.0
+ * Misc - Added support for WooCommerce 2.6
+ * Misc - Removed support for WooCommerce 2.3
+
 2016.01.14 - version 1.9.0
   * Misc - Added support for WooCommerce 2.5
   * Misc - Removed support for WooCommerce 2.2

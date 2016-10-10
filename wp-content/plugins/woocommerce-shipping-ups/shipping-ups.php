@@ -3,7 +3,7 @@
 Plugin Name: WooCommerce UPS Shipping
 Plugin URI: http://woothemes.com/woocommerce
 Description: WooCommerce UPS Shipping allows a store to obtain shipping rates for your orders dynamically via the UPS Shipping API.
-Version: 3.1.2
+Version: 3.1.3
 Author: WooThemes
 Author URI: http://woothemes.com
 
@@ -48,7 +48,7 @@ class WC_Shipping_UPS_Init {
 	 *
 	 * var string
 	 */
-	const VERSION = '3.1.2';
+	const VERSION = '3.1.3';
 
 	/** @var object Class Instance */
 	private static $instance;

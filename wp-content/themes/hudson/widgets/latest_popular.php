@@ -14,8 +14,8 @@ class LatestPopularWidget extends WP_Widget{
     
     function __construct()
     {
-        $widget_ops = array('classname' => 'LatestPopularWidget', 'description' => 'Displays Posts tabs.');
-        parent::__construct('LatestPopularWidget', '['.THEME_PRETTY_NAME.'] Latest and Popular Posts', $widget_ops);
+        $widget_ops = array('classname' => 'LatestPopularWidget', 'description' => __('Displays Posts tabs.','hudson'));
+        parent::__construct('LatestPopularWidget', '['.THEME_PRETTY_NAME.'] ' . __('Latest and Popular Posts','hudson'), $widget_ops);
     }
     
     function form($instance)
@@ -23,7 +23,7 @@ class LatestPopularWidget extends WP_Widget{
         $instance = wp_parse_args((array) $instance, array('nr_posts' => $this->posts_number));
         $nr_posts = $instance['nr_posts'];
         ?>
-        <p><label for="<?php echo $this->get_field_id('nr_posts'); ?>">Nr of posts to show: <input class="widefat" id="<?php echo $this->get_field_id('nr_posts'); ?>" name="<?php echo $this->get_field_name('nr_posts'); ?>" type="title" value="<?php echo esc_attr($nr_posts); ?>" /></label></p>
+        <p><label for="<?php echo esc_attr($this->get_field_id('nr_posts')); ?>"><?php _e('Nr of posts to show:','hudson') ?> <input class="widefat" id="<?php echo esc_attr($this->get_field_id('nr_posts')); ?>" name="<?php echo esc_attr($this->get_field_name('nr_posts')); ?>" type="title" value="<?php echo esc_attr($nr_posts); ?>" /></label></p>
         <?php
     }
     
@@ -38,11 +38,10 @@ class LatestPopularWidget extends WP_Widget{
     {
         extract($args, EXTR_SKIP);
         $nr_posts = empty($instance['nr_posts']) ? $this->posts_number : $instance['nr_posts'];
-        echo $before_widget;
+        print $before_widget;
         require_once (tt_wf_get_widgets_directory() . '/views/latest_posts_widget.php');
-        echo $after_widget;
+        print $after_widget;
     }
     
 }
 add_action('widgets_init', create_function('', 'return register_widget("LatestPopularWidget");'));
-?>

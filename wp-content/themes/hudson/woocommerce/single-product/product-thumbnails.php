@@ -4,7 +4,7 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     2.3.0
+ * @version     2.6.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -23,7 +23,7 @@ global $post, $product, $woocommerce;?>
         $thumb = wp_get_attachment_image_src($_gallery_img_id, apply_filters( 'single_product_small_thumbnail_size', 'shop_thumbnail' ));
         $fullsrc = wp_get_attachment_image_src($_gallery_img_id, 'large');
         ?>
-        <div class="collection_selection" data-fullsrc="<?php echo esc_attr($fullsrc[0]); ?>"><img src="<?php echo $thumb[0]; ?>" /></div>
+        <div class="collection_selection" data-fullsrc="<?php echo esc_attr($fullsrc[0]); ?>"><img src="<?php echo esc_attr($thumb[0]); ?>" /></div>
         <?php
     }
     ?>

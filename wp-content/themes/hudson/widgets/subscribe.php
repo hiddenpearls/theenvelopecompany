@@ -13,8 +13,8 @@ class SubscribeFormWidget extends WP_Widget{
     
     function __construct()
     {
-        $widget_ops = array('classname' => 'SubscribeFormWidget', 'description' => 'Displays Subscription Form.');
-        parent::__construct('SubscribeFormWidget', '['.THEME_PRETTY_NAME.'] Subscription Form', $widget_ops);
+        $widget_ops = array('classname' => 'SubscribeFormWidget', 'description' => __('Displays Subscription Form.','hudson'));
+        parent::__construct('SubscribeFormWidget', '['.THEME_PRETTY_NAME.'] ' . __('Subscription Form','hudson'), $widget_ops);
     }
     
     function form($instance)
@@ -27,15 +27,15 @@ class SubscribeFormWidget extends WP_Widget{
         ?>
         <div>
             <p>
-            <span>Enter Subscription Heading</span>
-            <input class="widefat" id="<?php echo $this->get_field_id('widget_subscribe_heading'); ?>" 
-                   name="<?php echo $this->get_field_name('widget_subscribe_heading'); ?>" 
+            <span><?php _e('Enter Subscription Heading','hudson') ?></span>
+            <input class="widefat" id="<?php echo esc_attr($this->get_field_id('widget_subscribe_heading')); ?>" 
+                   name="<?php echo esc_attr($this->get_field_name('widget_subscribe_heading')); ?>" 
                    value="<?php echo esc_attr($widget_subscribe_heading); ?>" />
             </p>
             <p>
-            <span>Enter Email Placeholder</span>
-            <input class="widefat" id="<?php echo $this->get_field_id('widget_email_placeholder'); ?>" 
-                   name="<?php echo $this->get_field_name('widget_email_placeholder'); ?>" 
+            <span><?php _e('Enter Email Placeholder','hudson') ?></span>
+            <input class="widefat" id="<?php echo esc_attr($this->get_field_id('widget_email_placeholder')); ?>" 
+                   name="<?php echo esc_attr($this->get_field_name('widget_email_placeholder')); ?>" 
                    value="<?php echo esc_attr($widget_email_placeholder); ?>" />
             </p>
         </div>
@@ -54,11 +54,9 @@ class SubscribeFormWidget extends WP_Widget{
     {
         extract($args, EXTR_SKIP);
         extract($instance, EXTR_SKIP);
-        echo $before_widget;
+        print $before_widget;
         require_once (tt_wf_get_widgets_directory() . '/views/subscribe_view.php');
-        echo $after_widget;
+        print $after_widget;
     }
 }
 add_action('widgets_init', create_function('', 'return register_widget("SubscribeFormWidget");'));
-
-?>

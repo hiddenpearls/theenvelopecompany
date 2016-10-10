@@ -80,9 +80,9 @@ if ( class_exists( 'GFForms' ) ) {
 
 			add_rewrite_rule( GFWEBAPI_SLUG . '/(.*)', 'index.php?' . GFWEBAPI_ROUTE_VAR . '=$matches[1]', $after = 'top' );
 
-			$rules = get_option( 'rewrite_rules' );
-			if ( ! isset( $rules[ GFWEBAPI_SLUG . '/(.*)' ] ) ) {
+			if ( ! get_option( 'gravityforms_rewrite_rules_flushed' ) ) {
 				flush_rewrite_rules();
+				update_option( 'gravityforms_rewrite_rules_flushed', true );
 			}
 
 			add_filter( 'query_vars', array( $this, 'query_vars' ) );

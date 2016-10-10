@@ -692,18 +692,6 @@ a {
 }
 */
 
-#result_content {
-    width: 540px;
-    border: 1px solid #ccc;
-    background: #f1f1f1;
-    color: #333;
-    font-size: 13px;
-    line-height: 1.6em;
-    text-shadow: 0 1px 0 #fff;
-    box-shadow: 0 0 1px 2px #fff;
-    margin: 20px 10px;
-    padding: 15px 20px;
-}
 .btn {
     background: url('../images/tt_submit_bg.png') repeat-x;
     border: 1px solid #2655a1;
@@ -731,7 +719,7 @@ a {
     font-weight: bold;
 }
 .tt_error_import {
-    color: #d12b2b;
+    color: #d12b2b !important;
     margin: 10px 0;
     font-weight: bold;
 }
@@ -928,11 +916,6 @@ a {
     font-weight: 900;
 }
 /*IMPORT EXPORT OPTIONS PAGE*/
-@-moz-document url-prefix() {
-    #result_content{
-        width: 565px;
-    }
-}
 #upload_form{
     display: none;
     margin: 20px 15px 15px 0;
@@ -944,7 +927,7 @@ progress::-webkit-progress-bar{
     background: #fff;
 }
 progress{
-    margin: 15px 15px 0 0;
+    margin-top: 15px;
     padding: 0;
     width: 100%;
     color: #0063a6;

@@ -187,7 +187,7 @@ return array(
                                                         'type' => 'checkbox',
                                                         'label' => 'To use Contact Form , this checkbox must be checked',
                                                         'size' => 'half_last',
-                                                        'action' => array('show', array('email_contact', 'contact_address', 'contact_phone', 'contact_fax'))
+                                                        'action' => array('show', array( 'contact_address', 'contact_phone', 'contact_fax'))
                                                 ),
                                                 array(
                                                         'id' => 'contact_title',

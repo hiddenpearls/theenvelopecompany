@@ -739,8 +739,8 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 				'type'            => 'select',
 				'options'		  => array(
 					'none'		=> __( 'No Signature Required', 'woocommerce-shipping-ups' ),
-					'regular'	=> __( 'Signature Required: $4.00 per package', 'woocommerce-shipping-ups' ),
-					'adult'		=> __( 'Adult Signature Required: $5.00 per package', 'woocommerce-shipping-ups' ),
+					'regular'	=> __( 'Signature Required: $4.25 per package', 'woocommerce-shipping-ups' ),
+					'adult'		=> __( 'Adult Signature Required: $5.25 per package', 'woocommerce-shipping-ups' ),
 				),
 				'default'         => 'none',
 				'description'     => __( 'Optionally you may charge customers for signature on delivery. This will just add the specified amount above to the returned rates.', 'woocommerce-shipping-ups' ),
@@ -876,13 +876,13 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 	 * @param mixed $package
 	 * @return void
      */
-	public function calculate_shipping( $package ) {
+	public function calculate_shipping( $package = array() ) {
 		$rates        = array();
 		$ups_response = array();
 
-		// Only return rates if the package has a destination including country, postcode
-		if ( ( '' == $package['destination']['country'] ) || ( '' == $package['destination']['postcode'] ) ) {
-			$this->debug( __( 'UPS: Country, or Zip not yet supplied. Rates not requested.', 'woocommerce-shipping-ups' ) );
+		// Only return rates if the package has a destination including country
+		if ( '' === $package['destination']['country'] ) {
+			$this->debug( __( 'UPS: Country not supplied. Rates not requested.', 'woocommerce-shipping-ups' ) );
 			return;
 		}
 
@@ -899,7 +899,7 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 			$rate_requests = $this->get_rate_requests( $package_requests, $package );
 
 			if ( ! $rate_requests ) {
-				$this->debug( __('UPS: No Services are enabled in admin panel.', 'woocommerce-shipping-ups') );
+				$this->debug( __( 'UPS: No Services are enabled in admin panel.', 'woocommerce-shipping-ups' ) );
 			}
 
 			// get live or cached result for each rate
@@ -962,10 +962,10 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 					// Signature Adjustment
 					switch ( $this->signature ) {
 						case 'regular':
-							$rate_cost = $rate_cost + 4;
+							$rate_cost = $rate_cost + 4.25;
 							break;
 						case 'adult':
-							$rate_cost = $rate_cost + 5;
+							$rate_cost = $rate_cost + 5.25;
 							break;
 						default:
 							$rate_cost = $rate_cost;
@@ -1212,14 +1212,14 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 			}
 
 			// get package weight
-			$weight = wc_get_weight( $values['data']->get_weight(), $this->weight_unit );
+			$weight = wc_get_weight( $values['data']->get_weight(), 'lbs' );
 
 			// get package dimensions
 			if ( $values['data']->length && $values['data']->height && $values['data']->width ) {
 
-				$dimensions = array( number_format( wc_get_dimension( $values['data']->length, $this->dim_unit ), 2, '.', ''),
-									 number_format( wc_get_dimension( $values['data']->height, $this->dim_unit ), 2, '.', ''),
-									 number_format( wc_get_dimension( $values['data']->width, $this->dim_unit ), 2, '.', '') );
+				$dimensions = array( number_format( wc_get_dimension( $values['data']->length, 'in' ), 2, '.', ''),
+									 number_format( wc_get_dimension( $values['data']->height, 'in' ), 2, '.', ''),
+									 number_format( wc_get_dimension( $values['data']->width, 'in' ), 2, '.', '') );
 				sort( $dimensions );
 
 			}
@@ -1239,7 +1239,7 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 			if ( $values['data']->length && $values['data']->height && $values['data']->width ) {
 				$request .= '	<Dimensions>' . "\n";
 				$request .= '		<UnitOfMeasurement>' . "\n";
-				$request .= '	 		<Code>' . $this->dim_unit . '</Code>' . "\n";
+				$request .= '	 		<Code>IN</Code>' . "\n";
 				$request .= '		</UnitOfMeasurement>' . "\n";
 				$request .= '		<Length>' . $dimensions[2] . '</Length>' . "\n";
 				$request .= '		<Width>' . $dimensions[1] . '</Width>' . "\n";
@@ -1249,7 +1249,7 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 
 			$request .= '	<PackageWeight>' . "\n";
 			$request .= '		<UnitOfMeasurement>' . "\n";
-			$request .= '			<Code>' . $this->weight_unit . '</Code>' . "\n";
+			$request .= '			<Code>LBS</Code>' . "\n";
 			$request .= '		</UnitOfMeasurement>' . "\n";
 			$request .= '		<Weight>' . $weight . '</Weight>' . "\n";
 			$request .= '	</PackageWeight>' . "\n";
@@ -1277,11 +1277,18 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 	}
 
     /**
-     * Convert in to what user wants
+     * Convert dimentions
      */
-    public function get_packaging_dimension( $dim ) {
-    	$from_unit 	 = 'in';
-    	$to_unit	 = strtolower( $this->dim_unit );
+    public function get_packaging_dimension( $dim, $from_unit = 'in', $to_unit = null ) {
+		if ( empty( $to_unit ) ) {
+			$to_unit = strtolower( $this->dim_unit );
+		}
+
+		if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.5', '>=' ) ) {
+			return wc_get_weight( $dim, $to_unit, $from_unit );
+		}
+
+		// back compat below
 
     	// Unify all units to cm first
     	if ( $from_unit !== $to_unit ) {
@@ -1321,11 +1328,18 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
     }
 
     /**
-     * Convert lbs to what user wants
+     * Convert weights
      */
-    public function get_packaging_weight( $weight ) {
-    	$from_unit 	 = strtolower( 'lbs' );
-    	$to_unit	 = strtolower( $this->weight_unit );
+    public function get_packaging_weight( $weight, $from_unit = 'lbs', $to_unit = null ) {
+		if ( empty( $to_unit ) ) {
+			$to_unit = strtolower( $this->weight_unit );
+		}
+
+		if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.5', '>=' ) ) {
+			return wc_get_weight( $weight, $to_unit, $from_unit );
+		}
+
+		// back compat below
 
     	//Unify all units to kg first
     	if ( $from_unit !== $to_unit ) {
@@ -1417,10 +1431,10 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 
 				for ( $i = 0; $i < $values['quantity']; $i ++ ) {
 					$boxpack->add_item(
-						number_format( wc_get_dimension( $dimensions[2], $this->dim_unit ), 2, '.', ''),
-						number_format( wc_get_dimension( $dimensions[1], $this->dim_unit ), 2, '.', ''),
-						number_format( wc_get_dimension( $dimensions[0], $this->dim_unit ), 2, '.', ''),
-						number_format( wc_get_weight( $values['data']->get_weight(), $this->weight_unit ), 2, '.', ''),
+						number_format( wc_get_dimension( $dimensions[2], strtolower( $this->dim_unit ) ), 2, '.', ''),
+						number_format( wc_get_dimension( $dimensions[1], strtolower( $this->dim_unit ) ), 2, '.', ''),
+						number_format( wc_get_dimension( $dimensions[0], strtolower( $this->dim_unit ) ), 2, '.', ''),
+						number_format( wc_get_weight( $values['data']->get_weight(), strtolower( $this->weight_unit ) ), 2, '.', ''),
 						$values['data']->get_price()
 					);
 				}
@@ -1443,13 +1457,6 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 
 			$this->debug( "PACKAGE " . $ctr . " (" . $key . ")\n<pre>" . print_r( $box_package,true ) . "</pre>" );
 
-			$weight     = $box_package->weight;
-			$dimensions = array( $box_package->length, $box_package->width, $box_package->height );
-
-			sort( $dimensions );
-			// get weight, or 1 if less than 1 lbs.
-			// $_weight = ( floor( $weight ) < 1 ) ? 1 : $weight;
-
 			$request  = '<Package>' . "\n";
 			$request .= '	<PackagingType>' . "\n";
 			$request .= '		<Code>02</Code>' . "\n";
@@ -1459,18 +1466,18 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 
 			$request .= '	<Dimensions>' . "\n";
 			$request .= '		<UnitOfMeasurement>' . "\n";
-			$request .= '	 		<Code>' . $this->dim_unit . '</Code>' . "\n";
+			$request .= '	 		<Code>IN</Code>' . "\n";
 			$request .= '		</UnitOfMeasurement>' . "\n";
-			$request .= '		<Length>' . $dimensions[2] . '</Length>' . "\n";
-			$request .= '		<Width>' . $dimensions[1] . '</Width>' . "\n";
-			$request .= '		<Height>' . $dimensions[0] . '</Height>' . "\n";
+			$request .= '		<Length>' . $this->get_packaging_dimension( $box_package->length, strtolower( $this->dim_unit ), 'in' ) . '</Length>' . "\n";
+			$request .= '		<Width>' . $this->get_packaging_dimension( $box_package->width, strtolower( $this->dim_unit ), 'in' ) . '</Width>' . "\n";
+			$request .= '		<Height>' . $this->get_packaging_dimension( $box_package->height, strtolower( $this->dim_unit ), 'in' ) . '</Height>' . "\n";
 			$request .= '	</Dimensions>' . "\n";
 
 			$request .= '	<PackageWeight>' . "\n";
 			$request .= '		<UnitOfMeasurement>' . "\n";
-			$request .= '			<Code>' . $this->weight_unit . '</Code>' . "\n";
+			$request .= '			<Code>LBS</Code>' . "\n";
 			$request .= '		</UnitOfMeasurement>' . "\n";
-			$request .= '		<Weight>' . $weight . '</Weight>' . "\n";
+			$request .= '		<Weight>' . $this->get_packaging_weight( $box_package->weight, strtolower( $this->weight_unit ), 'lbs' ) . '</Weight>' . "\n";
 			$request .= '	</PackageWeight>' . "\n";
 			if( $this->insuredvalue ) {
 				$request .= '	<PackageServiceOptions>' . "\n";

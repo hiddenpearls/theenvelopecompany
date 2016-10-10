@@ -13,7 +13,7 @@ if ( !class_exists( 'TT_Security' ) ){
 ?>
 <div class="tt_admin">
 <form method="post" action="save_options">
-  <?php wp_nonce_field( -1, 'tesla-options-nonce'); ?>
+  <?php wp_nonce_field( -1, 'tesla-options-nonce' ); ?>
   <?php settings_fields( THEME_OPTIONS );?>
   <div class="tt_top_bar">
     <div class="tt_top_links">
@@ -30,9 +30,13 @@ if ( !class_exists( 'TT_Security' ) ){
     <div class="tt_theme_logo">
       <span><?php echo THEME_PRETTY_NAME ?></span><?php _e(" Version " . THEME_VERSION,"TeslaFramework");?> | 
       <span><?php _e("Framework ","TeslaFramework")?></span><?php _e("Version " . TT_FW_VERSION,"TeslaFramework")?>
-      <a class="check_update" title="Manual check for theme updates" href="#check_updates">Check Updates</a>
+      <a class="check_update" title="<?php esc_attr_e('Manual check for theme updates','TeslaFramework') ?>" href="#check_updates"><?php _e('Check Updates','TeslaFramework') ?></a>
       <span class="check_update_result"></span>
-      <a class="changelog thickbox" title="View Theme Changelog" href="http://teslathemes.com/auto_update/?theme=<?php echo THEME_NAME ?>&changelog=true&TB_iframe=true&width=1024&height=800">View Changelog</a>
+      <a class="changelog thickbox" title="<?php esc_attr_e('View Theme Changelog','TeslaFramework') ?>" href="http://teslathemes.com/auto_update/?theme=<?php echo THEME_NAME ?>&changelog=true&TB_iframe=true&width=1024&height=800"><?php _e('View Changelog','TeslaFramework') ?></a>
+      <a class="tt-import-demo-btn changelog" title="<?php esc_attr_e('Import Demo Options','TeslaFramework') ?>" href="<?php echo admin_url( 'admin.php?page=tt_fw_export_import' ); ?>"><?php _e('Import Demo Options','TeslaFramework') ?></a>
+      <?php if( file_exists( TT_THEME_DIR . '/theme_config/contact-form-config.php' ) ) : ?>
+        <a class="tt-import-demo-btn changelog" title="<?php esc_attr_e('Tesla Contact Forms Builder','TeslaFramework') ?>" href="<?php echo admin_url( 'admin.php?page=tt_contact_builder' ); ?>"><?php _e('Manage Contact Forms','TeslaFramework') ?></a>
+      <?php endif; ?>
     </div>
   </div>
   <div class="tt_sidebar">
@@ -40,7 +44,7 @@ if ( !class_exists( 'TT_Security' ) ){
     <ul class="tt_left_menu" id="myTab">
     <?php $disabled_our_themes = get_option( THEME_NAME . '_our_themes');
     foreach ( $tabs as $key => $tab ) : 
-      if( $tab[ 'title' ] == 'Our Themes' && $disabled_our_themes ) continue;?>
+      if( $tab[ 'title' ] == 'Our Themes' && ( $disabled_our_themes || defined('TT_HIDE_BANNER') ) )  continue;?>
       <li
         class="<?php if ( $key == 0 )
                       echo "first active";
@@ -50,7 +54,7 @@ if ( !class_exists( 'TT_Security' ) ){
             class="<?php if (!empty($tab['icon'])) echo "menu_" . $tab['icon']?>"
             href="#<?php echo str_replace(' ','_',$tab[ 'title' ]) ;?>"
             data-toggle="tab"
-          ><?php printf( __( '%s', THEME_NAME ), $tab[ 'title' ] ) ?></a>
+          ><?php printf( __( '%s', 'TeslaFramework' ), $tab[ 'title' ] ) ?></a>
       </li>
     <?php endforeach; ?>
     </ul>
@@ -60,7 +64,7 @@ if ( !class_exists( 'TT_Security' ) ){
     <!-- ========================================= TABS START ========================================================== -->
     <?php 
     foreach ( $tabs as $key => $tab ) :
-      if( $tab[ 'title' ] == 'Our Themes' && $disabled_our_themes ) continue;?>
+      if( $tab[ 'title' ] == 'Our Themes' && ( $disabled_our_themes || defined('TT_HIDE_BANNER') ) ) continue;?>
       <div class="tt_tab<?php if ( $key == 0 ) echo " active";?>" id="<?php echo str_replace(' ','_',$tab[ 'title' ]) ; ?>">
 
       <?php if (!empty($tab['type']) && $tab['type'] == 'iframe') : //if tab type is iframe show iframe ?>
@@ -78,7 +82,7 @@ if ( !class_exists( 'TT_Security' ) ){
           <?php endif;?>
               <div class="tt_content_box<?php if (!empty($box['class'])) echo " " . $box['class'];?>">
                 <div class="tt_content_box_title">
-                  <span class="tt_bg_icon tt_<?php if(!empty($box['icon'])) echo esc_attr($box['icon']);?>"><?php printf( __( '%s', THEME_NAME ), $box_name ); ?></span>
+                  <span class="tt_bg_icon tt_<?php if(!empty($box['icon'])) echo esc_attr($box['icon']);?>"><?php printf( __( '%s', 'TeslaFramework' ), $box_name ); ?></span>
                 </div>
                 <div class="tt_content_box_content">
                   <?php if (!empty($box['description']))
@@ -112,7 +116,7 @@ if ( !class_exists( 'TT_Security' ) ){
                     <?php endif;
                     if (!empty($input_field_name) && !ctype_digit(str_replace(' ','',$input_field_name))):?>
                         <div class="tt_option_title">
-                          <span class="tt_the_title"><?php printf( __( '%s', THEME_NAME ), $input_field_name );?></span>
+                          <span class="tt_the_title"><?php printf( __( '%s', 'TeslaFramework' ), $input_field_name );?></span>
                           <?php if ( !empty($box['repeater']) ) : ?>
                             
                           <?php endif; ?>
@@ -154,7 +158,7 @@ if ( !class_exists( 'TT_Security' ) ){
                   <?php endif; ?>
                   <input class="tt_submit" type="submit" value="<?php _e('Save Changes','TeslaFramework')?>">
                     <div class="tt_bottom_note">
-                      <?php printf( __( '%s', THEME_NAME ), $option_saved_text ); ?>
+                      <?php printf( __( '%s', 'TeslaFramework' ), $option_saved_text ); ?>
                     </div>
                 </div>
               </div>
@@ -170,8 +174,8 @@ if ( !class_exists( 'TT_Security' ) ){
   </form>
   <div class="mailchimp_modal">
     <form>
-      <input type="button" class="tt_button close" value="Close">
-      <input type="button" class="tt_button choose" value="Choose">
+      <input type="button" class="tt_button close" value="<?php esc_attr_e('Close','TeslaFramework') ?>">
+      <input type="button" class="tt_button choose" value="<?php esc_attr_e('Choose','TeslaFramework') ?>">
     </form>
   </div>
 </div>

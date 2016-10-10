@@ -13,8 +13,8 @@ class ContactInfoWidget extends WP_Widget{
     
     function __construct()
     {
-        $widget_ops = array('classname' => 'ContactInfoWidget', 'description' => 'Displays Contact Info.');
-        parent::__construct('ContactInfoWidget', '['.THEME_PRETTY_NAME.'] Contact Info', $widget_ops);
+        $widget_ops = array('classname' => 'ContactInfoWidget', 'description' => __('Displays Contact Info.','hudson'));
+        parent::__construct('ContactInfoWidget', '['.THEME_PRETTY_NAME.'] ' . __('Contact Info','hudson'), $widget_ops);
     }
     
     function form($instance)
@@ -23,8 +23,8 @@ class ContactInfoWidget extends WP_Widget{
         $widget_contact_heading = $instance['widget_contact_heading'];
         ?>
         <p>
-            <div>Select Contact Info Heading</div>
-            <input class="widefat" id="<?php echo $this->get_field_id('widget_contact_heading'); ?>" name="<?php echo $this->get_field_name('widget_contact_heading'); ?>" value="<?php echo esc_attr($widget_contact_heading); ?>" />
+            <div><?php _e('Insert Contact Info Heading','hudson') ?></div>
+            <input class="widefat" id="<?php echo esc_attr($this->get_field_id('widget_contact_heading')); ?>" name="<?php echo esc_attr($this->get_field_name('widget_contact_heading')); ?>" value="<?php echo esc_attr($widget_contact_heading); ?>" />
         </p>
         <?php
     }
@@ -40,12 +40,10 @@ class ContactInfoWidget extends WP_Widget{
     {
         extract($args, EXTR_SKIP);
         $widget_contact_heading = empty($instance['widget_contact_heading']) ? '' : $instance['widget_contact_heading'];
-        echo $before_widget;
+        print $before_widget;
         require_once (tt_wf_get_widgets_directory() . '/views/contact_info_view.php');
-        echo $after_widget;
+        print $after_widget;
     }
     
 }
 add_action('widgets_init', create_function('', 'return register_widget("ContactInfoWidget");'));
-
-?>

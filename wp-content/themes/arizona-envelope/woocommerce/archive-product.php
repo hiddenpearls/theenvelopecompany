@@ -68,15 +68,16 @@
 			}
 			
 		?>
-
+		<?php $counter = 0; ?>
 		<?php woocommerce_product_loop_start(); ?>
 
 			<?php woocommerce_product_subcategories(); ?>
-
+	
 			<?php while ( have_posts() ) : the_post(); ?>
-
+				<?php if($counter == 0){echo '<div class="row-eq-height">';} ?>
 				<?php wc_get_template_part( 'content', 'product' ); ?>
-
+				<?php $counter++; ?>
+				<?php if($counter%4==0){echo '</div><div class="row-eq-height">';} ?>
 			<?php endwhile; // end of the loop. ?>
 
 		<?php woocommerce_product_loop_end(); ?>

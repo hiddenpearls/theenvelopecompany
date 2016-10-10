@@ -1,6 +1,7 @@
 <?php
 /** Display verbose errors */
-define( 'IMPORT_DEBUG', false );
+if(!defined('IMPORT_DEBUG'))
+	define( 'IMPORT_DEBUG', false );
 
 // Load Importer API
 require_once ABSPATH . 'wp-admin/includes/import.php';
@@ -15,7 +16,7 @@ $required = array(
 	'post_exists'                     => ABSPATH . 'wp-admin/includes/post.php',
 	'wp_generate_attachment_metadata' => ABSPATH . 'wp-admin/includes/image.php',
 	'comment_exists'                  => ABSPATH . 'wp-admin/includes/comment.php',
-	'taxonomy'                  => ABSPATH . 'wp-admin/includes/taxonomy.php'
+	'taxonomy'                 		  => ABSPATH . 'wp-admin/includes/taxonomy.php'
 );
 
 foreach ( $required as $func => $req_file ) {
@@ -25,7 +26,7 @@ foreach ( $required as $func => $req_file ) {
 
 
 // include WXR file parsers
-require dirname( __FILE__ ) . '/parsers.php';
+require TT_FW_DIR . '/extensions/autoimport/parsers.php';
 
 if ( ! class_exists( 'WP_Importer' ) )
 	die( 'WP_Importer not found' );
@@ -71,13 +72,13 @@ class Auto_Importer extends WP_Importer
 
 	function Auto_Importer( $args ) {
 
-		if ( file_exists( $args['file'] ) ) {
+		//if ( file_exists( $args['file'] ) ) {
 
 			// for windows systems
 			$file = str_replace( '\\', '/', $args['file'] );
 
 			$this->xmlfile = $file;
-		}
+		//}
 
 		if ( isset( $args['map_user_id'] ) )
 			$this->map_user_id = $args['map_user_id'];
@@ -103,7 +104,6 @@ class Auto_Importer extends WP_Importer
 
 		set_time_limit(0);
 		$this->import( $file );
-		echo "<div class='tt_successful_import'>Demo content successfully imported. Thank you for your patience.</div>";
 	}
 
 	/**
@@ -116,20 +116,42 @@ class Auto_Importer extends WP_Importer
 		add_filter( 'http_request_timeout', array( &$this, 'bump_request_timeout' ) );
 
 		$this->import_start( $file );
-
+		echo "Start importing ...<br>";
+		ob_flush();
+		flush();
 		$this->get_author_mapping( $this->map_user_id );
 
 		wp_suspend_cache_invalidation( true );
+		echo "Processing categories...<br>";
+		ob_flush();
+		flush();
 		$this->process_categories();
+		echo "Processing Tags...<br>";
+		ob_flush();
+		flush();
 		$this->process_tags();
+		echo "Processing Terms...<br>";
+		ob_flush();
+		flush();
 		$this->process_terms();
+		echo "Processing posts...( this takes most of the time please be patient )<br>";
+		ob_flush();
+		flush();
 		$this->process_posts();
 		wp_suspend_cache_invalidation( false );
 
 		// update incorrect/missing information in the DB
+		echo "Updating incorrect/missing information in the DB : ...<br>";
+		flush();
 		$this->backfill_parents();
+		echo " - backfill parents...<br>";
+		flush();
 		$this->backfill_attachment_urls();
+		echo " - backfill attachment urls...<br>";
+		flush();
 		$this->remap_featured_images();
+		echo " - remap featured images...<br>";
+		flush();
 
 		$this->import_end();
 	}
@@ -142,15 +164,15 @@ class Auto_Importer extends WP_Importer
 	function import_start( $file ) {
 
 		if ( ! is_file($file) ) {
-			echo '<p class="tt_error_import"><strong>' . __( 'Sorry, there has been an error.', THEME_NAME ) . '</strong><br />';
-			echo __( 'The file does not exist, please try again.', THEME_NAME ) . '</p>';
+			echo '<p class="tt_error_import"><strong>' . __( 'Sorry, there has been an error.', 'TeslaFramework' ) . '</strong><br />';
+			echo __( 'The file does not exist, please try again.', 'TeslaFramework' ) . '</p>';
 			die();
 		}
 
 		$import_data = $this->parse( $file );
 
 		if ( is_wp_error( $import_data ) ) {
-			echo '<p class="tt_error_import"><strong>' . __( 'Sorry, there has been an error.', THEME_NAME ) . '</strong><br />';
+			echo '<p class="tt_error_import"><strong>' . __( 'Sorry, there has been an error.', 'TeslaFramework' ) . '</strong><br />';
 			echo esc_html( $import_data->get_error_message() ) . '</p>';
 			die();
 		}
@@ -173,7 +195,7 @@ class Auto_Importer extends WP_Importer
 	 * Performs post-import cleanup of files and the cache
 	 */
 	function import_end() {
-		//wp_import_cleanup( $this->id );
+		wp_import_cleanup( $this->id );
 
 		wp_cache_flush();
 		foreach ( get_taxonomies() as $tax ) {
@@ -192,7 +214,7 @@ class Auto_Importer extends WP_Importer
 		$url = get_template_directory_uri() . str_replace( get_template_directory(), '', $this->xmlfile );
 		$type = 'application/xml'; // we know the mime type of our file
 		$file = $this->xmlfile;
-		$filename = basename( $this->xmlfile );
+		$filename = $file ? basename( $file ) : 'import.xml';
 		// Construct the object array
 		$object = array( 'post_title' => $filename,
 				'post_content' => $url,
@@ -211,6 +233,7 @@ class Auto_Importer extends WP_Importer
 		        AND post_type = 'attachment'", $filename
 		    )
 		);
+
 		if(!empty($import_xml_existing[0])){
 			return array( 'file' => TT_THEME_DIR . "/theme_config/" . basename($import_xml_existing[0]->guid), 'id' => $import_xml_existing[0]->ID );
 		}elseif ($file != ''){
@@ -232,12 +255,12 @@ class Auto_Importer extends WP_Importer
 	function handle_upload() {
 		$file = $this->import_handle_upload();
 		if ( isset( $file['error'] ) ) {
-			echo '<p class="tt_error_import"><strong>' . __( 'Sorry, there has been an error.', THEME_NAME ) . '</strong><br />';
+			echo '<p class="tt_error_import"><strong>' . __( 'Sorry, there has been an error.', 'TeslaFramework' ) . '</strong><br />';
 			echo esc_html( $file['error'] ) . '</p>';
 			return false;
 		} else if ( ! file_exists( $file['file'] ) ) {
-			echo '<p class="tt_error_import"><strong>' . __( 'Sorry, there has been an error.', THEME_NAME ) . '</strong><br />';
-			printf( __( 'The export file could not be found at <code>%s</code>. It is likely that this was caused by a permissions problem.', THEME_NAME ), esc_html( $file['file'] ) );
+			echo '<p class="tt_error_import"><strong>' . __( 'Sorry, there has been an error.', 'TeslaFramework' ) . '</strong><br />';
+			printf( __( 'The export file could not be found at <code>%s</code>. It is likely that this was caused by a permissions problem.', 'TeslaFramework' ), esc_html( $file['file'] ) );
 			echo '</p>';
 			return false;
 		}
@@ -245,7 +268,7 @@ class Auto_Importer extends WP_Importer
 		$this->id = (int) $file['id'];
 		$import_data = $this->parse( $file['file'] );
 		if ( is_wp_error( $import_data ) ) {
-			echo '<p class="tt_error_import"><strong>' . __( 'Sorry, there has been an error.', THEME_NAME ) . '</strong><br />';
+			echo '<p class="tt_error_import"><strong>' . __( 'Sorry, there has been an error.', 'TeslaFramework' ) . '</strong><br />';
 			echo esc_html( $import_data->get_error_message() ) . '</p>';
 			return false;
 		}
@@ -253,7 +276,7 @@ class Auto_Importer extends WP_Importer
 		$this->version = $import_data['version'];
 		if ( $this->version > $this->max_wxr_version ) {
 			echo '<div class="error"><p class="tt_error_import"><strong>';
-			printf( __( 'This WXR file (version %s) may not be supported by this version of the importer. Please consider updating.', THEME_NAME ), esc_html($import_data['version']) );
+			printf( __( 'This WXR file (version %s) may not be supported by this version of the importer. Please consider updating.', 'TeslaFramework' ), esc_html($import_data['version']) );
 			echo '</strong></p></div>';
 		}
 
@@ -277,7 +300,7 @@ class Auto_Importer extends WP_Importer
 			foreach ( $import_data['posts'] as $post ) {
 				$login = sanitize_user( $post['post_author'], true );
 				if ( empty( $login ) ) {
-					printf( __( 'Failed to import author %s. Their posts will be attributed to the current user.', THEME_NAME ), esc_html( $post['post_author'] ) );
+					printf( __( 'Failed to import author %s. Their posts will be attributed to the current user.', 'TeslaFramework' ), esc_html( $post['post_author'] ) );
 					echo '<br />';
 					continue;
 				}
@@ -337,7 +360,7 @@ class Auto_Importer extends WP_Importer
 						$this->processed_authors[$old_id] = $user_id;
 					$this->author_mapping[$santized_old_login] = $user_id;
 				} else {
-					printf( __( 'Failed to create new user for %s. Their posts will be attributed to the current user.', THEME_NAME ), esc_html($this->authors[$old_login]['author_display_name']) );
+					printf( __( 'Failed to create new user for %s. Their posts will be attributed to the current user.', 'TeslaFramework' ), esc_html($this->authors[$old_login]['author_display_name']) );
 					if ( defined('IMPORT_DEBUG') && IMPORT_DEBUG )
 						echo ' ' . $user_id->get_error_message();
 					echo '<br />';
@@ -388,7 +411,7 @@ class Auto_Importer extends WP_Importer
 				if ( isset($cat['term_id']) )
 					$this->processed_terms[intval($cat['term_id'])] = $id;
 			} else {
-				printf( __( 'Failed to import category %s', THEME_NAME ), esc_html($cat['category_nicename']) );
+				printf( __( 'Failed to import category %s', 'TeslaFramework' ), esc_html($cat['category_nicename']) );
 				if ( defined('IMPORT_DEBUG') && IMPORT_DEBUG )
 					echo ': ' . $id->get_error_message();
 				echo '<br />';
@@ -428,7 +451,7 @@ class Auto_Importer extends WP_Importer
 				if ( isset($tag['term_id']) )
 					$this->processed_terms[intval($tag['term_id'])] = $id['term_id'];
 			} else {
-				printf( __( 'Failed to import post tag %s', THEME_NAME ), esc_html($tag['tag_name']) );
+				printf( __( 'Failed to import post tag %s', 'TeslaFramework' ), esc_html($tag['tag_name']) );
 				if ( defined('IMPORT_DEBUG') && IMPORT_DEBUG )
 					echo ': ' . $id->get_error_message();
 				echo '<br />';
@@ -474,7 +497,7 @@ class Auto_Importer extends WP_Importer
 				if ( isset($term['term_id']) )
 					$this->processed_terms[intval($term['term_id'])] = $id['term_id'];
 			} else {
-				printf( __( 'Failed to import %s %s', THEME_NAME ), esc_html($term['term_taxonomy']), esc_html($term['term_name']) );
+				printf( __( 'Failed to import %s %s', 'TeslaFramework' ), esc_html($term['term_taxonomy']), esc_html($term['term_name']) );
 				if ( defined('IMPORT_DEBUG') && IMPORT_DEBUG )
 					echo ': ' . $id->get_error_message();
 				echo '<br />';
@@ -500,7 +523,7 @@ class Auto_Importer extends WP_Importer
 			$post = apply_filters( 'wp_import_post_data_raw', $post );
 
 			if ( ! post_type_exists( $post['post_type'] ) ) {
-				printf( __( 'Failed to import &#8220;%s&#8221;: Invalid post type %s', THEME_NAME ),
+				printf( __( 'Failed to import &#8220;%s&#8221;: Invalid post type %s', 'TeslaFramework' ),
 					esc_html($post['post_title']), esc_html($post['post_type']) );
 				echo '<br />';
 				do_action( 'wp_import_post_exists', $post );
@@ -522,7 +545,7 @@ class Auto_Importer extends WP_Importer
 
 			$post_exists = post_exists( $post['post_title'], '', $post['post_date'] );
 			if ( $post_exists && get_post_type( $post_exists ) == $post['post_type'] ) {
-				printf( __('%s &#8220;%s&#8221; already exists.', THEME_NAME), $post_type_object->labels->singular_name, esc_html($post['post_title']) );
+				printf( __('%s &#8220;%s&#8221; already exists.', 'TeslaFramework'), $post_type_object->labels->singular_name, esc_html($post['post_title']) );
 				echo '<br />';
 				$comment_post_ID = $post_id = $post_exists;
 			} else {
@@ -581,7 +604,7 @@ class Auto_Importer extends WP_Importer
 				}
 
 				if ( is_wp_error( $post_id ) ) {
-					printf( __( 'Failed to import %s &#8220;%s&#8221;', THEME_NAME ),
+					printf( __( 'Failed to import %s &#8220;%s&#8221;', 'TeslaFramework' ),
 						$post_type_object->labels->singular_name, esc_html($post['post_title']) );
 					if ( defined('IMPORT_DEBUG') && IMPORT_DEBUG )
 						echo ': ' . $post_id->get_error_message();
@@ -615,7 +638,7 @@ class Auto_Importer extends WP_Importer
 							$term_id = $t['term_id'];
 							do_action( 'wp_import_insert_term', $t, $term, $post_id, $post );
 						} else {
-							printf( __( 'Failed to import %s %s', THEME_NAME ), esc_html($taxonomy), esc_html($term['name']) );
+							printf( __( 'Failed to import %s %s', 'TeslaFramework' ), esc_html($taxonomy), esc_html($term['name']) );
 							if ( defined('IMPORT_DEBUG') && IMPORT_DEBUG )
 								echo ': ' . $t->get_error_message();
 							echo '<br />';
@@ -746,14 +769,14 @@ class Auto_Importer extends WP_Importer
 
 		// no nav_menu term associated with this menu item
 		if ( ! $menu_slug ) {
-			_e( 'Menu item skipped due to missing menu slug', THEME_NAME );
+			_e( 'Menu item skipped due to missing menu slug', 'TeslaFramework' );
 			echo '<br />';
 			return;
 		}
 
 		$menu_id = term_exists( $menu_slug, 'nav_menu' );
 		if ( ! $menu_id ) {
-			printf( __( 'Menu item skipped due to invalid menu slug: %s', THEME_NAME ), esc_html( $menu_slug ) );
+			printf( __( 'Menu item skipped due to invalid menu slug: %s', 'TeslaFramework' ), esc_html( $menu_slug ) );
 			echo '<br />';
 			return;
 		} else {
@@ -816,7 +839,7 @@ class Auto_Importer extends WP_Importer
 	function process_attachment( $post, $url ) {
 		if ( ! $this->fetch_attachments )
 			return new WP_Error( 'attachment_processing_error',
-				__( 'Fetching attachments is not enabled', THEME_NAME ) );
+				__( 'Fetching attachments is not enabled', 'TeslaFramework' ) );
 
 		// if the URL is absolute, but does not contain address, then upload it assuming base_site_url
 		if ( preg_match( '|^/[\w\W]+$|', $url ) )
@@ -829,7 +852,7 @@ class Auto_Importer extends WP_Importer
 		if ( $info = wp_check_filetype( $upload['file'] ) )
 			$post['post_mime_type'] = $info['type'];
 		else
-			return new WP_Error( 'attachment_processing_error', __('Invalid file type', THEME_NAME) );
+			return new WP_Error( 'attachment_processing_error', __('Invalid file type', 'TeslaFramework') );
 
 		$post['guid'] = $upload['url'];
 
@@ -873,31 +896,31 @@ class Auto_Importer extends WP_Importer
 		// request failed
 		if ( ! $headers ) {
 			@unlink( $upload['file'] );
-			return new WP_Error( 'import_file_error', __('Remote server did not respond', THEME_NAME) );
+			return new WP_Error( 'import_file_error', __('Remote server did not respond', 'TeslaFramework') );
 		}
 
 		// make sure the fetch was successful
 		if ( $headers['response'] != '200' ) {
 			@unlink( $upload['file'] );
-			return new WP_Error( 'import_file_error', sprintf( __('Remote server returned error response %1$d %2$s', THEME_NAME), esc_html($headers['response']), get_status_header_desc($headers['response']) ) );
+			return new WP_Error( 'import_file_error', sprintf( __('Remote server returned error response %1$d %2$s', 'TeslaFramework'), esc_html($headers['response']), get_status_header_desc($headers['response']) ) );
 		}
 
 		$filesize = filesize( $upload['file'] );
 
 		if ( isset( $headers['content-length'] ) && $filesize != $headers['content-length'] ) {
 			@unlink( $upload['file'] );
-			return new WP_Error( 'import_file_error', __('Remote file is incorrect size', THEME_NAME) );
+			return new WP_Error( 'import_file_error', __('Remote file is incorrect size', 'TeslaFramework') );
 		}
 
 		if ( 0 == $filesize ) {
 			@unlink( $upload['file'] );
-			return new WP_Error( 'import_file_error', __('Zero size file downloaded', THEME_NAME) );
+			return new WP_Error( 'import_file_error', __('Zero size file downloaded', 'TeslaFramework') );
 		}
 
 		$max_size = (int) $this->max_attachment_size();
 		if ( ! empty( $max_size ) && $filesize > $max_size ) {
 			@unlink( $upload['file'] );
-			return new WP_Error( 'import_file_error', sprintf(__('Remote file is too large, limit is %s', THEME_NAME), size_format($max_size) ) );
+			return new WP_Error( 'import_file_error', sprintf(__('Remote file is too large, limit is %s', 'TeslaFramework'), size_format($max_size) ) );
 		}
 
 		// keep track of the old and new urls so we can substitute them later
@@ -1042,7 +1065,7 @@ class Auto_Importer extends WP_Importer
 	 * @return int 60
 	 */
 	function bump_request_timeout($val) {
-		return 60;
+		return 500;
 	}
 
 	// return the difference in length between two strings

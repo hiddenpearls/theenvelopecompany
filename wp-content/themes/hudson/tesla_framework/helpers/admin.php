@@ -136,7 +136,8 @@ function tt_gmap($map_id,$container_id ,$container_class='',$scrollzoom = 'true'
     'tt_container_id' => $container_id ,
     'tt_scrollzoom' => $scrollzoom 
     );
-  add_action('wp_footer','_gmap');
+  add_action('wp_footer','_gmap');  
+  wp_enqueue_script('google_map', 'https://maps.googleapis.com/maps/api/js?key=' . _go($tt_maps[0]['tt_map_id'] . '_key') . '&v=3.exp&sensor=false&libraries=places', '', false, true);
   if($echo)
     echo "<div id='$container_id' class='$container_class'></div>";
   else
@@ -150,50 +151,61 @@ function _gmap(){
       extract($map);
       $zoom_lvl = (_go($tt_map_id . '_zoom') != '')? _go($tt_map_id . '_zoom') : 4;
       $coords = (_go($tt_map_id . '_coords') != '')? _go($tt_map_id . '_coords') : "42.60,-41.16";
+      $key = (_go($tt_map_id . '_key') != '')? _go($tt_map_id . '_key') : "";
       $marker_coords = (_go($tt_map_id . '_marker_coords') != '')? _go($tt_map_id . '_marker_coords') : "";
       $icon = (_go($tt_map_id . '_icon') != '')? _go($tt_map_id . '_icon') : "";
       $styles = (_go($tt_map_id . '_mapOptions') != '')? _go($tt_map_id . '_mapOptions') : "";
       $func_name = str_replace("-", '_', $tt_container_id);
-      echo "<script type='text/javascript'>
-              jQuery(document).ready(function($){
+      if(!empty($key))
+        echo "<script type='text/javascript'>
+                jQuery(document).ready(function($){
 
-                if (document.getElementById('$tt_container_id')) {
+                  if (document.getElementById('$tt_container_id')) {
 
-                  function initialize_".$func_name."() {
-                    var mapOptions_".$func_name." = {
-                              center: new google.maps.LatLng($coords),
-                              zoom:$zoom_lvl,
-                              mapTypeId: google.maps.MapTypeId.ROADMAP,
-                              scrollwheel: $tt_scrollzoom,
-                              $styles
-                            };
-                    var map_".$func_name." = new google.maps.Map(document.getElementById('$tt_container_id'),mapOptions_".$func_name.");
-                    var marker_".$func_name." = new google.maps.Marker({
-                              map:map_".$func_name.",
-                              animation: google.maps.Animation.DROP,
-                              position: new google.maps.LatLng($marker_coords),
-                              icon:'$icon'
-                            });
+                    function initialize_".$func_name."() {
+                      var mapOptions_".$func_name." = {
+                                center: new google.maps.LatLng($coords),
+                                zoom:$zoom_lvl,
+                                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                scrollwheel: $tt_scrollzoom,
+                                $styles
+                              };
+                      var map_".$func_name." = new google.maps.Map(document.getElementById('$tt_container_id'),mapOptions_".$func_name.");
+                      var icon = '$icon';
+                      var shadow = '';
+                      var shadow_link = icon.replace(/\.[^/.]+$/, '') + '-shadow.png' ;
+                      if(shadow_link !== '')
+                        shadow = new google.maps.MarkerImage(shadow_link ,
+                            new google.maps.Size(25, 25),
+                            new google.maps.Point(0, 0),
+                            new google.maps.Point(12, 12)
+                        );
+                      var marker_".$func_name." = new google.maps.Marker({
+                                map:map_".$func_name.",
+                                animation: google.maps.Animation.DROP,
+                                position: new google.maps.LatLng($marker_coords),
+                                icon: icon
+                              });
+                    }
+                    google.maps.event.addDomListener(window, 'load', initialize_".$func_name.");
                   }
-                  google.maps.event.addDomListener(window, 'load', initialize_".$func_name.");
-                }
-              })
-              </script>
-              <style type='text/css' scoped>
-                .gmnoprint img{
-                  max-width: none;
-                }
-              </style>";
+                })
+                </script>
+                <style type='text/css' scoped>
+                  .gmnoprint img{
+                    max-width: none;
+                  }
+                </style>";
+        else
+          echo '<p class="tt_explain">Google map is disabled. Create an API key as per instructions here: <a href="https://developers.google.com/maps/documentation/javascript/get-api-key">https://developers.google.com/maps/documentation/javascript/get-api-key</a></p>';
     }
 }
 
-function get_subscriptions(){
-  $subscriptions = array();
-  if (file_exists(TT_THEME_DIR . '/subscriptions.txt')){
-    $file = file_get_contents( TT_THEME_DIR . '/subscriptions.txt', FILE_USE_INCLUDE_PATH );
-    $subscriptions = explode( "\n", $file );
-  }
-  return $subscriptions;
+/** 
+* @updated : 1.9.3
+*/
+function tt_get_subscriptions(){
+  return get_option( THEME_OPTIONS . '_subscribers' );
 }
 
 /* Convert hexdec color string to rgb(a) string */

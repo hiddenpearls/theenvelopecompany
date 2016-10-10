@@ -203,6 +203,6 @@ function tt_woocommerce_breadcrumb_defaults(){
         'wrap_after' => '</div>',
         'before' => '',
         'after' => '',
-        'home' => _x('Home', 'breadcrumb', 'woocommerce'),
+        'home' => _x('Home', 'breadcrumb', 'hudson'),
     );
 }

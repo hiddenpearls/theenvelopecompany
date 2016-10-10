@@ -67,7 +67,7 @@ section{
 		}
 		&.button-down{
 			position: relative;
-			p{
+			p, .entry-summary{
 				margin-bottom: rem(60);
 			}
 			a.orange-btn, a.shop-btn{
@@ -154,7 +154,7 @@ section{
 			border-color: $brand-orange;
 		}
 		.gform_body{
-			.gform_fields#gform_fields_3{
+			.gform_fields#gform_fields_10{
 				list-style-type: none;
 				padding: 0;
 				position: relative;
@@ -204,7 +204,7 @@ section{
 						top: 0;
 						right: 0;
 						margin-top: 0;
-						.ginput_container_textarea{
+						.ginput_container{
 							margin-top: 0;
 						}
 						@media screen and (max-width: $breakpoint--medium){
@@ -338,6 +338,9 @@ section{
 	Contact Section
 */
 .newsletter-signup-section{
+	.gform_wrapper .top_label .gfield_label{
+		display: none;
+	}
 	.gform_wrapper .gform_footer input.button, .gform_wrapper .gform_footer input[type=submit]{
 		float: right;
 		margin-right: 0;

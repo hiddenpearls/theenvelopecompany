@@ -1929,8 +1929,7 @@ class AT_Meta_Box {
    * @return void
    */
   public function load_textdomain(){
-    //In themes/plugins/mu-plugins directory
-    //load_theme_textdomain( 'tt-dashboard-metaboxes', dirname(__FILE__) . '/languages/' . get_locale() .'mo' );
+    
   }
 } // End Class
 endif; // End Check Class Exists

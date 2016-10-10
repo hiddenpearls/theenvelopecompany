@@ -1,6 +1,5 @@
-<div class="path">
-    <?php woocommerce_breadcrumb(); ?>
-</div>
+<?php woocommerce_breadcrumb(); ?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <header class="entry-header">
         <div class="rubric_b"><h1><?php the_title(); ?></h1></div>

@@ -27,7 +27,7 @@ class WC_Advanced_Notifications_Admin {
 	 * Screen ids
 	 */
 	public function screen_ids( $ids ) {
-		$wc_screen_id = strtolower( __( 'WooCommerce', 'woocommerce' ) );
+		$wc_screen_id = strtolower( __( 'WooCommerce', 'woocommerce-advanced-notifications' ) );
 
 		$ids[] = $wc_screen_id . '_page_advanced-notifications';
 

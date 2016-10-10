@@ -198,6 +198,22 @@ class WC_Role_Methods_Admin {
 			echo "</tr>";
 		}
 
+	/**
+	 * Get the title for the method. Title is a user supplied version, method_title is used as a fallback
+	 *
+	 * @param obj $method Method
+	 */
+
+		function get_shipping_method_title($method) {
+			if($method->title) {
+				return $method->title;
+			} elseif($method->method_title) {
+				return $method->method_title;
+			} else {
+				return "";
+			}
+		}
+
 
 	/**
 	 * Print single Shipping row with all methods, for a specific group.

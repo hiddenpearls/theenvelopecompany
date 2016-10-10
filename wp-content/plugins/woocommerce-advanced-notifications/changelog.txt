@@ -1,5 +1,22 @@
 *** Advanced Notifications Changelog ***
 
+2016.08.13 - version 1.2.0
+* Tweak - Added order refund notification.
+* Tweak - Added POT file for translation and missing domain path in plugin's header.
+
+2016.07.23 - version 1.1.20
+* Fix - Variable subscription download links not showing up in new order emails.
+* Fix - Method name typos.
+* Fix - Order note not showing in email template.
+* Add - Notification object to send method so each email will have an ID for context.
+* Add - Email template filter 'woocommerce_order_item_meta_start' and 'woocommerce_order_item_meta_end'.
+
+2016.02.25 - version 1.1.19
+* Fix - Notification emails showing products for other vendors.
+
+2016.01.26 - version 1.1.18
+* Fix - Downloadable files did not generate a link in emails
+
 2015.12.18 - version 1.1.17
 * Fix - Prevent a double footer from showing in emails.
 

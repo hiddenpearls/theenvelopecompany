@@ -4,7 +4,7 @@
 Gravity Forms Front End Form Styles
 Version 2.0
 http: //www.gravityforms.com
-updated: September 12, 2016 10:41 AM GMT-5
+updated: August 26, 2016 11:53 AM GMT-5
 
 Gravity Forms is a Rocketgenius project
 copyright 2008-2016 Rocketgenius Inc.
@@ -31,7 +31,7 @@ to no.
 .gform_wrapper {
     overflow: inherit;
     margin: 16px 0;
-    max-width: calc(100% + 16px);
+    max-width: 100%;
 }
 
 .gform_wrapper *,
@@ -1047,9 +1047,14 @@ body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
     margin-bottom: 8px;
 }
 
+.gform_wrapper .gform_page_footer .button.gform_next_button,
+.gform_wrapper .gform_page_footer .button.gform_button {
+    margin-right: 10px;
+}
+
 .gform_wrapper .gf_progressbar_wrapper {
     clear: both;
-    width: calc(100% + 16px);
+    width: 100%;
     margin: 0 0 16px 0;
     padding: 0 0 16px 0;
 }
@@ -2420,12 +2425,8 @@ body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html dl dd {
         background-color: #EEE;
     }
 
-    .gform_wrapper table.gfield_list tr td.gfield_list_icons img.add_list_item  {
-        margin: 12px 0 0 16px !important;
-    }
-
-    .gform_wrapper table.gfield_list tr td.gfield_list_icons img.delete_list_item  {
-        margin: 12px 0 0 8px !important;
+    .gform_wrapper table.gfield_list tr td.gfield_list_icons img {
+        margin-top: 2px !important;
     }
 
     .gform_wrapper .gform_footer a.gform_save_link,
@@ -2878,15 +2879,6 @@ body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html dl dd {
 
     .gform_wrapper ul.gform_fields:not(.top_label) .ginput_container.ginput_recaptcha {
         margin-left: 29% !important;
-    }
-
-    .gform_wrapper .gform_page_footer .button.gform_previous_button {
-        margin-bottom: 0;
-    }
-
-    .gform_wrapper .gform_page_footer .button.gform_next_button,
-    .gform_wrapper .gform_page_footer .button.gform_button {
-        margin-right: 10px;
     }
 
 }

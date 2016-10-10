@@ -1,5 +1,9 @@
 /*=========================== Tesla Contact Builder CSS ==========================*/
-.row-edit, .row-delete , .form-delete{
+#contact-builder-wrapper {
+	margin-top: 25px;
+}
+
+.row-edit, .row-delete , .form-delete {
 	position: absolute;
 	width: 24px;
 	height: 24px;
@@ -19,7 +23,7 @@
 	bottom: 0;
 }
 
-.config{
+.config {
 	display: none;
 	width: 15px;
 	height: 100%;
@@ -27,7 +31,7 @@
 	cursor: pointer;
 }
 
-.form-template .form-element .config{
+.form-template .form-element .config {
 	display: inline;
 }
 
@@ -315,11 +319,28 @@
 	line-height: 18px;
 }
 
-.how-to-list{
+.how-to-list {
 	margin-top: 11px;
 	padding-left: 30px;
 }
 
-.alert{
+.alert {
 	border-radius: 0;
+}
+
+.open-how-to {
+	cursor: pointer;
+}
+
+.how-list-container {
+	display: none;
+}
+
+.tt-contact-builder-notice-full {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.tt-contact-builder-notice-mb{
+	margin-bottom: 25px;
 }

@@ -36,11 +36,6 @@ jQuery(document).ready(function($) {
 });
 /* ================= END LOGIN / REGISTER ================= */
 
-
-
-
-
-
 /* ================= START HOVER THEMES ================= */
 jQuery(document).ready(function($) {
     $(".image_box").hover(function() {
@@ -51,11 +46,6 @@ jQuery(document).ready(function($) {
 });
 /* ================= END HOVER THEMES ================= */
 
-
-
-
-
-
 /* ================= SCROOL TOP ================= */
 jQuery(document).ready(function($) {
     $('.backtotop').click(function() {
@@ -65,7 +55,6 @@ jQuery(document).ready(function($) {
         return false;
     });
 });
-
 
 /* ================= IE fix ================= */
 jQuery(document).ready(function($) {
@@ -87,103 +76,9 @@ jQuery(document).ready(function($) {
 });
 /* ================= END PLACE HOLDER ================= */
 
-/* =================Twitter============================ */
-var load_twitter = function() {
-    var linkify = function(text) {
-        text = text.replace(/(https?:\/\/\S+)/gi, function(s) {
-            return '<a href="' + s + '">' + s + '</a>';
-        });
-        text = text.replace(/(^|)@(\w+)/gi, function(s) {
-            return '<a href="http://twitter.com/' + s + '">' + s + '</a>';
-        });
-        text = text.replace(/(^|)#(\w+)/gi, function(s) {
-            return '<a href="http://search.twitter.com/search?q=' + s.replace(/#/, '%23') + '">' + s + '</a>';
-        });
-        return text;
-    };
-    jQuery('.tt_twitter').each(function() {
-        var t = $(this);
-        var t_date_obj = new Date();
-        var t_loading = 'Loading tweets..'; //message to display before loading tweets
-        var t_container = $('<ul>').addClass('twitter').append('<li>' + t_loading + '</li>');
-        t.append(t_container);
-        var t_user = t.attr('data-user');
-        var t_posts = parseInt(t.attr('data-posts'), 10);
-        $.getJSON("http://api.twitter.com/1/statuses/user_timeline/" + t_user + ".json?callback=?", function(t_tweets) {
-            t_container.empty();
-            for (var i = 0; i < t_posts && i < t_tweets.length; i++) {
-                var t_date = Math.floor((t_date_obj.getTime() - Date.parse(t_tweets[i].created_at)) / 1000);
-                var t_date_str;
-                var t_date_seconds = t_date % 60;
-                t_date = Math.floor(t_date / 60);
-                var t_date_minutes = t_date % 60;
-                if (t_date_minutes) {
-                    t_date = Math.floor(t_date / 60);
-                    var t_date_hours = t_date % 60;
-                    if (t_date_hours) {
-                        t_date = Math.floor(t_date / 60);
-                        var t_date_days = t_date % 24;
-                        if (t_date_days) {
-                            t_date = Math.floor(t_date / 24);
-                            var t_date_weeks = t_date % 7;
-                            if (t_date_weeks)
-                                t_date_str = t_date_weeks + ' week' + (1 == t_date_weeks ? '' : 's') + ' ago';
-                            else
-                                t_date_str = t_date_days + ' day' + (1 == t_date_days ? '' : 's') + ' ago';
-                        }
-                        else
-                            t_date_str = t_date_hours + ' hour' + (1 == t_date_hours ? '' : 's') + ' ago';
-                    }
-                    else
-                        t_date_str = t_date_minutes + ' minute' + (1 == t_date_minutes ? '' : 's') + ' ago';
-                }
-                else
-                    t_date_str = t_date_seconds + ' second' + (1 == t_date_seconds ? '' : 's') + ' ago';
-                var t_message =
-                '<li' + (i + 1 == t_tweets.length ? ' class="last"' : '') + '>' +
-                linkify(t_tweets[i].text) +
-                '<span class="date">' +
-                t_date_str +
-                '</span>' +
-                '</li>';
-                t_container.append(t_message);
-            }
-            load_twitter_rotator();
-        });
-    });
-};
-var load_twitter_rotator = function() {
-    var t_interval = 6000;   //time for tweet rotation in miliseconds
-    var t_time = 1000;   //time for fade effect in miliseconds; NOTE: must be equal or lower then t_interval
-    var t_active_class = 'active';
-    var t_active_selector = '.' + t_active_class;
-    var t_items = $('.tt_twitter ul li');
-    var t_current = 0;
-    var t_max = t_items.length;
-    var t_height = 0;
-    t_items.each(function() {
-        t_height = Math.max(t_height, $(this).outerHeight(true));
-    });
-    $('.tt_twitter').css({
-        height: t_height
-    });
-    t_items.filter(':first').addClass('active').css({
-        opacity: 1
-    });
-    if (t_max) {
-        t_max--;
-        setInterval(function() {
-            t_items.filter(':eq(' + t_current + ')').removeClass(t_active_class).stop().fadeOut('slow', function() {
-                t_items.filter(':eq(' + t_current + ')').addClass(t_active_class).stop().fadeIn('slow');
-            });
-            t_current = (t_current < t_max) ? t_current + 1 : 0;
-        }, t_interval);
-    }
-};
 //load modules-------------
 
 jQuery(document).ready(function($) {
-    load_twitter();
     load_carousel();
 });
 
@@ -563,7 +458,6 @@ jQuery('.team_box_loop li[data-team]').hover(function() {
     $('.team_box_loop li[data-team] .team_box').removeClass('active');
     $(this).children('.team_box').addClass('active');
     var member = $(this).attr('data-team');
-    console.log(member);
     $('div[data-team-description]').removeClass('active');
     $('div[data-team-description=' + member + ']').addClass('active');
 });
@@ -571,8 +465,9 @@ jQuery('.team_box_loop li[data-team]').hover(function() {
 /* ================= START MENU ================= */
 jQuery(document).ready(function ($) {
     "use strict";
+   
     $(".menu-responsive").click(function (e) {
-        $(".header .top_menu .menu>ul").css({display: "block"});
+        $(".header .top_menu .menu>ul").toggle();
         e.stopPropagation();
         if (e.preventDefault)
             e.preventDefault();
@@ -580,9 +475,11 @@ jQuery(document).ready(function ($) {
     });
     $("body").click(function () {
         $(".header .top_menu .menu>ul").css({display: "none"});
-    });
+    }); 
+
+
     $(".category-responsive").click(function (e) {
-        $(".category_menu>ul").css({display: "block"});
+        $(".category_menu>ul").toggle();
         e.stopPropagation();
         if (e.preventDefault)
             e.preventDefault();
@@ -652,7 +549,6 @@ function request_product_qw(product_id, func_cb) {
         },
         error: function(errorThrown){
             alert('error');
-            console.log(errorThrown);
         }
     });
 }
@@ -788,17 +684,15 @@ function request_product_qw(product_id, func_cb) {
     });
 
     //FIX FOR DIFFERENT PRODUCTS HEIGHT
-    var productHelper = function () {
+    /*var productHelper = function () {
         var heightInit = -1;
 
         $('.type-product').each(function (i, obj) {
 
             if ( $(this).height() > heightInit && !$(this).hasClass('single-big-item')) {
                 heightInit = $(this).height();
-                console.log(heightInit);
             }
         });
-        console.log(heightInit);
         $('.type-product').each(function(){
             if(!$(this).hasClass('single-big-item'))
                 $(this).height(heightInit);
@@ -819,7 +713,7 @@ function request_product_qw(product_id, func_cb) {
         var maxHeight = -1;
 
         productHelper();
-        $('.items .item').each(function() {
+        $('.slider_lr .items,.slider_lr .items .item').each(function() {
             if(!$(this).hasClass('single-big-item'))
                 maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
         });
@@ -828,7 +722,7 @@ function request_product_qw(product_id, func_cb) {
             if(!$(this).hasClass('single-big-item'))
                 $(this).height(maxHeight);
         });
-    });
+    });*/
     $(document).ready(function(){
         //Subscription-------------
         $('#tt_subscribe_form').tt_subscription({

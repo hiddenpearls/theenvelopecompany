@@ -1,5 +1,5 @@
 <?php
-
+if(!class_exists('TT_Load')){
 class TT_Load extends TeslaFramework{
 
     function __construct() {
@@ -73,4 +73,5 @@ class TT_Load extends TeslaFramework{
         else
             print $buffer;
     }
+}
 }

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Hudson\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-19 11:47+0200\n"
-"PO-Revision-Date: 2015-10-19 11:47+0200\n"
+"POT-Creation-Date: 2015-12-15 11:49+0200\n"
+"PO-Revision-Date: 2015-12-15 11:50+0200\n"
 "Last-Translator: Anatolii Bivol <bivol@red-sky.pl>\n"
 "Language-Team: TeslaThemes <support@teslathemes.com>\n"
 "Language: en\n"
@@ -17,8 +17,8 @@ msgstr ""
 "X-Poedit-SearchPath-1: .\n"
 
 #: ../search.php:15 ../index.php:22 ../single-collection.php:19
-#: ../archive-collection.php:18 ../404.php:15 ../tag.php:21 ../single.php:15
-#: ../category.php:21 ../archive.php:18 ../page.php:14
+#: ../archive-collection.php:18 ../404.php:15 ../tag.php:14 ../single.php:15
+#: ../category.php:13 ../archive.php:14 ../page.php:14
 #: ../page-templates/page-contact.php:24 ../page-templates/page-about.php:20
 #: ../theme_config/theme-details.php:206
 msgid "Home"
@@ -61,12 +61,12 @@ msgstr ""
 msgid "No collections posted yet."
 msgstr ""
 
-#: ../content-page.php:7 ../content-page_hudson.php:10 ../content.php:39
+#: ../content-page.php:7 ../content-page_hudson.php:9 ../content.php:35
 msgid "Continue reading <span class=\"meta-nav meta-read-more\">&raquo;</span>"
 msgstr ""
 
-#: ../content-page.php:8 ../post_head.php:38 ../content-page_hudson.php:11
-#: ../image.php:84 ../content.php:40
+#: ../content-page.php:8 ../post_head.php:38 ../content-page_hudson.php:10
+#: ../image.php:78 ../content.php:36
 msgid "Pages:"
 msgstr ""
 
@@ -82,12 +82,12 @@ msgstr ""
 msgid "Continue reading <span class=\"meta-nav\">&raquo;</span>"
 msgstr ""
 
-#: ../author.php:32
+#: ../author.php:24
 #, php-format
 msgid "Author Archives: %s"
 msgstr ""
 
-#: ../author.php:54 ../content.php:53
+#: ../author.php:46 ../content.php:49
 #, php-format
 msgid "About %s"
 msgstr ""
@@ -127,7 +127,7 @@ msgstr ""
 msgid "Reply"
 msgstr ""
 
-#: ../functions.php:286 ../image.php:29 ../content.php:46
+#: ../functions.php:286 ../image.php:23 ../content.php:42
 msgid "Edit"
 msgstr ""
 
@@ -228,11 +228,11 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
-#: ../content-none.php:13
+#: ../content-none.php:9
 msgid "Nothing Found"
 msgstr ""
 
-#: ../content-none.php:17
+#: ../content-none.php:13
 msgid ""
 "Apologies, but no results were found. Perhaps searching will help find a "
 "related post."
@@ -242,44 +242,48 @@ msgstr ""
 msgid "// Our Services"
 msgstr ""
 
-#: ../tag.php:21 ../single.php:15 ../category.php:21 ../archive.php:18
+#: ../tag.php:14 ../single.php:15 ../category.php:13 ../archive.php:14
 msgid "Blog"
 msgstr ""
 
-#: ../tag.php:21
+#: ../tag.php:14
 #, php-format
 msgid "Tag: %s"
 msgstr ""
 
-#: ../category.php:21
+#: ../footer.php:28
+msgid "Designed by "
+msgstr ""
+
+#: ../category.php:13
 #, php-format
 msgid "Category: %s"
 msgstr ""
 
-#: ../archive.php:21
+#: ../archive.php:17
 #, php-format
 msgid "Daily Archives: %s"
 msgstr ""
 
-#: ../archive.php:23
+#: ../archive.php:19
 #, php-format
 msgid "Monthly Archives: %s"
 msgstr ""
 
-#: ../archive.php:23
+#: ../archive.php:19
 msgid "F Y"
 msgstr ""
 
-#: ../archive.php:25
+#: ../archive.php:21
 #, php-format
 msgid "Yearly Archives: %s"
 msgstr ""
 
-#: ../archive.php:25
+#: ../archive.php:21
 msgid "Y"
 msgstr ""
 
-#: ../archive.php:27
+#: ../archive.php:23
 msgid "Archives"
 msgstr ""
 
@@ -291,7 +295,7 @@ msgstr ""
 msgid "Newer Comments &rarr;"
 msgstr ""
 
-#: ../image.php:26
+#: ../image.php:20
 #, php-format
 msgid ""
 "<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class="
@@ -301,36 +305,36 @@ msgid ""
 "a>."
 msgstr ""
 
-#: ../image.php:33
+#: ../image.php:27
 msgid "&larr; Previous"
 msgstr ""
 
-#: ../image.php:34
+#: ../image.php:28
 msgid "Next &rarr;"
 msgstr ""
 
-#: ../content.php:14
+#: ../content.php:10
 msgid "Featured post"
 msgstr ""
 
-#: ../content.php:23
+#: ../content.php:19
 #, php-format
 msgid "Permalink to %s"
 msgstr ""
 
-#: ../content.php:28
+#: ../content.php:24
 msgid "Leave a reply"
 msgstr ""
 
-#: ../content.php:28
+#: ../content.php:24
 msgid "1 Reply"
 msgstr ""
 
-#: ../content.php:28
+#: ../content.php:24
 msgid "% Replies"
 msgstr ""
 
-#: ../content.php:57
+#: ../content.php:53
 #, php-format
 msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""

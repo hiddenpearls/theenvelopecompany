@@ -2,13 +2,6 @@
 /**
  * The template for displaying Category pages.
  *
- * Used to display archive-type pages for posts in a category.
- *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage Twenty_Twelve
- * @since Twenty Twelve 1.0
  */
 get_header();
 ?>
@@ -18,7 +11,7 @@ get_header();
 <div class="content">
     <div class="container">
         <div class="path">
-            <a href="<?php echo site_url('/'); ?>"><?php _e('Home', 'hudson'); ?></a><?php if (FALSE !== $_blog_url = tesla_blog_page_url()) { ?> / <a href="<?php echo $_blog_url; ?>"><?php _e('Blog', 'hudson'); ?></a><?php } ?> / <?php printf(__('Tag: %s', 'hudson'), '<span>' . single_tag_title('', false) . '</span>'); ?>
+            <a href="<?php echo site_url('/'); ?>"><?php _e('Home', 'hudson'); ?></a><?php if (FALSE !== $_blog_url = tesla_blog_page_url()) { ?> / <a href="<?php echo esc_attr($_blog_url); ?>"><?php _e('Blog', 'hudson'); ?></a><?php } ?> / <?php printf(__('Tag: %s', 'hudson'), '<span>' . single_tag_title('', false) . '</span>'); ?>
         </div>
         <div class="row">
             <div class="span9">

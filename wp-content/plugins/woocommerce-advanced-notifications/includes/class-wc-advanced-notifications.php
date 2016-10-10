@@ -38,6 +38,8 @@ class WC_Advanced_Notifications {
 		add_action( 'woocommerce_low_stock_notification', array( $this, 'low_stock' ), 1, 2 );
 		add_action( 'woocommerce_no_stock_notification', array( $this, 'out_of_stock' ), 1, 2 );
 		add_action( 'woocommerce_product_on_backorder_notification', array( $this, 'backorder' ), 1, 2 );
+		add_action( 'woocommerce_order_fully_refunded_notification', array( $this, 'refund' ) );
+		add_action( 'woocommerce_order_partially_refunded_notification', array( $this, 'refund' ) );
 	}
 
 
@@ -52,12 +54,12 @@ class WC_Advanced_Notifications {
 
 
 	/**
-	 * get_notifcations_for_order function.
+	 * get_notifications_for_order function.
 	 *
 	 * @access public
 	 * @return void
 	 */
-	public function get_notifcations_for_order( $order ) {
+	public function get_notifications_for_order( $order, $type = 'purchases' ) {
 		global $wpdb;
 
 		$notifications = array();
@@ -101,7 +103,7 @@ class WC_Advanced_Notifications {
 		if ( $notifications ) {
 			foreach ( $notifications as $key => $notification ) {
 
-				 if ( ! in_array( 'purchases', maybe_unserialize( $notification->notification_type ) ) ) {
+				 if ( ! in_array( $type, maybe_unserialize( $notification->notification_type ) ) ) {
 				 	unset( $notifications[ $key ] );
 				 	continue;
 				 }
@@ -145,12 +147,12 @@ class WC_Advanced_Notifications {
 
 
 	/**
-	 * get_notifcations_for_product function.
+	 * get_notifications_for_product function.
 	 *
 	 * @access public
 	 * @return void
 	 */
-	public function get_notifcations_for_product( $product, $type = 'low_stock' ) {
+	public function get_notifications_for_product( $product, $type = 'low_stock' ) {
 		global $wpdb;
 
 		$notifications = array();
@@ -233,7 +235,7 @@ class WC_Advanced_Notifications {
 	/**
 	 * sends an email through WooCommerce with the correct headers
 	 */
-	public function send( $id, $object, $is_plain_text, $to, $subject, $message ) {
+	public function send( $id, $object, $is_plain_text, $to, $subject, $message, $notification ) {
 		$email = new WC_Email();
 
 		if ( $is_plain_text ) {
@@ -242,6 +244,8 @@ class WC_Advanced_Notifications {
 		} else {
 			$email->email_type = 'html';
 		}
+
+		$email->id = "advanced_notification_{$notification->notification_id}";
 
 		$email->send( $to, $subject, $message, $email->get_headers(), $email->get_attachments() );
 	}
@@ -258,7 +262,7 @@ class WC_Advanced_Notifications {
 		$order = new WC_Order( $order_id );
 
 		// Get notifications
-		$notifications = $this->get_notifcations_for_order( $order );
+		$notifications = $this->get_notifications_for_order( $order, 'purchases' );
 
 		if ( $notifications ) {
 
@@ -277,14 +281,18 @@ class WC_Advanced_Notifications {
 				ob_start();
 
 				// Get mail template
-				woocommerce_get_template( $notification->notification_plain_text ? 'emails/new_order_plain.php' : 'emails/new_order.php', array(
-					'order'          => $order,
-					'email_heading'  => $email_heading,
-					'recipient_name' => $notification->recipient_name,
-					'show_totals'    => $notification->notification_totals,
-					'show_prices'    => $notification->notification_prices,
-					'triggers'       => $notification->triggers,
-					'blogname'       => $blogname
+				wc_get_template( $notification->notification_plain_text ? 'emails/new_order_plain.php' : 'emails/new_order.php', array(
+					'order'               => $order,
+					'email_heading'       => $email_heading,
+					'recipient_name'      => $notification->recipient_name,
+					'show_totals'         => $notification->notification_totals,
+					'show_prices'         => $notification->notification_prices,
+					'triggers'            => $notification->triggers,
+					'blogname'            => $blogname,
+					'sent_to_admin'       => false,
+					'show_download_links' => $order->is_download_permitted(),
+					'plain_text'          => $notification->notification_plain_text,
+					'email'               => ''
 				), 'woocommerce-advanced-notifications/', $this->plugin_path() . '/templates/' );
 
 				// Get contents
@@ -292,16 +300,21 @@ class WC_Advanced_Notifications {
 
 				$wc_email = new WC_Email();
 
-				// wrap the content with the email template and then add styles
-				$message = $wc_email->style_inline( $mailer->wrap_message( $email_heading, $message ) );
+				$formatted_message = $wc_email->style_inline( $mailer->wrap_message( $email_heading, $message ) );
+
+				if ( $notification->notification_plain_text ) {
+					$wc_email->email_type = 'plain';
+
+					$formatted_message = $wc_email->style_inline( $message );
+				}
 
 				// Send the email
-				$this->send( 'new_order', $order, $notification->notification_plain_text, $notification->recipient_email, $subject, $message );
+				$this->send( 'new_order', $order, $notification->notification_plain_text, $notification->recipient_email, $subject, $formatted_message, $notification );
 
 				// Increase count
 				$wpdb->update(
 					"{$wpdb->prefix}advanced_notifications",
-					array( 'notification_sent_count' =>  ( $notification->notification_sent_count + 1 ) ),
+					array( 'notification_sent_count' => ( $notification->notification_sent_count + 1 ) ),
 					array( 'notification_id' => $notification->notification_id )
 				);
 			}
@@ -321,31 +334,31 @@ class WC_Advanced_Notifications {
 		global $woocommerce, $wpdb;
 
 		// Get notifications
-		$notifications = $this->get_notifcations_for_product( $product, 'low_stock' );
+		$notifications = $this->get_notifications_for_product( $product, 'low_stock' );
 
 		if ( $notifications ) {
 
 			$blogname = wp_specialchars_decode(get_option('blogname'), ENT_QUOTES);
 
-			$subject = apply_filters( 'woocommerce_email_subject_low_stock', sprintf( '[%s] %s', $blogname, __( 'Product low in stock', 'woocommerce' ) ), $product );
+			$subject = apply_filters( 'woocommerce_email_subject_low_stock', sprintf( '[%s] %s', $blogname, __( 'Product low in stock', 'woocommerce-advanced-notifications' ) ), $product );
 
 			$sku = ($product->sku) ? '(' . $product->sku . ') ' : '';
 
 			if ( ! empty( $product->variation_id ) )
-				$title = sprintf(__('Variation #%s of %s', 'woocommerce'), $product->variation_id, get_the_title($product->id)) . ' ' . $sku;
+				$title = sprintf(__('Variation #%s of %s', 'woocommerce-advanced-notifications' ), $product->variation_id, get_the_title($product->id)) . ' ' . $sku;
 			else
-				$title = sprintf(__('Product #%s - %s', 'woocommerce'), $product->id, get_the_title($product->id)) . ' ' . $sku;
+				$title = sprintf(__('Product #%s - %s', 'woocommerce-advanced-notifications' ), $product->id, get_the_title($product->id)) . ' ' . $sku;
 
 			foreach ( $notifications as $notification ) {
 
 				$message = sprintf( __( 'Hi %s,', 'woocommerce-advanced-notifications' ), $notification->recipient_name ) . "\n\n";
 
-				$message .= $title . __('is low in stock.', 'woocommerce') . "\n\n";
+				$message .= $title . __('is low in stock.', 'woocommerce-advanced-notifications' ) . "\n\n";
 
 				$message .= "Regards,\n" . $blogname;
 
 				// Send the email
-				$this->send( 'low_stock', $product, true, $notification->recipient_email, $subject, $message );
+				$this->send( 'low_stock', $product, true, $notification->recipient_email, $subject, $message, $notification );
 
 				// Increase count
 				$wpdb->update(
@@ -368,31 +381,31 @@ class WC_Advanced_Notifications {
 		global $woocommerce, $wpdb;
 
 		// Get notifications
-		$notifications = $this->get_notifcations_for_product( $product, 'out_of_stock' );
+		$notifications = $this->get_notifications_for_product( $product, 'out_of_stock' );
 
 		if ( $notifications ) {
 
 			$blogname = wp_specialchars_decode(get_option('blogname'), ENT_QUOTES);
 
-			$subject = apply_filters( 'woocommerce_email_subject_no_stock', sprintf( '[%s] %s', $blogname, __( 'Product out of stock', 'woocommerce' ) ), $product );
+			$subject = apply_filters( 'woocommerce_email_subject_no_stock', sprintf( '[%s] %s', $blogname, __( 'Product out of stock', 'woocommerce-advanced-notifications' ) ), $product );
 
 			$sku = ($product->sku) ? '(' . $product->sku . ') ' : '';
 
 			if ( ! empty( $product->variation_id ) )
-				$title = sprintf(__('Variation #%s of %s', 'woocommerce'), $product->variation_id, get_the_title($product->id)) . ' ' . $sku;
+				$title = sprintf(__('Variation #%s of %s', 'woocommerce-advanced-notifications' ), $product->variation_id, get_the_title($product->id)) . ' ' . $sku;
 			else
-				$title = sprintf(__('Product #%s - %s', 'woocommerce'), $product->id, get_the_title($product->id)) . ' ' . $sku;
+				$title = sprintf(__('Product #%s - %s', 'woocommerce-advanced-notifications' ), $product->id, get_the_title($product->id)) . ' ' . $sku;
 
 			foreach ( $notifications as $notification ) {
 
 				$message = sprintf( __( 'Hi %s,', 'woocommerce-advanced-notifications' ), $notification->recipient_name ) . "\n\n";
 
-				$message .= $title . __('is out of stock.', 'woocommerce') . "\n\n";
+				$message .= $title . __('is out of stock.', 'woocommerce-advanced-notifications' ) . "\n\n";
 
 				$message .= "Regards,\n" . $blogname;
 
 				// Send the email
-				$this->send( 'no_stock', $product, true, $notification->recipient_email, $subject, $message );
+				$this->send( 'no_stock', $product, true, $notification->recipient_email, $subject, $message, $notification );
 
 				// Increase count
 				$wpdb->update(
@@ -431,31 +444,31 @@ class WC_Advanced_Notifications {
 		global $woocommerce, $wpdb;
 
 		// Get notifications
-		$notifications = $this->get_notifcations_for_product( $product, 'out_of_stock' );
+		$notifications = $this->get_notifications_for_product( $product, 'out_of_stock' );
 
 		if ( $notifications ) {
 
 			$blogname = wp_specialchars_decode(get_option('blogname'), ENT_QUOTES);
 
-			$subject = apply_filters( 'woocommerce_email_subject_backorder', sprintf( '[%s] %s', $blogname, __( 'Product Backorder', 'woocommerce' ) ), $product );
+			$subject = apply_filters( 'woocommerce_email_subject_backorder', sprintf( '[%s] %s', $blogname, __( 'Product Backorder', 'woocommerce-advanced-notifications' ) ), $product );
 
 			$sku = ($product->sku) ? ' (' . $product->sku . ')' : '';
 
 			if ( ! empty( $product->variation_id ) )
-				$title = sprintf(__('Variation #%s of %s', 'woocommerce'), $product->variation_id, get_the_title($product->id)) . $sku;
+				$title = sprintf(__('Variation #%s of %s', 'woocommerce-advanced-notifications' ), $product->variation_id, get_the_title($product->id)) . $sku;
 			else
-				$title = sprintf(__('Product #%s - %s', 'woocommerce'), $product->id, get_the_title($product->id)) . $sku;
+				$title = sprintf(__('Product #%s - %s', 'woocommerce-advanced-notifications' ), $product->id, get_the_title($product->id)) . $sku;
 
 			foreach ( $notifications as $notification ) {
 
 				$message = sprintf( __( 'Hi %s,', 'woocommerce-advanced-notifications' ), $notification->recipient_name ) . "\n\n";
 
-				$message .= sprintf(__('%s units of %s have been backordered in order #%s.', 'woocommerce'), $quantity, $title, $order_id ) . "\n\n";
+				$message .= sprintf(__('%s units of %s have been backordered in order #%s.', 'woocommerce-advanced-notifications' ), $quantity, $title, $order_id ) . "\n\n";
 
 				$message .= "Regards,\n" . $blogname;
 
 				// Send the email
-				$this->send( 'backorder', $product, true, $notification->recipient_email, $subject, $message );
+				$this->send( 'backorder', $product, true, $notification->recipient_email, $subject, $message, $notification );
 
 				// Increase count
 				$wpdb->update(
@@ -467,6 +480,76 @@ class WC_Advanced_Notifications {
 		}
 	}
 
-}
+	/**
+	 * refund function.
+	 *
+	 * @access public
+	 * @return void
+	 */
+	public function refund( $order_id ) {
+		global $wpdb;
+
+		$order = new WC_Order( $order_id );
+
+		// Get notifications.
+		$notifications = $this->get_notifications_for_order( $order, 'refunds' );
+
+		if ( $notifications ) {
+
+			// Prepare email.
+			$blogname = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
+			$email_heading = __( 'Customer Refund', 'woocommerce-advanced-notifications' );
+
+			$subject = apply_filters( 'woocommerce_email_subject_refund', sprintf( __( '[%s] Order Refund (%s)', 'woocommerce-advanced-notifications' ), $blogname, $order->get_order_number() ), $order );
+
+			foreach ( $notifications as $notification ) {
+
+				// Load the mailer class.
+				$mailer = WC()->mailer();
+
+				// Buffer.
+				ob_start();
+
+				// Get mail template.
+				wc_get_template( $notification->notification_plain_text ? 'emails/refunds_plain.php' : 'emails/refunds.php', array(
+					'order'               => $order,
+					'email_heading'       => $email_heading,
+					'recipient_name'      => $notification->recipient_name,
+					'show_totals'         => $notification->notification_totals,
+					'show_prices'         => $notification->notification_prices,
+					'triggers'            => $notification->triggers,
+					'blogname'            => $blogname,
+					'sent_to_admin'       => false,
+					'show_download_links' => $order->is_download_permitted(),
+					'plain_text'          => $notification->notification_plain_text,
+					'email'               => '',
+				), 'woocommerce-advanced-notifications/', $this->plugin_path() . '/templates/' );
+
+				// Get contents.
+				$message = ob_get_clean();
+
+				$wc_email = new WC_Email();
+
+				$formatted_message = $wc_email->style_inline( $mailer->wrap_message( $email_heading, $message ) );
+
+				if ( $notification->notification_plain_text ) {
+					$wc_email->email_type = 'plain';
+
+					$formatted_message = $wc_email->style_inline( $message );
+				}
+
+				// Send the email.
+				$this->send( 'refund', $order, $notification->notification_plain_text, $notification->recipient_email, $subject, $formatted_message, $notification );
+
+				// Increase count.
+				$wpdb->update(
+					"{$wpdb->prefix}advanced_notifications",
+					array( 'notification_sent_count' => ( $notification->notification_sent_count + 1 ) ),
+					array( 'notification_id' => $notification->notification_id )
+				);
+			}
+		}
+	}
+ }
 
 $GLOBALS['wc_advanced_notifications'] = new WC_Advanced_Notifications();

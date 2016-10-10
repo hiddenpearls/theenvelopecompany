@@ -176,6 +176,10 @@ class ThemeUpdateChecker {
 	public function injectUpdate($updates){
 		$state = get_option($this->optionName);
 		
+		//Remove updates from wordpress.org with the same theme slug as our theme (added by @tolea)
+		if(!empty($updates) && !empty($updates->response))
+			unset($updates->response[$this->theme]);
+		
 		//Is there an update to insert?
 		if ( !empty($state) && isset($state->update) && !empty($state->update) ){
 			$updates->response[$this->theme] = $state->update->toWpFormat();

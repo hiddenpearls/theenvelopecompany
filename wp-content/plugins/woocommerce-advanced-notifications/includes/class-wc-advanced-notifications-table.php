@@ -70,6 +70,9 @@ class WC_Advanced_Notifications_Table extends WP_List_Table {
 						case 'purchases' :
 							$formatted_types[] = __( 'Purchases', 'woocommerce-advanced-notifications' );
 						break;
+						case 'refunds' :
+							$formatted_types[] = __( 'Refunds', 'woocommerce-advanced-notifications' );
+						break;
 					}
 				}
 				return sizeof( $formatted_types ) ? '<p>' . implode( ', ', $formatted_types ) . '</p>' : '-';

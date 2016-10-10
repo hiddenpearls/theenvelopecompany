@@ -222,4 +222,10 @@ jQuery(function($) {
       $('.modal').modal('hide');
     });
   });
+
+  //How to list
+  $('.open-how-to').on('click',function(){
+    $('.how-list-container').slideToggle();
+  });
+
 });

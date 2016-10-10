@@ -2,7 +2,7 @@
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Sequential Order Numbers Pro 1.9.0\n"
+"Project-Id-Version: WooCommerce Sequential Order Numbers Pro 1.10.0\n"
 "Report-Msgid-Bugs-To: https://support.woothemes.com/hc/\n"
 "POT-Creation-Date: 2014-06-15 22:41:29+00:00\n"
 "MIME-Version: 1.0\n"
@@ -12,119 +12,19 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: lib/skyverge/woocommerce/class-sv-wc-admin-notice-handler.php:194
-#. translators: this is an action that dismisses a message
-msgid "Dismiss"
-msgstr ""
-
-#: lib/skyverge/woocommerce/class-sv-wc-framework-bootstrap.php:262
-msgid ""
-"The following plugins are inactive because they are out of date and require "
-"a newer version to function properly:"
-msgstr ""
-
-#: lib/skyverge/woocommerce/class-sv-wc-framework-bootstrap.php:262
-msgid ""
-"The following plugin is inactive because it is out of date and requires a "
-"newer version to function properly:"
-msgstr ""
-
-#: lib/skyverge/woocommerce/class-sv-wc-framework-bootstrap.php:273
-#. translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag, %3$s - <em> tag,
-#. %4$s - </em> tag, %5$s - <a> tag, %6$s - </a> tag
-msgid ""
-"To reactivate these plugins, please %1$supdate now (recommended)%2$s "
-"%3$sor%4$s %5$sdeactivate the following%6$s:"
-msgstr ""
-
-#: lib/skyverge/woocommerce/class-sv-wc-framework-bootstrap.php:275
-#. translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag, %3$s - <em> tag,
-#. %4$s - </em> tag, %5$s - <a> tag, %6$s - </a> tag
-msgid ""
-"To reactivate this plugin, please %1$supdate now (recommended)%2$s "
-"%3$sor%4$s %5$sdeactivate the following%6$s:"
-msgstr ""
-
-#: lib/skyverge/woocommerce/class-sv-wc-framework-bootstrap.php:291
-msgid ""
-"The following plugins are inactive because they require a newer version of "
-"WooCommerce:"
-msgstr ""
-
-#: lib/skyverge/woocommerce/class-sv-wc-framework-bootstrap.php:291
-msgid ""
-"The following plugin is inactive because it requires a newer version of "
-"WooCommerce:"
-msgstr ""
-
-#: lib/skyverge/woocommerce/class-sv-wc-framework-bootstrap.php:296
-#. translators: Placeholders: %1$s - plugin name, %2$s - WooCommerce version
-#. number
-msgid "%1$s requires WooCommerce %2$s or newer"
-msgstr ""
-
-#: lib/skyverge/woocommerce/class-sv-wc-framework-bootstrap.php:300
-#. translators: Placeholders: %1$s - <a> tag, %2$s - </a> tag
-msgid "Please %1$supdate WooCommerce%2$s"
-msgstr ""
-
-#: lib/skyverge/woocommerce/class-sv-wc-plugin.php:143
-#. translators: Placeholders: %s - plugin name
-msgid "You cannot clone instances of %s."
-msgstr ""
-
-#: lib/skyverge/woocommerce/class-sv-wc-plugin.php:153
-#. translators: Placeholders: %s - plugin name
-msgid "You cannot unserialize instances of %s."
-msgstr ""
-
-#: lib/skyverge/woocommerce/class-sv-wc-plugin.php:281
-#. translators: Placeholders: %1$s - plugin name, %2$s - a PHP
-#. extension/comma-separated list of PHP extensions
-msgid ""
-"%1$s requires the %2$s PHP extension to function. Contact your host or "
-"server administrator to configure and install the missing extension."
-msgid_plural ""
-"%1$s requires the following PHP extensions to function: %2$s. Contact your "
-"host or server administrator to configure and install the missing "
-"extensions."
-msgstr[0] ""
-msgstr[1] ""
-
-#: lib/skyverge/woocommerce/class-sv-wc-plugin.php:302
-#. translators: Placeholders: %1$s - plugin name, %2$s - a PHP
-#. function/comma-separated list of PHP functions
-msgid ""
-"%1$s requires the %2$s PHP function to exist.  Contact your host or server "
-"administrator to configure and install the missing function."
-msgid_plural ""
-"%1$s requires the following PHP functions to exist: %2$s.  Contact your "
-"host or server administrator to configure and install the missing functions."
-msgstr[0] ""
-msgstr[1] ""
-
-#: lib/skyverge/woocommerce/class-sv-wc-plugin.php:338
-#. translators: Docs as in Documentation
-msgid "Docs"
-msgstr ""
-
-#: lib/skyverge/woocommerce/class-sv-wc-plugin.php:608
-msgid "Configure"
-msgstr ""
-
 #. Plugin Name of the plugin/theme
 msgid "WooCommerce Sequential Order Numbers Pro"
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:456
+#: woocommerce-sequential-order-numbers.php:482
 msgid "Draft"
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:577
+#: woocommerce-sequential-order-numbers.php:604
 msgid "Order Number Start must be a number greater than or equal to 0."
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:591
+#: woocommerce-sequential-order-numbers.php:618
 #. translators: Placeholders: %1$s - highest order number, %2$s - current order
 #. number set
 msgid ""
@@ -133,15 +33,15 @@ msgid ""
 "permanently delete the relevant order(s)."
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:615
+#: woocommerce-sequential-order-numbers.php:642
 msgid "Order Numbers"
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:618
+#: woocommerce-sequential-order-numbers.php:645
 msgid "Order Number Start"
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:621
+#: woocommerce-sequential-order-numbers.php:648
 #. translators: Placeholders: %s - sample order number
 msgid ""
 "The starting number for the incrementing portion of the order numbers, "
@@ -150,79 +50,79 @@ msgid ""
 "orders will be numbered like: %s"
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:628
+#: woocommerce-sequential-order-numbers.php:655
 #. translators: Placeholders: %s - order number
 msgid "Sample order number: %s"
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:632
+#: woocommerce-sequential-order-numbers.php:659
 msgid "Order Number Prefix"
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:633
+#: woocommerce-sequential-order-numbers.php:660
 msgid ""
 "Set your custom order number prefix.  You may use {DD}, {MM}, {YYYY} for "
 "the current day, month and year respectively."
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:639
+#: woocommerce-sequential-order-numbers.php:666
 #. translators: Placeholders: %1$s - opening <a> link tag, %2$s - closing </a>
 #. link tag
 msgid "See the %1$splugin documentation%2$s for the full set of available patterns."
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:643
+#: woocommerce-sequential-order-numbers.php:670
 msgid "Order Number Suffix"
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:644
+#: woocommerce-sequential-order-numbers.php:671
 msgid ""
 "Set your custom order number suffix. You may use {DD}, {MM}, {YYYY} for the "
 "current day, month and year respectively."
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:652
+#: woocommerce-sequential-order-numbers.php:679
 msgid "Skip Free Orders"
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:653
+#: woocommerce-sequential-order-numbers.php:680
 msgid "Skip order numbers for free orders"
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:654
+#: woocommerce-sequential-order-numbers.php:681
 msgid ""
 "With this enabled an order number will not be assigned to an order "
 "consisting solely of free products."
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:662
+#: woocommerce-sequential-order-numbers.php:689
 msgid "Free Order Identifer"
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:664
+#: woocommerce-sequential-order-numbers.php:691
 #. translators: Placeholders: %s - sample order number
 msgid "Example free order identifier: %s"
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:665
+#: woocommerce-sequential-order-numbers.php:692
 msgid ""
 "The text to display in place of the order number for free orders. This will "
 "be displayed anywhere an order number would otherwise be shown: to the "
 "customer, in emails, and in the admin."
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:670
-#: woocommerce-sequential-order-numbers.php:1148
+#: woocommerce-sequential-order-numbers.php:697
+#: woocommerce-sequential-order-numbers.php:1175
 #. translators: FREE- as in free purchase order
 msgid "FREE-"
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:1297
+#: woocommerce-sequential-order-numbers.php:1325
 #. translators: Placeholders: %1$s - Plugin Name, %2$s - Error message(s)
 msgid "Error activating and installing %1$s: %2$s"
 msgstr ""
 
-#: woocommerce-sequential-order-numbers.php:1300
+#: woocommerce-sequential-order-numbers.php:1328
 msgid "&laquo; Go Back"
 msgstr ""
 
@@ -240,9 +140,4 @@ msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "http://www.woothemes.com"
-msgstr ""
-
-#: lib/skyverge/woocommerce/class-sv-wc-plugin.php:343
-msgctxt "noun"
-msgid "Support"
 msgstr ""

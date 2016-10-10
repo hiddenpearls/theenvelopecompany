@@ -30,7 +30,7 @@
         padding: 0 8px;
     }
     .brand{
-        padding-left: rem(8);
+        padding-left: rem(15);
         margin: rem(12) 0 rem(30);
         display: block;
         @media screen and (max-width: $breakpoint--large){
@@ -45,17 +45,19 @@
 		li.menu-item{
 			display: inline-block;
 			vertical-align: top;
+            padding: 0 10px;
 			a{
 				color: $medium-gray;
                 text-transform: uppercase;
                 display: inline-block;
-                padding: 0 15px;
+                padding: 0 5px;
 				&:hover{
 					color: $dark-gray;
                     background-color: transparent;
 				}
+                
 			}           
-            &.current-menu-item{
+            &.current-menu-item, &.current-page-ancestor{
                 a{
                     color: $dark-gray;
                     border-left: 2px solid $brand-orange;
@@ -70,18 +72,6 @@
 	.nav-utilities{
 		float: right;
         margin: rem(12) 0 rem(30);
-        .phone-icon{
-            float: right;
-            margin-bottom: rem(20);
-            @media screen and (max-width: $breakpoint--medium){
-                float: none;
-                margin-bottom: 0;
-                padding-left: rem(15);
-            }
-        }
-        .menu-top-navigation-container{
-            clear: both;
-        }
         .phone-icon, .cart-icon{
             a{
                 color: $dark-gray;
@@ -94,19 +84,37 @@
                 }
             }
         }
-        .cart-icon{
-            a{
-                &:before{
-                    content: "\f07a";
-                }
+        .phone-icon{
+            float: right;
+            margin-bottom: rem(30);
+            @media screen and (max-width: $breakpoint--medium){
+                float: none;
+                margin-bottom: 0;
+                padding-left: rem(15);
             }
         }
-        .white-btn{
-            a{
-                border: 2px solid $medium-gray;
-                color: $dark-gray;
-                padding: 8px 15px;
-            }
+        .menu-top-navigation-container{
+            clear: both;
+            .nav{
+                li.menu-item{
+                    padding: 8px 0;
+                    &.white-btn{
+                        padding: 0;
+                        a{
+                            border: 2px solid $medium-gray;
+                            color: $dark-gray;
+                            padding: 8px 15px;
+                        }
+                    }
+                    &.cart-icon{
+                        a{
+                            &:before{
+                                content: "\f07a";
+                            }
+                        }
+                    }
+                }
+            }   
         }
         @media screen and (max-width: $breakpoint--large){
             margin-bottom: rem(20);

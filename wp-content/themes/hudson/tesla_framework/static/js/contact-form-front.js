@@ -23,10 +23,10 @@ jQuery(document).ready(function($) {
 						contact_form_results(form,response);
 					}else{
 						if (response.trim() === '1') {
-							form.find('.tt-form-result').html(response);
+							form.find('.tt-form-result').html($(submit).data('sent'));
 							$(submit).val($(submit).data('sent'));
 						} else {
-							form.find('.tt-form-result').html(response + "error");
+							form.find('.tt-form-result').html(response + " error");
 							$(submit).val($(submit).data('error'));
 						}
 						clearTimeout(timeout);

@@ -92,7 +92,13 @@ jQuery(document).ready(function($) {
                   objs = $.parseJSON($(this).attr('data-tt-interact-objs'));
                   $.each(objs,function(i,e){
                       if (action == 'show'){
-                          $('#'+e).hide();
+                          $('#'+e)
+                            .hide()
+                            .next('.tt_button').hide()
+                            .next('.tt_button').hide()
+                            .next('.tt_option_title').hide()
+                            .next('.tt_show_logo,.tt_explain').hide()
+                            .next('.tt_explain').hide();
                           $('#'+e).next('.tt_explain').hide();
                           $('#'+e).prev('.tt_option_title').hide();
                       }
@@ -104,7 +110,13 @@ jQuery(document).ready(function($) {
               action = $(this).attr('data-tt-interact-action');
               $.each(objs,function(i,e){
                   if (action == 'show'){
-                      $('#'+e).toggle('fast');
+                      $('#'+e)
+                        .toggle('fast')
+                        .next('.tt_button').toggle('fast')
+                        .next('.tt_button').toggle('fast')
+                        .next('.tt_option_title').toggle('fast')
+                        .next('.tt_show_logo,.tt_explain').toggle('fast')
+                        .next('.tt_show_logo').toggle('fast');
                       $('#'+e).next('.tt_explain').toggle('fast');
                       $('#'+e).prev('.tt_option_title').toggle('fast');
                   }
@@ -141,7 +153,7 @@ jQuery(document).ready(function($) {
           var map;
           var map_zoom;
           var coords = $(this).find(".map-coords").val();
-          var latlong;
+          var latlong;          
           if (coords){
               latlong = coords.split(',');
           }else
@@ -216,6 +228,7 @@ jQuery(document).ready(function($) {
           //Create the default marker-----------------------------------
           var image = '';
           var selected_map_icon = $(element).find('.map-icon input[type=radio]:checked');
+          var shadow = '';
           if(selected_map_icon.val()){
             var selected_marker = selected_map_icon.next('img');
             var marker_width = selected_marker[0].width
@@ -225,9 +238,8 @@ jQuery(document).ready(function($) {
                   new google.maps.Point(0, 0),
                   new google.maps.Point(marker_width/2, marker_height)
               );
-          var shadow_link = selected_map_icon.val() + '.shadow.png' ;
-          var shadow = '';
-          if(shadow_link !== '')
+            var shadow_link = selected_map_icon.val().replace(/\.[^/.]+$/, "") + '-shadow.png' ;
+            if(shadow_link !== '')
               shadow = new google.maps.MarkerImage(shadow_link ,
                   new google.maps.Size(marker_width, marker_height),
                   new google.maps.Point(0, 0),
@@ -235,31 +247,32 @@ jQuery(document).ready(function($) {
               );
           }
 
-            var marker = new google.maps.Marker({
-                draggable:true,
-                animation: google.maps.Animation.DROP,
-                icon:image,
-                shadow: shadow
-            });
+          var marker = new google.maps.Marker({
+              draggable:true,
+              animation: google.maps.Animation.DROP,
+              icon:image,
+              shadow: shadow
+          });
+
           //change marker icon on clik of radio button with icon--------------------------------------------------------
-         $(this).find('.map-icon input[type=radio]').change(function(){
+          $(this).find('.map-icon input[type=radio]').change(function(){
             var selected_map_icon = $(element).find('.map-icon input[type=radio]:checked');
             var selected_marker = selected_map_icon.next('img');
             var marker_width = selected_marker[0].width
             var marker_height = selected_marker[0].height
-           var image = new google.maps.MarkerImage($(this).val(),
-                   new google.maps.Size(marker_width , marker_height),
+            var image = new google.maps.MarkerImage($(this).val(),
+                  new google.maps.Size(marker_width , marker_height),
                   new google.maps.Point(0, 0),
                   new google.maps.Point(marker_width/2, marker_height)
-               );
-             var shadow = new google.maps.MarkerImage($(this).val() + '.shadow.png',
-                     new google.maps.Size(marker_width , marker_height),
+                );
+             var shadow = new google.maps.MarkerImage($(this).val().replace(/\.[^/.]+$/, "") + '-shadow.png',
+                  new google.maps.Size(marker_width , marker_height),
                   new google.maps.Point(0, 0),
                   new google.maps.Point(marker_width/2, marker_height)
                  );
              marker.setIcon(image);
              marker.setShadow(shadow);
-         });
+          });
           function initialize() {
             //init the map---------------------------------
             var mapDiv = $(element).find(".map-canvas").get(0);
@@ -344,7 +357,7 @@ jQuery(document).ready(function($) {
                     selectFirstResult();
             });
              
-             function selectFirstResult() {
+            function selectFirstResult() {
                 //infowindow.close();
                 $(".pac-container").hide();
                 var firstResult = $(".pac-container").eq(index).find(".pac-item:first").text();
@@ -486,7 +499,6 @@ jQuery(document).ready(function($) {
       if(confirm("Are you sure you want to delete all your subscribers' info from database ? "))
         $.post(ajaxurl, {
             action:'clear_subscriptions',//changing form action that should be the suffix of ajax handle function wp_ajax_$action
-            c:true
           }, function(response) {
           if(response === 'Done'){
             $('.subscribers_container').html('<p>No subscribers yes...</p>');

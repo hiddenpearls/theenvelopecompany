@@ -3,19 +3,29 @@
 		<h2> <i class="icon-form-builder"></i> Tesla Form Builder</h2>
 	</header>
 	<div class='main-container'>
-		<div class="alert alert-info">
-			<h4>HOW TO create a new form : </h4>
-			<ol class="how-to-list">
-				<li>press <b>Add form</b> button.</li>
-				<li>Insert the form <b>id</b> (used in Contact Form widget or shortcode)</li>
-				<li>Insert the form <b>Receiver's email</b> (optional) </li>
-				<li>Choose <b>location</b> (optional)</li>
-				<li>Click the <b>add row</b> button.</li>
-				<li>To split the row in more collumns press the <b>+</b> button on the right next to it and choose the layout.</li>
-				<li>Drag the desired element from the right into the row. Then press the "pencil" icond and configure the element.</li>
-				<li>Save Forms</li>
-			</ol>
-			Read More <a target="_blank" href="http://teslathemes.com/doc/magellan/#fw-form-builder">here</a>.</div>
+		<div class="notice update-nag tt-contact-builder-notice-full">
+			<h4 class="open-how-to">HOW TO create a new form + </h4>
+			<div class="how-list-container">
+				<ol class="how-to-list">
+					<li>press <b>Add form</b> button.</li>
+					<li>Insert the form <b>id</b> (used in Contact Form widget or shortcode)</li>
+					<li>Insert the form <b>Receiver's email</b> (optional) </li>
+					<li>Choose <b>location</b> (optional)</li>
+					<li>Click the <b>add row</b> button.</li>
+					<li>To split the row in more collumns press the <b>+</b> button on the right next to it and choose the layout.</li>
+					<li>Drag the desired element from the right into the row. Then press the "pencil" icon and configure the element.</li>
+					<li>Save Forms</li>
+				</ol>
+				Read More <a target="_blank" href="http://teslathemes.com/doc/magellan/#fw-form-builder">here</a>.
+			</div>
+		</div>
+
+		<?php if(empty($forms)) : ?>
+			<div class="notice update-nag is-dismissible">
+				<a href="<?php echo admin_url( 'admin.php?page=tt_fw_export_import' ); ?>">Import Demo Options ( Will import demo contact forms and remove current ones if any )</a>
+			</div>
+		<?php endif; ?>
+
 		<div id="contact-builder-wrapper">
 			<div class="row-fluid">
 				<div class="span8 builder">

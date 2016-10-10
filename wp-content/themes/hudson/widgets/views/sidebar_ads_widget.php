@@ -3,7 +3,7 @@
         <?php foreach ($instance as $key => $val): ?>
             <?php if (!empty($val)): ?>
                 <li class="ad span6">
-                    <?php echo $val; ?>
+                    <?php print $val; ?>
                 </li>
             <?php endif; ?>
         <?php endforeach; ?>

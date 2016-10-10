@@ -41,7 +41,7 @@ extract(_gall());
                                     <?php } ?>
                                     <?php if (isset($contact_title)) { ?>
                                         <h2>
-                                            <?php echo $contact_title; ?>
+                                            <?php print $contact_title; ?>
                                         </h2>
                                     <?php } ?>
                                     <form action="" method="POST">

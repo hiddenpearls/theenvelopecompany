@@ -1,10 +1,6 @@
 <?php
 /**
  * The template for displaying Archive pages.
- *
- * Used to display archive-type pages if nothing more specific matches a query.
- * For example, puts together date-based pages if no date.php file exists.
- *
  */
 get_header();
 ?>
@@ -15,7 +11,7 @@ get_header();
 <div class="content">
     <div class="container">
         <div class="path">
-            <a href="<?php echo site_url('/'); ?>"><?php _e('Home', 'hudson'); ?></a><?php if (FALSE !== $_blog_url = tesla_blog_page_url()) { ?> / <a href="<?php echo $_blog_url; ?>"><?php _e('Blog', 'hudson'); ?></a><?php } ?> / 
+            <a href="<?php echo site_url('/'); ?>"><?php _e('Home', 'hudson'); ?></a><?php if (FALSE !== $_blog_url = tesla_blog_page_url()) { ?> / <a href="<?php echo esc_url($_blog_url); ?>"><?php _e('Blog', 'hudson'); ?></a><?php } ?> / 
             <?php
             if (is_day()) :
                 printf(__('Daily Archives: %s', 'hudson'), '<span>' . get_the_date() . '</span>');

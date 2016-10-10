@@ -30,7 +30,7 @@
     add_action( 'init', 'register_samples' );
 
         //register custom post type news
-    function register_news() {
+    /*function register_news() {
         $labels = array(
             'name'               => _x( 'News', 'post type general name' ),
             'singular_name'      => _x( 'News Release', 'post type singular name' ),
@@ -57,6 +57,6 @@
         );
         register_post_type( 'news', $args ); 
     }
-    add_action( 'init', 'register_news' );
+    add_action( 'init', 'register_news' );*/
    
 ?>

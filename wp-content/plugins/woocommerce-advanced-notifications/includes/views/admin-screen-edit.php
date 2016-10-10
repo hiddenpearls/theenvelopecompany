@@ -79,6 +79,7 @@
 						<option value="low_stock" <?php selected( in_array( 'low_stock', $type ), true ); ?>><?php _e( 'Low stock', 'woocommerce-advanced-notifications' ); ?></option>
 						<option value="out_of_stock" <?php selected( in_array( 'out_of_stock', $type ), true ); ?>><?php _e( 'Out of stock', 'woocommerce-advanced-notifications' ); ?></option>
 						<option value="backorders" <?php selected( in_array( 'backorders', $type ), true ); ?>><?php _e( 'Backorders', 'woocommerce-advanced-notifications' ); ?></option>
+						<option value="refunds" <?php selected( in_array( 'refunds', $type ), true ); ?>><?php _e( 'Refunds', 'woocommerce-advanced-notifications' ); ?></option>
 					</select>
 					<p class="description"><?php _e( 'Define which notifications to enable.', 'woocommerce-advanced-notifications' ); ?></p>
 				</td>

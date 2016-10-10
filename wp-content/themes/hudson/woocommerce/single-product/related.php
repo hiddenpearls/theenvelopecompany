@@ -33,14 +33,18 @@ $woocommerce_loop['columns'] = $columns;
 if ($products->have_posts()) :
     ?>
 
-    <div class="rubric_b"><?php _e('Related Products', 'woocommerce'); ?></div>
+    <div class="rubric_b"><?php _e('Related Products', 'hudson'); ?></div>
     <div class="top_seller">
 
         <?php woocommerce_product_loop_start(); ?>
 
         <?php while ($products->have_posts()) : $products->the_post(); ?>
 
-            <?php woocommerce_get_template_part('content', 'product'); ?>
+            <div class="span3">
+
+                <?php woocommerce_get_template_part('content', 'product'); ?>
+    
+            </div>
 
         <?php endwhile; // end of the loop. ?>
 

@@ -10,7 +10,7 @@ if ($_posts->have_posts()) {
             if ($has_post_thumbnail) {
                 if ($url) {
                     ?>
-                    <a href="<?php echo $url; ?>">
+                    <a href="<?php echo esc_attr($url); ?>">
                         <?php
                     } the_post_thumbnail('large');
                     if ($url) {
@@ -19,7 +19,7 @@ if ($_posts->have_posts()) {
         } else {
             if ($url) {
                         ?>
-                    <a href="<?php echo $url; ?>">
+                    <a href="<?php echo esc_attr($url); ?>">
                         <?php
                     }
                     the_content();

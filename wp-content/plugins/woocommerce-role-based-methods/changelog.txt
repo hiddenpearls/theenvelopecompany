@@ -1,5 +1,8 @@
 *** WooCommerce Role Based Methods ***
 
+2015.08.12 - version 2.0.9
+ * Fix for empty shipping method title.
+
 2015.10.27 - version 2.0.8
  * Adding in wc_clean for additional sanitization.
 

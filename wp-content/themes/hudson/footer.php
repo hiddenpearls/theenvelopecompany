@@ -9,7 +9,7 @@
             foreach (range(1, 4) as $i)
                 if (is_active_sidebar('sidebar-footer-' . $i)) {
                     ?>
-                    <div class="span<?php echo $cols[$i-1]; ?>">
+                    <div class="span<?php echo esc_attr($cols[$i-1]); ?>">
                         <?php
                         dynamic_sidebar('sidebar-footer-' . $i);
                         ?>
@@ -23,7 +23,15 @@
                 &nbsp;
             </div>
             <div class="span4">
-                <div class="copyright"><span>Designed by <a href="http://teslathemes.com" target="_blank">TeslaThemes</a></span> <?php echo _go('copyright_message'); ?> </div>
+                <div class="copyright">
+                    <span>
+                        <?php _e( 'Designed by ', 'hudson' ) ?>
+                        <a href="http://teslathemes.com" target="_blank">TeslaThemes</a>,
+
+                        Supported by <a href="http://wpmatic.io">WPmatic</a>
+                    </span>
+                    <?php echo _go('copyright_message'); ?>
+                </div>
             </div>
         </div>
     </div>

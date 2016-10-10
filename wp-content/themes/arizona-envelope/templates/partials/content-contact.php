@@ -19,7 +19,7 @@
                 <p><?php the_field('contact_us_form_title'); ?></p>
                 <p class="orange heading-text"><?php the_field('contact_us_form_subtitle'); ?></p>
                 <?php
-                gravity_form( 3, false, false, false, '', false );
+                gravity_form( 10, false, false, false, '', false );
                 ?>
             </div>
         </div>
@@ -35,7 +35,7 @@
 	    <div class="row">
 	    	<div class="col-md-8 col-md-offset-2">
 	    		<?php
-                gravity_form( 4, false, false, false, '', false );
+                gravity_form( 13, false, false, false, '', false );
                 ?>
 	    	</div>
 	    </div>

@@ -1,22 +1,13 @@
 //=============Tesla Themes Subscription =======================================
 (function($) {
 	"use strict";
+
 	function get_configs(){
-		$.ajax({
-			type: 'POST',
-			url: ajaxurl,
-			data:{action:'get_subscription_configs'},
-			success: function(response){
-				//console.log(response);
-				config = response;
-				$('form[data-tt-subscription]').tt_subscription(); //selecting elements from DOM for subscription plugin (init)
-			},
-			error: function (request, status, error) {
-				//console.log(request.responseText);
-				config = request.responseText;
-			},
-			dataType: 'json',
-		});
+		if(typeof ttSubscrConfig !== 'undefined'){
+			return ttSubscrConfig;
+		}else{
+			return '';
+		}
 	}
 
 	function insert_subscription(form_data,form,options){
@@ -37,7 +28,7 @@
 	}
 
 	function process_result(result,form,options){
-		console.log(result)
+		//console.log(result)
 		if(config.result_wrapper){
 			$(config.result_wrapper.tag,config.result_wrapper.attr).text(result).appendTo(config.result_container_selector);
 		}else{
@@ -126,7 +117,7 @@
 		}
 	});
 
-	var config = '';
+	var config = get_configs();
 
 	$.tt_subscription = function( form, options, arg ) {
 
@@ -141,6 +132,10 @@
 		}
 		var result_timeout_id;
 		var input_timeout_id;
+
+		if(config == '')
+			get_configs();
+
 		$(form).on('submit',function(event){
 			//preventing from normal submition
 			event.preventDefault();
@@ -148,7 +143,8 @@
 			clearTimeout(result_timeout_id);    //clearing interval if it was set
 
 			var form_data = $(form).serialize();
-			form_data = form_data + "&action=insert_subscription"; //adding action for correct ajax call hook
+
+			form_data = form_data + "&action=insert_subscription&subscription-nonce=" + config.subscription_nonce; //adding action for correct ajax call hook
 			
 			clean_result_container(config);
 
@@ -194,6 +190,9 @@
 
 
 	$(document).ready(function($){
-		config = get_configs();
+		if(config == '')
+			get_configs();
+		if($('form[data-tt-subscription]').length)
+			$('form[data-tt-subscription]').tt_subscription()
 	});
 })(jQuery);

@@ -265,10 +265,9 @@ if (!function_exists('tesla_comment_cb')) :
                     <p><?php _e('Pingback:', 'hudson'); ?> <?php comment_author_link(); ?> <?php edit_comment_link(__('(Edit)', 'hudson'), '<span class="edit-link">', '</span>'); ?></p>
                     <?php
                     break;
-                default :
-                    // Proceed with normal comments.
-                    global $post;
-                    ?>
+            default :
+                // Proceed with normal comments.
+                global $post;?>
                 <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
                     <div class="comment_image" >
                         <?php echo get_avatar($comment, 44); ?>
@@ -286,190 +285,200 @@ if (!function_exists('tesla_comment_cb')) :
                         <?php edit_comment_link(__('Edit', 'hudson'), ' &middot; ', ''); ?>
                     </div>                    
                     <?php
-                    break;
-            endswitch; // end comment_type check
-        }
-
-    endif;
-
-    function hudson_page_menu_args($args) {
-        if (!isset($args['show_home']))
-            $args['show_home'] = true;
-        return $args;
+                break;
+        endswitch; // end comment_type check
     }
 
-    add_filter('wp_page_menu_args', 'hudson_page_menu_args');
+endif;
 
-    if (!function_exists('hudson_content_nav')) :
+function hudson_page_menu_args($args) {
+    if (!isset($args['show_home']))
+        $args['show_home'] = true;
+    return $args;
+}
 
-        /**
-         * Displays navigation to next/previous pages when applicable.
-         *
-         */
-        function hudson_content_nav($html_id) {
-            global $wp_query;
+add_filter('wp_page_menu_args', 'hudson_page_menu_args');
 
-            $html_id = esc_attr($html_id);
-
-            if ($wp_query->max_num_pages > 1) :
-                ?>
-                <nav id="<?php echo $html_id; ?>" class="navigation" role="navigation">
-                    <h3 class="assistive-text"><?php _e('Post navigation', 'hudson'); ?></h3>
-                    <div class="nav-previous alignleft"><?php next_posts_link(__('<span class="meta-nav">&larr;</span> Older posts', 'hudson')); ?></div>
-                    <div class="nav-next alignright"><?php previous_posts_link(__('Newer posts <span class="meta-nav">&rarr;</span>', 'hudson')); ?></div>
-                </nav><!-- #<?php echo $html_id; ?> .navigation -->
-                <?php
-            endif;
-        }
-
-    endif;
-
-
-    if (!function_exists('hudson_entry_meta')) :
-
-        /**
-         * Prints HTML with meta information for current post: categories, tags, permalink, author, and date.
-         *
-         * Create your own hudson_entry_meta() to override in a child theme.
-         *
-         */
-        function hudson_entry_meta() {
-            // Translators: used between list items, there is a space after the comma.
-            $categories_list = get_the_category_list(__(', ', 'hudson'));
-
-            // Translators: used between list items, there is a space after the comma.
-            $tag_list = get_the_tag_list('', __(', ', 'hudson'));
-
-            $date = sprintf('<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a>', esc_url(get_permalink()), esc_attr(get_the_time()), esc_attr(get_the_date('c')), esc_html(get_the_date())
-            );
-
-            $author = sprintf('<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>', esc_url(get_author_posts_url(get_the_author_meta('ID'))), esc_attr(sprintf(__('View all posts by %s', 'hudson'), get_the_author())), get_the_author()
-            );
-
-            // Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's name.
-            if ($tag_list) {
-                $utility_text = __('This entry was posted in %1$s and tagged %2$s on %3$s<span class="by-author"> by %4$s</span>.', 'hudson');
-            } elseif ($categories_list) {
-                $utility_text = __('This entry was posted in %1$s on %3$s<span class="by-author"> by %4$s</span>.', 'hudson');
-            } else {
-                $utility_text = __('This entry was posted on %3$s<span class="by-author"> by %4$s</span>.', 'hudson');
-            }
-
-            printf(
-                            $utility_text, $categories_list, $tag_list, $date, $author
-            );
-        }
-
-    endif;
+if (!function_exists('hudson_content_nav')) :
 
     /**
-     * Extends the default WordPress body class to denote:
-     * 1. Using a full-width layout, when no active widgets in the sidebar
-     *    or full-width template.
-     * 2. Front Page template: thumbnail in use and number of sidebars for
-     *    widget areas.
-     * 3. White or empty background color to change the layout and spacing.
-     * 4. Custom fonts enabled.
-     * 5. Single or multiple authors.
+     * Displays navigation to next/previous pages when applicable.
      *
-     * @param array Existing class values.
-     * @return array Filtered class values.
      */
-    function hudson_body_class($classes) {
-        $background_color = get_background_color();
+    function hudson_content_nav($html_id) {
+        global $wp_query;
 
-        if (!is_active_sidebar('sidebar-1') || is_page_template('page-templates/full-width.php'))
-            $classes[] = 'full-width';
+        $html_id = esc_attr($html_id);
 
-        if (is_page_template('page-templates/front-page.php')) {
-            $classes[] = 'template-front-page';
-            if (has_post_thumbnail())
-                $classes[] = 'has-post-thumbnail';
-            if (is_active_sidebar('sidebar-2') && is_active_sidebar('sidebar-3'))
-                $classes[] = 'two-sidebars';
-        }
-
-        if (empty($background_color))
-            $classes[] = 'custom-background-empty';
-        elseif (in_array($background_color, array('fff', 'ffffff')))
-            $classes[] = 'custom-background-white';
-
-        if (!is_multi_author())
-            $classes[] = 'single-author';
-
-        return $classes;
+        if ($wp_query->max_num_pages > 1) :
+            ?>
+            <nav id="<?php echo esc_attr($html_id); ?>" class="navigation" role="navigation">
+                <h3 class="assistive-text"><?php _e('Post navigation', 'hudson'); ?></h3>
+                <div class="nav-previous alignleft"><?php next_posts_link(__('<span class="meta-nav">&larr;</span> Older posts', 'hudson')); ?></div>
+                <div class="nav-next alignright"><?php previous_posts_link(__('Newer posts <span class="meta-nav">&rarr;</span>', 'hudson')); ?></div>
+            </nav><!-- # .navigation -->
+            <?php
+        endif;
     }
 
-    add_filter('body_class', 'hudson_body_class');
+endif;
+
+
+if (!function_exists('hudson_entry_meta')) :
 
     /**
-     * Adjusts content_width value for full-width and single image attachment
-     * templates, and when there are no active widgets in the sidebar.
+     * Prints HTML with meta information for current post: categories, tags, permalink, author, and date.
+     *
+     * Create your own hudson_entry_meta() to override in a child theme.
      *
      */
-    function hudson_content_width() {
-        if (is_page_template('page-templates/full-width.php') || is_attachment() || !is_active_sidebar('sidebar-1')) {
-            global $content_width;
-            $content_width = 960;
-        }
-    }
+    function hudson_entry_meta() {
+        // Translators: used between list items, there is a space after the comma.
+        $categories_list = get_the_category_list(__(', ', 'hudson'));
 
-    add_action('template_redirect', 'hudson_content_width');
+        // Translators: used between list items, there is a space after the comma.
+        $tag_list = get_the_tag_list('', __(', ', 'hudson'));
 
-    add_filter('loop_shop_columns', 'loop_columns');
-    if (!function_exists('loop_columns')) {
+        $date = sprintf('<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a>', esc_url(get_permalink()), esc_attr(get_the_time()), esc_attr(get_the_date('c')), esc_html(get_the_date())
+        );
 
-        function loop_columns() {
-            return 3; // 3 products per row
-        }
+        $author = sprintf('<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>', esc_url(get_author_posts_url(get_the_author_meta('ID'))), esc_attr(sprintf(__('View all posts by %s', 'hudson'), get_the_author())), get_the_author()
+        );
 
-    }
-
-    function tesla_blog_page_url() {
-        static $result = NULL;
-        if ($result === NULL) {
-            if (get_option('show_on_front') == 'page')
-                $result = get_permalink(get_option('page_for_posts'));
-            else
-                $result = FALSE;
-        }
-        return $result;
-    }
-
-    if (!function_exists('collection_posts_number')) {
-
-        function collection_posts_number(&$query) {
-            switch (@$query->query_vars['post_type']) {
-                case 'collection':  // Post Type named 'collection'
-                    $query->query_vars['posts_per_page'] = 4; //display all is -1
-                    break;
-            }
-            return $query;
+        // Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's name.
+        if ($tag_list) {
+            $utility_text = __('This entry was posted in %1$s and tagged %2$s on %3$s<span class="by-author"> by %4$s</span>.', 'hudson');
+        } elseif ($categories_list) {
+            $utility_text = __('This entry was posted in %1$s on %3$s<span class="by-author"> by %4$s</span>.', 'hudson');
+        } else {
+            $utility_text = __('This entry was posted on %3$s<span class="by-author"> by %4$s</span>.', 'hudson');
         }
 
+        printf(
+                        $utility_text, $categories_list, $tag_list, $date, $author
+        );
     }
 
-    if (!is_admin()) {
-        add_filter('pre_get_posts', 'collection_posts_number');
+endif;
+
+/**
+ * Extends the default WordPress body class to denote:
+ * 1. Using a full-width layout, when no active widgets in the sidebar
+ *    or full-width template.
+ * 2. Front Page template: thumbnail in use and number of sidebars for
+ *    widget areas.
+ * 3. White or empty background color to change the layout and spacing.
+ * 4. Custom fonts enabled.
+ * 5. Single or multiple authors.
+ *
+ * @param array Existing class values.
+ * @return array Filtered class values.
+ */
+function hudson_body_class($classes) {
+    $background_color = get_background_color();
+
+    if (!is_active_sidebar('sidebar-1') || is_page_template('page-templates/full-width.php'))
+        $classes[] = 'full-width';
+
+    if (is_page_template('page-templates/front-page.php')) {
+        $classes[] = 'template-front-page';
+        if (has_post_thumbnail())
+            $classes[] = 'has-post-thumbnail';
+        if (is_active_sidebar('sidebar-2') && is_active_sidebar('sidebar-3'))
+            $classes[] = 'two-sidebars';
     }
 
-    add_image_size( 'homepage-thumb', 66, 66 );
+    if (empty($background_color))
+        $classes[] = 'custom-background-empty';
+    elseif (in_array($background_color, array('fff', 'ffffff')))
+        $classes[] = 'custom-background-white';
 
-    add_filter('sod_ajax_layered_nav_product_container', 'aln_product_container');
-    function aln_product_container($product_container){
-        return '.products-container';
+    if (!is_multi_author())
+        $classes[] = 'single-author';
+
+    return $classes;
+}
+
+add_filter('body_class', 'hudson_body_class');
+
+/**
+ * Adjusts content_width value for full-width and single image attachment
+ * templates, and when there are no active widgets in the sidebar.
+ *
+ */
+function hudson_content_width() {
+    if (is_page_template('page-templates/full-width.php') || is_attachment() || !is_active_sidebar('sidebar-1')) {
+        global $content_width;
+        $content_width = 960;
+    }
+}
+
+add_action('template_redirect', 'hudson_content_width');
+
+add_filter('loop_shop_columns', 'loop_columns');
+if (!function_exists('loop_columns')) {
+
+    function loop_columns() {
+        return 3; // 3 products per row
     }
 
-    add_filter('sod_ajax_layered_nav_containers', 'aln_add_custom_container');
-    function aln_add_custom_container($containers){
-        $containers[] = '.products-container';
-        return $containers;
+}
+
+function tesla_blog_page_url() {
+    static $result = NULL;
+    if ($result === NULL) {
+        if (get_option('show_on_front') == 'page')
+            $result = get_permalink(get_option('page_for_posts'));
+        else
+            $result = FALSE;
     }
+    return $result;
+}
+
+if (!function_exists('collection_posts_number')) {
+
+    function collection_posts_number(&$query) {
+        switch (@$query->query_vars['post_type']) {
+            case 'collection':  // Post Type named 'collection'
+                $query->query_vars['posts_per_page'] = 4; //display all is -1
+                break;
+        }
+        return $query;
+    }
+
+}
+
+if (!is_admin()) {
+    add_filter('pre_get_posts', 'collection_posts_number');
+}
+
+add_image_size( 'homepage-thumb', 66, 66 );
+
+add_filter('sod_ajax_layered_nav_product_container', 'aln_product_container');
+function aln_product_container($product_container){
+    return '.products-container';
+}
+
+add_filter('sod_ajax_layered_nav_containers', 'aln_add_custom_container');
+function aln_add_custom_container($containers){
+    $containers[] = '.products-container';
+    return $containers;
+}
 
 add_action( 'init', 'tt_manage_woo_actions' );
 function tt_manage_woo_actions() {
     remove_action('woocommerce_after_single_product_summary','woocommerce_output_related_products',20);
     remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+    //after 2.5 update
+    remove_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10 );
+    remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_clsoe', 5 );
+    remove_action( 'woocommerce_before_subcategory', 'woocommerce_template_loop_category_link_open', 10 );
+    remove_action( 'woocommerce_after_subcategory', 'woocommerce_template_loop_category_link_close', 10 );
+}
+
+//after 2.5 update
+function woocommerce_template_loop_product_title(){
+    echo '<h1><a href="'.get_the_permalink().'">' . get_the_title() . '</a></h1>';
 }
 
 //Ajaxify cart
@@ -501,31 +510,31 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 
                         <div class="cart_top_item">
                             <div class="cart_top_item_img">
-                                <a href="<?php echo get_permalink($cart_item['product_id']); ?>"><?php echo $_product->get_image(); ?></a>
+                                <a href="<?php echo get_permalink($cart_item['product_id']); ?>"><?php print $_product->get_image(); ?></a>
                             </div>
 
                             <div class="cart_top_item_info">
                                 <div class="cart_top_item_remove">
                                     <?php
-                                    echo apply_filters('woocommerce_cart_item_remove_link', sprintf('<a href="%s" class="remove" title="%s">&times;</a>', esc_url($woocommerce->cart->get_remove_url($cart_item_key)), __('Remove this item', 'woocommerce')), $cart_item_key);
+                                    echo apply_filters('woocommerce_cart_item_remove_link', sprintf('<a href="%s" class="remove" title="%s">&times;</a>', esc_url($woocommerce->cart->get_remove_url($cart_item_key)), __('Remove this item', 'hudson')), $cart_item_key);
                                     ?>
                                 </div>
                                 <h2><a href="<?php echo get_permalink($cart_item['product_id']); ?>"><?php echo apply_filters('woocommerce_widget_cart_product_title', $_product->get_title(), $_product); ?></a></h2>
-                                <p><?php echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); ?></p>
+                                <p><?php _e('q-ty', 'hudson'); ?> : <?php print $cart_item['quantity']; ?> <span><?php _e('Price', 'hudson'); ?> :<?php print $product_price; ?></span></p>
                             </div> 
                         </div>
 
                     <?php } ?>
 
                     <div class="cart_top_item_all">
-                        <?php _e('Total', 'hudson'); ?> : <span class="dynamic_cart_total"><?php echo $woocommerce->cart->get_cart_subtotal(); ?></span>
+                        <?php _e('Total', 'hudson'); ?> : <span class="dynamic_cart_total"><?php print $woocommerce->cart->get_cart_subtotal(); ?></span>
                     </div>
                 <?php } else { ?>
                     <?php _e('No products in cart. Keep shopping.', 'hudson'); ?>
                 <?php } ?>
             </div>
-            <a href="<?php echo $woocommerce->cart->get_checkout_url(); ?>" class="cart_top_button"><?php _e('Checkout', 'woocommerce'); ?></a>
-            <a href="<?php echo $woocommerce->cart->get_cart_url(); ?>" class="cart_top_button"><?php _e('View Cart', 'woocommerce'); ?></a>        
+            <a href="<?php echo esc_attr($woocommerce->cart->get_checkout_url()); ?>" class="cart_top_button"><?php _e('Checkout', 'hudson'); ?></a>
+            <a href="<?php echo esc_attr($woocommerce->cart->get_cart_url()); ?>" class="cart_top_button"><?php _e('View Cart', 'hudson'); ?></a>        
         </div>
     </div>
     
@@ -534,4 +543,18 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
     $fragments['contents_count'] = $woocommerce->cart->get_cart_contents_count();
     return $fragments;
     
+}
+
+function tt_wf_get_widgets_directory(){
+    return get_template_directory() . '/widgets/';
+}
+
+//for test room
+function tt_register_menus($return = false){
+    $tt_menus = array(
+        'primary'    => 'Top Menu',
+        'categories_menu'    => 'Categories Menu',
+    );
+    if($return)
+        return $tt_menus;
 }

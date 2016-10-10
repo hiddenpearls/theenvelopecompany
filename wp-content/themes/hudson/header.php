@@ -76,7 +76,7 @@ global $woocommerce;
                             <?php if (tesla_has_woocommerce()) { ?>
                                 <ul class="cart">                                 
                                     <li class="cart_bg">
-                                        <?php _e('My cart', 'hudson'); ?> ( <span class="dynamic_cart_contents_count"><?php echo $woocommerce->cart->get_cart_contents_count(); ?></span> ) <span class="dynamic_cart_total"><?php echo $woocommerce->cart->get_cart_subtotal(); ?></span>
+                                        <?php _e('My cart', 'hudson'); ?> ( <span class="dynamic_cart_contents_count"><?php print $woocommerce->cart->get_cart_contents_count(); ?></span> ) <span class="dynamic_cart_total"><?php print $woocommerce->cart->get_cart_subtotal(); ?></span>
                                         <?php get_template_part('template_parts/cart', 'mini_custom'); ?>
                                     </li> 
                                 </ul>   

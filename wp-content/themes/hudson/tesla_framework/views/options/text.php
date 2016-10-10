@@ -42,7 +42,7 @@
       ><span class="units"><?php if (!empty($input['font_size_changer'][2])) print $input['font_size_changer'][2] ?></span>
 <?php endif;?>
 <?php if (!empty($input['font_preview'][0])) : //---Font Preview---------------?>
-    <div class="tt_option_title mt30"><span><?php _e('Text Logo Preview',THEME_NAME)?></span></div>
+    <div class="tt_option_title mt30"><span><?php _e('Text Logo Preview','TeslaFramework')?></span></div>
     <div
         class='tt_show_logo font_preview <?php if (!empty($input['font_preview'][1]))echo 'change_font_size'?>'
         style="color:<?php if ( ! empty( $options[ $input_id . "_color"]  ) ) echo esc_attr($options[ $input_id . "_color"]) ; ?>;

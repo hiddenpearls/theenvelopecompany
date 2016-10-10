@@ -13,7 +13,7 @@ $post_meta = get_post_custom();
                 </a>
             <?php } ?>
         <?php } elseif (@$post_meta[THEME_NAME . '_post_head_type'][0] == 'embed_code') { ?>
-            <?php echo @$post_meta[THEME_NAME . '_embed_code'][0]; ?> 
+            <?php print @$post_meta[THEME_NAME . '_embed_code'][0]; ?> 
         <?php } ?>
     </div>
     <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>

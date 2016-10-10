@@ -1079,11 +1079,6 @@ deny from all';
 	public static function ajax_download_export() {
 		check_admin_referer( 'gform_download_export' );
 
-		if ( ! function_exists( 'readfile' ) ) {
-			GFCommon::log_error( __METHOD__ . '(): Aborting. The PHP readfile function is not available.' );
-			die( esc_html__( 'The PHP readfile function is not available, please contact the web host.', 'gravityforms' ) );
-		}
-
 		if ( ! GFCommon::current_user_can_any( 'gravityforms_export_entries' ) ) {
 			die();
 		}
@@ -1111,10 +1106,6 @@ deny from all';
 		$buffer_length = ob_get_length(); //length or false if no buffer
 		if ( $buffer_length > 1 ) {
 			ob_clean();
-		}
-
-		if ( has_filter( 'sanitize_file_name' ) ) {
-			GFCommon::log_debug( __METHOD__ . '(): The WordPress sanitize_file_name filter has been detected.' );
 		}
 
 		$export_folder = RGFormsModel::get_upload_root() . 'export/';

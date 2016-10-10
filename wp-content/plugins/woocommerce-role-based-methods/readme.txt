@@ -3,7 +3,7 @@ Contributors: purcebr
 Tags: woocommerce
 Requires at least: 3.5
 Tested up to: 4.2.1
-Stable tag: 2.0.8
+Stable tag: 2.0.9
 
 This plugin adds role-based control of shipping and payment methods for WooCommerce
 

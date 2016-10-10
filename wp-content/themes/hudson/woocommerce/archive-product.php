@@ -31,8 +31,19 @@ do_action('woocommerce_before_main_content');
 
 <?php do_action('woocommerce_archive_description'); ?>
 
+<?php if (is_user_logged_in() ) { //only logged in user can see this CUSTOM ?>
 <?php get_template_part('template_parts/cart', 'floating'); ?>
-
+<?php } ?>
+<div class="row">
+    <div class="span3">
+        <div class="rubric_w"><?php _e('filter by', 'woocommerce'); ?></div>
+    </div>
+    <?php if (_go('show_best_sellers')) : ?>
+        <div class="span9">
+            <div class="rubric_b"><?php _e('best sellers', 'woocommerce'); ?></div>
+        </div>
+    <?php endif; ?>
+</div>
 
 <div class="row">
 
@@ -45,10 +56,10 @@ do_action('woocommerce_before_main_content');
     do_action('woocommerce_sidebar');
     ?>
 
-    <div class="span12">
+    <div class="span9">
         <?php if (_go('show_best_sellers')) : ?>
             <div class="top_seller">
-                <?php echo do_shortcode('[best_selling_products per_page="4" columns="1"]'); ?>           
+                <?php echo do_shortcode('[best_selling_products per_page="3" columns="3"]'); ?>           
             </div>
         <?php endif; ?>
 
@@ -98,14 +109,14 @@ do_action('woocommerce_before_main_content');
         <?php if (_go('show_recent')) : ?>
             <div class="rubric_b"><?php _e('recent products', 'woocommerce'); ?></div>
             <div class="top_seller">
-                <?php echo do_shortcode('[recent_products per_page="4" columns="1"]'); ?>
+                <?php echo do_shortcode('[recent_products per_page="3" columns="3"]'); ?>
             </div>
         <?php endif; ?>
 
         <?php if (_go('show_top_rated')) : ?>
             <div class="rubric_b"><?php _e('People considered these products', 'woocommerce'); ?></div>
             <div class="top_seller">
-                <?php echo do_shortcode('[top_rated_products per_page="4" columns="1"]'); ?>
+                <?php echo do_shortcode('[top_rated_products per_page="3" columns="3"]'); ?>
             </div>
         <?php endif; ?>
 

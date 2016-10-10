@@ -90,7 +90,8 @@ function display_sidebar() {
     is_page(),
     is_woocommerce(),
     is_single(),
-    is_home()
+    is_home(),
+    is_search()
     /*
      is_front_page(),
     is_page_template('template-custom.php'),

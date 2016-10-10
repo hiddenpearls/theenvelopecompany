@@ -3,7 +3,7 @@
 Plugin Name:       WooCommerce Role Based Methods
 Plugin URI:        http://woothemes.com/woocommerce
 Description:       This plugin provides an interface for role-based control over WooCommerce payment and shipping methods.
-Version:           2.0.8
+Version:           2.0.9
 Author: WPBackOffice
 Author URI: http://www.wpbackoffice.com
 */

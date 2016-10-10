@@ -5,7 +5,7 @@
  * Description: Provides custom incrementing order numbers for WooCommerce orders.
  * Author: WooThemes / SkyVerge
  * Author URI: http://www.woothemes.com
- * Version: 1.9.0
+ * Version: 1.10.0
  * Text Domain: woocommerce-sequential-order-numbers-pro
  * Domain Path: /i18n/languages/
  *
@@ -21,7 +21,7 @@
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+defined( 'ABSPATH' ) or exit;
 
 // Required functions
 if ( ! function_exists( 'woothemes_queue_update' ) ) {
@@ -41,7 +41,11 @@ if ( ! class_exists( 'SV_WC_Framework_Bootstrap' ) ) {
 	require_once( plugin_dir_path( __FILE__ ) . 'lib/skyverge/woocommerce/class-sv-wc-framework-bootstrap.php' );
 }
 
-SV_WC_Framework_Bootstrap::instance()->register_plugin( '4.2.0', __( 'WooCommerce Sequential Order Numbers Pro', 'woocommerce-sequential-order-numbers-pro' ), __FILE__, 'init_woocommerce_sequential_order_numbers_pro', array( 'minimum_wc_version' => '2.3.6', 'backwards_compatible' => '4.2.0' ) );
+SV_WC_Framework_Bootstrap::instance()->register_plugin( '4.4.0', __( 'WooCommerce Sequential Order Numbers Pro', 'woocommerce-sequential-order-numbers-pro' ), __FILE__, 'init_woocommerce_sequential_order_numbers_pro', array(
+	'minimum_wc_version'   => '2.4.13',
+	'minimum_wp_version'   => '4.1',
+	'backwards_compatible' => '4.4.0',
+) );
 
 function init_woocommerce_sequential_order_numbers_pro() {
 
@@ -131,8 +135,9 @@ function init_woocommerce_sequential_order_numbers_pro() {
  */
 class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 
+
 	/** version number */
-	const VERSION = '1.9.0';
+	const VERSION = '1.10.0';
 
 	/** @var WC_Seq_Order_Number_Pro single instance of this plugin */
 	protected static $instance;
@@ -168,10 +173,15 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 
 		parent::__construct( self::PLUGIN_ID, self::VERSION );
 
-		// set the custom order number on the new order.  we hook into woocommerce_checkout_update_order_meta for orders which are created
-		//  from the frontend, and we hook into woocommerce_process_shop_order_meta for admin-created orders.
-		//  Note we use these actions rather than the more generic wp_insert_post action because we want to
-		//  run after the order meta (including totals) are set so we can detect whether this is a free order
+		// Set the custom order number on the new order.
+		//
+		// We hook into 'woocommerce_checkout_update_order_meta' for orders
+		// which are created from the frontend, and we hook into
+		// 'woocommerce_process_shop_order_meta' for admin-created orders.
+		//
+		// Note we use these actions rather than the more generic 'wp_insert_post'
+		// action because we want to run after the order meta (including totals)
+		// are set so we can detect whether this is a free order.
 		add_action( 'woocommerce_checkout_update_order_meta', array( $this, 'set_sequential_order_number' ), 10, 2 );
 		add_action( 'woocommerce_process_shop_order_meta',    array( $this, 'set_sequential_order_number' ), 35, 2 );
 		add_action( 'woocommerce_before_resend_order_emails', array( $this, 'set_sequential_order_number' ), 10, 1 );
@@ -211,7 +221,6 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 				// set order number on renewals
 				add_action( 'woocommerce_subscriptions_renewal_order_created',    array( $this, 'subscriptions_set_sequential_order_number_1_5' ), 9 );
 			}
-
 		}
 
 		if ( is_admin() ) {
@@ -235,9 +244,7 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 			add_filter( 'woocommerce_export_csv_extra_columns', array( $this, 'export_csv_extra_columns' ) );
 
 			add_action( 'woocommerce_settings_start', array( $this, 'add_settings_errors' ) );
-
 		}
-
 	}
 
 
@@ -277,12 +284,15 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 
 		// order was found
 		if ( null !== $order_id ) {
+
 			return $order_id;
 		}
 
 		// if we didn't find the order, then it may be that this plugin was disabled and an order was placed in the interim
 		$order = wc_get_order( $order_number );
+
 		if ( '' !== $order->order_number_formatted ) {
+
 			// _order_number was set, so this is not an old order, it's a new one that just happened to have post_id that matched the searched-for order_number
 			return 0;
 		}
@@ -294,18 +304,18 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 	/**
 	 * Set the _order_number/_order_number_formatted field for the newly created order
 	 *
-	 * @param int|WC_Order $post_id order identifier or order object
+	 * @param int|\WC_Order $post_id order identifier or order object
 	 * @param mixed $post this is going to be an array of the POST values when
-	 *        the order is created from the checkout page in the frontend, null
-	 *        when the checkout method is PayPal Expres, and a post object when
-	 *        the order is created in the admin.  Defaults to an array so that
-	 *        other actions can be hooked in
+	 *                     the order is created from the checkout page in the frontend,
+	 *                     null when the checkout method is PayPal Express, and a
+	 *                     post object when the order is created in the admin.
+	 *                     Defaults to an array so that other actions can be hooked in
 	 */
 	public function set_sequential_order_number( $post_id, $post = array() ) {
 
 		// when creating an order from the admin don't create order numbers for auto-draft
 		//  orders, because these are not linked to from the admin and so difficult to delete
-		if ( is_array( $post ) || is_null( $post ) || ( 'shop_order' == $post->post_type && 'auto-draft' != $post->post_status ) ) {
+		if ( is_array( $post ) || is_null( $post ) || ( 'shop_order' === $post->post_type && 'auto-draft' !== $post->post_status ) ) {
 
 			$post_id = is_a( $post_id, 'WC_Order' ) ? $post_id->id : $post_id;
 			$order_number = get_post_meta( $post_id, '_order_number' );
@@ -314,12 +324,16 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 			if ( empty( $order_number ) ) {
 
 				if ( $this->skip_free_orders() && $this->is_free_order( $post_id ) ) {
+
 					// assign sequential free order number
 					if ( $this->generate_sequential_order_number( $post_id, '_order_number_free', $this->get_free_order_number_start(), $this->get_free_order_number_prefix() ) ) {
+
 						// so that sorting still works in the admin
 						update_post_meta( $post_id, '_order_number', -1 );
 					}
+
 				} else {
+
 					// normal operation
 					$this->generate_sequential_order_number( $post_id, '_order_number', get_option( 'woocommerce_order_number_start' ), $this->get_order_number_prefix(), $this->get_order_number_suffix(), $this->get_order_number_length() );
 				}
@@ -334,13 +348,13 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 	 * @since 1.3
 	 * @param int $post_id order identifier
 	 * @param string $order_number_meta_name order number meta name,
-	 *        ie _order_number or _order_number_free
+	 *                                       ie _order_number or _order_number_free
 	 * @param int $order_number_start order number starting point
 	 * @param string $order_number_prefix optional order number prefix
 	 * @param string $order_number_suffix optional order number suffix
 	 * @param int $order_number_length optional order number length
 	 * @return boolean true if a sequential order number was successfully
-	 *         generated and assigned to $post_id
+	 *                  generated and assigned to $post_id
 	 */
 	private function generate_sequential_order_number( $post_id, $order_number_meta_name, $order_number_start, $order_number_prefix = '', $order_number_suffix = '', $order_number_length = 1 ) {
 		global $wpdb;
@@ -350,10 +364,11 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 
 		for ( $i = 0; $i < 3 && ! $success; $i++ ) {
 
+			// "legacy mode": calculate the next sequential order number based on
+			// the existing meta records. This is more accurate, but more intensive
+			// on sites with large databases
 			if ( ! $this->is_performance_mode_enabled() ) {
 
-				// legacy mode: calculate the next sequential order number based on the existing meta records.  this is more accurate, but
-				// more intensive on sites with large databases
 				delete_option( "woocommerce{$order_number_meta_name}_current" );  // ensure the performance option doesn't exist
 
 				// add $order_number_meta_name equal to $order_number_start if there are no existing orders with an $order_number_meta_name meta
@@ -365,15 +380,18 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 						FROM {$wpdb->postmeta}
 						WHERE meta_key='{$order_number_meta_name}'",
 					$post_id, $order_number_start, $order_number_start );
+
 				$success = $wpdb->query( $query );
 
 				if ( $success ) {
+
 					// on success, get the newly created order number
 					$order_number = $wpdb->get_var( $wpdb->prepare( "SELECT meta_value FROM {$wpdb->postmeta} WHERE meta_id = %d", $wpdb->insert_id ) );
 				}
 
+			// "performance mode": calculate the next order number based on
+			// a db option, this is useful for sites with huge databases
 			} else {
-				// "performance mode": calculate the next order number based on a db option, this is useful for sites with huge databases
 
 				// initialize the current order number option if needed
 				$this->get_order_number_current( $order_number_meta_name );
@@ -387,6 +405,7 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 				$success = $wpdb->query( $query );
 
 				if ( $success ) {
+
 					// get our updated voucher number
 					$order_number = (int) $wpdb->get_var( 'SELECT @option_value' );
 				}
@@ -415,7 +434,7 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 	 * for display.
 	 *
 	 * @param string $order_number the order id with a leading hash
-	 * @param WC_Order $order the order object
+	 * @param \WC_Order $order the order object
 	 * @return string custom order number, with leading hash
 	 */
 	public function get_order_number( $order_number, $order ) {
@@ -427,7 +446,9 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 
 		// can't trust $order->order_custom_fields object
 		$order_number_formatted = get_post_meta( $order->id, '_order_number_formatted', true );
+
 		if ( $order_number_formatted ) {
+
 			return $order_number_formatted;
 		}
 
@@ -436,11 +457,14 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 		//  first see may not be the one you end up with, but it's better than the
 		//  alternative of showing the underlying post id)
 		$post_status = isset( $order->post_status ) ? $order->post_status : get_post_status( $order->id );
-		if ( 'auto-draft' == $post_status ) {
+
+		if ( 'auto-draft' === $post_status ) {
 			global $wpdb;
+
 			$order_number_start = get_option( 'woocommerce_order_number_start' );
 
 			if ( ! $this->is_performance_mode_enabled() ) {
+
 				// "legacy mode"
 				$order_number = $wpdb->get_var( $wpdb->prepare( "
 					SELECT IF(MAX(CAST(meta_value AS SIGNED)) IS NULL OR MAX(CAST(meta_value AS SIGNED)) < %d, %d, MAX(CAST(meta_value AS SIGNED))+1)
@@ -449,12 +473,15 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 					$order_number_start, $order_number_start ) );
 
 			} else {
-				// "performance mode"  this just needs to be a best effort attempt, since this 'draft' order number is just for informational purposes
+
+				// "performance mode": this just needs to be a best effort attempt,
+				// since this 'draft' order number is just for informational purposes
 				$order_number = max( $this->get_order_number_current() + 1, get_option( 'woocommerce_order_number_start' ) );
 			}
 
 			return $this->format_order_number( $order_number, $this->get_order_number_prefix(), $this->get_order_number_suffix(), $this->get_order_number_length() ) . ' (' . __( 'Draft', 'woocommerce-sequential-order-numbers-pro' ) . ')';
 		}
+
 		return $order_number;
 	}
 
@@ -471,7 +498,7 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 	public function woocommerce_custom_shop_order_orderby( $vars ) {
 		global $typenow;
 
-		if ( 'shop_order' != $typenow ) {
+		if ( 'shop_order' !== $typenow ) {
 			return $vars;
 		}
 
@@ -609,8 +636,8 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 			$updated_settings[] = $section;
 
 			// New section after the "General Options" section
-			if ( isset( $section['id'] ) && 'general_options' == $section['id'] &&
-				 isset( $section['type'] ) && 'sectionend' == $section['type'] ) {
+			if ( isset( $section['id'] ) && 'general_options' === $section['id']
+			     && isset( $section['type'] ) && 'sectionend' === $section['type'] ) {
 
 				$updated_settings[] = array( 'name' => __( 'Order Numbers', 'woocommerce-sequential-order-numbers-pro' ), 'type' => 'title', 'desc' => '', 'id' => 'order_number_options' );
 
@@ -691,7 +718,9 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 			return;
 		}
 
-		ob_start(); ?>
+		ob_start();
+
+		?>
 		var free_order_number_start = <?php echo $this->get_free_order_number_start(); ?>;
 		$('#woocommerce_order_number_skip_free_orders').change(function() {
 			if ( ! $( this ).is( ':checked' ) ) {
@@ -739,7 +768,9 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 			return value;
 		}
 		<?php
+
 		$javascript = ob_get_clean();
+
 		wc_enqueue_js( $javascript );
 	}
 
@@ -890,7 +921,7 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 	 * Don't copy over order number meta when creating a parent or child renewal order
 	 *
 	 * @since 1.5
-	 * @param array $order_meta_query query for pulling the metadata
+	 * @param string $order_meta_query query for pulling the metadata
 	 * @param int $original_order_id Post ID of the order being used to purchased the subscription being renewed
 	 * @param int $renewal_order_id Post ID of the order created for renewing the subscription
 	 * @param string $new_order_role The role the renewal order is taking, one of 'parent' or 'child'
@@ -915,12 +946,9 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 	 * @return WC_Seq_Order_Number_Pro
 	 */
 	public static function instance() {
-
 		if ( is_null( self::$instance ) ) {
-
 			self::$instance = new self();
 		}
-
 		return self::$instance;
 	}
 
@@ -955,7 +983,7 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 	 *
 	 * @since 1.7.0
 	 * @param string $order_number_meta_name order number meta name,
-	 *        ie _order_number or _order_number_free
+	 *                                        ie _order_number or _order_number_free
 	 * @return int current order number
 	 */
 	private function get_order_number_current( $order_number_meta_name = '_order_number' ) {
@@ -976,7 +1004,7 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 	 *
 	 * @since 1.6
 	 * @param string $order_number_meta_name order number meta name,
-	 *        ie _order_number or _order_number_free
+	 *                                        ie _order_number or _order_number_free
 	 * @return int maximum order number
 	 */
 	private function get_max_order_number( $order_number_meta_name = '_order_number' ) {
@@ -1000,11 +1028,10 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 	 *
 	 * @since 1.7.0
 	 * @param string $order_number_meta_name order number meta name,
-	 *        ie _order_number or _order_number_free
+	 *                                        ie _order_number or _order_number_free
 	 * @return int maximum order number
 	 */
 	private function calculate_max_order_number( $order_number_meta_name = '_order_number' ) {
-
 		global $wpdb;
 
 		return (int) $wpdb->get_var( "SELECT MAX( CAST( meta_value AS SIGNED ) ) FROM $wpdb->postmeta WHERE meta_key='{$order_number_meta_name}'" );
@@ -1132,7 +1159,7 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 	 * @return boolean true if order numbers should be skipped for free orders
 	 */
 	private function skip_free_orders() {
-		return 'yes' == get_option( 'woocommerce_order_number_skip_free_orders', 'no' );
+		return 'yes' === get_option( 'woocommerce_order_number_skip_free_orders', 'no' );
 	}
 
 
@@ -1238,9 +1265,10 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 	 * @since 1.6
 	 * @see SV_WC_Plugin::get_settings_url()()
 	 * @see SV_WC_Plugin::get_settings_link()
-	 * @param string $plugin_id optional plugin identifier.  Note that this can be a
-	 *        sub-identifier for plugins with multiple parallel settings pages
-	 *        (ie a gateway that supports both credit cards and echecks)
+	 * @param string $plugin_id Optional plugin identifier
+	 *                           Note that this can be a sub-identifier for plugins
+	 *                           with multiple parallel settings pages (ie a gateway
+	 *                           that supports both credit cards and echecks)
 	 * @return string plugin settings URL
 	 */
 	public function get_settings_url( $plugin_id = null ) {
@@ -1323,17 +1351,19 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
 				$offset += $posts_per_page;
 				// and keep track of how far we made it in case we hit a script timeout
 				update_option( 'wc_sequential_order_numbers_pro_install_offset', $offset );
+
 			} while( count( $order_ids ) == $posts_per_page );  // while full set of results returned  (meaning there may be more results still to retrieve)
 
-			// set the best order number start value that we can
 			global $wpdb;
 
+			// set the best order number start value that we can
 			$order_number = (int) $wpdb->get_var( "SELECT MAX(CAST(meta_value AS SIGNED)) FROM {$wpdb->postmeta} WHERE meta_key='_order_number'" );
 			add_option( 'woocommerce_order_number_start', $order_number ? $order_number + 1 : 1 );
 		}
 
 		// free order number index
 		if ( false === get_option( 'woocommerce_free_order_number_start' ) ) {
+
 			add_option( 'woocommerce_free_order_number_start', 1 );
 		}
 	}
@@ -1383,7 +1413,7 @@ class WC_Seq_Order_Number_Pro extends SV_WC_Plugin {
  * Returns the One True Instance of Sequential Order Numbers Pro
  *
  * @since 1.7.0
- * @return WC_Seq_Order_Number_Pro
+ * @return \WC_Seq_Order_Number_Pro
  */
 function wc_seq_order_number_pro() {
 	return WC_Seq_Order_Number_Pro::instance();
