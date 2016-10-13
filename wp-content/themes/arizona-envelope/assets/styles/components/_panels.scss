@@ -23,12 +23,12 @@ section{
 			text-align: center;
 			min-height: rem(340);
 			margin-bottom: rem(60);
-			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9f9f9+0,f5f5f5+50,f1f1f1+100 */
-			background: #f9f9f9; /* Old browsers */
-			background: -moz-linear-gradient(top,  #f9f9f9 0%, #f5f5f5 50%, #f1f1f1 100%); /* FF3.6-15 */
-			background: -webkit-linear-gradient(top,  #f9f9f9 0%,#f5f5f5 50%,#f1f1f1 100%); /* Chrome10-25,Safari5.1-6 */
-			background: linear-gradient(to bottom,  #f9f9f9 0%,#f5f5f5 50%,#f1f1f1 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#f1f1f1',GradientType=0 ); /* IE6-9 */
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f2f2f2+91,eeeeee+100 */
+			background: #ffffff; /* Old browsers */
+			background: -moz-radial-gradient(center, ellipse cover,  #ffffff 0%, #f2f2f2 91%, #eeeeee 100%); /* FF3.6-15 */
+			background: -webkit-radial-gradient(center, ellipse cover,  #ffffff 0%,#f2f2f2 91%,#eeeeee 100%); /* Chrome10-25,Safari5.1-6 */
+			background: radial-gradient(ellipse at center,  #ffffff 0%,#f2f2f2 91%,#eeeeee 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 			padding: 20px;
 		}
 		&.col-md-4{
@@ -78,7 +78,19 @@ section{
 				transform: translateX(-50%);
 			}
 		}
-			
+		&.title-down{
+			position: relative;
+			img{
+				margin-bottom: rem(50);
+			}
+			h3{
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 100%;
+			}
+		}	
 		img{
 			margin: 0 auto;
 		}
@@ -270,11 +282,11 @@ section{
 	margin-bottom: rem(20);
 	padding: rem(20) 0;
 	margin-top: rem(20);
-	.menu-shop-navigation-container{
-		.shop-navigation-bar{
-			.menu-item{
+	.menu-shop-navigation-container, .woocommerce-MyAccount-navigation{
+		.shop-navigation-bar, .orange-navigation-bar{
+			.menu-item, li{
 				display: inline-block;
-				vertical-align: top;
+				vertical-align: middle;
 				border-left: 1px solid $brand-orange;
 				border-right: 1px solid $brand-orange;
 				max-width: 16.6666666%;
@@ -305,7 +317,13 @@ section{
 			}
 		}
 	}
+	.woocommerce-MyAccount-navigation{
+		width: 100%;
+		float: none;
+	}
 }
+
+
 .cart-shop-header{
 	padding: rem(12) 0;
 	background-color: $sand;
@@ -317,7 +335,6 @@ section{
 		&.cart-btn{
 			margin-right: rem(30);
 			display: inline-block;
-			padding-top: rem(14);
 			i{
 				margin-right: rem(20);
 				color: $brand-orange;
@@ -325,7 +342,6 @@ section{
 		}
 		&.cart-contents{
 		    padding-top: rem(14);
-			display: inline-block;
 		}
 		&.white-btn{
 			float: right;
@@ -360,6 +376,21 @@ section{
 			background-color: $light-gray;
 			color: $dark-gray;
 			border-color: $light-gray;
+		}
+	}
+}
+
+/*
+	Account Section
+*/
+.woocommerce-account{
+	.woocommerce-MyAccount-content{
+		width: 80%;
+		margin: 0 auto;
+		text-align: center;
+		float: none;
+		address{
+			text-align: left;
 		}
 	}
 }

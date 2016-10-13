@@ -7,13 +7,13 @@
 	 */
 	do_action( 'woocommerce_before_main_content' );
 ?>
-	<div class="container">
+	
 		<?php while ( have_posts() ) : the_post(); ?>
 
 			<?php wc_get_template_part( 'content', 'single-product' ); ?>
 
 		<?php endwhile; // end of the loop. ?>
-	</div>
+	
 	
 
 <?php

@@ -21,8 +21,8 @@
 		        }
 		    }
 		    @media screen and (max-width: $breakpoint--medium) { 
-		        margin-left: 15px;
-		        margin-top: rem(0);
+		        margin: 0 auto;
+		        float: none;
 		    }
 		}
 		.menu-footer-nav-container{
@@ -37,6 +37,9 @@
 					margin-right: rem(0);
 					a{
 						color: $medium-gray;
+						&:hover{
+							background-color: transparent;
+						}
 					}
 					&.white-btn{
 						a{
@@ -45,17 +48,24 @@
 			                padding: 8px 15px;
 						}
 					}
+					&.pull-left{
+						@media screen and (max-width: 620px){
+							float: none!important;
+						}
+					}
 					@media screen and (max-width: $breakpoint--medium){
 						margin-right: rem(20);
 					}
-					@media screen and (max-width: $breakpoint--small){
+					@media screen and (max-width: 620px){
 						display: block;
 						margin-right: 0;
 						margin-bottom: rem(16);
+						text-align: center;
 					}
 				}
 				@media screen and (max-width: $breakpoint--medium){
 					padding: 0;
+					width: 100%;
 				}
 				@media screen and (max-width: $breakpoint--small){
 					text-align: center;
@@ -64,6 +74,7 @@
 			}
 			@media screen and (max-width: $breakpoint--medium){
 				margin-top: rem(12);
+				width: 100%;
 			}
 		}
 		.widget-footer{
@@ -101,6 +112,9 @@
 							padding-right: 0;
 							&:first-child{
 								padding-right: 16px;
+								@media screen and (max-width: $breakpoint--medium){
+									padding-right: 0;
+								}
 							}
 							label{
 								display: none;
@@ -179,11 +193,11 @@
 							}
 							@media screen and (max-width: $breakpoint--medium){
 								display: block!important;
-								width: 100%!important; 
+								width: auto!important; 
 							}
 						}
 						@media screen and (max-width: $breakpoint--medium){
-							position: static;
+							//position: static;
 						}
 					}
 				}

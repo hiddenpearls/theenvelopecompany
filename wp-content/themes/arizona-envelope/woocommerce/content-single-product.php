@@ -35,38 +35,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 	return;
 	 }
 ?>
-<div class="category-shop-header">
-	<div class="container">
-		<div>
-			<?php
-                if (has_nav_menu('shop_navigation')) :
-                    wp_nav_menu(['theme_location' => 'shop_navigation', 'menu_class' => 'nav shop-navigation-bar']);
-                endif;
-	            ?>
-		</div>
-	</div>
-</div>
-<div class="cart-shop-header">
-	<div class="container">
-		<?php 
-			global $woocommerce;
-			$cart_url = $woocommerce->cart->get_cart_url(); 
-		?>
-		<a href="<?php echo $cart_url; ?>"><i class="fa fa-cart"></i>My Cart</a>
-		<a class="cart-contents" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>"><?php echo sprintf ( _n( 'item: (%d)', 'items: (%d)', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?>  <?php echo WC()->cart->get_cart_total(); ?></a>
-		<?php 
-		global $woocommerce;
-
-		if ( sizeof( $woocommerce->cart->cart_contents) > 0 ) :
-			echo '<a href="' . $woocommerce->cart->get_checkout_url() . '" title="' . __( 'Checkout' ) . '">' . __( 'Checkout' ) . '</a>';
-		endif;
-
-		?>
-	</div>
-</div>
 
 <div itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
-
+<div class="container">
 	<?php
 		/**
 		 * woocommerce_before_single_product_summary hook.
@@ -95,7 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 
 	</div><!-- .summary -->
-
+</div>
 	<?php
 		/**
 		 * woocommerce_after_single_product_summary hook.
@@ -112,3 +83,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div><!-- #product-<?php the_ID(); ?> -->
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>
+

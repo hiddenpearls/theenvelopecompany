@@ -85,7 +85,8 @@ if( is_front_page() ){
 
  ?>
 
-<?php if(is_page('layouts-die-lines') || is_page('resources') || is_page('helpful-information') | is_page('equipment')){?>
+<?php //print resources menu for the resources template pages
+if(is_page('layouts-die-lines') || is_page('resources') || is_page('helpful-information') | is_page('equipment')){?>
     <div class="category-shop-header">
         <div class="container menu-shop-navigation-container">
             <ul class="shop-navigation-bar">
@@ -104,7 +105,8 @@ if( is_front_page() ){
     </div>
 <?php }?>
 
-<?php if(is_page('about-us') || is_page('privacy-policy') || is_page('terms-conditions') | is_page('news-releases')){?>
+<?php //print about menu for the about template pages
+if(is_page('about-us') || is_page('privacy-policy') || is_page('terms-conditions') | is_page('news-releases')){?>
     <div class="category-shop-header">
         <div class="container menu-shop-navigation-container">
             <ul class="shop-navigation-bar">
@@ -122,7 +124,19 @@ if( is_front_page() ){
         </div>
     </div>
 <?php }?>
-<?php if(is_cart()){ ?>
+<?php 
+    if( is_user_logged_in() ){
+        $status = "in";
+    } else {
+        $status = "out";
+        if( is_page('my-account') ){
+            $status = "account-out";
+        }
+    }
+
+ ?>
+<?php //print shop menu for the shop template pages
+if(is_cart()||is_product()||$status==="account-out"){ ?>
 <div class="category-shop-header">
     <div class="container">
         <div>
@@ -132,6 +146,24 @@ if( is_front_page() ){
                 endif;
                 ?>
         </div>
+    </div>
+</div>
+<?php } ?>
+<?php if(is_product()||$status==="account-out" ){ ?>
+<div class="cart-shop-header">
+    <div class="container">
+        <?php 
+            global $woocommerce;
+            $cart_url = $woocommerce->cart->get_cart_url(); 
+        ?>
+        <a href="<?php echo $cart_url; ?>"><i class="fa fa-cart"></i>My Cart</a>
+        <a class="cart-contents" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>"><?php echo sprintf ( _n( 'item: (%d)', 'items: (%d)', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?>  <?php echo WC()->cart->get_cart_total(); ?></a>
+        <?php 
+        global $woocommerce;
+        if ( sizeof( $woocommerce->cart->cart_contents) > 0 ) :
+            echo '<a href="' . $woocommerce->cart->get_checkout_url() . '" title="' . __( 'Checkout' ) . '">' . __( 'Checkout' ) . '</a>';
+        endif;
+        ?>
     </div>
 </div>
 <?php } ?>

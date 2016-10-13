@@ -27,6 +27,6 @@
     }
   },
   "config": {
-    "devUrl": "http://azenvelope.loc"
+    "devUrl": "https://azenvelope.loc"
   }
 }

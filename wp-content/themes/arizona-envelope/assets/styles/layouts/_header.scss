@@ -32,7 +32,7 @@
     .brand{
         padding-left: rem(15);
         margin: rem(12) 0 rem(30);
-        display: block;
+        display: block; 
         @media screen and (max-width: $breakpoint--large){
             img{
                 max-width: 180px;
@@ -62,10 +62,15 @@
                     color: $dark-gray;
                     border-left: 2px solid $brand-orange;
                     border-right: 2px solid $brand-orange;
+                    @media screen and (max-width: $breakpoint--medium){
+                        border: none;
+                    }
                 }
             }
             @media screen and (max-width: $breakpoint--medium){
                 display: block;
+                padding: 0;
+                margin-bottom: rem(12);
             }
 		}
 	}
@@ -90,7 +95,7 @@
             @media screen and (max-width: $breakpoint--medium){
                 float: none;
                 margin-bottom: 0;
-                padding-left: rem(15);
+                padding-left: rem(5);
             }
         }
         .menu-top-navigation-container{
@@ -113,14 +118,20 @@
                             }
                         }
                     }
+                    &.pull-left{
+                        @media screen and (max-width: $breakpoint--medium){
+                            float: none!important;
+                        }
+                    }
                 }
             }   
         }
         @media screen and (max-width: $breakpoint--large){
-            margin-bottom: rem(20);
+            margin: rem(12) rem(20) rem(20) 0;
         }
         @media screen and (max-width: $breakpoint--medium){
             float: none;
+            margin-bottom: 0;
         }
     }
 	.nav-primary{
@@ -130,19 +141,37 @@
 		.menu-site-navigation-container{
 			float: left;
             max-width: 70%;
+            @media screen and (max-width: $breakpoint--large){
+                padding-top: rem(20);
+            }
             @media screen and (max-width: $breakpoint--medium){
                 float: none;
+                padding: 0;
             }
 		}
 	}
 	.search-form{
 		float: right;
         max-width: 30%;
-        @media screen and (max-width: $breakpoint--large){
-            float: none;
-        }
         @media screen and (max-width: $breakpoint--medium){
             float: none;
+            max-width: 100%;
+            label{
+                width: 94%;
+                input{
+                    width: 100%;
+                }
+            }
+        }
+        @media screen and (max-width: 650px){
+            label{
+                width: 93%;
+            }
+        }
+        @media screen and (max-width: 565px){
+            label{
+                width: 91%;
+            }
         }
 	}
 }
@@ -156,6 +185,7 @@
 .hero-panel{
     position: relative;
     z-index: 1;
+    background-color: $sand;
 	> img{
 		width: 100%;
 	}
@@ -265,6 +295,13 @@
             color: $light-gray;
             font-style: italic;
         }
+        @media screen and (max-width: $breakpoint--xlarge){
+            min-width: rem(232);
+        }
+        @media screen and (max-width: $breakpoint--large){
+            min-width: rem(170);
+        }
+        
     }
     .search-submit{
         border: none;
@@ -280,6 +317,9 @@
             opacity: 0.8;
             border-color: $light-gray;
         }
+    }
+    @media screen and (max-width: $breakpoint--xlarge){
+
     }
 }
 
