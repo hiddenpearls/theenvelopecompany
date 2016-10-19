@@ -26,4 +26,21 @@ jQuery(document).ready(function( $ ) {
 	  
 
 	})();
+	$('[data-toggle=offcanvas]').click(function() {
+	    $('.row-offcanvas').toggleClass('active');
+	    $('.showhide').toggle();
+  	});
+  	scrollPosition();
+	$(window).scroll(function() {
+	    scrollPosition();
+	});
+	function scrollPosition(){
+		var height = $(window).scrollTop();
+	    if(height  < 300) {
+	        $('.site-header').removeClass("fixed-header");
+	    }
+	    if(height  > 300) {
+	        $('.site-header').addClass("fixed-header");
+	    }
+	}
 });

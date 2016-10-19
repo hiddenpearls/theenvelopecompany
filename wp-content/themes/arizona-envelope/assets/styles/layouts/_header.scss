@@ -39,6 +39,16 @@
             }
         }
     }
+    &.fixed-header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: $sand;
+        @media screen and (max-width: $breakpoint--medium){
+            position: static;
+        }
+    }
 }
 .main-site-nav{
 	.nav{
@@ -440,5 +450,45 @@ $button-transistion-duration: 0.3s;     // The transition duration
   border-color: #fff;
   a{
     color: #fff;
+  }
+}
+
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+.navbar-collapse {
+  max-height: 100%;
+}
+@media screen and (max-width: 768px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+  .row-offcanvas-right .sidebar-offcanvas {
+    right: -60%;
+  
+    margin-right: 0px;
+    background-color: #f3f3f3;
+  }
+  .row-offcanvas-left .sidebar-offcanvas {
+    left: -50%; 
+  }
+  .row-offcanvas-right.active {
+    right: 60%;  
+  }
+  .row-offcanvas-left.active {
+    left: 50%;  
+  }
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 60%;  
+    height: 100%;
+    display: none;
+  
   }
 }

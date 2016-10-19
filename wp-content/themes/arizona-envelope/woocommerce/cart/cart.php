@@ -12,12 +12,13 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
-
-wc_print_notices();
-
-do_action( 'woocommerce_before_cart' ); ?>
-
+?>
 <div class="container">
+<?php
+	wc_print_notices();
+	do_action( 'woocommerce_before_cart' ); 
+?>
+
 	 <form action="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>" method="post">
 
 
@@ -45,18 +46,19 @@ do_action( 'woocommerce_before_cart' ); ?>
 				if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
 					?>
 					<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
-
-						<td class="product-remove">
+						
+						
+						<!--<td class="product-remove">
 							<?php
-								echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
+								/*echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
 									'<a href="%s" class="" title="%s" data-product_id="%s" data-product_sku="%s"><i class="fa fa-remove"></i></a>',
 									esc_url( WC()->cart->get_remove_url( $cart_item_key ) ),
 									__( 'Remove this item', 'woocommerce' ),
 									esc_attr( $product_id ),
 									esc_attr( $_product->get_sku() )
-								), $cart_item_key );
+								), $cart_item_key );*/
 							?>
-						</td>
+						</td>-->
 
 						<td class="product-thumbnail">
 							<?php
@@ -88,16 +90,10 @@ do_action( 'woocommerce_before_cart' ); ?>
 							?>
 						</td>
 
-						<!--<td class="product-price">
-							<?php
-								// echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
-							?>
-						</td>-->
-
-						<!--<td class="product-quantity">
+						<td class="product-quantity">
 							<?php
 								
-								/*if ( $_product->is_sold_individually() ) {
+								if ( $_product->is_sold_individually() ) {
 									$product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
 								} else {
 									$product_quantity = woocommerce_quantity_input( array(
@@ -109,18 +105,21 @@ do_action( 'woocommerce_before_cart' ); ?>
 								}
 
 								echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item );
-								*/
 								
-	/*							if ($cart_item['quantity']>2) {
+								
+							if ($cart_item['quantity']>2) {
 									$t_this = $cart_item['quantity'];
 									$_this = $t_this/2;
 								 echo 'x '.$_this; }
-	*/						?>
-						</td>-->
+							?>
+						</td>
 
 						<td class="product-subtotal">
 							<?php
 								echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key );
+							?>
+							<?php
+								// echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
 							?>
 						</td>
 						<td class="product-edit">
@@ -134,8 +133,10 @@ do_action( 'woocommerce_before_cart' ); ?>
 			do_action( 'woocommerce_cart_contents' );
 			?>
 			<tr>
-				<td colspan="6" class="actions">
-
+				<td><!-- class="actions" -->
+					Subtotal
+					<?php //$cart_value = $order->get_total_tax() - $order->get_total(); ?>
+					<?php //echo $cart_value; ?>
 					<?php //if ( WC()->cart->coupons_enabled() ) { ?>
 						<!--<div class="coupon">
 
@@ -150,6 +151,15 @@ do_action( 'woocommerce_before_cart' ); ?>
 					<?php //do_action( 'woocommerce_cart_actions' ); ?>
 
 					<?php //wp_nonce_field( 'woocommerce-cart' ); ?>
+				</td>
+				<td colspan="2" class="actions">
+					
+				</td>
+				<td>
+					
+					<?php echo WC()->cart->get_total_ex_tax(); ?>
+					<!-- Subtotal here being calculated with shipping costs, need to fiure this out. -->
+
 				</td>
 			</tr>
 

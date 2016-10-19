@@ -64,7 +64,7 @@ if( function_exists('acf_add_options_page') ) {
 remove_filter( 'the_excerpt', 'wpautop' );
 
 /**
- * WooCommerce Theme integration
+ * WooCommerce Theme integration --- Move all wooCommerce code into oktara content type plugin for sanity(?)
  */
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
@@ -112,9 +112,11 @@ function woocommerce_template_loop_attributes(){
   echo '<p>'.$size.'</p>';
   $color = $product->get_attribute( 'color' ) ;
   echo '<p>'.$color.'</p>';
-  
-
 }
+/**
+ * Remove add to cart button from product summary
+ */
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
 
 /**
  * Change Add To Cart to Select Options
@@ -180,13 +182,9 @@ function wpb_woo_my_account_order() {
 add_filter ( 'woocommerce_account_menu_items', 'Roots\Sage\Extras\wpb_woo_my_account_order' );
 
 /**
-
 * Add new register fields for WooCommerce registration.
-
 *
-
 * @return string Register fields HTML.
-
 */
 
 function wooc_extra_register_fields() {
@@ -201,12 +199,31 @@ function wooc_extra_register_fields() {
        </p>
        <div class="clear"></div>
        <!--<p class="form-row form-row-wide">
-       <label for="reg_billing_phone"><?php _e( 'Phone', 'woocommerce' ); ?><span class="required">*</span></label>
-       <input type="text" class="input-text" name="billing_phone" id="reg_billing_phone" value="<?php //if ( ! empty( $_POST['billing_phone'] ) ) esc_attr_e( $_POST['billing_phone'] ); ?>" />
-       </p>-->
+        <label for="reg_password2"><?php _e( 'Password Repeat', 'woocommerce' ); ?> <span class="required">*</span></label>
+        <input type="password" class="input-text" name="password2" id="reg_password2" value="<?php //if ( ! empty( $_POST['password2'] ) ) echo esc_attr( $_POST['password2'] ); ?>" />
+      </p>-->
        <?php
 }
 add_action( 'woocommerce_register_form_start', 'Roots\Sage\Extras\wooc_extra_register_fields' );
+// 
+add_filter('woocommerce_registration_errors', 'Roots\Sage\Extras\registration_errors_validation', 10,3);
+function registration_errors_validation($reg_errors, $sanitized_user_login, $user_email) {
+  global $woocommerce;
+  extract( $_POST );
+  if ( strcmp( $password, $password2 ) !== 0 ) {
+    return new WP_Error( 'registration-error', __( 'Passwords do not match.', 'woocommerce' ) );
+  }
+  return $reg_errors;
+}
+add_action( 'woocommerce_register_form', 'Roots\Sage\Extras\wc_register_form_password_repeat' );
+function wc_register_form_password_repeat() {
+  ?>
+  <p class="form-row form-row-wide">
+    <label for="reg_password2"><?php _e( 'Password Confirmation', 'woocommerce' ); ?> <span class="required">*</span></label>
+    <input type="password" class="input-text" name="password2" id="reg_password2" value="<?php if ( ! empty( $_POST['password2'] ) ) echo esc_attr( $_POST['password2'] ); ?>" />
+  </p>
+  <?php
+}
 /**
 * Validate the extra register fields.
 *
@@ -224,11 +241,17 @@ function wooc_validate_extra_register_fields( $username, $email, $validation_err
        if ( isset( $_POST['billing_last_name'] ) && empty( $_POST['billing_last_name'] ) ) {
               $validation_errors->add( 'billing_last_name_error', __( '<strong>Error</strong>: Last name is required!.', 'woocommerce' ) );
        }
+       if( isset($_POST['password']) && empty ( $_POST['password']) || sset($_POST['password2']) && empty ( $_POST['password2']) ){
+        $validation_errors->add( 'registration-error', __( 'Passwords mismatch.', 'woocommerce' ) );
+       }
+      //return $reg_errors;
        /*if ( isset( $_POST['billing_phone'] ) && empty( $_POST['billing_phone'] ) ) {
               $validation_errors->add( 'billing_phone_error', __( '<strong>Error</strong>: Phone is required!.', 'woocommerce' ) );
        }*/
 }
 add_action( 'woocommerce_register_post', 'Roots\Sage\Extras\wooc_validate_extra_register_fields', 10, 3 );
+
+
 /**
 * Save the extra register fields.
 *
@@ -255,3 +278,77 @@ function wooc_save_extra_register_fields( $customer_id ) {
        }*/
 }
 add_action( 'woocommerce_created_customer', 'Roots\Sage\Extras\wooc_save_extra_register_fields' );
+
+//old functions from old theme
+// Price Dropdown
+function yahm_cart_sel(){
+  $x=500; $yahm_arr = array();
+    for($i=0; $i<60; $i++) {
+      $j = number_format($x); echo '<option '. ($i != 1 ? '' : 'selected=selected') . ' value="' . $j.'_'.$i.'">' . $j.'</option>';
+      $x=$x+500;
+  }
+}
+// check role
+function check_user_role($roles, $user_id = NULL) {
+  if ($user_id) $user = get_userdata($user_id);
+  else $user = wp_get_current_user();
+  if (empty($user)) return false;
+  foreach ($user->roles as $role) {
+    if (in_array($role, $roles)) {
+      return true;
+    }
+  }
+  return false;
+}
+//** added 2x price yahm **
+function custom_price_WPA111772($price,$product,$attr) {
+  if (check_user_role(array('discount-customer-10'))) {
+      $j = 1.8; }
+    elseif (check_user_role(array('discount-customer-20'))) {
+      $j = 1.6; }
+    else { $j = $attr; }
+    if ($product && is_object($product) && method_exists($product, "get_price") ){
+        $_price=$product->get_price();
+    $price=$_price*$j;
+    $price = number_format($price, 2, '.', '');
+    $price = '$'.$price;
+  }
+  return $price;
+}
+
+/* Addes new line item */
+add_filter('woocommerce_add_cart_item_data','Roots\Sage\Extras\namespace_force_individual_cart_items',10,2);
+
+function namespace_force_individual_cart_items($cart_item_data, $product_id)
+{
+  $unique_cart_item_key = md5(microtime().rand()."Hi Mom!");
+  $cart_item_data['unique_key'] = $unique_cart_item_key;
+
+  return $cart_item_data;
+}
+
+/**
+ * Lists a table of attributes for the product page.
+ */
+
+function list_attributes_2() {
+  wc_get_template( 'single-product/product-attributes_2.php', array(
+    'product'    => $this
+  ) );
+}
+
+// Apply a different tax rate based on the user role.
+function wc_diff_rate_for_user( $tax_class, $product ) {
+  if ( is_user_logged_in() && current_user_can( 'non_taxed' ) ) {
+    $tax_class = 'Zero Rate';
+  }
+  return $tax_class;
+}
+add_filter( 'woocommerce_product_tax_class', 'Roots\Sage\Extras\wc_diff_rate_for_user', 1, 2 );
+
+
+function order_total_no_shipping( $order_id ) {
+  $order = new WC_Order( $order_id );
+  $order_total = $order->get_total();
+  $order_total_without_shipping = $order->get_subtotal();
+}

@@ -3,7 +3,7 @@
  * Plugin Name: Woo Checkout Field Editor Pro
  * Description: Customize WooCommerce checkout fields(Add, Edit, Delete and re-arrange fields).
  * Author:      ThemeHiGH
- * Version:     1.1.1
+ * Version:     1.1.2
  * Author URI:  http://www.themehigh.com
  * Plugin URI:  http://www.themehigh.com
  * Text Domain: thwcfd

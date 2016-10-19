@@ -479,25 +479,25 @@ class WC_Checkout_Field_Editor {
 							$options['placeholder'] = '';
 						}
 												
-						if( isset( $options['options'] ) ) {
+						if( isset( $options['options'] ) && is_array($options['options']) ) {
 							$options['options'] = implode("|", $options['options']);
 						}else{
 							$options['options'] = '';
 						}
 						
-						if( isset( $options['class'] ) ) {
+						if( isset( $options['class'] ) && is_array($options['class']) ) {
 							$options['class'] = implode(",", $options['class']);
 						}else{
 							$options['class'] = '';
 						}
 						
-						if( isset( $options['label_class'] ) ) {
+						if( isset( $options['label_class'] ) && is_array($options['label_class']) ) {
 							$options['label_class'] = implode(",", $options['label_class']);
 						}else{
 							$options['label_class'] = '';
 						}
 						
-						if( isset( $options['validate'] ) ) {
+						if( isset( $options['validate'] ) && is_array($options['validate']) ) {
 							$options['validate'] = implode(",", $options['validate']);
 						}else{
 							$options['validate'] = '';
