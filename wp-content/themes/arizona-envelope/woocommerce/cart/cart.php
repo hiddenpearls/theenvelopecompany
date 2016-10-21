@@ -48,17 +48,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
 						
 						
-						<!--<td class="product-remove">
+						<td class="product-remove">
 							<?php
-								/*echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
+								echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
 									'<a href="%s" class="" title="%s" data-product_id="%s" data-product_sku="%s"><i class="fa fa-remove"></i></a>',
 									esc_url( WC()->cart->get_remove_url( $cart_item_key ) ),
 									__( 'Remove this item', 'woocommerce' ),
 									esc_attr( $product_id ),
 									esc_attr( $_product->get_sku() )
-								), $cart_item_key );*/
+								), $cart_item_key );
 							?>
-						</td>-->
+						</td>
 
 						<td class="product-thumbnail">
 							<?php
@@ -96,21 +96,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 								if ( $_product->is_sold_individually() ) {
 									$product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
 								} else {
-									$product_quantity = woocommerce_quantity_input( array(
+									$product_quantity = sprintf( "<span>{$cart_item['quantity']}</span>" );
+									/*$product_quantity = woocommerce_quantity_input( array(
 										'input_name'  => "cart[{$cart_item_key}][qty]",
 										'input_value' => $cart_item['quantity'],
 										'max_value'   => $_product->backorders_allowed() ? '' : $_product->get_stock_quantity(),
 										'min_value'   => '0'
-									), $_product, false );
+									), $_product, false );*/
 								}
 
 								echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item );
 								
 								
-							if ($cart_item['quantity']>2) {
+							/*if ($cart_item['quantity']>2) {
 									$t_this = $cart_item['quantity'];
 									$_this = $t_this/2;
-								 echo 'x '.$_this; }
+								 echo 'x '.$_this; }*/
 							?>
 						</td>
 
@@ -152,7 +153,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					<?php //wp_nonce_field( 'woocommerce-cart' ); ?>
 				</td>
-				<td colspan="2" class="actions">
+				<td colspan="3" class="actions">
 					
 				</td>
 				<td>
@@ -160,6 +161,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php echo WC()->cart->get_total_ex_tax(); ?>
 					<!-- Subtotal here being calculated with shipping costs, need to fiure this out. -->
 
+				</td>
+				<td colspan="1" class="actions">
+					
 				</td>
 			</tr>
 

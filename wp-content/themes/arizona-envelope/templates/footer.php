@@ -8,9 +8,9 @@
 	                <img class="retina-logo" src="<?php the_field('retina_site_logo', 'option'); ?>" alt="<?php echo get_bloginfo(); ?> logo">
 	            </a>
 				<?php
-                    if (has_nav_menu('footer_navigation')) :
+                    /*if (has_nav_menu('footer_navigation')) :
                         wp_nav_menu(['theme_location' => 'footer_navigation', 'menu_class' => 'nav site-navigation']);
-                    endif;
+                    endif;*/
                 ?>
 			</div>
 			<div class="subscribe-footer">
@@ -21,6 +21,9 @@
 		<div class="row bottom-footer">
 			<div class="col-md-12">
 				<?php 
+				if (has_nav_menu('footer_navigation')) :
+                    wp_nav_menu(['theme_location' => 'footer_navigation', 'menu_class' => 'nav site-navigation']);
+                endif;
 				if( get_field('copyright_information', 'options') ) :
 				?>
 					<small><?php the_field('copyright_information', 'options'); ?></small>

@@ -1,6 +1,7 @@
 .site-header{
     z-index: 2;
     padding-bottom: rem(30);
+    transition: all 0.2s ease;
     .container{
         @media screen and (max-width: $breakpoint--large){
             width: 100%;
@@ -27,15 +28,171 @@
         }
     }
     .navbar-collapse{
-        padding: 0 8px;
+        padding: 0 8px 0 0;
+        &.in{
+            margin-top: rem(100);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: $sand;
+            z-index: 10;
+            overflow-y: scroll!important;
+        }
     }
     .brand{
-        padding-left: rem(15);
+        padding-left: 0;
         margin: rem(12) 0 rem(30);
         display: block; 
         @media screen and (max-width: $breakpoint--large){
             img{
                 max-width: 180px;
+            }
+        }
+    }
+    .main-site-nav{
+        .nav{
+            li.menu-item{
+                display: inline-block;
+                vertical-align: top;
+                padding: 0 10px;
+                a{
+                    color: $medium-gray;
+                    text-transform: uppercase;
+                    display: inline-block;
+                    padding: 0 5px;
+                    &:hover{
+                        color: $dark-gray;
+                        background-color: transparent;
+                    }
+                    &:first-child{
+                        padding-left: 2px;
+                    }
+                }           
+                &.current-menu-item, &.current-page-ancestor{
+                    a{
+                        color: $dark-gray;
+                        border-left: 2px solid $brand-orange;
+                        border-right: 2px solid $brand-orange;
+                        @media screen and (max-width: $breakpoint--large){
+                            border: none;
+                        }
+                    }
+                }
+                &:first-child{
+                    padding-left: 0;
+                }
+                @media screen and (max-width: $breakpoint--large){
+                    display: block;
+                    padding: 0;
+                    margin-bottom: rem(12);
+                }
+            }
+        }
+        .nav-utilities{
+            float: right;
+            margin: rem(12) 0 0;
+            .phone-icon, .cart-icon{
+                a{
+                    color: $dark-gray;
+                    &:before{
+                        font: normal normal normal 14px/1 FontAwesome;
+                        content: "\f095";
+                        display: inline-block;
+                        color: $brand-orange;
+                        margin-right: 8px;
+                    }
+                }
+            }
+            .phone-icon{
+                float: right;
+                margin-bottom: rem(48);
+                @media screen and (max-width: $breakpoint--large){
+                    float: none;
+                    margin-bottom: 0;
+                    padding-left: rem(5);
+                }
+            }
+            .menu-top-navigation-container{
+                clear: both;
+                .nav{
+                    li.menu-item{
+                        padding: 8px 0;
+                        &.white-btn{
+                            padding: 0;
+                            a{
+                                border: 2px solid $medium-gray;
+                                color: $dark-gray;
+                                padding: 7px 15px;
+                            }
+                        }
+                        &.cart-icon{
+                            a{
+                                &:before{
+                                    content: "\f07a";
+                                }
+                            }
+                        }
+                        &.pull-left{
+                            @media screen and (max-width: $breakpoint--large){
+                                float: none!important;
+                            }
+                        }
+                    }
+                }   
+            }
+            @media screen and (max-width: $breakpoint--large){
+                //margin: rem(12) rem(20) rem(20) 0;
+            }
+            @media screen and (max-width: $breakpoint--large){
+                float: none;
+                margin: 0;
+                padding: 40px 40px 0;
+            }
+        }
+        .nav-primary{
+            width: auto;
+            display: block;
+            clear: left;
+            .menu-site-navigation-container{
+                float: left;
+                max-width: 70%;
+                padding-top: rem(20);
+                @media screen and (max-width: $breakpoint--large){
+                    padding-top: rem(20);
+                }
+                @media screen and (max-width: $breakpoint--large){
+                    float: none;
+                    padding: 0;
+                }
+            }
+            @media screen and (max-width: $breakpoint--large){
+                padding: 0 40px 40px;
+            }
+        }
+        .search-form{
+            float: right;
+            max-width: 30%;
+            @media screen and (max-width: $breakpoint--large){
+                float: none;
+                max-width: 100%;
+                label{
+                    width: 94%;
+                    input{
+                        width: 100%;
+                    }
+                }
+            }
+            @media screen and (max-width: 650px){
+                label{
+                    width: 93%;
+                }
+            }
+            @media screen and (max-width: 565px){
+                label{
+                    width: 91%;
+                }
             }
         }
     }
@@ -45,145 +202,83 @@
         left: 0;
         width: 100%;
         background-color: $sand;
+        padding-bottom: 0;
         @media screen and (max-width: $breakpoint--medium){
             position: static;
         }
-    }
-}
-.main-site-nav{
-	.nav{
-		li.menu-item{
-			display: inline-block;
-			vertical-align: top;
-            padding: 0 10px;
-			a{
-				color: $medium-gray;
-                text-transform: uppercase;
-                display: inline-block;
-                padding: 0 5px;
-				&:hover{
-					color: $dark-gray;
-                    background-color: transparent;
-				}
-                
-			}           
-            &.current-menu-item, &.current-page-ancestor{
-                a{
-                    color: $dark-gray;
-                    border-left: 2px solid $brand-orange;
-                    border-right: 2px solid $brand-orange;
-                    @media screen and (max-width: $breakpoint--medium){
-                        border: none;
-                    }
-                }
-            }
-            @media screen and (max-width: $breakpoint--medium){
-                display: block;
-                padding: 0;
-                margin-bottom: rem(12);
-            }
-		}
-	}
-	.nav-utilities{
-		float: right;
-        margin: rem(12) 0 rem(30);
-        .phone-icon, .cart-icon{
-            a{
-                color: $dark-gray;
-                &:before{
-                    font: normal normal normal 14px/1 FontAwesome;
-                    content: "\f095";
-                    display: inline-block;
-                    color: $brand-orange;
-                    margin-right: 8px;
+        .brand{
+            margin-bottom: rem(16);
+            @media screen and (max-width: $breakpoint--xlarge){
+                max-width: rem(185);
+                margin: 20px 0 10px;
+                img{
+                    max-width: 100%;
                 }
             }
         }
-        .phone-icon{
-            float: right;
-            margin-bottom: rem(30);
-            @media screen and (max-width: $breakpoint--medium){
-                float: none;
-                margin-bottom: 0;
-                padding-left: rem(5);
-            }
-        }
-        .menu-top-navigation-container{
-            clear: both;
-            .nav{
-                li.menu-item{
-                    padding: 8px 0;
-                    &.white-btn{
-                        padding: 0;
-                        a{
-                            border: 2px solid $medium-gray;
-                            color: $dark-gray;
-                            padding: 8px 15px;
-                        }
-                    }
-                    &.cart-icon{
-                        a{
-                            &:before{
-                                content: "\f07a";
-                            }
-                        }
-                    }
-                    &.pull-left{
-                        @media screen and (max-width: $breakpoint--medium){
-                            float: none!important;
-                        }
-                    }
+        .main-site-nav{
+            .nav-utilities{
+                max-width: 80%;
+                .phone-icon{
+                    float: left;
+                    margin: 0 rem(16);
+                    padding-top: 8px;
                 }
-            }   
-        }
-        @media screen and (max-width: $breakpoint--large){
-            margin: rem(12) rem(20) rem(20) 0;
-        }
-        @media screen and (max-width: $breakpoint--medium){
-            float: none;
-            margin-bottom: 0;
+                .menu-top-navigation-container{
+                    float: left;
+                    clear: none;
+                }
+            }
+            .nav-primary{
+                clear: none;
+                max-width: 80%;
+                float: right;
+                margin-top: rem(12);
+            }
+            .search-form{
+                max-width: 40%;
+                .search-field{
+                    min-width: rem(200);
+                }
+            }
         }
     }
-	.nav-primary{
-		width: auto;
-		display: block;
-		clear: left;
-		.menu-site-navigation-container{
-			float: left;
-            max-width: 70%;
-            @media screen and (max-width: $breakpoint--large){
-                padding-top: rem(20);
-            }
-            @media screen and (max-width: $breakpoint--medium){
-                float: none;
-                padding: 0;
-            }
-		}
-	}
-	.search-form{
-		float: right;
-        max-width: 30%;
-        @media screen and (max-width: $breakpoint--medium){
-            float: none;
-            max-width: 100%;
-            label{
-                width: 94%;
-                input{
-                    width: 100%;
-                }
-            }
+    @media (min-width: $breakpoint--medium) and (max-width: $breakpoint--large){
+        .navbar-header {
+          float: none;
         }
-        @media screen and (max-width: 650px){
-            label{
-                width: 93%;
-            }
+        .navbar-left,.navbar-right {
+          float: none !important;
         }
-        @media screen and (max-width: 565px){
-            label{
-                width: 91%;
-            }
+        .navbar-toggle {
+          display: block;
         }
-	}
+        .navbar-collapse {
+          border-top: 1px solid transparent;
+          box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+        .navbar-fixed-top {
+          top: 0;
+          border-width: 0 0 1px;
+        }
+        .navbar-collapse.collapse {
+          display: none!important;
+        }
+        .navbar-nav {
+          float: none!important;
+          margin-top: 7.5px;
+        }
+        .navbar-nav>li {
+          float: none;
+        }
+        .navbar-nav>li>a {
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+        .collapse.in{
+          display:block !important;
+        }
+    }
 }
 .admin-bar{
   .site-header{
@@ -360,7 +455,7 @@ $button-transistion-duration: 0.3s;     // The transition duration
   border: none;
   cursor: pointer;
   transition: background $button-transistion-duration;
-  @media screen and (min-width: $breakpoint--medium){
+  @media screen and (min-width: $breakpoint--large){
     display: none;
   }
 
@@ -425,6 +520,7 @@ $button-transistion-duration: 0.3s;     // The transition duration
 
 .c-hamburger--htx.is-active {
   background-color: transparent;
+  z-index: 12;
 }
 
 .c-hamburger--htx.is-active span {

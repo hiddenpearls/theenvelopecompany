@@ -46,3 +46,37 @@
 		height: rem(50);
 	}
 }
+.button{
+	font-family: $copy-font!important;
+	padding: 14px 0!important;
+	font-weight: medium!important;
+	text-transform: uppercase!important;
+	border-radius: 0!important;
+	border: 2px solid!important;
+	@include transition(0.2s all ease-in-out);
+	width: rem(200)!important;
+	height: rem(50)!important;
+	text-align: center!important;
+	&.woocommerce-Button, &.alt, &.gform_button {
+		background-color: $brand-orange!important;
+		color: #fff!important;
+		border-color: $brand-orange!important;
+		&:hover{
+			background-color: $dark-gray!important;
+			border-color: $dark-gray!important;
+			color: #fff!important;
+		}
+	}
+	&.view{
+		background-color: transparent;
+		border-color: $medium-gray;
+		color: $dark-gray;
+		width: rem(125)!important;
+		height: rem(50)!important;
+		&:hover{
+			background-color: $brand-orange;
+			color: #fff;
+			border-color: $brand-orange;
+		}
+	}
+}

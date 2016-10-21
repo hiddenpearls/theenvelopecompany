@@ -12,12 +12,27 @@ section{
 	background-color: $sand;
 }
 
+//refactor this shyte.
 .products-section, .products{
 	h1{
 		color: $medium-gray;
 	}
+	.button-down{
+		position: relative;
+		p, .entry-summary{
+			margin-bottom: rem(60);
+		}
+		a.orange-btn, a.shop-btn{
+			position: absolute;
+			bottom: rem(20);
+			left: 50%;
+			-webkit-transform: translateX(-50%);
+			transform: translateX(-50%);
+		}
+	}
 	.product-category-extract, li.type-product{
-		a.woocommerce-LoopProduct-link, &.col-md-4, &.col-md-3{
+		a.woocommerce-LoopProduct-link, &.col-md-4, &.search-result{
+			//&.col-md-3
 			display: block;
 			border: 2px solid $medium-gray;
 			text-align: center;
@@ -31,6 +46,19 @@ section{
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 			padding: 20px;
 		}
+		&.search-result{
+			height: rem(450);
+			margin-bottom: rem(80);
+			.entry-summary{
+				margin-bottom: rem(20);
+			}
+			article{
+				margin-bottom: 0;
+			}
+		}
+		a.woocommerce-LoopProduct-link{
+			min-height: rem(365);
+		}
 		&.col-md-4{
 			width: 29.3333333333%;
 			padding-left: 15px;
@@ -38,8 +66,11 @@ section{
     		margin: 2%;
 		}
 		&.col-md-3{
-			    margin: 0 3.8% 2.992em 0;
-			    width: 22.05%;
+		    margin: 0 2% 2.992em 0;
+		    width: 25%;
+		    &:last-child{
+		    	margin-right: 0;
+		    }
 		}
 		a.button.add_to_cart_button{
 			position: absolute;
@@ -68,7 +99,7 @@ section{
 		&.button-down{
 			position: relative;
 			p, .entry-summary{
-				margin-bottom: rem(60);
+				margin-bottom: rem(40);
 			}
 			a.orange-btn, a.shop-btn{
 				position: absolute;
@@ -103,6 +134,17 @@ section{
 			max-width: 95%;
 			margin: 0 auto 12px;
 			color: $dark-gray;
+
+		}
+		&.home{
+			&:nth-child(5), &:nth-child(6), &:nth-child(7){
+				span{
+					max-width: 70%;
+					@media screen and (max-width: $breakpoint--xlarge){
+						max-width: 90%;
+					}
+				}
+			}
 		}
 		@media screen and (max-width: $breakpoint--xlarge){
 			width: 48%!important;
@@ -281,15 +323,19 @@ section{
 	width: 100%;
 	margin-bottom: rem(20);
 	padding: rem(20) 0;
-	margin-top: rem(20);
+	margin-top: rem(12);
 	.menu-shop-navigation-container, .woocommerce-MyAccount-navigation{
 		.shop-navigation-bar, .orange-navigation-bar{
+			//padding-left: rem(26);
+			padding: 0;
+			margin: 0;
 			.menu-item, li{
 				display: inline-block;
 				vertical-align: middle;
 				border-left: 1px solid $brand-orange;
 				border-right: 1px solid $brand-orange;
 				max-width: 16.6666666%;
+				width: 16.2%;
 				padding: 0 rem(12);
 				text-align: center;
 				box-sizing: border-box;
@@ -297,9 +343,16 @@ section{
 					color: $dark-gray;
 					text-transform: uppercase;
 					padding: 0;
+					span{
+						color: $dark-gray;
+						display: block;
+					}
 					&:hover, &:active, &:focus{
 						color: #fff;
 						background-color: transparent;
+						span{
+							color: #fff;
+						}
 					}
 				}
 				&.current-menu-item{
@@ -316,6 +369,19 @@ section{
 				}
 			}
 		}
+		.menu-about-us-menu-container{
+			.menu{
+				padding-left: 0;
+			}
+		}
+		.menu-resources-menu-container, .menu-about-us-menu-container{
+			padding: rem(10) 0;
+			.menu-item{
+				max-width: 25%;
+				min-width: 22%;
+			}
+		}
+
 	}
 	.woocommerce-MyAccount-navigation{
 		width: 100%;
@@ -332,7 +398,10 @@ section{
 	margin-bottom: rem(20);
 	a{
 		color: $medium-gray;
+		display: inline-block;
+		vertical-align: middle;
 		&.cart-btn{
+			padding-top: rem(8);
 			margin-right: rem(30);
 			display: inline-block;
 			i{
@@ -341,11 +410,11 @@ section{
 			}
 		}
 		&.cart-contents{
-		    padding-top: rem(14);
+		    padding-top: rem(8);
 		}
 		&.white-btn{
 			float: right;
-			padding: rem(15) rem(25);
+			padding: rem(8) rem(25);
 		}
 	}
 }

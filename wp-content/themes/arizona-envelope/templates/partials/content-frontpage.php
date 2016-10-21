@@ -7,7 +7,7 @@
             <?php
 
               $taxonomy     = 'product_cat';
-              $orderby      = 'name';  
+              //$orderby      = 'name';  
               $show_count   = 0;      // 1 for yes, 0 for no
               $pad_counts   = 0;      // 1 for yes, 0 for no
               $hierarchical = 0;      // 1 for yes, 0 for no  
@@ -16,7 +16,8 @@
 
               $args = array(
                      'taxonomy'     => $taxonomy,
-                     'orderby'      => $orderby,
+                     //'orderby'      => $orderby,
+                     //'order'        => 'ASC',
                      'show_count'   => $show_count,
                      'pad_counts'   => $pad_counts,
                      'hierarchical' => $hierarchical,
@@ -27,7 +28,7 @@
              foreach ($all_categories as $cat) {
                 if($cat->category_parent == 0) {
                     $category_id = $cat->term_id;   
-                    echo '<div class="col-md-4 product-category-extract button-down">';    
+                    echo '<div class="col-md-4 product-category-extract button-down home">';    
                       $thumbnail_id = get_woocommerce_term_meta($cat->term_id, 'thumbnail_id', true);
                       // get the image URL for child category
                       $image = wp_get_attachment_url($thumbnail_id);

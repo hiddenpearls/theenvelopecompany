@@ -1,4 +1,4 @@
-<article <?php post_class("col-md-4 product-category-extract button-down"); ?>>
+<article <?php post_class(); ?>>
   <header>
   	<?php the_post_thumbnail(); ?>
     <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -7,5 +7,5 @@
   <div class="entry-summary">
     <?php the_excerpt(); ?>
   </div>
-  <a href="<?php the_permalink(); ?>" class="btn shop-btn small">View More</a>
+  <a href="<?php the_permalink(); ?>" class="btn orange-btn small">View More</a>
 </article>

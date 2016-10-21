@@ -211,7 +211,7 @@ if(is_page('layouts-die-lines') || is_page('resources') || is_page('helpful-info
 <?php }?>
 
 <?php //print about menu for the about template pages
-if(is_page('about-us') || is_page('privacy-policy') || is_page('terms-conditions') | is_page('news-releases')){?>
+if(is_page('about-us') || is_page('privacy-policy') || is_page('terms-conditions') || is_home() || is_singular("post") ){?>
     <div class="category-shop-header">
         <div class="container menu-shop-navigation-container">
             <ul class="shop-navigation-bar">
@@ -241,7 +241,7 @@ if(is_page('about-us') || is_page('privacy-policy') || is_page('terms-conditions
 
  ?>
 <?php //print shop menu for the shop template pages
-if(is_cart()||is_product()||$status==="account-out"){ ?>
+if(is_cart()||is_product()||$status==="account-out"||is_page("checkout")){ ?>
 <div class="category-shop-header">
     <div class="container">
         <div>
@@ -257,18 +257,20 @@ if(is_cart()||is_product()||$status==="account-out"){ ?>
 <?php if(is_product()||$status==="account-out" ){ ?>
 <div class="cart-shop-header">
     <div class="container">
-        <?php 
-            global $woocommerce;
-            $cart_url = $woocommerce->cart->get_cart_url(); 
-        ?>
-        <a href="<?php echo $cart_url; ?>"><i class="fa fa-cart"></i>My Cart</a>
-        <a class="cart-contents" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>"><?php echo sprintf ( _n( 'item: (%d)', 'items: (%d)', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?>  <?php echo WC()->cart->get_cart_total(); ?></a>
-        <?php 
+      <?php 
         global $woocommerce;
-        if ( sizeof( $woocommerce->cart->cart_contents) > 0 ) :
-            echo '<a href="' . $woocommerce->cart->get_checkout_url() . '" title="' . __( 'Checkout' ) . '">' . __( 'Checkout' ) . '</a>';
-        endif;
-        ?>
+        $cart_url = $woocommerce->cart->get_cart_url(); 
+      ?>
+      <a class="cart-btn" href="<?php echo $cart_url; ?>"><i class="fa fa-shopping-cart"></i>My Cart</a>
+      <a class="cart-contents" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>"><?php echo sprintf ( _n( 'item: (%d)', 'items: (%d)', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?>  <?php echo WC()->cart->get_cart_total(); ?></a>
+      <?php 
+      global $woocommerce;
+
+      if ( sizeof( $woocommerce->cart->cart_contents) > 0 ) :
+        echo '<a class="btn white-btn" href="' . $woocommerce->cart->get_checkout_url() . '" title="' . __( 'Checkout' ) . '">' . __( 'Check Out' ) . '</a>';
+      endif;
+
+      ?>
     </div>
-</div>
+  </div>
 <?php } ?>

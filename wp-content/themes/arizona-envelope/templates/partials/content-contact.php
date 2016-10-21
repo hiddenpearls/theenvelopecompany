@@ -25,7 +25,7 @@
         </div>
     </div>
 </section>
-<section class="newsletter-signup-section">
+<!--<section class="newsletter-signup-section">
 	<div class="container">
 	    <div class="row">
 	        <div class="col-md-8 col-md-offset-2 text-center">
@@ -35,9 +35,10 @@
 	    <div class="row">
 	    	<div class="col-md-8 col-md-offset-2">
 	    		<?php
-                gravity_form( 13, false, false, false, '', false );
+                //gravity_form( 13, false, false, false, '', false );
                 ?>
 	    	</div>
 	    </div>
 	</div>
 </section>
+-->

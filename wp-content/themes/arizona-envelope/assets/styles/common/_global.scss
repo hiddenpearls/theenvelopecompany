@@ -8,19 +8,19 @@ body{
 	font-family: inherit;
 }
 h1{
-	font: bold rem(50) $heading-font;
+	font: 700 rem(50) $heading-font;
 }
 h2{
-	font: regular rem(23) $copy-font;
+	font: 400 rem(23) $copy-font;
 	span{
 		font-weight: 700;
 	}
 }
 h3{
-	font: regular rem(20) $copy-font;
+	font: 400 rem(20) $copy-font;
 }
 p{
-	font: regular rem(13) $copy-font;
+	font: 400 rem(13) $copy-font;
 }
 p, small, li, span{
 	color: $medium-gray;
@@ -56,7 +56,7 @@ img{
 .italic{
 	font-style: italic;
 }
-input, textarea{
+input, textarea, .select2-container .select2-choice, select{
 	border: 2px solid $light-gray;
 }
 a:hover{
@@ -98,4 +98,19 @@ a:hover{
             display: none;
         }
     }
+}
+
+.noscroll{
+	overflow: hidden;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], .select2-container .select2-choice, select{
+	height: 40px;
+}
+.select2-container .select2-choice, select, .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select {
+	border-radius: 0;
+}
+
+ul.menu{
+	padding: 0;
 }

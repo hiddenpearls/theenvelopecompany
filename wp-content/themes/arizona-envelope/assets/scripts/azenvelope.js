@@ -10,8 +10,12 @@ jQuery(document).ready(function( $ ) {
 	      e.preventDefault();
 	      if(this.classList.contains("is-active") === true) { 
 	      	this.classList.remove("is-active");
+	      	$('body').removeClass("noscroll");
 	      } else {
 	      	this.classList.add("is-active");
+	      	
+	      	$('body').addClass("noscroll");
+
 	      }
 	    });
 	  }
@@ -26,21 +30,16 @@ jQuery(document).ready(function( $ ) {
 	  
 
 	})();
-	$('[data-toggle=offcanvas]').click(function() {
-	    $('.row-offcanvas').toggleClass('active');
-	    $('.showhide').toggle();
-  	});
+
   	scrollPosition();
 	$(window).scroll(function() {
 	    scrollPosition();
 	});
 	function scrollPosition(){
-		var height = $(window).scrollTop();
-	    if(height  < 300) {
-	        $('.site-header').removeClass("fixed-header");
-	    }
-	    if(height  > 300) {
-	        $('.site-header').addClass("fixed-header");
-	    }
+		var sticky = $('.site-header'),
+	  	scroll = $(window).scrollTop();
+	  	console.log(scroll);
+		if (scroll >= 1) sticky.addClass('fixed-header');
+		else sticky.removeClass('fixed-header');
 	}
 });

@@ -140,7 +140,8 @@ function sfws_add_product_link( $link ) {
  */
 add_filter( 'wp_nav_menu_items', 'Roots\Sage\Extras\wti_loginout_menu_link', 10, 2 );
 function wti_loginout_menu_link( $items, $args ) {
-   if (($args->theme_location == 'top_navigation')||($args->theme_location == 'footer_navigation')) {
+    //||($args->theme_location == 'footer_navigation')
+   if (($args->theme_location == 'top_navigation')) {
       if (is_user_logged_in()) {
          $items .= '<li class="pull-left menu-item"><a href="'. wp_logout_url("/") .'">'. __("Log Out") .'</a></li>';
          $items .= '<li class="pull-left menu-item"><a href="/my-account/">'. __("My Account") .'</a></li>';
@@ -175,7 +176,7 @@ function wpb_woo_my_account_order() {
     'edit-account'       => __( 'Account Details', 'woocommerce' ),
     'edit-address'       => __( 'Addresses', 'woocommerce' ),
     'orders'             => __( 'Orders', 'woocommerce' ),
-    'payment-methods'    => __( 'Payment Methods', 'woocommerce' ),
+    //'payment-methods'    => __( 'Payment Methods', 'woocommerce' ),
   );
   return $myorder;
 }
@@ -241,7 +242,7 @@ function wooc_validate_extra_register_fields( $username, $email, $validation_err
        if ( isset( $_POST['billing_last_name'] ) && empty( $_POST['billing_last_name'] ) ) {
               $validation_errors->add( 'billing_last_name_error', __( '<strong>Error</strong>: Last name is required!.', 'woocommerce' ) );
        }
-       if( isset($_POST['password']) && empty ( $_POST['password']) || sset($_POST['password2']) && empty ( $_POST['password2']) ){
+       if( isset($_POST['password']) && empty ( $_POST['password']) || isset($_POST['password2']) && empty ( $_POST['password2']) ){
         $validation_errors->add( 'registration-error', __( 'Passwords mismatch.', 'woocommerce' ) );
        }
       //return $reg_errors;
@@ -346,9 +347,16 @@ function wc_diff_rate_for_user( $tax_class, $product ) {
 }
 add_filter( 'woocommerce_product_tax_class', 'Roots\Sage\Extras\wc_diff_rate_for_user', 1, 2 );
 
-
+// Calculate order total without shipping
 function order_total_no_shipping( $order_id ) {
   $order = new WC_Order( $order_id );
   $order_total = $order->get_total();
   $order_total_without_shipping = $order->get_subtotal();
+}
+//Replace register text for create account
+add_filter(  'gettext',  'Roots\Sage\Extras\register_text'  );
+add_filter(  'ngettext',  'Roots\Sage\Extras\register_text'  );
+function register_text( $translated ) {
+     $translated = str_ireplace(  'Register',  'Create Account',  $translated );
+     return $translated;
 }

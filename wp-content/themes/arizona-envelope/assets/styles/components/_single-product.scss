@@ -1,7 +1,13 @@
 //Provisional solution for first push. Need to figure this out, where are duplicates coming from? Remove them and remove these lines
 .tm-extra-product-options-fields{
-	#tm-epo-field-0, #tm-epo-field-2, #tm-epo-field-3{
+	#tm-epo-field-0, #tm-epo-field-2, #tm-epo-field-3, .tm-collapse{
 		display: none;
+	}
+}
+.product{
+	h1{
+		font: 400 rem(50) $copy-font;
+		color: $brand-orange;
 	}
 }
 .woocommerce{
@@ -39,7 +45,118 @@
 			}
 		}
 	}
+	//move this lines to a new file during cleanups
+	form.checkout_coupon, form.login, form.register, table.shop_table{
+		border: none!important;
+		padding-left: 0!important;
+	}
+	.col2-set{
+		.col-1{
+			width: 38%!important;	
+		}
+		.col-2{
+
+		}	
+	}
+	table{
+		&.cart{
+			.cart_item{
+				.product-remove{
+					width: 40px;
+					a{
+						color: $brand-orange;
+						font-size: rem(24);
+						@include transition(0.2s color ease-in-out);
+						&:hover{
+							color: $dark-gray;
+						}
+					}
+				}
+				.product-thumbnail{
+					max-width: 160px;
+					a{
+						display: block;
+						img{
+							width: 100%;
+						}
+					}
+				}
+				.product-name{
+					text-align: center;
+					.tm-cart-edit-options{
+						display: none;
+					}
+				}
+				.product-edit{
+					a{
+						color: $brand-orange;
+						@include transition(0.2s color ease-in-out);
+						&:hover{
+							color: $dark-gray;
+						}
+					}
+				}
+				span{
+					color: $dark-gray;
+				}
+			}
+		}
+		&.woocommerce-checkout-review-order-table{
+			.order-total, .order-total span{
+				color: $brand-orange;
+			}
+		}
+	}
+	.woocommerce-checkout{
+		#payment{
+			background: transparent;
+			div.payment_box{
+				background-color: transparent;
+			}
+		}
+	}
 }
 dl{
 	margin-bottom: 0;
+}
+//move this lines to a new file during cleanups
+.woocommerce-message{
+	border-color: $brand-orange;
+	&:before{
+		color: $brand-orange;
+	}
+	a.wc-forward{
+		display: none;
+	}
+}
+.woocommerce-checkout{
+	.woocommerce-info{
+		display: none;
+	}
+}
+
+.woocommerce-account .addresses .title .edit{
+	padding-top: rem(20);
+	color: $brand-orange;
+	&:hover{
+		color: $dark-gray;
+	}
+}
+
+.woocommerce-account .woocommerce-MyAccount-content{
+	text-align: left!important;
+	width: 100%!important;
+	.woocommerce-info{
+		border-color: $brand-orange;
+		&:before{
+			color: $brand-orange;
+		}
+		.woocommerce-Button{
+			display: none;
+		}	
+	} 
+}
+
+#add_payment_method #payment div.payment_box, .woocommerce-cart #payment div.payment_box, .woocommerce-checkout #payment div.payment_box{
+	display: none;
 }
