@@ -69,17 +69,18 @@ class WC_Dynamic_Pricing_Advanced_Totals extends WC_Dynamic_Pricing_Advanced_Bas
 								}
 
 								if ( !$this->is_cumulative( $cart_item, $cart_item_key ) ) {
-									if ( $this->is_item_discounted( $cart_item, $cart_item_key ) ) {
+									if ( $this->is_item_discounted( $cart_item, $cart_item_key ) && apply_filters( 'wc_dynamic_pricing_stack_order_totals', false ) === false ) {
 										continue;
 									}
 								}
 
-								$original_price = $this->get_price_to_discount( $cart_item, $cart_item_key );
+
+								$original_price = $this->get_price_to_discount( $cart_item, $cart_item_key, apply_filters( 'wc_dynamic_pricing_stack_order_totals', false ) );
+								
 								if ( $original_price ) {
 									$amount = apply_filters( 'woocommerce_dynamic_pricing_get_rule_amount', $rule['amount'], $rule, $cart_item, $this );
-									if ( $amount > 1 ) {
-										$amount = $amount / 100;
-									}
+									$amount = $amount / 100;
+									
 
 									$price_adjusted = round( floatval( $original_price ) - ( floatval( $amount ) * $original_price), (int) $num_decimals );
 									WC_Dynamic_Pricing::apply_cart_item_adjustment( $cart_item_key, $original_price, $price_adjusted, $this->module_id, $set_id );
@@ -90,7 +91,7 @@ class WC_Dynamic_Pricing_Advanced_Totals extends WC_Dynamic_Pricing_Advanced_Bas
 				}
 
 				//Only process the first matched rule set
-				if ( $matched ) {
+				if ( $matched && apply_filters( 'wc_dynamic_pricing_stack_order_totals', false ) === false ) {
 					return;
 				}
 			}
@@ -113,7 +114,7 @@ class WC_Dynamic_Pricing_Advanced_Totals extends WC_Dynamic_Pricing_Advanced_Bas
 
 					$q = $cart_item['quantity'] ? $cart_item['quantity'] : 1;
 
-					if ( isset( $cart_item['discounts'] ) && isset( $cart_item['discounts']['by'] ) && $cart_item['discounts']['by'] == $this->module_id ) {
+					if ( isset( $cart_item['discounts'] ) && isset( $cart_item['discounts']['by'] ) && $cart_item['discounts']['by'][0] == $this->module_id ) {
 						$quantity += floatval( $cart_item['discounts']['price_base'] ) * $q;
 					} else {
 						$quantity += $cart_item['data']->get_price() * $q;

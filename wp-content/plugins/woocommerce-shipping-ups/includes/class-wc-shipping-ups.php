@@ -7,6 +7,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * WC_Shipping_UPS class.
  *
+ * @version 3.2.0
+ * @since 3.2.0
  * @extends WC_Shipping_Method
  */
 class WC_Shipping_UPS extends WC_Shipping_Method {
@@ -140,11 +142,31 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 	 * @access public
 	 * @return void
 	 */
-	public function __construct() {
+	public function __construct( $instance_id = 0 ) {
 		$this->id                 = 'ups';
+		$this->instance_id        = absint( $instance_id );
 		$this->method_title       = __( 'UPS', 'woocommerce-shipping-ups' );
-		$this->method_description = __( 'The <strong>UPS</strong> extension obtains rates dynamically from the UPS API during cart/checkout.', 'woocommerce-shipping-ups' );
+		$this->method_description = __( 'The UPS extension obtains rates dynamically from the UPS API during cart/checkout.', 'woocommerce-shipping-ups' );
+		$this->supports           = array(
+			'shipping-zones',
+			'instance-settings',
+			'settings',
+		);
 		$this->init();
+	}
+
+	/**
+	 * is_available function.
+	 *
+	 * @param array $package
+	 * @return bool
+	 */
+	public function is_available( $package ) {
+		if ( empty( $package['destination']['country'] ) ) {
+			return false;
+		}
+
+		return apply_filters( 'woocommerce_shipping_' . $this->id . '_is_available', true, $package );
 	}
 
 	/**
@@ -161,57 +183,47 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 	}
 
 	/**
-     * init function.
-     *
-     * @access public
-     * @return void
-     */
-	private function init() {
-
-		// Load the settings.
-		$this->init_form_fields();
-		$this->init_settings();
-
-		// Enqueue UPS Scripts
-		wp_enqueue_script( 'ups-admin-js' );
-
+	 * Initialize settings
+	 *
+	 * @version 3.2.0
+	 * @since 3.2.0
+	 * @return bool
+	 */
+	private function set_settings() {
 		// Define user set variables
-		$this->enabled         = $this->get_option( 'enabled', $this->enabled );
-		$this->title           = $this->get_option( 'title', $this->method_title );
-		$this->availability    = $this->get_option( 'availability', 'all' );
-		$this->countries       = $this->get_option( 'countries', array() );
-		$this->simple_advanced = $this->get_option( 'simple_advanced', 'simple' );
-
+		$this->title                = $this->get_option( 'title', $this->method_title );
+		$this->simple_advanced      = $this->get_option( 'simple_advanced', 'simple' );
+		
 		// API Settings
 		$this->user_id              = $this->get_option( 'user_id' );
 		$this->password             = $this->get_option( 'password' );
 		$this->access_key           = $this->get_option( 'access_key' );
 		$this->shipper_number       = $this->get_option( 'shipper_number' );
-		$this->negotiated           = ( $bool = $this->get_option( 'negotiated' ) ) && $bool == 'yes' ? true : false;
-		$this->origin_addressline   = ( $bool = $this->get_option( 'origin_addressline' ) ) && $bool == 'yes' ? true : false;
+		$this->negotiated           = ( ( $bool = $this->get_option( 'negotiated' ) ) && $bool === 'yes' );
+		$this->origin_addressline   = ( ( $bool = $this->get_option( 'origin_addressline' ) ) && $bool === 'yes' );
 		$this->origin_city          = $this->get_option( 'origin_city' );
 		$this->origin_postcode      = $this->get_option( 'origin_postcode' );
 		$this->origin_country_state = $this->get_option( 'origin_country_state' );
-		$this->debug                = ( $bool = $this->get_option( 'debug' ) ) && $bool == 'yes' ? true : false;
-
+		$this->debug                = ( ( $bool = $this->get_option( 'debug' ) ) && $bool === 'yes' );
+		
 		// Pickup and Destination
-		$this->pickup      = $this->get_option( 'pickup', '01' );
-		$this->residential = ( $bool = $this->get_option( 'residential' ) ) && $bool == 'yes' ? true : false;
-
+		$this->pickup               = $this->get_option( 'pickup', '01' );
+		$this->residential          = ( ( $bool = $this->get_option( 'residential' ) ) && $bool === 'yes' );
+		
 		// Services and Packaging
-		$this->offer_rates     = $this->get_option( 'offer_rates', 'all' );
-		$this->fallback        = $this->get_option( 'fallback' );
-		$this->packing_method  = $this->get_option( 'packing_method', 'per_item' );
-		$this->ups_packaging   = $this->get_option( 'ups_packaging', array() );
-		$this->custom_services = $this->get_option( 'services', array() );
-		$this->boxes           = $this->get_option( 'boxes', array() );
-		$this->insuredvalue    = ( $bool = $this->get_option( 'insuredvalue' ) ) && $bool == 'yes' ? true : false;
-		$this->signature       = $this->get_option( 'signature', 'none' );
-
+		$this->offer_rates          = $this->get_option( 'offer_rates', 'all' );
+		$this->fallback             = $this->get_option( 'fallback' );
+		$this->packing_method       = $this->get_option( 'packing_method', 'per_item' );
+		$this->ups_packaging        = $this->get_option( 'ups_packaging', array() );
+		$this->custom_services      = $this->get_option( 'services', array() );
+		$this->boxes                = $this->get_option( 'boxes', array() );
+		$this->insuredvalue         = ( ( $bool = $this->get_option( 'insuredvalue' ) ) && $bool === 'yes' );
+		$this->signature            = $this->get_option( 'signature', 'none' );
+		
 		// Units
-		$this->units = $this->get_option( 'units', 'imperial' );
+		$this->units                = $this->get_option( 'units', 'imperial' );
 
-		if ( $this->units == 'metric' ) {
+		if ( $this->units === 'metric' ) {
 			$this->weight_unit = 'KGS';
 			$this->dim_unit    = 'CM';
 		} else {
@@ -221,24 +233,50 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 
 		/**
 		 * If no origin country / state saved / exists, set it to store base country:
-		 * Includes compat for < 2.3.
 		 */
 		if ( ! $this->origin_country_state ) {
-			if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.3', '>=' ) ) {
-				$origin = wc_get_base_location();
-				$this->origin_country = $origin['country'];
-				$this->origin_state   = $origin['state'];
-			} else {
-				$base_country = get_option( 'woocommerce_default_country' );
-				$this->split_country_state( $base_country );
-			}
+			$origin               = wc_get_base_location();
+			$this->origin_country = $origin['country'];
+			$this->origin_state   = $origin['state'];
 		} else {
 			$this->split_country_state( $this->origin_country_state );
 		}
 
+		return true;
+	}
+
+	/**
+     * init function.
+     *
+     * @access public
+     * @return void
+     */
+	private function init() {
+
+		// Load the settings.
+		$this->init_form_fields();
+		$this->set_settings();
+
+		// Enqueue UPS Scripts
+		wp_enqueue_script( 'ups-admin-js' );
+
 		add_action( 'woocommerce_update_options_shipping_' . $this->id, array( $this, 'process_admin_options' ) );
 		add_action( 'woocommerce_update_options_shipping_' . $this->id, array( $this, 'clear_transients' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'assets' ) );
+	}
+
+	/**
+	 * Process settings on save
+	 *
+	 * @access public
+	 * @since 3.2.0
+	 * @version 3.2.0
+	 * @return void
+	 */
+	public function process_admin_options() {
+		parent::process_admin_options();
+
+		$this->set_settings();
 	}
 
 	/**
@@ -260,15 +298,15 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 	 */
 
 	public function assets() {
-		wp_register_style( 'ups-admin-css', plugin_dir_url( __FILE__ ) . '../assets/css/ups-admin.css', '', WC_Shipping_UPS_Init::VERSION );
-		wp_register_script( 'ups-admin-js', plugin_dir_url( __FILE__ ) . '../assets/js/ups-admin.js', array( 'jquery' ), WC_Shipping_UPS_Init::VERSION, true );
+		wp_register_style( 'ups-admin-css', plugin_dir_url( __FILE__ ) . '../assets/css/ups-admin.css', '', WC_Shipping_UPS_Init::$version );
+		wp_register_script( 'ups-admin-js', plugin_dir_url( __FILE__ ) . '../assets/js/ups-admin.js', array( 'jquery' ), WC_Shipping_UPS_Init::$version, true );
 
 		wp_enqueue_style( 'ups-admin-css' );
 		wp_enqueue_script( 'jquery-ui-sortable' );
 
 		$vars = array(
-			'dim_unit' 		=> $this->dim_unit,
-			'weight_unit'	=> $this->weight_unit,
+			'dim_unit'    => $this->dim_unit,
+			'weight_unit' => $this->weight_unit,
 		);
 
 		wp_localize_script( 'ups-admin-js', 'wcups', $vars );
@@ -286,28 +324,28 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 		$error_message = '';
 
 		// Check for UPS User ID
-		if ( ( ! $this->user_id || ! $this->password || ! $this->access_key || ! $this->shipper_number ) && $this->enabled == 'yes' ) {
+		if ( ( ! $this->user_id || ! $this->password || ! $this->access_key || ! $this->shipper_number ) ) {
 			$error_message .= '<p>' . __( 'UPS is enabled, but you have not entered all of your UPS details!', 'woocommerce-shipping-ups' ) . '</p>';
 		}
 
 		// If user has selected to pack into boxes,
 		// Check if at least one UPS packaging is chosen, or a custom box is defined
-		if ( ( $this->packing_method == 'box_packing' ) && ( $this->enabled == 'yes' ) ) {
-			if ( empty( $this->ups_packaging )  && empty( $this->boxes ) ){
+		if ( 'box_packing' === $this->packing_method ) {
+			if ( empty( $this->ups_packaging )  && empty( $this->boxes ) ) {
 				$error_message .= '<p>' . __( 'UPS is enabled, and Parcel Packing Method is set to \'Pack into boxes\', but no UPS Packaging is selected and there are no custom boxes defined. Items will be packed individually.', 'woocommerce-shipping-ups' ) . '</p>';
 			}
 		}
 
 		// Check for at least one service enabled
-		$ctr=0;
-		if ( isset($this->custom_services ) && is_array( $this->custom_services ) ){
-			foreach ( $this->custom_services as $key => $values ){
-				if ( $values['enabled'] == 1) {
+		$ctr = 0;
+		if ( isset($this->custom_services ) && is_array( $this->custom_services ) ) {
+			foreach ( $this->custom_services as $key => $values ) {
+				if ( $values['enabled'] == 1 ) {
 					$ctr++;
 				}
 			}
 		}
-		if ( ( $ctr == 0 ) && $this->enabled == 'yes' ) {
+		if ( $ctr == 0 ) {
 			$error_message .= '<p>' . __( 'UPS is enabled, but there are no services enabled.', 'woocommerce-shipping-ups' ) . '</p>';
 		}
 
@@ -613,52 +651,7 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 	 * @return void
 	 */
 	public function init_form_fields() {
-
-		$this->form_fields  = array(
-			'enabled'          => array(
-				'title'           => __( 'Enable/Disable', 'woocommerce-shipping-ups' ),
-				'type'            => 'checkbox',
-				'label'           => __( 'Enable this shipping method', 'woocommerce-shipping-ups' ),
-				'default'         => 'no'
-			),
-			'api'           => array(
-				'title'           => __( 'API Settings', 'woocommerce-shipping-ups' ),
-				'type'            => 'title',
-				'description'     => sprintf( __( 'You need to obtain UPS account credentials by registering on %svia their website%s.', 'woocommerce-shipping-ups' ), '<a href="https://www.ups.com/upsdeveloperkit">', '</a>' ),
-				'class'			  => 'ups-section-title ups-api-title',
-			),
-			'user_id'           => array(
-				'title'           => __( 'UPS User ID', 'woocommerce-shipping-ups' ),
-				'type'            => 'text',
-				'description'     => __( 'Obtained from UPS after getting an account.', 'woocommerce-shipping-ups' ),
-				'default'         => '',
-				'class'			  => 'ups-api-setting',
-				'desc_tip' => true
-			),
-			'password'            => array(
-				'title'           => __( 'UPS Password', 'woocommerce-shipping-ups' ),
-				'type'            => 'password',
-				'description'     => __( 'Obtained from UPS after getting an account.', 'woocommerce-shipping-ups' ),
-				'default'         => '',
-				'class'			  => 'ups-api-setting',
-				'desc_tip' => true
-			),
-			'access_key'          => array(
-				'title'           => __( 'UPS Access Key', 'woocommerce-shipping-ups' ),
-				'type'            => 'text',
-				'description'     => __( 'Obtained from UPS after getting an account.', 'woocommerce-shipping-ups' ),
-				'default'         => '',
-				'class'			  => 'ups-api-setting',
-				'desc_tip' => true
-			),
-			'shipper_number'      => array(
-				'title'           => __( 'UPS Account Number', 'woocommerce-shipping-ups' ),
-				'type'            => 'text',
-				'description'     => __( 'Obtained from UPS after getting an account.', 'woocommerce-shipping-ups' ),
-				'default'         => '',
-				'class'			  => 'ups-api-setting',
-				'desc_tip' => true
-			),
+		$this->instance_form_fields = array(
 			'core'           => array(
 				'title'           => __( 'Method & Origin Settings', 'woocommerce-shipping-ups' ),
 				'type'            => 'title',
@@ -671,24 +664,6 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 				'description'     => __( 'This controls the title which the user sees during checkout.', 'woocommerce-shipping-ups' ),
 				'default'         => __( 'UPS', 'woocommerce-shipping-ups' ),
 				'desc_tip' => true
-			),
-			'availability'  => array(
-				'title'           => __( 'Method Availability', 'woocommerce-shipping-ups' ),
-				'type'            => 'select',
-				'default'         => 'all',
-				'class'           => 'availability',
-				'options'         => array(
-					'all'            => __( 'All Countries', 'woocommerce-shipping-ups' ),
-					'specific'       => __( 'Specific Countries', 'woocommerce-shipping-ups' ),
-				),
-			),
-			'countries'        => array(
-				'title'           => __( 'Specific Countries', 'woocommerce-shipping-ups' ),
-				'type'            => 'multiselect',
-				'class'           => 'chosen_select',
-				'css'             => 'width: 450px;',
-				'default'         => '',
-				'options'         => WC()->countries->get_allowed_countries(),
 			),
 			'origin_city'      	  => array(
 				'title'           => __( 'Origin City', 'woocommerce-shipping-ups' ),
@@ -704,7 +679,7 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 				'default'         => '',
 				'desc_tip' => true
 			),
-			'origin_country_state'      => array(
+			'origin_country_state' => array(
 				'type'            => 'single_select_country',
 			),
 			'services_packaging'  => array(
@@ -774,14 +749,6 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 				'description'     => __( 'Only modify the following options if needed. They will most likely alter the regularly offered rate(s).', 'woocommerce-shipping-ups' ),
 				'class'			  => 'ups-section-title',
 			),
-			'debug'  => array(
-				'title'           => __( 'Debug Mode', 'woocommerce-shipping-ups' ),
-				'label'           => __( 'Enable debug mode', 'woocommerce-shipping-ups' ),
-				'type'            => 'checkbox',
-				'default'         => 'no',
-				'description'     => __( 'Enable debug mode to show debugging information on your cart/checkout.', 'woocommerce-shipping-ups' ),
-				'desc_tip' => true
-			),
 			'origin_addressline'  => array(
 				'title'           => __( 'Origin Address', 'woocommerce-shipping-ups' ),
 				'type'            => 'text',
@@ -833,7 +800,55 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 				),
 				'desc_tip' => true
 			),
+		);
 
+		$this->form_fields = array(
+			'api'           => array(
+				'title'           => __( 'API Settings', 'woocommerce-shipping-ups' ),
+				'type'            => 'title',
+				'description'     => sprintf( __( 'You need to obtain UPS account credentials by registering on %svia their website%s.', 'woocommerce-shipping-ups' ), '<a href="https://www.ups.com/upsdeveloperkit">', '</a>' ),
+				'class'			  => 'ups-section-title ups-api-title',
+			),
+			'user_id'           => array(
+				'title'           => __( 'UPS User ID', 'woocommerce-shipping-ups' ),
+				'type'            => 'text',
+				'description'     => __( 'Obtained from UPS after getting an account.', 'woocommerce-shipping-ups' ),
+				'default'         => '',
+				'class'			  => 'ups-api-setting',
+				'desc_tip' => true
+			),
+			'password'            => array(
+				'title'           => __( 'UPS Password', 'woocommerce-shipping-ups' ),
+				'type'            => 'password',
+				'description'     => __( 'Obtained from UPS after getting an account.', 'woocommerce-shipping-ups' ),
+				'default'         => '',
+				'class'			  => 'ups-api-setting',
+				'desc_tip' => true
+			),
+			'access_key'          => array(
+				'title'           => __( 'UPS Access Key', 'woocommerce-shipping-ups' ),
+				'type'            => 'text',
+				'description'     => __( 'Obtained from UPS after getting an account.', 'woocommerce-shipping-ups' ),
+				'default'         => '',
+				'class'			  => 'ups-api-setting',
+				'desc_tip' => true
+			),
+			'shipper_number'      => array(
+				'title'           => __( 'UPS Account Number', 'woocommerce-shipping-ups' ),
+				'type'            => 'text',
+				'description'     => __( 'Obtained from UPS after getting an account.', 'woocommerce-shipping-ups' ),
+				'default'         => '',
+				'class'			  => 'ups-api-setting',
+				'desc_tip' => true
+			),
+			'debug'  => array(
+				'title'           => __( 'Debug Mode', 'woocommerce-shipping-ups' ),
+				'label'           => __( 'Enable debug mode', 'woocommerce-shipping-ups' ),
+				'type'            => 'checkbox',
+				'default'         => 'no',
+				'description'     => __( 'Enable debug mode to show debugging information on your cart/checkout.', 'woocommerce-shipping-ups' ),
+				'desc_tip' => true
+			),
 		);
 	}
 
@@ -1212,14 +1227,15 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 			}
 
 			// get package weight
-			$weight = wc_get_weight( $values['data']->get_weight(), 'lbs' );
+			$weight = wc_get_weight( $values['data']->get_weight(), $this->weight_unit );
 
 			// get package dimensions
 			if ( $values['data']->length && $values['data']->height && $values['data']->width ) {
 
-				$dimensions = array( number_format( wc_get_dimension( $values['data']->length, 'in' ), 2, '.', ''),
-									 number_format( wc_get_dimension( $values['data']->height, 'in' ), 2, '.', ''),
-									 number_format( wc_get_dimension( $values['data']->width, 'in' ), 2, '.', '') );
+				$dimensions = array( number_format( wc_get_dimension( $values['data']->length, $this->dim_unit ), 2, '.', '' ),
+									 number_format( wc_get_dimension( $values['data']->height, $this->dim_unit ), 2, '.', '' ),
+									 number_format( wc_get_dimension( $values['data']->width, $this->dim_unit ), 2, '.', '' ) );
+
 				sort( $dimensions );
 
 			}
@@ -1239,7 +1255,7 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 			if ( $values['data']->length && $values['data']->height && $values['data']->width ) {
 				$request .= '	<Dimensions>' . "\n";
 				$request .= '		<UnitOfMeasurement>' . "\n";
-				$request .= '	 		<Code>IN</Code>' . "\n";
+				$request .= '	 		<Code>' . $this->dim_unit . '</Code>' . "\n";
 				$request .= '		</UnitOfMeasurement>' . "\n";
 				$request .= '		<Length>' . $dimensions[2] . '</Length>' . "\n";
 				$request .= '		<Width>' . $dimensions[1] . '</Width>' . "\n";
@@ -1249,7 +1265,7 @@ class WC_Shipping_UPS extends WC_Shipping_Method {
 
 			$request .= '	<PackageWeight>' . "\n";
 			$request .= '		<UnitOfMeasurement>' . "\n";
-			$request .= '			<Code>LBS</Code>' . "\n";
+			$request .= '			<Code>' . $this->weight_unit . '</Code>' . "\n";
 			$request .= '		</UnitOfMeasurement>' . "\n";
 			$request .= '		<Weight>' . $weight . '</Weight>' . "\n";
 			$request .= '	</PackageWeight>' . "\n";

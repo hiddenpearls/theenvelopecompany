@@ -29,7 +29,7 @@ class WC_Dynamic_Pricing_Advanced_Product extends WC_Dynamic_Pricing_Advanced_Ba
 			if ( !$process_discounts ) {
 				continue;
 			}
-			
+
 			if ( !$this->is_cumulative( $cart_item, $cart_item_key ) ) {
 				if ( $this->is_item_discounted( $cart_item, $cart_item_key ) ) {
 					continue;
@@ -73,9 +73,8 @@ class WC_Dynamic_Pricing_Advanced_Product extends WC_Dynamic_Pricing_Advanced_Ba
 
 	protected function get_pricing_rule_sets( $cart_item ) {
 		$pricing_rule_sets = apply_filters( 'wc_dynamic_pricing_get_product_pricing_rule_sets', get_post_meta( $cart_item['data']->id, '_pricing_rules', true ), $cart_item['data']->id, $this );
+		$pricing_rule_sets = apply_filters( 'wc_dynamic_pricing_get_cart_item_pricing_rule_sets', $pricing_rule_sets, $cart_item );
 		$sets = array();
-
-
 		if ( $pricing_rule_sets ) {
 			foreach ( $pricing_rule_sets as $set_id => $set_data ) {
 				$sets[$set_id] = new WC_Dynamic_Pricing_Adjustment_Set_Product( $set_id, $set_data );
@@ -117,9 +116,7 @@ class WC_Dynamic_Pricing_Advanced_Product extends WC_Dynamic_Pricing_Advanced_Ba
 							$result = $adjusted >= 0 ? $adjusted : 0;
 							break;
 						case 'percentage_discount':
-							if ( $amount > 1 ) {
-								$amount = $amount / 100;
-							}
+							$amount = $amount / 100;
 							$result = round( floatval( $price ) - ( floatval( $amount ) * $price), (int) $num_decimals );
 							break;
 						case 'fixed_price':
@@ -334,9 +331,8 @@ class WC_Dynamic_Pricing_Advanced_Product extends WC_Dynamic_Pricing_Advanced_Ba
 
 							break;
 						case 'percent_adjustment':
-							if ( $amount > 1 ) {
-								$amount = $amount / 100;
-							}
+							$amount = $amount / 100;
+							
 							$adjusted = round( floatval( $price ) - ( floatval( $amount ) * $price), (int) $num_decimals );
 							$line_total = 0;
 
