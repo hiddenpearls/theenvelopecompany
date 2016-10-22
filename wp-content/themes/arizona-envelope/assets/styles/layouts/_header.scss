@@ -1,6 +1,6 @@
 .site-header{
     z-index: 2;
-    padding-bottom: rem(30);
+    padding-bottom: rem(12);
     transition: all 0.2s ease;
     .container{
         @media screen and (max-width: $breakpoint--large){
@@ -43,11 +43,13 @@
     }
     .brand{
         padding-left: 0;
-        margin: rem(12) 0 rem(30);
+        margin: rem(12) 0 rem(12);
         display: block; 
         @media screen and (max-width: $breakpoint--large){
+            max-width: rem(185);
+            margin: 20px 0 10px;
             img{
-                max-width: 180px;
+                max-width: 100%;
             }
         }
     }
@@ -92,6 +94,7 @@
         }
         .nav-utilities{
             float: right;
+            max-width: 80%;
             margin: rem(12) 0 0;
             .phone-icon, .cart-icon{
                 a{
@@ -106,8 +109,9 @@
                 }
             }
             .phone-icon{
-                float: right;
-                margin-bottom: rem(48);
+                float: left;
+                margin: 0 rem(16);
+                padding-top: 8px;
                 @media screen and (max-width: $breakpoint--large){
                     float: none;
                     margin-bottom: 0;
@@ -115,7 +119,7 @@
                 }
             }
             .menu-top-navigation-container{
-                clear: both;
+                float: left;
                 .nav{
                     li.menu-item{
                         padding: 8px 0;
@@ -152,9 +156,10 @@
             }
         }
         .nav-primary{
-            width: auto;
             display: block;
-            clear: left;
+            max-width: 80%;
+            float: right;
+            margin-top: rem(12);
             .menu-site-navigation-container{
                 float: left;
                 max-width: 70%;
@@ -174,6 +179,10 @@
         .search-form{
             float: right;
             max-width: 30%;
+            max-width: 40%;
+            .search-field{
+                min-width: rem(200);
+            }
             @media screen and (max-width: $breakpoint--large){
                 float: none;
                 max-width: 100%;
@@ -205,42 +214,6 @@
         padding-bottom: 0;
         @media screen and (max-width: $breakpoint--medium){
             position: static;
-        }
-        .brand{
-            margin-bottom: rem(16);
-            @media screen and (max-width: $breakpoint--xlarge){
-                max-width: rem(185);
-                margin: 20px 0 10px;
-                img{
-                    max-width: 100%;
-                }
-            }
-        }
-        .main-site-nav{
-            .nav-utilities{
-                max-width: 80%;
-                .phone-icon{
-                    float: left;
-                    margin: 0 rem(16);
-                    padding-top: 8px;
-                }
-                .menu-top-navigation-container{
-                    float: left;
-                    clear: none;
-                }
-            }
-            .nav-primary{
-                clear: none;
-                max-width: 80%;
-                float: right;
-                margin-top: rem(12);
-            }
-            .search-form{
-                max-width: 40%;
-                .search-field{
-                    min-width: rem(200);
-                }
-            }
         }
     }
     @media (min-width: $breakpoint--medium) and (max-width: $breakpoint--large){

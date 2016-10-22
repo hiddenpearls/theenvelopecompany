@@ -101,7 +101,26 @@ function custom_breadcrumb() {
  * Change product's name position within the DOM.
  */
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
-add_action( 'woocommerce_before_single_product_summary', 'woocommerce_template_single_title', 5 );
+add_action( 'woocommerce_single_product_title', 'woocommerce_template_single_title', 5 );
+
+/**
+ * Change single product pages
+ */
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+function product_long_desc() {
+  global $woocommerce, $post;
+
+  if ( $post->post_content ) : ?>
+    <div itemprop="description">
+
+      <?php the_content(); ?>
+
+    </div>
+  <?php endif;
+}
+add_action( 'woocommerce_single_product_summary', 'Roots\Sage\Extras\product_long_desc', 20 );
 
 remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
 add_action( 'woocommerce_after_shop_loop_item_title', 'Roots\Sage\Extras\woocommerce_template_loop_attributes', 10 );
@@ -283,9 +302,22 @@ add_action( 'woocommerce_created_customer', 'Roots\Sage\Extras\wooc_save_extra_r
 //old functions from old theme
 // Price Dropdown
 function yahm_cart_sel(){
+  if (check_user_role(array('discount-customer-10'))) {
+    $j = 1.8; }
+  elseif (check_user_role(array('discount-customer-20'))) {
+    $j = 1.6; }
+  else { $j = $attr; }
+  if ($product && is_object($product) && method_exists($product, "get_price") ){
+      $_price=$product->get_price();
+  $price=$_price*$j;
+  $price = number_format($price, 2, '.', '');
+  $price = '$'.$price;
+  print_r($price);
+  }
   $x=500; $yahm_arr = array();
     for($i=0; $i<60; $i++) {
-      $j = number_format($x); echo '<option '. ($i != 1 ? '' : 'selected=selected') . ' value="' . $j.'_'.$i.'">' . $j.'</option>';
+      $j = number_format($x); 
+      echo '<option '. ($i != 1 ? '' : 'selected=selected') . ' value="' . $j.'_'.$i.'">' . $j.$price.'</option>';
       $x=$x+500;
   }
 }
