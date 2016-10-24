@@ -4,9 +4,14 @@
 		display: none;
 	}
 }
-#yahm-unit-price{
-	color: $brand-orange;
-	font-size: rem(42);
+.yahm-price-display{
+	#yahm-unit-price{
+		color: $brand-orange;
+		font-size: rem(42);
+	}
+	#yahm-unit-label{
+		color: $brand-orange;
+	}
 }
 .woocommerce{
 	div.product{
