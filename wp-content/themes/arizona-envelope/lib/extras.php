@@ -162,7 +162,7 @@ function wti_loginout_menu_link( $items, $args ) {
     //||($args->theme_location == 'footer_navigation')
    if (($args->theme_location == 'top_navigation')) {
       if (is_user_logged_in()) {
-         $items .= '<li class="pull-left menu-item"><a href="'. wp_logout_url("/") .'">'. __("Log Out") .'</a></li>';
+         $items .= '<li class="pull-left menu-item"><a href="'. wp_logout_url("/") .'">'. __("Logout") .'</a></li>';
          $items .= '<li class="pull-left menu-item"><a href="/my-account/">'. __("My Account") .'</a></li>';
       } else {
         //wp_login_url(get_permalink()) >> wordpress login URL

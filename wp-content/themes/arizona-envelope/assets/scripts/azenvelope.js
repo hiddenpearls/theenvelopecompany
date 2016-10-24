@@ -64,9 +64,9 @@ jQuery(document).ready(function( $ ) {
 			$("input#quantityGo").change();
 		
 		var k = '#yahm-tm-price-tmcp_radio_'+j; // alert(k);
-		console.log(k);
+		
 		var kk = $(k).text(); // alert(kk); 
-		console.log(kk);
+		
 		$('#yahm-unit-price').text(kk);	
 		
 		var h = '#yahm-tm-label-tmcp_radio_'+j;
@@ -74,7 +74,7 @@ jQuery(document).ready(function( $ ) {
 		$('#yahm-unit-label').text(hh);
 
 	};			
-	$("#yahm-quantity")
+	
 	$(document).ready(function() {
 		$('#tm-epo-field-1 option[value="1,000_1"]' ).prop('selected',true);
 		$("#yahm-quantity").on("change", optChange);
