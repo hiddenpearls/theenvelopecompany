@@ -72,6 +72,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 				<div class="col-md-8">
 					<div>
+						<span id="yahm-unit-price">
+					 		<?php //echo Roots\Sage\Extras\custom_price_WPA111772($price,$product,2); ?>
+					 		$19.12
+	                    </span><br />
+	                    <span id="yahm-unit-label">Per M (1,000)</span>
 						<?php do_action('woocommerce_tm_custom_price_fields_only'); ?>
 						<?php woocommerce_template_single_add_to_cart(); ?>
 					</div>

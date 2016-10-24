@@ -38,7 +38,7 @@ jQuery(document).ready(function( $ ) {
 	function scrollPosition(){
 		var sticky = $('.site-header'),
 	  	scroll = $(window).scrollTop();
-	  	console.log(scroll);
+	  	//console.log(scroll);
 		if (scroll >= 1) sticky.addClass('fixed-header');
 		else sticky.removeClass('fixed-header');
 	}
@@ -63,16 +63,18 @@ jQuery(document).ready(function( $ ) {
 			$("input#quantityGo").val(n);
 			$("input#quantityGo").change();
 		
-		var k = '#yahm-tm-price-tmcp_radio_'+j; // alert(k); 
+		var k = '#yahm-tm-price-tmcp_radio_'+j; // alert(k);
+		console.log(k);
 		var kk = $(k).text(); // alert(kk); 
+		console.log(kk);
 		$('#yahm-unit-price').text(kk);	
 		
 		var h = '#yahm-tm-label-tmcp_radio_'+j;
 		var hh = $(h).text();
 		$('#yahm-unit-label').text(hh);
 
-	};//]]>			
-
+	};			
+	$("#yahm-quantity")
 	$(document).ready(function() {
 		$('#tm-epo-field-1 option[value="1,000_1"]' ).prop('selected',true);
 		$("#yahm-quantity").on("change", optChange);
@@ -84,6 +86,7 @@ jQuery(document).ready(function( $ ) {
 		$("#yahm-quantity").on("change", optChange);
 		$("#tm-epo-field-1").on("change", optChange);
 	});
+
 
 
 });

@@ -4,7 +4,10 @@
 		display: none;
 	}
 }
-
+#yahm-unit-price{
+	color: $brand-orange;
+	font-size: rem(42);
+}
 .woocommerce{
 	div.product{
 		div.summary, div.images{

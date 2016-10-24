@@ -336,12 +336,14 @@ function check_user_role($roles, $user_id = NULL) {
 //** added 2x price yahm **
 function custom_price_WPA111772($price,$product,$attr) {
   if (check_user_role(array('discount-customer-10'))) {
-      $j = 1.8; }
-    elseif (check_user_role(array('discount-customer-20'))) {
-      $j = 1.6; }
-    else { $j = $attr; }
-    if ($product && is_object($product) && method_exists($product, "get_price") ){
-        $_price=$product->get_price();
+    $j = 1.8; 
+  }
+  elseif (check_user_role(array('discount-customer-20'))) {
+    $j = 1.6; }
+    else { $j = $attr; 
+  }
+  if ($product && is_object($product) && method_exists($product, "get_price") ){
+    $_price=$product->get_price();
     $price=$_price*$j;
     $price = number_format($price, 2, '.', '');
     $price = '$'.$price;
