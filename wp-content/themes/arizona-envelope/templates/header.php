@@ -26,7 +26,7 @@ if( is_front_page() ){
                         $cleaned_phone = $phone;
                         $cleaned_phone = str_replace(array('(', ')', '-', ' '), "", $cleaned_phone);
                     ?>
-                    <a href="tel:+1<?php echo $cleaned_phone; ?>" class="d-block"><?php echo $phone; ?></a>
+                    <span class="d-block"><?php echo $phone; ?></span>
                 </div>
                 <?php
                     if (has_nav_menu('top_navigation')) :

@@ -68,15 +68,15 @@
 		}
 	}
 	&.view{
-		background-color: transparent;
-		border-color: $medium-gray;
+		background-color: transparent!important;
+		border-color: $medium-gray!important;
 		color: $dark-gray;
 		width: rem(125)!important;
 		height: rem(50)!important;
 		&:hover{
-			background-color: $brand-orange;
-			color: #fff;
-			border-color: $brand-orange;
+			background-color: $brand-orange!important;
+			color: #fff!important;
+			border-color: $brand-orange!important;
 		}
 	}
 }

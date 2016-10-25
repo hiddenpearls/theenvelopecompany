@@ -21,7 +21,7 @@
             'description'   => 'Samples',
             'public'        => true,
             'menu_position' => 8,
-            'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'revisions' ),
+            'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'revisions', 'page-attributes' ),
             'taxonomies'    => array(''),
             'has_archive'   => false,
         );

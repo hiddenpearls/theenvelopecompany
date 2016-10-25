@@ -74,12 +74,7 @@
                 }           
                 &.current-menu-item, &.current-page-ancestor{
                     a{
-                        color: $dark-gray;
-                        border-left: 2px solid $brand-orange;
-                        border-right: 2px solid $brand-orange;
-                        @media screen and (max-width: $breakpoint--large){
-                            border: none;
-                        }
+                        color: $brand-orange;
                     }
                 }
                 &:first-child{
@@ -97,8 +92,9 @@
             max-width: 80%;
             margin: rem(12) 0 0;
             .phone-icon, .cart-icon{
-                a{
-                    color: $dark-gray;
+                a, span{
+                    color: $medium-gray;
+                    line-height: 0.5;
                     &:before{
                         font: normal normal normal 14px/1 FontAwesome;
                         content: "\f095";
@@ -269,7 +265,7 @@
 	}
     .container{
         position: absolute;
-        bottom: 50px;
+        bottom: rem(100);
         left: 50%;
         transform: translateX(-50%);
         @media screen and (max-width: $breakpoint--large){
@@ -277,6 +273,7 @@
         }
         @media screen and (max-width: $breakpoint--medium){
             width: 90%;
+            bottom: 10px;
         }
         .slider-caption{
             max-width: 40%;

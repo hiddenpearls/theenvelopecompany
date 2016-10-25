@@ -31,19 +31,26 @@ jQuery(document).ready(function( $ ) {
 
 	})();
 
-  	scrollPosition();
+  	
+	function scrollPosition(){
+		var sticky = $('.site-header');
+	  	scroll = $(window).scrollTop();
+	  	//console.log(scroll);
+		if (scroll >= 1){
+			sticky.addClass('fixed-header');
+			sticky.next().addClass("fixed-header-content");
+		} 
+		else{
+			sticky.removeClass('fixed-header');	
+			sticky.next().removeClass("fixed-header-content");
+		} 
+	}
+	scrollPosition();
 	$(window).scroll(function() {
 	    scrollPosition();
 	});
-	function scrollPosition(){
-		var sticky = $('.site-header'),
-	  	scroll = $(window).scrollTop();
-	  	//console.log(scroll);
-		if (scroll >= 1) sticky.addClass('fixed-header');
-		else sticky.removeClass('fixed-header');
-	}
 
-	var $ =jQuery.noConflict();	
+	//var $ =jQuery.noConflict();	
 
 	// alert('test 1');
 	 
@@ -75,17 +82,17 @@ jQuery(document).ready(function( $ ) {
 
 	};			
 	
-	$(document).ready(function() {
+
 		$('#tm-epo-field-1 option[value="1,000_1"]' ).prop('selected',true);
 		$("#yahm-quantity").on("change", optChange);
 		$("#tm-epo-field-1").on("change", optChange);	
-	});
 
-	$(window).ready(function() {
+
+
 		$('#tm-epo-field-1 option[value="1,000_1"]' ).prop('selected',true);
 		$("#yahm-quantity").on("change", optChange);
 		$("#tm-epo-field-1").on("change", optChange);
-	});
+
 
 
 

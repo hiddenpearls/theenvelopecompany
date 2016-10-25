@@ -15,6 +15,8 @@
 				'post_type'		=>	'sample',
 				'post_status'	=>	'publish',
 				'posts_per_page'=>	 -1,
+				'orderby'		=>	'menu_order',
+				'order'			=> 	'DESC'
 			);
 			$samples_query = null;
 			$samples_query = new WP_Query( $args );
