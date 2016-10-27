@@ -37,7 +37,7 @@ jQuery(document).ready(function( $ ) {
 	  		sticky.addClass('fixed-header');
 			sticky.next().addClass("fixed-header-content");
 	  	}*/
-		if (scroll >= 1){
+		if (scroll >= 120){
 			sticky.addClass('fixed-header');
 			sticky.next().addClass("fixed-header-content");
 		} 
