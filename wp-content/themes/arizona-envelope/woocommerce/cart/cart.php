@@ -96,7 +96,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 								if ( $_product->is_sold_individually() ) {
 									$product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
 								} else {
-									$product_quantity = sprintf( "<span>{$cart_item['quantity']}</span>" );
+									$product_total = $cart_item['quantity']*500;
+									$product_quantity = sprintf( "<span>{$product_total}</span>" );
 									/*$product_quantity = woocommerce_quantity_input( array(
 										'input_name'  => "cart[{$cart_item_key}][qty]",
 										'input_value' => $cart_item['quantity'],

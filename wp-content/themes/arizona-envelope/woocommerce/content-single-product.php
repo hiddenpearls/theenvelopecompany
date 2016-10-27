@@ -77,22 +77,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 						 		<?php 
 						 			//** added 2x price yahm **
 									/*function custom_price_WPA111772($price,$product,$attr) {
-									  if (check_user_role(array('discount-customer-10'))) {
-									      $j = 1.8; }
-									    elseif (check_user_role(array('discount-customer-20'))) {
-									      $j = 1.6; }
-									    else { $j = $attr; }
+										$user = wp_get_current_user();
+										if ( in_array( 'discount-customer-10', (array) $user->roles ) ) {
+    										//The user has the "author" role
+    										$j = 1.8;
+										}
+									    elseif ( in_array( 'discount-customer-20', (array) $user->roles ) ) {
+									      	$j = 1.6; 
+									  	}
+									    else { 
+									    	$j = $attr; 
+									    }
 									    if ($product && is_object($product) && method_exists($product, "get_price") ){
 									        $_price=$product->get_price();
-									    $price=$_price*$j;
-									    $price = number_format($price, 2, '.', '');
-									    $price = '$'.$price;
-									  }
-									  return $price;
+									    	$price=$_price*$j;
+									    	$price = number_format($price, 2, '.', '');
+									    	$price = '$'.$price;
+									  	}
+									  	return $price;
 									}
-						 			
 						 			echo  custom_price_WPA111772($price,$product,2);*/
-
 						 		?>
 		                    </span><br />
 		                    <span id="yahm-unit-label">Per M (1,000)</span>

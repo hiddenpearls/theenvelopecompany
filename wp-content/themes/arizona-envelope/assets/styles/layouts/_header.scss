@@ -13,7 +13,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        @media screen and (max-width: $breakpoint--medium){
+        @media screen and (max-width: $breakpoint--large){
             position: static;
             background-color: $sand;
         }
@@ -30,7 +30,7 @@
     .navbar-collapse{
         padding: 0 8px 0 0;
         &.in{
-            margin-top: rem(100);
+            /*margin-top: rem(100);
             position: fixed;
             top: 0;
             left: 0;
@@ -38,7 +38,7 @@
             bottom: 0;
             background-color: $sand;
             z-index: 10;
-            overflow-y: scroll!important;
+            overflow-y: scroll!important;*/
         }
     }
     .brand{
@@ -79,6 +79,9 @@
                 }
                 &:first-child{
                     padding-left: 0;
+                    @media screen and (max-width: $breakpoint--large){
+                        padding-left: 15px;
+                    }
                 }
                 @media screen and (max-width: $breakpoint--large){
                     display: block;
@@ -110,8 +113,13 @@
                 padding-top: 8px;
                 @media screen and (max-width: $breakpoint--large){
                     float: none;
-                    margin-bottom: 0;
-                    padding-left: rem(5);
+                    margin: 0;
+                    padding: 10px 15px;
+                    border-bottom: 1px solid $brand-rust;
+                    span{
+                        padding: 10px 0;
+                        display: inline-block;
+                    }
                 }
             }
             .menu-top-navigation-container{
@@ -119,12 +127,32 @@
                 .nav{
                     li.menu-item{
                         padding: 8px 0;
+                        @media screen and (max-width: $breakpoint--large){
+                            padding: 10px 15px;
+                            border-bottom: 1px solid $brand-rust;
+                            margin: 0;
+                            a{
+                                padding: 10px 0;
+                            }
+                        }
                         &.white-btn{
                             padding: 0;
                             a{
                                 border: 2px solid $medium-gray;
                                 color: $dark-gray;
                                 padding: 7px 15px;
+                            }
+                            @media screen and (max-width: $breakpoint--large){
+                                padding: 10px 0;
+                                a{
+                                    border: none;
+                                    padding: 10px 15px;
+                                    color: $medium-gray;  
+                                }
+                            }
+                            @media screen and (max-width: $breakpoint--medium){
+                                //margin: 0 15px;
+
                             }
                         }
                         &.cart-icon{
@@ -139,16 +167,22 @@
                                 float: none!important;
                             }
                         }
+                        a.is-active{
+                            color: $brand-orange;
+                        }
                     }
                 }   
-            }
-            @media screen and (max-width: $breakpoint--large){
-                //margin: rem(12) rem(20) rem(20) 0;
             }
             @media screen and (max-width: $breakpoint--large){
                 float: none;
                 margin: 0;
                 padding: 40px 40px 0;
+                max-width: 100%;
+                width: 100%;
+                text-align: left;
+                .menu-top-navigation-container{
+                    width: 100%;
+                }
             }
         }
         .nav-primary{
@@ -162,14 +196,25 @@
                 padding-top: rem(20);
                 @media screen and (max-width: $breakpoint--large){
                     padding-top: rem(20);
-                }
-                @media screen and (max-width: $breakpoint--large){
                     float: none;
-                    padding: 0;
+                    max-width: 100%;
+                    width: 100%;
+                    padding: 0 40px 40px;
+                    margin-top: 0;
+                    .menu-item{
+                        padding: 10px 15px;
+                        border-bottom: 1px solid $brand-rust;
+                        margin: 0;
+                        a{
+                            padding: 10px 0;
+                        }
+                    }
                 }
             }
             @media screen and (max-width: $breakpoint--large){
-                padding: 0 40px 40px;
+                max-width: 100%;
+                width: 100%;
+                margin-top: 0;
             }
         }
         .search-form{
@@ -182,6 +227,7 @@
             @media screen and (max-width: $breakpoint--large){
                 float: none;
                 max-width: 100%;
+                margin: 0 40px;
                 label{
                     width: 94%;
                     input{
@@ -208,7 +254,7 @@
         width: 100%;
         background-color: $sand;
         padding-bottom: 0;
-        @media screen and (max-width: $breakpoint--medium){
+        @media screen and (max-width: $breakpoint--large){
             position: static;
         }
     }
@@ -265,7 +311,7 @@
 	}
     .container{
         position: absolute;
-        bottom: rem(100);
+        bottom: rem(120);
         left: 50%;
         transform: translateX(-50%);
         @media screen and (max-width: $breakpoint--large){

@@ -1,0 +1,12 @@
+10-27-2016 @ 05:33:20 - Info: Begin processing payment for order 1428 for the amount of 190.92
+10-27-2016 @ 05:33:20 - charges request: Array
+(
+    [currency] => usd
+    [amount] => 19092
+    [description] => Arizona Envelope - Order 500104
+    [capture] => true
+    [expand[]] => balance_transaction
+    [source] => tok_1996VvFwUvpeJGwfMsObGM7v
+)
+
+10-27-2016 @ 05:33:22 - Error: stripe_error: Stripe no longer supports API requests made with TLS 1.0. Please initiate HTTPS connections with TLS 1.2 or later. You can learn more about this at https://stripe.com/blog/upgrading-tls.

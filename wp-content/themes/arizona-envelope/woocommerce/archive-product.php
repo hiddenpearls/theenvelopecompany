@@ -41,7 +41,7 @@
 		<!--<h1 class="page-title"><?php //woocommerce_page_title(); ?></h1>-->
 	<?php //endif; ?>
 	<div class="container">
-		<h1 class="text-center"><?php single_cat_title(); ?></h1>
+		<h1 class="text-center title-pages"><?php single_cat_title(); ?></h1>
 	<?php
 		/**
 		 * woocommerce_archive_description hook.

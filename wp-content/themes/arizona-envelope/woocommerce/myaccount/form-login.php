@@ -22,14 +22,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<?php wc_print_notices(); ?>
 
-<?php do_action( 'woocommerce_before_customer_login_form' ); ?>
-
-<?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) : ?>
 <div class="container">
 	
+	<?php wc_print_notices(); ?>
 
+	<?php do_action( 'woocommerce_before_customer_login_form' ); ?>
+
+	<?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) : ?>
 	<div class="u-columns col2-set" id="customer_login">
 
 		<div class="u-column1 col-1">

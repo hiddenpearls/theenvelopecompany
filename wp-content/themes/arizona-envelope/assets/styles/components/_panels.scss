@@ -188,6 +188,10 @@ section{
 			font-family: $copy-font;
 			color: $brand-orange;
 		}
+		p{
+			font-size: rem(18);
+
+		}
 		ul{
 			list-style-type: none;
 			padding: 0;
@@ -225,29 +229,7 @@ section{
 					}
 					input, textarea{
 						width: 100%;
-						&::-webkit-input-placeholder {
-							color: $light-gray;
-							font-family: $heading-font;
-							font-style: italic;
-						}
-
-						&:-moz-placeholder { /* Firefox 18- */
-							color: $light-gray;
-							font-family: $heading-font;
-							font-style: italic;
-						}
-
-						&::-moz-placeholder {  /* Firefox 19+ */
-							color: $light-gray;
-							font-family: $heading-font;
-							font-style: italic;
-						}
-
-						&:-ms-input-placeholder {  
-							color: $light-gray;
-							font-family: $heading-font;
-							font-style: italic;
-						}
+						
 					}
 					textarea{
 						max-height: rem(140);
@@ -352,7 +334,7 @@ section{
 						}
 					}
 				}
-				&.current-menu-item, &.is-active{
+				&.current-menu-item, &.is-active, &.current_page_parent{
 					a{
 						color: #fff;
 					}

@@ -365,7 +365,6 @@ function namespace_force_individual_cart_items($cart_item_data, $product_id)
 /**
  * Lists a table of attributes for the product page.
  */
-
 function list_attributes_2() {
   wc_get_template( 'single-product/product-attributes_2.php', array(
     'product'    => $this
@@ -394,3 +393,4 @@ function register_text( $translated ) {
      $translated = str_ireplace(  'Register',  'Create Account',  $translated );
      return $translated;
 }
+

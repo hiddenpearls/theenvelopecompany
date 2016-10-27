@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 ?>
-<h5> Quanitity and price: 
+<h5> Quanitity: 
 <?php
 	if (wc_get_page_id( 'cart' ) == get_the_ID()) {
 	  echo number_format(esc_attr($input_value)*500);	}
