@@ -118,7 +118,7 @@ $allowed_tags = array(
 				?>
 				<tr>
 					<th class="td" scope="col" colspan="2" style="font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; text-align:left;"><?php _e( 'Total', 'woocommerce-advanced-notifications' ); ?></th>
-					<td style="text-align:left;border: 1px solid #eee;"><?php echo wp_kses( woocommerce_price( $displayed_total ), $allowed_tags ); ?></td>
+					<td style="text-align:left;border: 1px solid #eee;"><?php echo wp_kses( wc_price( $displayed_total ), $allowed_tags ); ?></td>
 				</tr>
 				<?php
 			}
@@ -127,9 +127,9 @@ $allowed_tags = array(
 	<?php endif; ?>
 </table>
 
-<?php do_action( 'woocommerce_email_after_order_table', $order, false ); ?>
+<?php do_action( 'woocommerce_email_after_order_table', $order, $sent_to_admin, $plain_text, $email ); ?>
 
-<?php do_action( 'woocommerce_email_order_meta', $order, true ); ?>
+<?php do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text, $email ); ?>
 
 <?php
  /**

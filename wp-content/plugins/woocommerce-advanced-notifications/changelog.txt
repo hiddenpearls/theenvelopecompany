@@ -1,5 +1,8 @@
 *** Advanced Notifications Changelog ***
 
+2016.10.25 - version 1.2.1
+* Fix - Emails not conforming to WC 2.5+ action filter parameters.
+
 2016.08.13 - version 1.2.0
 * Tweak - Added order refund notification.
 * Tweak - Added POT file for translation and missing domain path in plugin's header.

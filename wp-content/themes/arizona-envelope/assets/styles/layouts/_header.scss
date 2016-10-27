@@ -152,13 +152,14 @@
                             }
                             @media screen and (max-width: $breakpoint--medium){
                                 //margin: 0 15px;
-
                             }
                         }
                         &.cart-icon{
                             a{
                                 &:before{
                                     content: "\f07a";
+                                    vertical-align: middle;
+                                    padding-bottom: 4px;
                                 }
                             }
                         }

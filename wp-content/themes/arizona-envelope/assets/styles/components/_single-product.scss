@@ -235,6 +235,9 @@ dl{
 
 #add_payment_method #payment div.payment_box, .woocommerce-cart #payment div.payment_box, .woocommerce-checkout #payment div.payment_box{
 	//display: none!important;
+	&:before{
+		display: none!important;
+	}
 }
 
 

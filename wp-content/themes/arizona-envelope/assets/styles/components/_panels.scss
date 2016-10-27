@@ -334,9 +334,12 @@ section{
 						}
 					}
 				}
-				&.current-menu-item, &.is-active, &.current_page_parent{
+				&.current-menu-item, &.is-active, &.current_page_parent, &.current-page-ancestor{
 					a{
 						color: #fff;
+						span{
+							color: #fff;
+						}
 					}
 				}
 				@media screen and (max-width: $breakpoint--xlarge){

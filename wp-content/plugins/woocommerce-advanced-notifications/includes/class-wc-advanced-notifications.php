@@ -26,7 +26,7 @@ class WC_Advanced_Notifications {
 		include_once( WC()->plugin_path() . '/includes/emails/class-wc-email.php' );
 
 		if ( ! class_exists( 'Emogrifier' ) && class_exists( 'DOMDocument' ) ) {
-			include_once(  WC()->plugin_path() . '/includes/libraries/class-emogrifier.php' );
+			include_once( WC()->plugin_path() . '/includes/libraries/class-emogrifier.php' );
 		}
 
 		// Hook emails
@@ -47,7 +47,9 @@ class WC_Advanced_Notifications {
 	 * Get the plugin path
 	 */
 	public function plugin_path() {
-		if ( $this->plugin_path ) return $this->plugin_path;
+		if ( $this->plugin_path ) {
+			return $this->plugin_path;
+		}
 
 		return $this->plugin_path = untrailingslashit( plugin_dir_path( dirname( __FILE__ ) ) );
 	}
@@ -66,7 +68,7 @@ class WC_Advanced_Notifications {
 		$product_ids = $shipping_classes = $product_cats = array( 0 );
 
 		// Check line items
-		foreach( $order->get_items() as $item ) {
+		foreach ( $order->get_items() as $item ) {
 
 			$_product = $order->get_product_from_item( $item );
 
@@ -77,7 +79,7 @@ class WC_Advanced_Notifications {
 			$shipping_classes[] = $_product->get_shipping_class_id();
 
 			// Cats
-			$product_cats = array_merge( $product_cats, wp_get_post_terms( $_product->id, 'product_cat', array( "fields" => "ids" ) ) );
+			$product_cats = array_merge( $product_cats, wp_get_post_terms( $_product->id, 'product_cat', array( 'fields' => 'ids' ) ) );
 		}
 
 		$product_ids       = array_map( 'intval', $product_ids );
@@ -281,7 +283,7 @@ class WC_Advanced_Notifications {
 				ob_start();
 
 				// Get mail template
-				wc_get_template( $notification->notification_plain_text ? 'emails/new_order_plain.php' : 'emails/new_order.php', array(
+				wc_get_template( $notification->notification_plain_text ? 'emails/new-order-plain.php' : 'emails/new-order.php', array(
 					'order'               => $order,
 					'email_heading'       => $email_heading,
 					'recipient_name'      => $notification->recipient_name,
@@ -511,7 +513,7 @@ class WC_Advanced_Notifications {
 				ob_start();
 
 				// Get mail template.
-				wc_get_template( $notification->notification_plain_text ? 'emails/refunds_plain.php' : 'emails/refunds.php', array(
+				wc_get_template( $notification->notification_plain_text ? 'emails/refunds-plain.php' : 'emails/refunds.php', array(
 					'order'               => $order,
 					'email_heading'       => $email_heading,
 					'recipient_name'      => $notification->recipient_name,

@@ -5,7 +5,7 @@
 	<form class="add" method="post">
 
 		<h3><?php _e( 'Recipient', 'woocommerce-advanced-notifications' ); ?></h3>
-		<p><?php _e( 'These fields determine who recieves the notifications and are requried.', 'woocommerce-advanced-notifications' ); ?></p>
+		<p><?php _e( 'These fields determine who receives the notifications and are required.', 'woocommerce-advanced-notifications' ); ?></p>
 		<table class="form-table">
 			<tr>
 				<th>
@@ -22,7 +22,7 @@
 				</th>
 				<td>
 					<input type="text" name="recipient_email" id="recipient_email" class="input-text regular-text" value="<?php echo $admin->field_value( 'recipient_email' ); ?>" />
-					<p class="description"><?php _e( 'Enter the recipient(s) email address for this notification (comma separate multiple addresses).', 'woocommerce-advanced-notifications' ); ?></p>
+					<p class="description"><?php _e( 'Enter the recipient(s) email address for this notification (comma separate for multiple addresses).', 'woocommerce-advanced-notifications' ); ?></p>
 				</td>
 			</tr>
 		</table>

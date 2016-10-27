@@ -33,6 +33,10 @@ jQuery(document).ready(function( $ ) {
 		var sticky = $('.site-header');
 	  	scroll = $(window).scrollTop();
 	  	//console.log(scroll);
+	  	/*if( $(document).height() > $(window).height() ){
+	  		sticky.addClass('fixed-header');
+			sticky.next().addClass("fixed-header-content");
+	  	}*/
 		if (scroll >= 1){
 			sticky.addClass('fixed-header');
 			sticky.next().addClass("fixed-header-content");
@@ -98,6 +102,7 @@ jQuery(document).ready(function( $ ) {
 			}
 		});
 	}
+	//set active nav state when on product pages
 	if (window.location.href.indexOf('product-category') > -1 || window.location.href.indexOf('products') > -1 ) {
     	$('#menu-site-navigation li a').each(function(){
     		//console.log($(this));
@@ -108,20 +113,22 @@ jQuery(document).ready(function( $ ) {
 		});
 		
 	}
+	//set active on products category nav when on single product page.
 	if ( window.location.href.indexOf('products') > -1 ){
 		$('#menu-shop-navigation li a').each(function(){
 			if($(this).attr('href').indexOf('product-category') > -1){
 				//console.log($(this).attr('href'));
-				//console.log(window.location.href);
-				//var categoryUrl = $(this).attr('href');
-				//var catUrl = categoryUrl.indexOf("product-category");
-				//var substring = categoryUrl.substr(10, catUrl);
-				//alert(substring);
-				//$(this).parent('.menu-item').addClass('current-page-ancestor');
-				/*if ( $(this).attr('href') == $('#menu-shop-navigation li a').attr('href')){
-					$(this).parent('.menu-item').addClass('current-page-ancestor');
-					$('#menu-shop-navigation li').addClass('current-menu-item');
-				}*/
+				var menuItem = $(this);
+				var selectedCategory = $(this).attr('href').split("product-category/").pop();
+				selectedCategory = selectedCategory.replace("/", "");
+				//console.log(selectedCategory);
+				var selectedProduct = window.location.href;
+				//console.log(selectedProduct);
+				if( selectedProduct.indexOf(selectedCategory) >= 0){
+					console.log(menuItem.parent());
+					menuItem.parent('.menu-item').addClass("current-page-ancestor");
+					//$(this).parent('menu-item').addClass("current-page-ancestor");
+				}
 			}
 		});
 	}
