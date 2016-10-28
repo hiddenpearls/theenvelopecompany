@@ -301,7 +301,7 @@ add_action( 'woocommerce_created_customer', 'Roots\Sage\Extras\wooc_save_extra_r
 
 //old functions from old theme
 // Price Dropdown
-function yahm_cart_sel(){
+function yahm_cart_sel($product, $attr){
   if (check_user_role(array('discount-customer-10'))) {
     $j = 1.8; }
   elseif (check_user_role(array('discount-customer-20'))) {
@@ -312,12 +312,12 @@ function yahm_cart_sel(){
   $price=$_price*$j;
   $price = number_format($price, 2, '.', '');
   $price = '$'.$price;
-  print_r($price);
+  //print_r($price);
   }
   $x=500; $yahm_arr = array();
     for($i=0; $i<60; $i++) {
       $j = number_format($x); 
-      echo '<option '. ($i != 1 ? '' : 'selected=selected') . ' value="' . $j.'_'.$i.'">' . $j.$price.'</option>';
+      echo '<option '. ($i != 1 ? '' : 'selected=selected') . ' value="' . $j.'_'.$i.'">' . $j.'</option>';
       $x=$x+500;
   }
 }
@@ -394,3 +394,28 @@ function register_text( $translated ) {
      return $translated;
 }
 
+
+function new_woocommerce_cart_item_name($title="", $cart_item=array(), $cart_item_key="" ){
+
+
+// Chained prodcuts cannot be edited
+
+  if ( class_exists('Chained_Products_WC_Compatibility') && isset ( Chained_Products_WC_Compatibility::global_wc()->cart->cart_contents[ $cart_item_key ]['chained_item_of'] ) ){
+      return $title;  
+    }
+    $product=$cart_item['data'];
+    $link=$product->get_permalink( $cart_item );
+    $link = add_query_arg( 
+      array(
+        'tm_cart_item_key' => $cart_item_key,
+        )
+
+      , $link );
+
+    //wp_nonce_url escapes the url
+
+     $link=wp_nonce_url($link,'tm-edit');
+
+    return '<a href="'.$link.'" class="tm-cart-edit-options">'.((!empty($this->tm_epo_edit_options_text))?$this->tm_epo_edit_options_text:__( 'Edit options', TM_EPO_TRANSLATION )).'</a>';
+
+  }

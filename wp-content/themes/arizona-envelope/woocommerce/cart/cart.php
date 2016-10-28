@@ -74,6 +74,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 						<td class="product-name">
 							<?php
+								//Roots\Sage\Extras\new_woocommerce_cart_item_name();
 								if ( ! $_product->is_visible() ) {
 									echo apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key ) . '&nbsp;';
 								} else {
@@ -125,6 +126,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 							?>
 						</td>
 						<td class="product-edit">
+							<?php //global $product; ?>
+							<?php //Roots\Sage\Extras\new_woocommerce_cart_item_name(); ?>
 							<a href="<?php echo esc_url( $_product->get_permalink( $cart_item ) ); ?>">Edit</a>
 						</td>
 					</tr>

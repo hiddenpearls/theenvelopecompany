@@ -34,6 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 	echo get_the_password_form();
 	 	return;
 	 }
+	 global $product;
 ?>
 <div class="container">
 	<div class="row">
@@ -75,28 +76,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<div class="yahm-price-display">
 		                	<span id="yahm-unit-price"">
 						 		<?php 
-						 			//** added 2x price yahm **
-									/*function custom_price_WPA111772($price,$product,$attr) {
-										$user = wp_get_current_user();
-										if ( in_array( 'discount-customer-10', (array) $user->roles ) ) {
-    										//The user has the "author" role
-    										$j = 1.8;
-										}
-									    elseif ( in_array( 'discount-customer-20', (array) $user->roles ) ) {
-									      	$j = 1.6; 
-									  	}
-									    else { 
-									    	$j = $attr; 
-									    }
-									    if ($product && is_object($product) && method_exists($product, "get_price") ){
-									        $_price=$product->get_price();
-									    	$price=$_price*$j;
-									    	$price = number_format($price, 2, '.', '');
-									    	$price = '$'.$price;
-									  	}
-									  	return $price;
-									}
-						 			echo  custom_price_WPA111772($price,$product,2);*/
+
+						 			echo Roots\Sage\Extras\custom_price_WPA111772(null,$product,2);
 						 		?>
 		                    </span><br />
 		                    <span id="yahm-unit-label">Per M (1,000)</span>
