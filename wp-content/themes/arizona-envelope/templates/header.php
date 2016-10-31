@@ -33,15 +33,7 @@ if( is_front_page() ){
                         wp_nav_menu(['theme_location' => 'top_navigation', 'menu_class' => 'nav top-nav']);
                     endif;
                 ?>
-                <?php 
-                  /*global $woocommerce;
-                  $cart_url = $woocommerce->cart->get_cart_url(); */
-                ?>
-                <!--<a class="cart-btn" href="<?php //echo $cart_url; ?>"><i class="fa fa-shopping-cart"></i>My Cart</a>
-                <a class="cart-contents" href="<?php //echo wc_get_cart_url(); ?>" title="<?php //_e( 'View your shopping cart' ); ?>">-->
-                <?php //echo sprintf ( _n( '(%d)', '(%d)', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?>  <?//php echo WC()->cart->get_cart_total(); ?><!--</a>-->
-                <?php 
-                ?>
+
             </div>
             <nav class="nav-primary clearfix">
                 <?php
