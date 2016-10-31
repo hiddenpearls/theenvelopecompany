@@ -126,9 +126,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 							?>
 						</td>
 						<td class="product-edit">
-							<?php //global $product; ?>
-							<?php //Roots\Sage\Extras\new_woocommerce_cart_item_name(); ?>
-							<a href="<?php echo esc_url( $_product->get_permalink( $cart_item ) ); ?>">Edit</a>
+								<?php echo apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key ).'&nbsp;' ; ?>
+								<?php echo WC()->cart->get_item_data( $cart_item ); ?>
 						</td>
 					</tr>
 					<?php
@@ -161,8 +160,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					
 				</td>
 				<td>
-					<?php echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); ?>
-
+					<?php wc_cart_totals_subtotal_html(); ?>
 				</td>
 				<td colspan="1" class="actions">
 					

@@ -381,11 +381,11 @@ function wc_diff_rate_for_user( $tax_class, $product ) {
 add_filter( 'woocommerce_product_tax_class', 'Roots\Sage\Extras\wc_diff_rate_for_user', 1, 2 );
 
 // Calculate order total without shipping
-function order_total_no_shipping( $order_id ) {
+/*function order_total_no_shipping( $order_id ) {
   $order = new WC_Order( $order_id );
   $order_total = $order->get_total();
   $order_total_without_shipping = $order->get_subtotal();
-}
+}*/
 //Replace register text for create account
 add_filter(  'gettext',  'Roots\Sage\Extras\register_text'  );
 add_filter(  'ngettext',  'Roots\Sage\Extras\register_text'  );
@@ -396,26 +396,25 @@ function register_text( $translated ) {
 
 
 function new_woocommerce_cart_item_name($title="", $cart_item=array(), $cart_item_key="" ){
-
-
 // Chained prodcuts cannot be edited
-
   if ( class_exists('Chained_Products_WC_Compatibility') && isset ( Chained_Products_WC_Compatibility::global_wc()->cart->cart_contents[ $cart_item_key ]['chained_item_of'] ) ){
       return $title;  
-    }
-    $product=$cart_item['data'];
-    $link=$product->get_permalink( $cart_item );
-    $link = add_query_arg( 
-      array(
-        'tm_cart_item_key' => $cart_item_key,
-        )
-
-      , $link );
-
-    //wp_nonce_url escapes the url
-
-     $link=wp_nonce_url($link,'tm-edit');
-
-    return '<a href="'.$link.'" class="tm-cart-edit-options">'.((!empty($this->tm_epo_edit_options_text))?$this->tm_epo_edit_options_text:__( 'Edit options', TM_EPO_TRANSLATION )).'</a>';
-
   }
+  $product=$cart_item['data'];
+  $link=$product->get_permalink( $cart_item );
+  $link = add_query_arg( 
+    array(
+      'tm_cart_item_key' => $cart_item_key,
+      )
+
+    , $link );
+
+  //wp_nonce_url escapes the url
+
+   $link=wp_nonce_url($link,'tm-edit');
+
+  return '<a href="'.$link.'" class="tm-cart-edit-options">'.((!empty($this->tm_epo_edit_options_text))?$this->tm_epo_edit_options_text:__( 'Edit options', TM_EPO_TRANSLATION )).'</a>';
+
+}
+/* Filter to override cart_item_name */
+//add_filter( 'woocommerce_cart_item_name', 'Roots\Sage\Extras\new_woocommerce_cart_item_name', 10, 2 );
