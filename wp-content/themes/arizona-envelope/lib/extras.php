@@ -163,7 +163,7 @@ function cart_items_menu_link( $items, $args ){
 }
 */
 /**
- * Add login/logout link to the top navigation
+ * Add cart button with subtotals and login/logout link to the top navigation
  */
 function get_cart_count(){
 
@@ -184,7 +184,7 @@ function wti_loginout_menu_link( $items, $args ) {
       //$items .= '<li class="menu-item"><a href="#">'. __("Hello World") .'</a></li>';
       global $woocommerce;
       $cart_url = $woocommerce->cart->get_cart_url();
-      $items .= '<li class="menu-item cart-icon"><a class="cart-btn" href="<?php //echo $cart_url; ?>">My Cart</a></li>';
+      $items .= '<li class="menu-item cart-icon"><a class="cart-btn" href="'. $cart_url.'">My Cart</a></li>';
       $items .= '<li class="menu-item"><a class="cart-contents" title="View your shopping cart" href="'. wc_get_cart_url().'"> '.'('.get_cart_count().') '.sprintf (WC()->cart->get_cart_total()).'</a></li>';
    }
    return $items;
