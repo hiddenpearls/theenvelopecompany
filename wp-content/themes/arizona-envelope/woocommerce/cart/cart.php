@@ -161,9 +161,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					
 				</td>
 				<td>
-					
-					<?php echo WC()->cart->get_total_ex_tax(); ?>
-					<!-- Subtotal here being calculated with shipping costs, need to fiure this out. -->
+					<?php echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); ?>
 
 				</td>
 				<td colspan="1" class="actions">
