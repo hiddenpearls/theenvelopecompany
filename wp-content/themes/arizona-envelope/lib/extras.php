@@ -154,20 +154,24 @@ function sfws_add_product_link( $link ) {
  return $link;
 }
 
-add_filter( 'wp_nav_menu_cart', 'Roots\Sage\Extras\cart_items_menu_link', 10, 2 );
+/*add_filter( 'wp_nav_menu_cart', 'Roots\Sage\Extras\cart_items_menu_link', 10, 2 );
 function cart_items_menu_link( $items, $args ){
   if (($args->theme_location == 'top_navigation')) {
-    $items .= '<li class="menu-item"><a href="#">'. __("Hello World") .'</a></li>';
+    
   }
   return $items;
 }
-
+*/
 /**
  * Add login/logout link to the top navigation
  */
+function get_cart_count(){
+
+  return sizeof(WC()->cart->cart_contents);
+
+}
 add_filter( 'wp_nav_menu_items', 'Roots\Sage\Extras\wti_loginout_menu_link', 10, 2 );
 function wti_loginout_menu_link( $items, $args ) {
-    //||($args->theme_location == 'footer_navigation')
    if (($args->theme_location == 'top_navigation')) {
       if (is_user_logged_in()) {
          $items .= '<li class="pull-left menu-item"><a href="'. wp_logout_url("/") .'">'. __("Logout") .'</a></li>';
@@ -177,6 +181,11 @@ function wti_loginout_menu_link( $items, $args ) {
          $items .= '<li class="pull-left menu-item"><a href="/my-account/">'. __("Login") .'</a></li>';
          $items .= '<li class="pull-left menu-item"><a href="/my-account/">'. __("Create Account") .'</a></li>';
       }
+      //$items .= '<li class="menu-item"><a href="#">'. __("Hello World") .'</a></li>';
+      global $woocommerce;
+      $cart_url = $woocommerce->cart->get_cart_url();
+      $items .= '<li class="menu-item cart-icon"><a class="cart-btn" href="<?php //echo $cart_url; ?>">My Cart</a></li>';
+      $items .= '<li class="menu-item"><a class="cart-contents" title="View your shopping cart" href="'. wc_get_cart_url().'"> '.'('.get_cart_count().') '.sprintf (WC()->cart->get_cart_total()).'</a></li>';
    }
    return $items;
 }

@@ -33,7 +33,6 @@ if( is_front_page() ){
                         wp_nav_menu(['theme_location' => 'top_navigation', 'menu_class' => 'nav top-nav']);
                     endif;
                 ?>
-
             </div>
             <nav class="nav-primary clearfix">
                 <?php
