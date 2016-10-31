@@ -7,7 +7,7 @@
 .yahm-price-display{
 	#yahm-unit-price{
 		color: $brand-orange;
-		font-size: rem(42);
+		font-size: rem(32);
 	}
 	#yahm-unit-label{
 		color: $brand-orange;
@@ -20,7 +20,9 @@
 			float: none;
 		}
 		div.images{
-
+			img{
+				max-width: rem(150);
+			}
 		}
 		div.summary{
 
@@ -51,7 +53,7 @@
 			}
 		}
 		h1{
-			font: 400 rem(50) $copy-font;
+			font: 400 rem(42) $copy-font;
 			color: $brand-orange;
 		}
 		h2{
@@ -148,7 +150,8 @@
 					a{
 						display: block;
 						img{
-							width: 100%;
+							width: 60%;
+							min-width: rem(116);
 						}
 					}
 				}
