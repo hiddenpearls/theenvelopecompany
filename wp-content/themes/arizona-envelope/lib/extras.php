@@ -154,6 +154,14 @@ function sfws_add_product_link( $link ) {
  return $link;
 }
 
+add_filter( 'wp_nav_menu_cart', 'Roots\Sage\Extras\cart_items_menu_link', 10, 2 );
+function cart_items_menu_link( $items, $args ){
+  if (($args->theme_location == 'top_navigation')) {
+    $items .= '<li class="menu-item"><a href="#">'. __("Hello World") .'</a></li>';
+  }
+  return $items;
+}
+
 /**
  * Add login/logout link to the top navigation
  */
@@ -172,6 +180,8 @@ function wti_loginout_menu_link( $items, $args ) {
    }
    return $items;
 }
+
+
 
 /**
  * Redirect to my account page on login 
