@@ -137,7 +137,10 @@ function woocommerce_template_loop_attributes(){
   $size = $product->get_attribute( 'size' ) ;
   echo '<p>'.$size.'</p>';
   $color = $product->get_attribute( 'color' ) ;
-  echo '<p>'.$color.'</p>';
+  if ( $product->has_weight() ) {
+    $weight = $product->get_weight() . ' ' . esc_attr( get_option( 'woocommerce_weight_unit' ) );
+  }
+  echo '<p>'.$color.' - '.$weight.'</p>';
 }
 /**
  * Remove add to cart button from product summary

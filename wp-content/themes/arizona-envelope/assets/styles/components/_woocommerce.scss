@@ -12,6 +12,9 @@
 	#yahm-unit-label{
 		color: $brand-orange;
 	}
+	br{
+		display: none;
+	}
 }
 .woocommerce{
 	form{
@@ -321,4 +324,11 @@ mark{
 	&:before{
 		color: $brand-orange;
 	}
+}
+
+.cpf-section.tm-row .tm-cell.cpf-type-header{
+	width: 100%;
+}
+.collapseme_zip-div,.collapseme_zip2-div{
+	display: none;
 }

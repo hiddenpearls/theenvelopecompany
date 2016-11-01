@@ -10,3 +10,15 @@
 )
 
 10-27-2016 @ 05:33:22 - Error: stripe_error: Stripe no longer supports API requests made with TLS 1.0. Please initiate HTTPS connections with TLS 1.2 or later. You can learn more about this at https://stripe.com/blog/upgrading-tls.
+11-01-2016 @ 16:21:35 - Info: Begin processing payment for order 1436 for the amount of 37.84
+11-01-2016 @ 16:21:35 - charges request: Array
+(
+    [currency] => usd
+    [amount] => 3784
+    [description] => Arizona Envelope - Order 500107
+    [capture] => true
+    [expand[]] => balance_transaction
+    [source] => tok_19B50nFwUvpeJGwfysBJD6Dm
+)
+
+11-01-2016 @ 16:21:36 - Error: stripe_error: Stripe no longer supports API requests made with TLS 1.0. Please initiate HTTPS connections with TLS 1.2 or later. You can learn more about this at https://stripe.com/blog/upgrading-tls.

@@ -1,6 +1,4 @@
-
-
-<section class="products-section">
+<section class="products-section" id="products-section">
     <div class="container">
         <div class="row">
           <h1 class="text-center">Our Products</h1>
@@ -35,7 +33,7 @@
                       // print the IMG HTML for child category
                       echo "<img src='".$image."' alt='' />";
                       echo  '<span>'.$cat->name.'</span>';
-                      echo '<a class="shop-btn btn small" href="'. get_term_link($cat->slug, 'product_cat') .'">Shop';
+                      echo '<a class="orange-btn btn small" href="'. get_term_link($cat->slug, 'product_cat') .'">Shop';
                       echo '</a></div>';
                 }   
             }
