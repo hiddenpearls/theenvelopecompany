@@ -32,18 +32,14 @@ jQuery(document).ready(function( $ ) {
 	function scrollPosition(){
 		var sticky = $('.site-header');
 	  	var scroll = $(window).scrollTop();
-	  	//console.log(scroll);
-	  	/*if( $(document).height() > $(window).height() ){
-	  		sticky.addClass('fixed-header');
-			sticky.next().addClass("fixed-header-content");
-	  	}*/
+
 		if (scroll >= 120){
 			sticky.addClass('fixed-header');
-			//sticky.next().addClass("fixed-header-content");
+			sticky.next().addClass("fixed-header-content");
 		} 
 		else{
 			sticky.removeClass('fixed-header');	
-			//sticky.next().removeClass("fixed-header-content");
+			sticky.next().removeClass("fixed-header-content");
 		} 
 	}
 	scrollPosition();
