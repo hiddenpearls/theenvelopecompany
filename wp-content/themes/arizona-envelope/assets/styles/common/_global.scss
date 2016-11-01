@@ -68,8 +68,9 @@ a:hover{
   display: -webkit-flex;
   display: -ms-flexbox;
   display:         flex;
-  @media screen and (max-width: $breakpoint--medium){
+  @media screen and (max-width: $breakpoint--large){
   	display: block;
+  	@include clearfix;
   	.main, .sidebar{
   		display: block;
   		width: 100%;
@@ -103,4 +104,7 @@ ul.menu{
 
 .fixed-header-content{
 	margin-top: rem(80);
+	@media screen and (max-width: $breakpoint--large){
+		margin-top: 0;
+	}
 }

@@ -14,6 +14,14 @@
 	}
 }
 .woocommerce{
+	form{
+		.form-row-first, .form-row-last{
+			@media screen and (max-width: $breakpoint--large){
+				width: 100%;
+				float: none;
+			}
+		}
+	}
 	div.product{
 		div.summary, div.images{
 			width: 100%;
@@ -22,6 +30,12 @@
 		div.images{
 			img{
 				max-width: rem(150);
+				@media screen and (max-width: $breakpoint--large){
+					max-width: rem(200);
+				}
+			}
+			@media screen and (max-width: $breakpoint--large){
+				margin: 0;
 			}
 		}
 		div.summary{
@@ -74,6 +88,9 @@
 						color: $brand-orange;
 						text-transform: uppercase;
 					}
+					@media screen and (max-width: $breakpoint--large){
+						margin: rem(20) 0;
+					}
 				}
 				&:last-child{
 					> div{
@@ -81,6 +98,9 @@
 						position: relative;
 						height: 100%;
 						width: calc(100% - 100px);
+						@media screen and (max-width: $breakpoint--large){
+							margin: 0;
+						}
 					}
 					h1{
 						display: none;
@@ -111,6 +131,15 @@
 							position: absolute;
 							bottom: rem(20);
 							right: 0;
+							@media screen and (max-width: $breakpoint--medium){
+								left: 0;
+								right: auto;
+							}
+						}
+						.tc-totals-form{
+							@media screen and (max-width: $breakpoint--medium){
+								margin-bottom: rem(60);
+							}
 						}
 					}
 						
@@ -125,10 +154,12 @@
 	}
 	.col2-set{
 		.col-1{
-			width: 38%!important;	
+			width: 38%!important;
+			@media screen and (max-width: $breakpoint--medium){
+				width: 100%!important;
+			}
 		}
 		.col-2{
-
 		}	
 	}
 	table{
@@ -176,6 +207,11 @@
 						&:hover{
 							color: $dark-gray;
 						}
+						@media screen and (max-width: $breakpoint--medium){
+							transform: none;
+							left: 0;
+							top: 30%;
+						}
 					}
 				}
 				span{
@@ -187,6 +223,21 @@
 			.order-total, .order-total span{
 				color: $brand-orange;
 			}
+		}
+		&.shop_table{
+			@media screen and (max-width: $breakpoint--medium){
+				border-collapse: separate;
+	    		border-spacing: 0 18px;
+			}
+			@media screen and (max-width: $breakpoint--small){
+				max-width: 100%;
+				tr td{
+					&:nth-child(4), &:nth-child(5), &:nth-child(6){
+						display: block;
+						width: 100%;
+					}
+				}
+			}	
 		}
 	}
 	.woocommerce-checkout{

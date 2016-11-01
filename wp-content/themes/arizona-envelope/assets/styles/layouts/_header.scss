@@ -30,6 +30,7 @@
     .navbar-collapse{
         padding: 0 8px 0 0;
         &.in{
+            overflow-y: visible;
             /*margin-top: rem(100);
             position: fixed;
             top: 0;
@@ -67,6 +68,9 @@
                     &:hover{
                         color: $dark-gray;
                         background-color: transparent;
+                        span{
+                            color: $dark-gray;
+                        }
                     }
                     &:first-child{
                         padding-left: 2px;
@@ -95,7 +99,7 @@
             max-width: 80%;
             margin: rem(12) 0 0;
             .phone-icon, .cart-icon{
-                a, span{
+                a, span.d-block{
                     color: $medium-gray;
                     line-height: 0.5;
                     &:before{
@@ -105,6 +109,7 @@
                         color: $brand-orange;
                         margin-right: 8px;
                     }
+                   
                 }
             }
             .phone-icon{
@@ -163,7 +168,7 @@
                                 }
                             }
                         }
-                        &.pull-left{
+                        &.pull-left, &.pull-right{
                             @media screen and (max-width: $breakpoint--large){
                                 float: none!important;
                             }
@@ -229,23 +234,25 @@
                 float: none;
                 max-width: 100%;
                 margin: 0 40px;
+                position: relative;
+                margin-bottom: rem(20);
                 label{
-                    width: 94%;
+                    width: 98%;
                     input{
                         width: 100%;
                     }
                 }
             }
-            @media screen and (max-width: 650px){
+            /*@media screen and (max-width: 706px){
                 label{
-                    width: 93%;
+                    width: 92%;
                 }
             }
-            @media screen and (max-width: 565px){
+            @media screen and (max-width: 558px){
                 label{
-                    width: 91%;
+                    width: 88%;
                 }
-            }
+            }*/
         }
     }
     &.fixed-header{
@@ -315,8 +322,8 @@
         bottom: rem(120);
         left: 50%;
         transform: translateX(-50%);
-        @media screen and (max-width: $breakpoint--large){
-            bottom: 20px;
+        @media screen and (max-width: 1300px){
+            bottom: rem(50);
         }
         @media screen and (max-width: $breakpoint--medium){
             width: 90%;
@@ -346,7 +353,7 @@
             @media screen and (max-width: $breakpoint--large){
                 max-width: 75%;
                 h1{
-                    font-size: rem(32);
+                    //font-size: rem(32);
                     margin-bottom: rem(10);
                 }
                 p{
@@ -374,7 +381,7 @@
             }
             @media screen and (max-width: $breakpoint--small){
                 h1{
-                    font-size: rem(28);
+                    font-size: rem(26);
                 }
                 a{
                     width: rem(140);
@@ -433,6 +440,11 @@
         padding: 0;
         i{
             color: $brand-orange;
+        }
+        @media screen and (max-width: $breakpoint--large){
+            position: absolute;
+            right: 0;
+            top: 4px;
         }
         &:hover{
             background-color: transparent;

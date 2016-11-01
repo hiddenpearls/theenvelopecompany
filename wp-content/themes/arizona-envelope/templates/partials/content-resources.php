@@ -26,7 +26,7 @@
 				<div class="row row-eq-height">
 		    <?php 
 		    	while( $samples_query->have_posts() ) : $samples_query->the_post(); ?>
-					<div class="col-md-3"><!--  product-category-extract title-down -->
+					<div class="col-sm-3 col-xs-6"><!--  product-category-extract title-down -->
 						<img class="img-responsive" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>" alt="">
 						<h3><?php the_title(); ?></h3>
 						<p><?php the_content(); ?></p>

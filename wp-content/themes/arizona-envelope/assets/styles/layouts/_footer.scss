@@ -21,9 +21,10 @@
 		            max-width: rem(130);
 		        }
 		    }
-		    @media screen and (max-width: $breakpoint--medium) { 
+		    @media screen and (max-width: $breakpoint--large) { 
 		        margin: 0 auto;
 		        float: none;
+		        display: block;
 		    }
 		}
 		/*.widget-footer{

@@ -1,4 +1,10 @@
 <?php 
+/*
+* Analytics Settings
+*/
+if(get_field('enabled', 'option')){
+   the_field('gtm_body', 'option'); 
+}
 if( is_front_page() ){
     $site_header = "transparent-header";
 } else {

@@ -44,6 +44,13 @@ if( function_exists('acf_add_options_page') ) {
     'capability'  => 'edit_posts',
     'redirect'    => false
   ));
+  acf_add_options_sub_page(array(
+    'page_title'  => 'Analytics Settings',
+    'menu_title'  => 'Analytics Settings',
+    'parent_slug' => 'theme-general-settings',
+    'capability'  => 'edit_posts',
+    'redirect'    => false
+  ));
   /* acf_add_options_sub_page(array(
     'page_title'  => 'Theme Footer Settings',
     'menu_title'  => 'Footer',
@@ -184,8 +191,8 @@ function wti_loginout_menu_link( $items, $args ) {
       //$items .= '<li class="menu-item"><a href="#">'. __("Hello World") .'</a></li>';
       global $woocommerce;
       $cart_url = $woocommerce->cart->get_cart_url();
-      $items .= '<li class="menu-item cart-icon"><a class="cart-btn" href="'. $cart_url.'">My Cart</a></li>';
-      $items .= '<li class="menu-item"><a class="cart-contents" title="View your shopping cart" href="'. wc_get_cart_url().'"> '.'('.get_cart_count().') '.sprintf (WC()->cart->get_cart_total()).'</a></li>';
+      $items .= '<li class="menu-item cart-icon"><a class="cart-btn cart-contents" title="View your shopping cart" href="'. $cart_url.'">My Cart';
+      $items .= ' ('.get_cart_count().') '.sprintf (WC()->cart->get_cart_total()).'</a></li>';
    }
    return $items;
 }

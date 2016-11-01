@@ -35,10 +35,11 @@ if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 
 			do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order );
 
-			$order->display_item_meta( $item );
-			$order->display_item_downloads( $item );
+			//display variations selected. Looks broken now. Needs some custom overriding to make it look like comp.
+			//$order->display_item_meta( $item );
+			//$order->display_item_downloads( $item );
 
-			do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order );
+			//do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order );
 		?>
 	</td>
 	<td class="product-total">

@@ -45,6 +45,9 @@ section{
 			background: radial-gradient(ellipse at center,  #ffffff 0%,#f2f2f2 91%,#eeeeee 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 			padding: 20px;
+			@media screen and (max-width: $breakpoint--large){
+				margin: rem(20) 0 rem(12);
+			}
 		}
 		&.search-result{
 			height: rem(450);
@@ -94,6 +97,10 @@ section{
 				background-color: $dark-gray;
 				border-color: $dark-gray;
 				color: #fff;
+			}
+			@media screen and (max-width: $breakpoint--large){
+				bottom: auto;
+				top: 98%;
 			}
 		}
 		&.button-down{
@@ -146,11 +153,15 @@ section{
 				}
 			}
 		}
-		@media screen and (max-width: $breakpoint--xlarge){
+		@media screen and (max-width: $breakpoint--large){
 			width: 48%!important;
-			margin: 0 1% 2.992em!important;
+			margin: rem(20) 1% rem(40)!important;
 			min-height: auto;
 			float: left;
+			img{
+				max-width: 80%;
+				margin: 0 auto!important;
+			}
 			span{
 				max-width: 90%;
 			}
@@ -160,6 +171,18 @@ section{
 			padding: 1%;
 			float: none!important;
 			min-height: rem(140);
+			margin: rem(20) 1% rem(80)!important;
+			img{
+				max-width: 50%;
+				margin: 0 auto!important;
+			}
+
+		}
+		@media screen and (max-width: $breakpoint--small){
+			img{
+				max-width: 60%;
+				margin: 0 auto!important;
+			}
 
 		}
 	}	
