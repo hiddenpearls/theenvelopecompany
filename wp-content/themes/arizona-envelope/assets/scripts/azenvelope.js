@@ -33,13 +33,11 @@ jQuery(document).ready(function( $ ) {
 		var sticky = $('.site-header');
 	  	var scroll = $(window).scrollTop();
 
-		if (scroll >= 120){
+		if (scroll >=80){
 			sticky.addClass('fixed-header');
-			sticky.next().addClass("fixed-header-content");
 		} 
 		else{
 			sticky.removeClass('fixed-header');	
-			sticky.next().removeClass("fixed-header-content");
 		} 
 	}
 	scrollPosition();

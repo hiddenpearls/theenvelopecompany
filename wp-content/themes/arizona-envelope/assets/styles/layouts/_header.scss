@@ -2,6 +2,13 @@
     z-index: 2;
     padding-bottom: rem(12);
     transition: all 0.2s ease;
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    @media screen and (max-width: $breakpoint--large){
+        position: static;
+    }
     .container{
         @media screen and (max-width: $breakpoint--large){
             width: 100%;
@@ -9,7 +16,7 @@
     }
     &.transparent-header{
         background-color: transparent;
-        position: absolute;
+        //position: absolute;
         top: 0;
         left: 0;
         width: 100%;
@@ -20,7 +27,7 @@
     }
     &.solid-header{
         background-color: $sand;
-        position: static;
+        //position: static;
     }
     .search-form{
         .search-field{
@@ -256,14 +263,16 @@
         }
     }
     &.fixed-header{
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
         background-color: $sand;
         padding-bottom: 0;
         @media screen and (max-width: $breakpoint--large){
             position: static;
+        }
+    }
+    + div{
+        margin-top: 140px;
+        &.hero-panel{
+            margin-top: 0;
         }
     }
     @media (min-width: $breakpoint--medium) and (max-width: $breakpoint--large){
