@@ -274,6 +274,9 @@
         &.hero-panel{
             margin-top: 0;
         }
+        @media screen and (max-width: $breakpoint--large){
+            margin-top: rem(8);
+        }
     }
     @media (min-width: $breakpoint--medium) and (max-width: $breakpoint--large){
         .navbar-header {
@@ -394,6 +397,8 @@
                 }
                 a{
                     width: rem(140);
+                    padding: 8px 0;
+                    height: auto;
                 }
             }
         }
