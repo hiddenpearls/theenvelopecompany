@@ -12,7 +12,7 @@
 				<ul>
 					<?php while ( have_rows('resources') ) : the_row(); ?>
 						<li>
-							<a href="<?php the_sub_field('resource_link_url'); ?>">
+							<a target="_blank" href="<?php the_sub_field('resource_link_url'); ?>">
 								<?php the_sub_field('resource_link_label'); ?>
 							</a>
 						</li>
