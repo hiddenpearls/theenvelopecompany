@@ -50,14 +50,14 @@ jQuery(document).ready(function( $ ) {
 	$(window).scroll(function() {
 	    scrollPosition();
 	});
-
 	var jump=function(e){
-	   if (e){
+		var target;
+	   	if (e){
 	       e.preventDefault();
-	       var target = $(this).attr("href");
-	   }else{
-	       var target = location.hash;
-	   }
+	       target = $(this).attr("href");
+	   	}else{
+	    	target = location.hash;
+	   	}
 	   var elOffset = $(target).offset().top;
 	   var elHeight = $(target).height();
 	   var windowHeight = $(window).height();
@@ -76,10 +76,8 @@ jQuery(document).ready(function( $ ) {
 	       location.hash = target;
 	   });
 
-	}
-
+	};
 	$('html, body').hide();
-
 	$(document).ready(function(){
 	    $('a[href^=#]').bind("click", jump);
 
@@ -112,7 +110,7 @@ jQuery(document).ready(function( $ ) {
 		var h = '#yahm-tm-label-tmcp_radio_'+j;
 		var hh = $(h).text();
 		$('#yahm-unit-label').text(hh);
-	};
+	}
 	$('#tm-epo-field-1 option[value="1,000_1"]' ).prop('selected',true);
 	$("#yahm-quantity").on("change", optChange);
 	$("#tm-epo-field-1").on("change", optChange);	
