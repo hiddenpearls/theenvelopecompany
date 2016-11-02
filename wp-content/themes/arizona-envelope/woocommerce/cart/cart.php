@@ -87,6 +87,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 								if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
 									echo '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'woocommerce' ) . '</p>';
 								}
+								//do_action('woocommerce_tm_custom_price_fields_only');
+								echo "<p>";
+								echo Roots\Sage\Extras\get_product_options_cart($cart_item);
+								echo "</p>";
 							?>
 							 
 						</td>
@@ -174,7 +178,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php do_action( 'woocommerce_after_cart_table' ); ?>
 
 	</form>
-
 	<div class="clearfix">
 		<a class="btn orange-btn big pull-left" href="/product-category/most-popular-products/">Continue Shopping</a>
 		<a class="btn orange-btn big pull-right" href="/checkout/">Proceed to Checkout</a>

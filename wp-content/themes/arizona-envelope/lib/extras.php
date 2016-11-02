@@ -455,13 +455,28 @@ function my_custom_function(){
 
 add_action( 'woocommerce_cart_contents','Roots\Sage\Extras\my_custom_function');*/
 
+function get_product_options_cart($cart_item){
+  $selected_options = array();
+  foreach($cart_item['tmcartepo'] as $product_option ){
+    if( $product_option['cssclass'] == 'right_1' || $product_option['cssclass'] == 'middle_2' || $product_option['cssclass'] == 'collapseme_latex'){
+      $selected_options[] = $product_option['value'];
+    }
+  }
+  return implode(", ", $selected_options);
+}
 
-function my_custom_vars() {
-  global $wp_query;
-    $vars = array(
-      'postID' => $wp_query->post->ID,
-    );
-  wp_localize_script( 'myvars', 'MyScriptVars', $vars );
-}  
-
-add_action ('wp_enqueue_scripts', 'Roots\Sage\Extras\my_custom_vars');
+function get_product_options_order($item){
+  $selected_options = array();
+  foreach($item['item_meta_array'] as $product_option){
+    if( $product_option->key == "Please enter a second PMS Color code:" ){
+      $selected_options[] = $product_option->value;
+    } 
+    elseif( $product_option->key == "Please enter a single PMS Color code:" ){
+      $selected_options[] = $product_option->value;
+    } 
+    elseif( $product_option->value == "Add Latex Seal"){
+      $selected_options[] = $product_option->value;
+    }
+  }
+  return implode(", ", $selected_options);
+}

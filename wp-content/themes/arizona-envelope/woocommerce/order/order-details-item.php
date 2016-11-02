@@ -40,7 +40,9 @@ if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 			//$order->display_item_downloads( $item );
 
 			//do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order );
+			echo '<p>'.Roots\Sage\Extras\get_product_options_order($item).'</p>';
 		?>
+
 	</td>
 	<td class="product-total">
 		<?php echo $order->get_formatted_line_subtotal( $item ); ?>

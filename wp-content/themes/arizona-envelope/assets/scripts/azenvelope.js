@@ -163,7 +163,4 @@ jQuery(document).ready(function( $ ) {
 			}
 		});
 	}
-
-	//var MyPostID = MyScriptVars.postID;
-	//console.log(MyPostID);
 });
