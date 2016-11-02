@@ -480,3 +480,19 @@ function get_product_options_order($item){
   }
   return implode(", ", $selected_options);
 }
+
+function get_product_options_email($item){
+  $selected_options = array();
+  foreach($item['item_meta_array'] as $product_option){
+    if( $product_option->key == "Please enter a second PMS Color code:" ){
+      $selected_options[] = ' & '.$product_option->value;
+    } 
+    elseif( $product_option->key == "Please enter a single PMS Color code:" ){
+      $selected_options[] = $product_option->value;
+    } 
+    elseif( $product_option->value == "Add Latex Seal"){
+      $selected_options[] = '<br>Latex';
+    }
+  }
+  return implode(" ", $selected_options);
+}

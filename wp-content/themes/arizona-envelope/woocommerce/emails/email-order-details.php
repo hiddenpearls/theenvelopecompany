@@ -37,12 +37,19 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 		</tr>
 	</thead>
 	<tbody>
-		<?php echo $order->email_order_items_table( array(
-			'show_sku'    => false,
-			'show_image'  => false,
-			'$image_size' => array( 32, 32 ),
-			'plain_text'  => $plain_text
-		) ); ?>
+		<?php
+			foreach( $order->get_items() as $item_id => $item) {
+				$product = apply_filters( 'woocommerce_order_item_product', $order->get_product_from_item( $item ), $item );
+				wc_get_template( 'order/order-details-item-email.php', array(
+					'order'			     => $order,
+					'item_id'		     => $item_id,
+					'item'			     => $item,
+					'show_purchase_note' => $show_purchase_note,
+					'purchase_note'	     => $product ? get_post_meta( $product->id, '_purchase_note', true ) : '',
+					'product'	         => $product,
+				) );
+			}
+		?>
 	</tbody>
 	<tfoot>
 		<?php
