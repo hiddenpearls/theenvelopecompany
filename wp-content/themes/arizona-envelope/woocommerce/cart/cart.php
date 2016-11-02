@@ -83,12 +83,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 								// Meta data
 								echo WC()->cart->get_item_data( $cart_item );
-
 								// Backorder notification
 								if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
 									echo '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'woocommerce' ) . '</p>';
 								}
 							?>
+							 
 						</td>
 
 						<td class="product-quantity">

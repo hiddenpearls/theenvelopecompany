@@ -321,6 +321,21 @@
   }
 }
 
+.product-section-link-home{
+    display: none;
+}
+.product-section-link-notHome{
+    display: inline-block;
+}
+.home.page{
+    .product-section-link-home{
+        display: inline-block;
+    }
+    .product-section-link-notHome{
+        display: none;
+    }
+}
+
 //remove this to a single hero panels components scss file
 .hero-panel{
     position: relative;

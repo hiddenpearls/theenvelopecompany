@@ -448,3 +448,20 @@ function new_woocommerce_cart_item_name($title="", $cart_item=array(), $cart_ite
 }
 /* Filter to override cart_item_name */
 //add_filter( 'woocommerce_cart_item_name', 'Roots\Sage\Extras\new_woocommerce_cart_item_name', 10, 2 );
+/*
+function my_custom_function(){
+  do_action("woocommerce_tm_epo");
+}
+
+add_action( 'woocommerce_cart_contents','Roots\Sage\Extras\my_custom_function');*/
+
+
+function my_custom_vars() {
+  global $wp_query;
+    $vars = array(
+      'postID' => $wp_query->post->ID,
+    );
+  wp_localize_script( 'myvars', 'MyScriptVars', $vars );
+}  
+
+add_action ('wp_enqueue_scripts', 'Roots\Sage\Extras\my_custom_vars');
