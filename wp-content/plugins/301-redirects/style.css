@@ -1,0 +1,26 @@
+table .no-border{
+	margin-top: -7px;
+}
+
+table .no-border textarea{
+	max-width: 375px;
+	width: 375px;
+}
+
+table .no-border td{
+	border: 0 !important;
+}
+
+body.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom {margin-right: 0px}
+
+.table thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th, .table thead > tr > td, .table tbody > tr > td, .table tfoot > tr > td{
+	padding: 10px;
+}
+
+.alert{
+	margin-top: 20px;
+}
+
+#adminmenuback{
+	z-index: 1;
+}
