@@ -321,17 +321,17 @@
   }
 }
 
-.product-section-link-home{
+.site-header .main-site-nav .nav li.product-section-link-home{
     display: none;
 }
-.product-section-link-notHome{
+.site-header .main-site-nav .nav li.product-section-link-notHome{
     display: inline-block;
 }
 .home.page{
-    .product-section-link-home{
+    .site-header .main-site-nav .nav li.product-section-link-home{
         display: inline-block;
     }
-    .product-section-link-notHome{
+    .site-header .main-site-nav .nav li.product-section-link-notHome{
         display: none;
     }
 }
