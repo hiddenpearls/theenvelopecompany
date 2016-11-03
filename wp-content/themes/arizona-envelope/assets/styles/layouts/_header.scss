@@ -326,10 +326,16 @@
 }
 .site-header .main-site-nav .nav li.product-section-link-notHome{
     display: inline-block;
+    @media screen and (max-width: $breakpoint--large){
+        display: block;
+    }
 }
 .home.page{
     .site-header .main-site-nav .nav li.product-section-link-home{
         display: inline-block;
+        @media screen and (max-width: $breakpoint--large){
+            display: block;
+        }
     }
     .site-header .main-site-nav .nav li.product-section-link-notHome{
         display: none;
