@@ -172,4 +172,10 @@ jQuery(document).ready(function( $ ) {
 			}
 		});
 	}
+	
+	
+	$(".tc-label.tm-epo-style").each(function (i) { 
+		$(this).attr("tabindex", 0);
+	});
+	$('#yahm-quantity').attr("tabindex", 0);
 });
