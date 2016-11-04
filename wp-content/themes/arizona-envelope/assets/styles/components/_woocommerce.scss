@@ -98,18 +98,18 @@
 			> div{
 				&:first-child{
 					border-right: 1px solid $light-gray;
-					margin: rem(40) 0;
+					margin: rem(10) 0;
 					h4{
 						color: $brand-orange;
 						text-transform: uppercase;
 					}
 					@media screen and (max-width: $breakpoint--large){
-						margin: rem(20) 0;
+						margin: rem(5) 0;
 					}
 				}
 				&:last-child{
 					> div{
-						margin: rem(60) rem(60) 0 rem(40);
+						margin: rem(30) rem(60) 0 rem(40);
 						position: relative;
 						height: 100%;
 						width: calc(100% - 100px);
