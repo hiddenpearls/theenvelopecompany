@@ -40,10 +40,18 @@ jQuery(document).ready(function( $ ) {
 			sticky.removeClass('fixed-header');	
 		} 
 	}
+	
+
 	scrollPosition();
+	
 	$(window).scroll(function() {
 	    scrollPosition();
 	});
+
+	//$('html, body').hide();
+
+	// ----------- 
+    // Called when a user clicks on an achor 
 	var jump=function(e){
 		var target;
 	   	if (e){
@@ -71,19 +79,20 @@ jQuery(document).ready(function( $ ) {
 	   });
 
 	};
-	$('html, body').hide();
-	$(document).ready(function(){
-	    $('a[href^=#]').bind("click", jump);
+	
+	// ------------------
 
-	    if (location.hash){
-	        setTimeout(function(){
-	            $('html, body').scrollTop(0).show();
-	            jump();
-	        }, 0);
-	    }else{
-	        $('html, body').show();
-	    }
-	});
+    $('a[href^=#]').bind("click", jump);
+    //--------
+    // When the page loads, check if there is a # in the URL. 
+    if (location.hash){
+        setTimeout(function(){
+            //$('html, body').scrollTop(0).show();
+            jump();
+        }, 0);
+    }else{
+        //$('html, body').show();
+    }
 
 	function optChange(){	
 		var x = $("#yahm-quantity option:selected").is(':selected');

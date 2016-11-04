@@ -10,7 +10,7 @@
         position: static;
     }
     .container{
-        @media screen and (max-width: $breakpoint--large){
+        @media screen and (max-width: $breakpoint--xlarge){
             width: 100%;
         }
     }
@@ -93,6 +93,12 @@
                     @media screen and (max-width: $breakpoint--large){
                         padding-left: 15px;
                     }
+                }
+                @media screen and (max-width: $breakpoint--xlarge){
+                    padding-left: 0;
+                }
+                @media screen and (max-width: $breakpoint--large){
+                    padding-left: 10px;
                 }
                 @media screen and (max-width: $breakpoint--large){
                     display: block;

@@ -36,7 +36,7 @@ section{
 			display: block;
 			border: 2px solid $medium-gray;
 			text-align: center;
-			min-height: rem(340);
+			min-height: rem(280);
 			margin-bottom: rem(60);
 			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f2f2f2+91,eeeeee+100 */
 			background: #ffffff; /* Old browsers */
@@ -44,7 +44,7 @@ section{
 			background: -webkit-radial-gradient(center, ellipse cover,  #ffffff 0%,#f2f2f2 91%,#eeeeee 100%); /* Chrome10-25,Safari5.1-6 */
 			background: radial-gradient(ellipse at center,  #ffffff 0%,#f2f2f2 91%,#eeeeee 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-			padding: 20px;
+			padding: rem(12);
 			@media screen and (max-width: $breakpoint--large){
 				margin: rem(20) 0 rem(12);
 			}
@@ -131,6 +131,7 @@ section{
 		}	
 		img{
 			margin: 0 auto;
+			max-width: rem(140);
 		}
 		img, span{
 			display: block;

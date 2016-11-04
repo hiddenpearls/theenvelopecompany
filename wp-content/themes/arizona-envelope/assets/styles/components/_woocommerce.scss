@@ -25,6 +25,18 @@
 			}
 		}
 	}
+	ul.products{
+		li.product{
+			a{
+				&.woocommerce-LoopProduct-link{
+					min-height: rem(180);
+				}
+				img{
+					margin: 0 auto;
+				}
+			}
+		}
+	}
 	div.product{
 		div.summary, div.images{
 			width: 100%;
