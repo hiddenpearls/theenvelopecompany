@@ -1,1 +1,0 @@
-<div class="tab-content <?php if (!empty($atts['class'])) echo esc_attr($atts['class']); ?>"><?php print $content; ?></div>

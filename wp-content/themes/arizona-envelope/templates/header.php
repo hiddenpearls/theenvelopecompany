@@ -143,7 +143,7 @@ if(is_page('about-us') || is_page('privacy-policy') || is_page('terms-conditions
 
  ?>
 <?php //print shop menu for the shop template pages
-if(is_cart()||is_product()||$status==="account-out"||is_page("checkout")){ ?>
+if(is_cart()||is_product()||$status==="account-out"||is_page("checkout")||is_page('online-quote')){ ?>
 <div class="category-shop-header">
     <div class="container">
         <div>
