@@ -447,11 +447,17 @@
                     height: auto;
                 }
             }
-            @media screen and (max-width: 360px){
+            @media screen and (max-width: 380px){
                 a{
                     width: rem(120);
                     font-size: 12px;
                     margin-right: 0;
+                }
+                h1{
+                    font-size: rem(22);
+                }
+                p{
+                    font-size: rem(13);
                 }
             }
         }
