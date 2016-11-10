@@ -555,6 +555,7 @@ $button-transistion-duration: 0.3s;     // The transition duration
   box-shadow: none;
   border-radius: none;
   border: none;
+  z-index: 10;
   cursor: pointer;
   transition: background $button-transistion-duration;
   @media screen and (min-width: $breakpoint--large){
