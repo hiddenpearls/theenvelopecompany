@@ -189,6 +189,9 @@
                             }
                         }
                         &.cart-icon{
+                            @supports (-ms-ime-align:auto) { /**  Microsoft Edge **/
+                                float: left;
+                            }
                             a{
                                 &:before{
                                     content: "\f07a";
