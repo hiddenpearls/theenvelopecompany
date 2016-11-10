@@ -14,8 +14,9 @@ section{
 
 //refactor this shyte.
 .products-section, .products{
-	h1{
+	h2{
 		color: $medium-gray;
+		font-size: rem(42);
 	}
 	.button-down{
 		position: relative;
@@ -234,6 +235,9 @@ section{
 		.validation_error{
 			color: $brand-orange;
 			border-color: $brand-orange;
+		}
+		p{
+			font-size: rem(18);
 		}
 		.gform_body{
 			.gform_fields#gform_fields_10{
