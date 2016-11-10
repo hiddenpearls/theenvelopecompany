@@ -26,6 +26,9 @@
 		        float: none;
 		        display: block;
 		    }
+		    @media screen and (max-width: $breakpoint--medium){
+		    	margin-bottom: rem(16);
+		    }
 		}
 		/*.widget-footer{
 			width: 70%;
@@ -127,8 +130,8 @@
 					}
 					.gform_footer{
 						position: absolute;
-						height: rem(32);
-					    bottom: 4px;
+						height: rem(30);
+					    bottom: rem(6);
 					    right: 0;
 					    padding: 0 0 0 12px;
 					    margin: 0;

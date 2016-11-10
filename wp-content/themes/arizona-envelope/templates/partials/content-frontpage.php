@@ -1,7 +1,7 @@
 <section class="products-section" id="products-section">
     <div class="container">
         <div class="row">
-          <h1 class="text-center">Our Products</h1>
+          <h2 class="text-center heading-text">Our Products</h2>
             <?php
 
               $taxonomy     = 'product_cat';

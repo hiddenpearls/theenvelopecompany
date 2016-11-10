@@ -257,7 +257,6 @@
         }
         .search-form{
             float: right;
-            max-width: 30%;
             max-width: 40%;
             .search-field{
                 min-width: rem(200);
@@ -399,6 +398,7 @@
             }
             p{
                 margin-bottom: rem(64);
+                font-size: rem(20)
             }
             a{
                 width: 200px;
@@ -445,6 +445,13 @@
                     width: rem(140);
                     padding: 8px 0;
                     height: auto;
+                }
+            }
+            @media screen and (max-width: 360px){
+                a{
+                    width: rem(120);
+                    font-size: 12px;
+                    margin-right: 0;
                 }
             }
         }
@@ -494,7 +501,7 @@
     }
     .search-submit{
         border: none;
-        height: 80%;
+        height: rem(30);
         border-left: 2px solid $light-gray;
         width: 32px;
         padding: 0;
