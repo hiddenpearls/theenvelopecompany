@@ -65,9 +65,9 @@
                 <p><?php the_field('contact_address_information') ?></p>
                 <p class="heading-text italic">Customer Service</p>
                 <ul>
-                    <li><i class="fa fa-phone"></i><strong>Toll Free: </strong><?php the_field('toll_free_phone', 'options'); ?></li>
-                    <li><i class="fa fa-phone-square"></i><strong>Phone: </strong><?php the_field('regular_phone_number', 'options'); ?></li>
-                    <li><i class="fa fa-fax"></i><strong>Fax: </strong><?php the_field('fax_number', 'options'); ?></li>
+                    <li><i class="fa fa-phone"></i><strong>Toll Free: </strong><a href="tel:<?php the_field('toll_free_phone', 'options'); ?>"><?php the_field('toll_free_phone', 'options'); ?></a></li>
+                    <li><i class="fa fa-phone-square"></i><strong>Phone: </strong><a href="tel:<?php the_field('regular_phone_number', 'options'); ?>"><?php the_field('regular_phone_number', 'options'); ?></a></li>
+                    <li><i class="fa fa-fax"></i><strong>Fax: </strong><a href="tel:<?php the_field('fax_number', 'options'); ?>"><?php the_field('fax_number', 'options'); ?></a></li>
                 </ul>
             </div>
             <div class="col-md-8 contact-form">

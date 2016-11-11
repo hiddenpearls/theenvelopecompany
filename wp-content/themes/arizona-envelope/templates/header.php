@@ -32,7 +32,7 @@ if( is_front_page() ){
                         $cleaned_phone = $phone;
                         $cleaned_phone = str_replace(array('(', ')', '-', ' '), "", $cleaned_phone);
                     ?>
-                    <span class="d-block"><?php echo $phone; ?></span>
+                    <span class="d-block"><a href="tel:<?php echo $phone; ?>"><?php echo $phone; ?></a></span>
                 </div>
                 <?php
                     if (has_nav_menu('top_navigation')) :
