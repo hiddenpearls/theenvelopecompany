@@ -173,6 +173,15 @@
 				width: 96%;
 				padding: 0 2%;
 				float: none;
+				.gforms_confirmation_message{
+					padding: rem(20) 0;
+					text-align: left;
+				}
+			}
+			@media screen and (max-width: $breakpoint--medium){
+				.gforms_confirmation_message{
+					padding: rem(12) 0 rem(20);
+				}
 			}
 		}
 	}
