@@ -121,23 +121,12 @@
             max-width: 80%;
             margin: rem(12) 0 0;
             .phone-icon, .cart-icon{
-                span.d-block{
-                    color: $medium-gray;
-                    line-height: 0.5;
-                    &:before{
-                        font: normal normal normal 14px/1 FontAwesome;
-                        content: "\f095";
-                        display: inline-block;
-                        color: $brand-orange;
-                        margin-right: 8px;
-                    }
-                   
-                }
                 a{
                     color: $medium-gray;
                     line-height: 0.5;
                     &:before{
                         font: normal normal normal 14px/1 FontAwesome;
+                        content: "\f095";
                         display: inline-block;
                         color: $brand-orange;
                         margin-right: 8px;
