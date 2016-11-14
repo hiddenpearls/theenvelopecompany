@@ -32,7 +32,7 @@ if( is_front_page() ){
                         $cleaned_phone = $phone;
                         $cleaned_phone = str_replace(array('(', ')', '-', ' '), "", $cleaned_phone);
                     ?>
-                    <a href="tel:<?php echo $phone; ?>">
+                    <a href="tel:<?php echo $cleaned_phone; ?>">
                         <?php echo $phone; ?>
                     </a>
                 </div>
