@@ -270,6 +270,11 @@
             max-width: 40%;
             .search-field{
                 min-width: rem(200);
+                @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { /* IE */
+             
+                        min-width: rem(180);
+                    
+                }
             }
             @media screen and (max-width: $breakpoint--large){
                 float: none;
@@ -516,6 +521,7 @@
         
     }
     .search-submit{
+        
         border: none;
         height: rem(30);
         border-left: 2px solid $light-gray;
