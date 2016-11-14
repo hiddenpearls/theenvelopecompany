@@ -405,6 +405,10 @@
             width: 90%;
             bottom: 10px;
         }
+        @media screen and (max-width: 380px){
+            width: 100%;
+            bottom: 2px;
+        }
         .slider-caption{
             max-width: 40%;
             h1, p {
@@ -431,7 +435,7 @@
                 max-width: 75%;
                 h1{
                     //font-size: rem(32);
-                    margin-bottom: rem(10);
+                    margin-bottom: rem(2);
                 }
                 p{
                     margin-bottom: rem(10);
@@ -473,10 +477,12 @@
                     margin-right: 0;
                 }
                 h1{
-                    font-size: rem(22);
+                    font-size: rem(20);
+                    margin-bottom: rem(8);
                 }
                 p{
                     font-size: rem(13);
+                    margin-bottom: rem(8);
                 }
             }
         }
