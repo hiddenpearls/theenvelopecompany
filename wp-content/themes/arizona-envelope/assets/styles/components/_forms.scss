@@ -96,6 +96,11 @@ body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html.envelop
 
 .contact-form{
 	.gform_confirmation_message{
-		text-align: center;
+		text-align: right;
+		padding-right: rem(8);
+		@media screen and (max-width: $breakpoint--large){
+			text-align: left;
+			padding-top: rem(16);
+		}
 	}
 }
