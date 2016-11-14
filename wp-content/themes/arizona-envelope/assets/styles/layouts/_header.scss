@@ -241,6 +241,9 @@
             .menu-site-navigation-container{
                 float: left;
                 max-width: 70%;
+                @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { /* IE */
+                    max-width: 100%;
+                }
                 padding-top: rem(20);
                 @media screen and (max-width: $breakpoint--large){
                     padding-top: rem(20);
@@ -268,12 +271,13 @@
         .search-form{
             float: right;
             max-width: 40%;
+            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+                max-width: 100%;
+            }
             .search-field{
                 min-width: rem(200);
                 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { /* IE */
-             
-                        min-width: rem(180);
-                    
+                    min-width: rem(180);
                 }
             }
             @media screen and (max-width: $breakpoint--large){
