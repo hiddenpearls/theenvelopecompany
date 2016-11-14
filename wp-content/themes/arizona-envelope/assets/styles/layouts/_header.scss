@@ -169,6 +169,9 @@
                                 padding: 10px 0;
                             }
                         }
+                        &:first-child{
+                            margin: 0;
+                        }
                         &.white-btn{
                             padding: 0;
                             a{
