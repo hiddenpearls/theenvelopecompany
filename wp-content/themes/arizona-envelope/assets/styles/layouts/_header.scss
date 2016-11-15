@@ -134,6 +134,9 @@
                     }
                 }
             }
+            .responsive-search{
+                display: none;
+            }
             .phone-icon{
                 float: left;
                 margin: 0 rem(16);
@@ -192,6 +195,8 @@
                             }
                         }
                         &.cart-icon{
+                            //display: inline-block;
+                            float: left;
                             @supports (-ms-ime-align:auto) { /**  Microsoft Edge **/
                                 float: left;
                             }
@@ -201,6 +206,9 @@
                                     vertical-align: middle;
                                     padding-bottom: 4px;
                                 }
+                            }
+                            @media screen and (max-width: $breakpoint--large){
+                                float: none;
                             }
                         }
                         &.pull-left, &.pull-right{
@@ -212,7 +220,7 @@
                             color: $brand-orange;
                         }
                     }
-                }   
+                }
             }
             @media screen and (max-width: $breakpoint--large){
                 float: none;
@@ -231,6 +239,11 @@
             max-width: 80%;
             float: right;
             margin-top: rem(12);
+            .search-form{
+                @media screen and (max-width: $breakpoint--large){
+                    display: none;
+                }
+            }
             .menu-site-navigation-container{
                 float: left;
                 max-width: 70%;
@@ -243,7 +256,7 @@
                     float: none;
                     max-width: 100%;
                     width: 100%;
-                    padding: 0 40px 40px;
+                    padding: 0 40px;
                     margin-top: 0;
                     .menu-item{
                         padding: 10px 15px;
@@ -276,7 +289,7 @@
             @media screen and (max-width: $breakpoint--large){
                 float: none;
                 max-width: 100%;
-                margin: 0 40px;
+                margin: rem(25) 0;
                 position: relative;
                 margin-bottom: rem(20);
                 label{
@@ -296,6 +309,33 @@
                     width: 88%;
                 }
             }*/
+        }
+        @media screen and (max-width: $breakpoint--large){
+            &.collapse.in{
+                display: flex!important;
+                column-count: 1;
+                flex-direction: column;
+            }
+            .nav-primary{
+                order: 1;
+            }
+            .nav-utilities{
+                order: 2;
+                padding-top: 0;
+                display: flex;
+                flex-direction: column;
+                .menu-top-navigation-container{
+                    order: 1;
+                }
+                .phone-icon{
+                    order: 2;
+                    padding: rem(20) rem(15);
+                }
+                .responsive-search{
+                    display: block;
+                    order: 3;
+                }
+            }
         }
     }
     &.fixed-header{
@@ -414,7 +454,7 @@
             }
             p{
                 margin-bottom: rem(64);
-                font-size: rem(20)
+                font-size: rem(20);
             }
             a{
                 width: 200px;
@@ -422,7 +462,7 @@
                 padding: 12px 0;
             }
             @media screen and (max-width: $breakpoint--xlarge){
-                max-width: 65%;
+                max-width: 75%;
             }
             @media screen and (max-width: $breakpoint--large){
                 max-width: 75%;
