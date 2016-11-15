@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-8 col-md-offset-2 text-center">
 			<?php the_content(); ?>	
 		</div>
 	</div>
