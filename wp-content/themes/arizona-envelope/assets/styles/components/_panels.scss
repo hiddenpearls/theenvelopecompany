@@ -369,8 +369,9 @@ section{
 					}
 				}
 				&.current-menu-item, &.is-active, &.current_page_parent, &.current-page-ancestor{
-					border-right: solid #fff;
-    				border-left: solid #fff;
+					border-right: solid $light-gray;
+    				border-left: solid $light-gray;
+    				border-width: 2px;
 					a{
 						color: #fff;
 						span{
