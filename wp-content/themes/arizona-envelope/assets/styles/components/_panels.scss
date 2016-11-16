@@ -411,6 +411,10 @@ section{
 			.menu-item{
 				max-width: 25%;
 				min-width: 22%;
+				@media screen and (max-width: $breakpoint--large){
+					min-width: 100%;
+					max-width: 100%;
+				}
 			}
 		}
 
