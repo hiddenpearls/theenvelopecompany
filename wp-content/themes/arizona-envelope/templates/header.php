@@ -118,6 +118,25 @@ if(is_page('layouts-die-lines') || is_page('resources') || is_page('helpful-info
         </div>
     </div>
 <?php }?>
+<?php //print about menu for the about template pages
+if(is_page('about-us') || is_page('privacy-policy') || is_page('terms-conditions') || is_home() || is_singular("post") ){?>
+    <div class="category-shop-header">
+        <div class="container menu-shop-navigation-container">
+            <ul class="shop-navigation-bar">
+                <?php 
+                wp_nav_menu( array(
+                    'menu' => 'about-us-menu'
+                ) );
+                /*$menu = wp_get_nav_menu_items('resources-menu');
+                foreach ($menu as $key => $menu_item) {
+                    echo '<li class="menu-item">';    
+                    echo  '<a class="shop-nav-btn" href="'. $menu_item->url .'">'.$menu_item->title.'</a>';
+                    echo '</li>'; 
+                }*/?> 
+            </ul>
+        </div>
+    </div>
+<?php }?>
 <?php 
     if( is_user_logged_in() ){
         $status = "in";

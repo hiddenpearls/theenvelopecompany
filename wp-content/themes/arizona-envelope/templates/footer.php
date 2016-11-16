@@ -27,7 +27,6 @@
 				if( get_field('copyright_information', 'options') ) :
 				?>
 				<div class="right-footer-section">
-						<?php wp_nav_menu( array('menu' => 'footer_menu_right') );?>
 						<small><?php the_field('copyright_information', 'options'); ?></small>
 					<?php
 					endif;
