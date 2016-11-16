@@ -291,6 +291,9 @@ dl{
 .woocommerce-account .addresses .title .edit{
 	padding-top: rem(20);
 	color: $brand-orange;
+	float: left;
+    margin-left: 20px;
+    margin-top: 2px;
 	&:hover{
 		color: $dark-gray;
 	}
