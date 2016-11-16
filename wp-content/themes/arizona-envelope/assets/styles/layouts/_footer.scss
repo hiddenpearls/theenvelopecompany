@@ -252,6 +252,7 @@
 	    		font-size: .75rem;
 				ul{
 					list-style-type: none;
+					float: right;
 
 					li{
 						display: inline-block;
@@ -275,6 +276,7 @@
 			}
 			small{
 				font-size: rem(12);
+				float: right;
 				@media screen and (max-width: $breakpoint--medium){
 					float: none;
 					text-align: center;

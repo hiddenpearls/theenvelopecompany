@@ -369,14 +369,14 @@ section{
 					}
 				}
 				&.current-menu-item, &.is-active, &.current_page_parent, &.current-page-ancestor{
-					border-right: solid #fff;
-    				border-left: solid #fff;
+
 					a{
 						color: #fff;
 						span{
 							color: #fff;
 						}
 					}
+
 				}
 				@media screen and (max-width: $breakpoint--xlarge){
 					max-width: 33.333%;

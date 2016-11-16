@@ -17,6 +17,14 @@
 	}
 }
 .woocommerce{
+	.clearfix{
+		a{
+			@media screen and (max-width: $breakpoint--small){
+				width: 100%;
+				margin-bottom: 5px;
+			}
+		}
+	}
 	form{
 		.form-row-first, .form-row-last{
 			@media screen and (max-width: $breakpoint--large){
@@ -202,11 +210,20 @@
 					}
 				}
 				.product-name{
+					@media screen and (max-width: $breakpoint--small){
+						display: block;
+						text-align: left;
+					}
 					text-align: center;
 					.tm-cart-edit-options{
 						display: none;
 					}
 				}
+				.product-quantity, .product-subtotal, .product-edit{
+					@media screen and (max-width: $breakpoint--small){
+						border-top: 0;
+					}
+				} 
 				.product-edit{
 				    color: transparent;
     				position: relative;
@@ -291,6 +308,9 @@ dl{
 .woocommerce-account .addresses .title .edit{
 	padding-top: rem(20);
 	color: $brand-orange;
+	float: left;
+    margin-left: 20px;
+    margin-top: 2px;
 	&:hover{
 		color: $dark-gray;
 	}
