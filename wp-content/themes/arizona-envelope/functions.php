@@ -32,6 +32,10 @@ function add_custom_class($classes, $menu_item) {
   if((is_page('equipment') && 'Samples' == $menu_item->title) || (is_page('layouts-die-lines') && 'Samples' == $menu_item->title) || (is_page('helpful-information') && 'Samples' == $menu_item->title)){
     $classes = array_diff( $classes, array( 'current-page-parent', 'current-page-ancestor') ); 
   }
+
+  if((is_page('privacy-policy') && 'About Us' == $menu_item->title) || (is_page('terms-conditions') && 'About Us' == $menu_item->title) || (is_home() && 'About Us' == $menu_item->title)){
+    $classes = array_diff( $classes, array('current-page-ancestor') ); 
+  }
   return $classes;
   
 }
