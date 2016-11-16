@@ -26,3 +26,13 @@ foreach ($sage_includes as $file) {
   require_once $filepath;
 }
 unset($file, $filepath);
+
+function add_custom_class($classes, $menu_item) {
+
+  if((is_page('equipment') && 'View Samples' == $menu_item->title) || (is_page('layouts-die-lines') && 'View Samples' == $menu_item->title) || (is_page('helpful-information') && 'View Samples' == $menu_item->title)){
+    $classes = array_diff( $classes, array( 'current-page-parent', 'current-page-ancestor') ); 
+  }
+  return $classes;
+  
+}
+add_filter('nav_menu_css_class', 'add_custom_class', 100, 2);
