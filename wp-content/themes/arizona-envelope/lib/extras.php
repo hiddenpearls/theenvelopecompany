@@ -733,5 +733,63 @@ new GW_Rename_Uploaded_Files( array(
 ) );
 
 /*
- *  
+ *  Get endpoint titles
  */
+/*function get_endpoint_title( $endpoint ) {
+    global $wp;
+
+    switch ( $endpoint ) {
+      case 'order-pay' :
+        $title = __( 'Pay for Order', 'woocommerce' );
+      break;
+      case 'order-received' :
+        $title = __( 'Order Received', 'woocommerce' );
+      break;
+      case 'orders' :
+        if ( ! empty( $wp->query_vars['orders'] ) ) {
+          $title = sprintf( __( 'Orders (page %d)', 'woocommerce' ), intval( $wp->query_vars['orders'] ) );
+        } else {
+          $title = __( 'Orders', 'woocommerce' );
+        }
+      break;
+      case 'view-order' :
+        $order = wc_get_order( $wp->query_vars['view-order'] );
+        $title = ( $order ) ? sprintf( __( 'Order #%s', 'woocommerce' ), $order->get_order_number() ) : '';
+      break;
+      case 'downloads' :
+        $title = __( 'Downloads', 'woocommerce' );
+      break;
+      case 'edit-account' :
+        $title = __( 'Account Details', 'woocommerce' );
+      break;
+      case 'edit-address' :
+        $title = __( 'Addresses', 'woocommerce' );
+      break;
+      case 'payment-methods' :
+        $title = __( 'Payment Methods', 'woocommerce' );
+      break;
+      case 'add-payment-method' :
+        $title = __( 'Add Payment Method', 'woocommerce' );
+      break;
+      case 'lost-password' :
+        $title = __( 'Lost Password', 'woocommerce' );
+      break;
+      default :
+        $title = apply_filters( 'woocommerce_endpoint_' . $endpoint . '_title', '' );
+      break;
+    }
+
+    return $title;
+  }*/
+ 
+/*
+ *  Temporary piece of code for debugging
+ */
+/*add_action ('deprecated_argument_run', 'Roots\Sage\Extras\deprecated_argument_run', 10, 3);
+function deprecated_argument_run ($function, $message, $version) {
+    error_log ('Deprecated Argument Detected');
+    $trace = debug_backtrace ();
+    foreach ($trace as $frame) {
+        error_log (var_export ($frame, true));
+    }
+}*/
