@@ -6,7 +6,7 @@
 	</div>
 
 	<?php if( get_field('resources') ) { ?>
-		<div class="row">
+		<div class="row resources">
 			<div class="col-md-12">
 				<?php if( have_rows('resources') ): ?>
 				<ul>
