@@ -1,13 +1,33 @@
+@mixin font-style{
+	font: 400 rem(16) $copy-font;
+	margin-bottom: rem(20);
+	color: $dark-gray;
+	line-height: rem(28);
+}
 article{
 	margin: 0 0 rem(50);
 	time{
-		display: block;
-		margin: rem(16) 0;
+		@include font-style;
+		margin-top: rem(16);
 	}
 	.comments{
 		display: none;
 	}
 	.entry-summary{
-		margin-bottom: rem(20);
+		@include font-style;
+		a{
+			color: $brand-orange;
+		}
+	}
+
+	.entry-content{
+		ul{
+			li{
+				@include font-style;
+				a{
+					color: $brand-orange;
+				}
+			}
+		}
 	}
 }
