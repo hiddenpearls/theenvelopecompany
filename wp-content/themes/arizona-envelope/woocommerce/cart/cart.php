@@ -93,10 +93,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 								if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
 									echo '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'woocommerce' ) . '</p>';
 								}
+								$cart_selected_options = Roots\Sage\Extras\get_product_options_cart($cart_item);
 								//do_action('woocommerce_tm_custom_price_fields_only');
-								echo "<p>";
-								echo Roots\Sage\Extras\get_product_options_cart($cart_item);
-								echo "</p>";
+								if (!empty($cart_selected_options)){
+									echo "<p>";
+									echo $cart_selected_options;
+									echo "</p>";
+								}
 							?>
 							 
 						</td>
