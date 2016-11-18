@@ -59,7 +59,7 @@ if ( ! $product->is_purchasable() ) {
 	<?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
 	<form class="cart" method="post" enctype='multipart/form-data'>
-    
+    	<?php do_action('woocommerce_tm_custom_price_fields_only'); ?>
 	 	<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 	 	<?php
 	 		if ( ! $product->is_sold_individually() )
