@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="row">
+	<div class="row content-centered">
 		<div class="col-md-8 col-md-offset-2 text-center">
 			<?php the_content(); ?>	
 		</div>
@@ -7,7 +7,7 @@
 
 	<?php if( get_field('resources') ) { ?>
 		<div class="row resources">
-			<div class="col-md-12">
+			<div class="col-md-8 col-md-offset-2 text-center">
 				<?php if( have_rows('resources') ): ?>
 				<ul>
 					<?php while ( have_rows('resources') ) : the_row(); ?>
@@ -23,8 +23,8 @@
 		</div>
 	<?php } ?>
 	<?php if( get_field('sub_content') ){ ?>
-		<div class="row">
-			<div class="col-md-12">
+		<div class="row content-centered">
+			<div class="col-md-8 col-md-offset-2 text-center">
 				<?php the_field('sub_content'); ?>
 			</div>
 		</div>
