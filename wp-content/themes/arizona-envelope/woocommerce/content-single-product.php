@@ -82,7 +82,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		                    </span><br />
 		                    <span id="yahm-unit-label">Per M (1,000)</span>
 						</div>
-						<?php do_action('woocommerce_tm_custom_price_fields_only'); ?>
+						
 						<?php woocommerce_template_single_add_to_cart(); ?>
 					</div>
 				</div>
