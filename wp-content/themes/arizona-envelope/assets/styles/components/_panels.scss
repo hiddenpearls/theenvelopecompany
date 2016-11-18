@@ -502,8 +502,8 @@ section{
 }
 
 
-.resources{ /* Content Pages Template */
-	ul{
+.resources, .content-centered, .entry-content{ /* Content Pages Template */
+	ul, ol{
 		li{
 			font: 400 rem(16) $copy-font;
 			margin-bottom: rem(20);
@@ -513,5 +513,9 @@ section{
 				color: $brand-orange;
 			}
 		}
+	}
+
+	ul{
+		list-style-type: none;
 	}
 }
