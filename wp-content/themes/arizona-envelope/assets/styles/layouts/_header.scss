@@ -313,6 +313,12 @@
             }*/
         }
         @media screen and (max-width: $breakpoint--large){
+            display: flex!important;
+            column-count: 1;
+            flex-direction: column;
+            &.collapse{
+                display: none!important;
+            }
             &.collapse.in{
                 display: flex!important;
                 column-count: 1;
