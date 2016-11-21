@@ -216,6 +216,8 @@ class WPMS_settings
 
 	function WPMS_insert_option(){
 
+		$encryption = new WPMS_encryption();
+
 		if( isset($_POST['host']) ){
 
 			check_admin_referer( 'WPMS-mail-option' );
@@ -239,7 +241,7 @@ class WPMS_settings
 					$FromName  	 = esc_sql($_POST['FromName']);
 					$encrypt     = '1';
 
-
+ 
 					$host 		 = $encryption->data_encrypt($host,SECURE_AUTH_KEY);
 					$username 	 = $encryption->data_encrypt($username,SECURE_AUTH_KEY);
 					$password 	 = $encryption->data_encrypt($password,SECURE_AUTH_KEY);
