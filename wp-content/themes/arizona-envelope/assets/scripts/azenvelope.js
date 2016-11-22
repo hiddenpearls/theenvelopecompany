@@ -178,4 +178,15 @@ jQuery(document).ready(function( $ ) {
 		$(this).attr("tabindex", 0);
 	});
 	$('#yahm-quantity').attr("tabindex", 0);
+
+	//store logo and quantity info in local storage to reload if "Edit options" in cart/checkout is clicked
+	/*$("form.cart").submit(function(){
+		//var product = $("#product-*");
+		//console.log(product);
+		if( $(".tm-filename").length ){
+			var filePath = $(".tm-filename");
+			localStorage.setItem( path, filePath );
+		}
+	});*/
+
 });

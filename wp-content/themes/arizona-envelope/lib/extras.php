@@ -515,7 +515,7 @@ function get_product_options_email($item){
  * @license   GPL-2.0+
  * @link      http://gravitywiz.com/rename-uploaded-files-for-gravity-form/
  */
-class GW_Rename_Uploaded_Files {
+/*class GW_Rename_Uploaded_Files {
 
   public function __construct( $args = array() ) {
 
@@ -730,3 +730,4 @@ new GW_Rename_Uploaded_Files( array(
     'field_id' => 70,
     'template' => 'Name (First):1.3}-{Name (Last):1.6}-{filename}' // most merge tags are supported, original file extension is preserved
 ) );
+*/
