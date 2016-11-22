@@ -136,6 +136,9 @@
 					    padding: 0 0 0 12px;
 					    margin: 0;
 					    border-left: 2px solid $light-gray;
+					    input[type=image]{
+					    	float: right;
+					    }
 						input{
 							font-family: $copy-font;
 							font-weight: medium;
