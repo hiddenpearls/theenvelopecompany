@@ -133,8 +133,9 @@
 						height: rem(30);
 					    bottom: rem(6);
 					    right: 0;
-					    padding: 0 0 0 12px;
+					    padding: 0 0 0 8px;
 					    margin: 0;
+					    max-width: rem(40);
 					    border-left: 2px solid $light-gray;
 					    input[type=image]{
 					    	float: right;

@@ -156,7 +156,7 @@ jQuery(document).ready(function( $ ) {
 				var selectedProduct = window.location.href;
 				//console.log(selectedProduct);
 				if( selectedProduct.indexOf(selectedCategory) >= 0){
-					console.log(menuItem.parent());
+					//console.log(menuItem.parent());
 					menuItem.parent('.menu-item').addClass("current-page-ancestor");
 					//$(this).parent('menu-item').addClass("current-page-ancestor");
 				}
@@ -177,16 +177,45 @@ jQuery(document).ready(function( $ ) {
 	$(".tc-label.tm-epo-style").each(function (i) { 
 		$(this).attr("tabindex", 0);
 	});
-	$('#yahm-quantity').attr("tabindex", 0);
+	$("#yahm-quantity").attr("tabindex", 0);
 
-	//store logo and quantity info in local storage to reload if "Edit options" in cart/checkout is clicked
-	/*$("form.cart").submit(function(){
-		//var product = $("#product-*");
-		//console.log(product);
-		if( $(".tm-filename").length ){
-			var filePath = $(".tm-filename");
-			localStorage.setItem( path, filePath );
-		}
-	});*/
+	//run this function only if in single product page
+	var wq = $("input[name='tc_cart_edit_key']");
+	if ( wq.length > 0 ){
+		var lastQty = urlParam('last_qty');
+		console.log( lastQty );
+		$("#yahm-quantity option").each(function( ){
+			var optionValue = $(this).attr("value").split("_");
+			console.log(optionValue);
+			var rawValue = optionValue[0].replace(",", "");
+			if( rawValue == lastQty ){
+
+				console.log('I got here');
+				$('#yahm-quantity').val($(this).attr("value"));
+			}
+			
+		})
+	}
+
+    if ($(".tm-cart-edit-options").length > 0){
+    	$(".cart_item").each(function(){
+    		var lastQty = $(this).find('.product-quantity span').text();
+    		//console.log(lastQty);
+    		var editLink = $(this).find('.product-edit a');
+    		//console.log(editLink);
+    		var newUrl = editLink.attr('href') + '&last_qty=' + lastQty;
+    		editLink.attr('href', newUrl); 
+    		//console.log(editLink.attr("href"));
+    	})
+    }
+    function urlParam(name){
+	    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	    if (results==null){
+	       return null;
+	    }
+	    else{
+	       return results[1] || 0; 
+		} 
+	}
 
 });
