@@ -504,6 +504,7 @@ section{
 
 .resources, .content-centered, .entry-content{ /* Content Pages Template */
 	ul, ol{
+		padding: 0;
 		li{
 			font: 400 rem(16) $copy-font;
 			margin-bottom: rem(20);
@@ -518,8 +519,4 @@ section{
 	ul{
 		list-style-type: none;
 	}
-}
-
-.resources{
-	margin-right: 38px;
 }
