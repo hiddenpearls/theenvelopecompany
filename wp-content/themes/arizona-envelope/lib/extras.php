@@ -344,13 +344,25 @@ function yahm_cart_sel($product, $attr){
         $_price=$product->get_price();
         $price=$_price*$j;
         $price = number_format($price, 2, '.', '');
-        $price = '$'.$price;
+
+        //var k = '#yahm-tm-price-tmcp_radio_'+j; 
+        //alert(k);
+        //var kk = $(k).text(); // 
+
+
+        //$price = '$'.$price;
         //print_r($price);
     }
     $x=500; $yahm_arr = array();
     for($i=0; $i<60; $i++) {
         $j = number_format($x); 
-        echo '<option '. ($i != 1 ? '' : 'selected=selected') . ' value="' . $j.'_'.$i.'">' . $j." / ".$price.'</option>';
+        if( $i == 0){
+            $totalPrice = $price*0.5;
+        } else {
+            $totalPrice = $price*(($i/2)+0.5);
+        }
+        
+        echo '<option '. ($i != 1 ? '' : 'selected=selected') . ' value="' . $j.'_'.$i.'">' . $j." / $".$totalPrice.'</option>';
         $x=$x+500;
     }
 }
