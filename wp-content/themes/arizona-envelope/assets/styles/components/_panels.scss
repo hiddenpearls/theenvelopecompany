@@ -409,7 +409,7 @@ section{
 		.menu-resources-menu-container, .menu-about-us-menu-container{
 			padding: rem(10) 0;
 			.menu-item{
-				max-width: 25%;
+				max-width: 24%;
 				min-width: 22%;
 				margin-bottom: 0;
 				@media screen and (max-width: $breakpoint--large){
@@ -518,4 +518,8 @@ section{
 	ul{
 		list-style-type: none;
 	}
+}
+
+.resources{
+	margin-right: 38px;
 }
