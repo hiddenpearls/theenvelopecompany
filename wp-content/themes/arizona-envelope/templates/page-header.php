@@ -7,6 +7,8 @@
         		<h1 class="title-pages"><?= the_field('title'); ?></h1>
         	<?php }elseif(is_wc_endpoint_url( 'edit-account' )){ ?>
 				<h1 class="title-pages">Account Details</h1>
+            
+
             <?php }elseif(is_wc_endpoint_url( 'edit-address' )){ ?>
                 <?php $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']; ?>
                 <?php  

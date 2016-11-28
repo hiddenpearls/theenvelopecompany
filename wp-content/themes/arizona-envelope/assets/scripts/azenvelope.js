@@ -183,17 +183,15 @@ jQuery(document).ready(function( $ ) {
 	var wq = $("input[name='tc_cart_edit_key']");
 	if ( wq.length > 0 ){
 		var lastQty = urlParam('last_qty');
-		console.log( lastQty );
+		//console.log( lastQty );
 		$("#yahm-quantity option").each(function( ){
 			var optionValue = $(this).attr("value").split("_");
-			console.log(optionValue);
+			//console.log(optionValue);
 			var rawValue = optionValue[0].replace(",", "");
 			if( rawValue == lastQty ){
-
-				console.log('I got here');
+				//console.log('I got here');
 				$('#yahm-quantity').val($(this).attr("value"));
 			}
-			
 		})
 	}
 

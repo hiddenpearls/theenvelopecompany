@@ -18,9 +18,9 @@
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
-}
-?>
+} ?>
 <div class="container">
+	<h1 class="title-pages text-center">Password Reset</h1>
 	<?php wc_print_notices(); ?>
 	<form method="post" class="woocommerce-ResetPassword lost_reset_password">
 
