@@ -332,24 +332,27 @@ add_action( 'woocommerce_created_customer', 'Roots\Sage\Extras\wooc_save_extra_r
 //old functions from old theme
 // Price Dropdown
 function yahm_cart_sel($product, $attr){
-  if (check_user_role(array('discount-customer-10'))) {
-    $j = 1.8; }
-  elseif (check_user_role(array('discount-customer-20'))) {
-    $j = 1.6; }
-  else { $j = $attr; }
-  if ($product && is_object($product) && method_exists($product, "get_price") ){
-      $_price=$product->get_price();
-  $price=$_price*$j;
-  $price = number_format($price, 2, '.', '');
-  $price = '$'.$price;
-  //print_r($price);
-  }
-  $x=500; $yahm_arr = array();
+    if (check_user_role(array('discount-customer-10'))) {
+        $j = 1.8; 
+    }
+    elseif (check_user_role(array('discount-customer-20'))) {
+        $j = 1.6; }
+    else { 
+        $j = $attr; 
+    }
+    if ($product && is_object($product) && method_exists($product, "get_price") ){
+        $_price=$product->get_price();
+        $price=$_price*$j;
+        $price = number_format($price, 2, '.', '');
+        $price = '$'.$price;
+        //print_r($price);
+    }
+    $x=500; $yahm_arr = array();
     for($i=0; $i<60; $i++) {
-      $j = number_format($x); 
-      echo '<option '. ($i != 1 ? '' : 'selected=selected') . ' value="' . $j.'_'.$i.'">' . $j.'</option>';
-      $x=$x+500;
-  }
+        $j = number_format($x); 
+        echo '<option '. ($i != 1 ? '' : 'selected=selected') . ' value="' . $j.'_'.$i.'">' . $j." / ".$price.'</option>';
+        $x=$x+500;
+    }
 }
 // check role
 function check_user_role($roles, $user_id = NULL) {
