@@ -37,7 +37,10 @@
 		li.product{
 			a{
 				&.woocommerce-LoopProduct-link{
-					min-height: rem(180);
+					min-height: rem(320);
+					@media screen and (max-width: $breakpoint--medium){
+						min-height: rem(180);
+					}
 				}
 				img{
 					margin: 0 auto;

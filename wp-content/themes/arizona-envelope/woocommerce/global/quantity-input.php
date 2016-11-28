@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 global $product;
 ?>
-<h5> Quanitity: 
+<h5> Quantity and price
 <?php
 	if (wc_get_page_id( 'cart' ) == get_the_ID()) {
 	  echo number_format(esc_attr($input_value)*500);	}
