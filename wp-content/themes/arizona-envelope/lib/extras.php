@@ -356,13 +356,14 @@ function yahm_cart_sel($product, $attr){
     $x=500; $yahm_arr = array();
     for($i=0; $i<60; $i++) {
         $j = number_format($x); 
+        //this total price matches the price of the product with the correct per lot quantity, use if client requests again. Taken out by request.
         if( $i == 0){
             $totalPrice = $price*0.5;
         } else {
             $totalPrice = $price*(($i/2)+0.5);
         }
         
-        echo '<option '. ($i != 1 ? '' : 'selected=selected') . ' value="' . $j.'_'.$i.'">' . $j." / $".$totalPrice.'</option>';
+        echo '<option '. ($i != 1 ? '' : 'selected=selected') . ' value="' . $j.'_'.$i.'">' . $j.'</option>';
         $x=$x+500;
     }
 }
