@@ -166,6 +166,9 @@
                 float: left;
                 .nav{
                     li.menu-item{
+                        @media screen and (min-width: $breakpoint--xlarge){
+                            font-size: rem(14);
+                        }
                         padding: 8px 0;
                         margin: 0 rem(16);
                         @media screen and (max-width: $breakpoint--xlarge) and (min-width: $breakpoint--large){
