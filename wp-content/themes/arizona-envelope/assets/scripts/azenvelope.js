@@ -216,4 +216,21 @@ jQuery(document).ready(function( $ ) {
 		} 
 	}
 
+
+	$('.tmcp-upload').after('<div class="filename"><span class="file">No file chosen</span></div>').after('<button type="button" id="browse-button" class="button">Choose file</button>');
+	$('.tmcp-upload').css('display','none');
+
+	var browse_button = $('#browse-button')[0];
+	var file_input = $('.tmcp-upload')[0];
+
+	// Handler to trigger click on file input
+	browse_button.addEventListener('click', function(e) {
+	   file_input.click();
+	});
+
+	$(file_input).change(function(){
+      var fname = $(file_input).val();
+      $('.file').html(fname.substr(fname.lastIndexOf('\\')+1));
+    });
+
 });
