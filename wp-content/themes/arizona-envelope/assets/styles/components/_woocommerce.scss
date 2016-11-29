@@ -37,7 +37,14 @@
 		li.product{
 			a{
 				&.woocommerce-LoopProduct-link{
-					min-height: rem(320);
+					min-height: rem(304);
+					h3, p{
+						padding: 0;
+						margin-bottom: rem(10);
+					}
+					h3{
+						padding-top: rem(8)
+					}
 					@media screen and (max-width: $breakpoint--medium){
 						min-height: rem(180);
 					}
