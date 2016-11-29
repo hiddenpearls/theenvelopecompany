@@ -26,6 +26,11 @@ p, address{
 	line-height: rem(28);
 	a{
 		color: $brand-orange;
+		&:hover{
+            color: $brand-orange;
+            background-color: transparent;
+            text-decoration: underline;
+    	}
 	}
 }
 small, li, span{
