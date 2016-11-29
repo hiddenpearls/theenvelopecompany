@@ -76,7 +76,7 @@
 		}
 		form.cart, p.cart{
 			margin-bottom: 0;
-			.button, .tmcp-upload::-webkit-file-upload-button{
+			.button{
 				font-family: $copy-font;
 				padding: 14px 0;
 				font-weight: medium;
@@ -97,6 +97,13 @@
 			}
 			#yahm-quantity{
 				width: 100%;
+			}
+			.filename{
+				border: 2px solid #c7c8ca;
+    			position: relative;
+    		    height: 50px;
+    		    width: 100%;
+    		    padding: 14px;
 			}
 		}
 		h1{
