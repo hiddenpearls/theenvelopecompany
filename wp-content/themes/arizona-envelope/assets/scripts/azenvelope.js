@@ -224,13 +224,17 @@ jQuery(document).ready(function( $ ) {
 	var file_input = $('.tmcp-upload')[0];
 
 	// Handler to trigger click on file input
-	browse_button.addEventListener('click', function(e) {
-	   file_input.click();
-	});
+	if(browse_button!=null){
+		
+		browse_button.addEventListener('click', function(e) {
+	   		file_input.click();
+		});
 
-	$(file_input).change(function(){
-      var fname = $(file_input).val();
-      $('.file').html(fname.substr(fname.lastIndexOf('\\')+1));
-    });
+		$(file_input).change(function(){
+	    	var fname = $(file_input).val();
+	    	$('.file').html(fname.substr(fname.lastIndexOf('\\')+1));
+	    });
+	}
+	
 
 });

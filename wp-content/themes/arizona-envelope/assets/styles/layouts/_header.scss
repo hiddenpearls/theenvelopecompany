@@ -176,6 +176,14 @@
                         }
                         &:first-child{
                             margin: 0;
+                            a{
+                                @include transition(0.2s all ease-in-out);
+                                &:hover{
+                                    background-color: $light-gray;
+                                    color: $dark-gray;
+                                    border-color: $light-gray;
+                                }
+                            }
                         }
                         &.white-btn{
                             padding: 0;
