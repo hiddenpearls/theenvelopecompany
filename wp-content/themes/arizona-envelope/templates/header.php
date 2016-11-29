@@ -119,7 +119,7 @@ if(is_page('layouts-die-lines') || is_page('resources') || is_page('helpful-info
     </div>
 <?php }?>
 <?php //print about menu for the about template pages
-if(is_page('about-us') || is_page('privacy-policy') || is_page('terms-conditions') || is_home() || is_singular("post") ){?>
+if(is_page('company') || is_page('privacy-policy') || is_page('terms-conditions') || is_home() || is_singular("post") ){?>
     <div class="category-shop-header">
         <div class="container menu-shop-navigation-container">
             <ul class="shop-navigation-bar">
