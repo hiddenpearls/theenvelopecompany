@@ -211,8 +211,9 @@
 							padding-left: 0;
 						}
 						&:hover{
-							background-color: transparent;
-						}
+	                        color: $dark-gray;
+	                        background-color: transparent;
+                    	}
 					}
 					&.white-btn{
 						a{
