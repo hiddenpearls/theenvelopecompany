@@ -5,7 +5,7 @@
     <?php get_template_part('templates/entry-meta'); ?>
   </header>
   <div class="entry-summary">
-    <?php the_excerpt(); ?>
+    <?php echo get_excerpt(235); ?>
   </div>
   <a href="<?php the_permalink(); ?>" class="btn orange-btn small">View More</a>
 </article>

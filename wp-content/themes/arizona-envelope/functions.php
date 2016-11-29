@@ -275,3 +275,13 @@ new GW_Rename_Uploaded_Files( array(
     'template' => '{Email:4}-{filename}' // most merge tags are supported, original file extension is preserved
 ) );
 
+function get_excerpt($count){  
+  $excerpt = get_the_excerpt();
+  $excerpt = strip_tags($excerpt);
+  $excerpt = substr($excerpt, 0, $count);
+  if($excerpt!=null){
+    $excerpt = $excerpt.'...';
+  }
+  return $excerpt;
+}
+
