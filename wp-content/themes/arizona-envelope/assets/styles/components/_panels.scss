@@ -512,6 +512,13 @@ section{
 			line-height: rem(28);
 			a{
 				color: $brand-orange;
+				&:hover{
+					text-decoration: underline;
+				}
+				&:visited{
+					color: $dark-gray;
+					text-decoration: underline;
+				}
 			}
 		}
 	}
