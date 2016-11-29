@@ -2,7 +2,10 @@ main.main{
 	padding: 0;
 }
 section{
-	padding: 40px 0;
+	padding: rem(40) 0;
+}
+.page-template-template-online-quote .main section{
+	padding-top: rem(10);
 }
 .panel-wbgd{
 	background-repeat: no-repeat;
@@ -219,7 +222,10 @@ section{
 		}
 		p{
 			font-size: rem(20);
-
+			&.address{
+				font-weight: lighter;
+				line-height: rem(22);
+			}
 		}
 		ul{
 			list-style-type: none;
@@ -526,4 +532,7 @@ section{
 	ul{
 		list-style-type: none;
 	}
+}
+.samples h3{
+	text-transform: capitalize;
 }

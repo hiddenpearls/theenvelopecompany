@@ -81,6 +81,7 @@
                     text-transform: uppercase;
                     display: inline-block;
                     padding: 0 5px;
+                    @include transition(all 0.1s ease-in-out);
                     &:hover{
                         color: $dark-gray;
                         background-color: transparent;
@@ -126,13 +127,17 @@
             .phone-icon, .cart-icon{
                 a{
                     color: $medium-gray;
-                    line-height: 0.5;
+                    line-height: 0.8;
+                    @include transition(all 0.1s ease-in-out);
                     &:before{
                         font: normal normal normal 14px/1 FontAwesome;
                         content: "\f095";
                         display: inline-block;
                         color: $brand-orange;
                         margin-right: 8px;
+                    }
+                    &:hover{
+                        color: $dark-gray;
                     }
                 }
             }

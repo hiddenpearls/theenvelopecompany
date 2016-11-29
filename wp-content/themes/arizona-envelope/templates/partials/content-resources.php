@@ -6,7 +6,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container samples">
 	<?php 
 		$args = array(
 			'post_type'		=>	'sample',

@@ -62,7 +62,7 @@
             <div class="col-md-4 contact-information">
                 <h2><?php the_field('contact_us_title'); ?></h2>
                 <h3><?php the_field('contact_us_subtitle'); ?></h3>
-                <p><?php the_field('contact_address_information') ?></p>
+                <p class="address"><?php the_field('contact_address_information') ?></p>
                 <p class="heading-text italic">Customer Service</p>
                 <ul>
                     <?php 
