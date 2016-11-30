@@ -324,6 +324,15 @@ section{
 					margin-top: rem(20);
 				}
 			}
+			@-moz-document url-prefix() { /**  Mozilla **/
+	    		padding: 0 30px 0 0px;
+			}
+			@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { /**  IE **/
+		     	padding: 0 30px 0 0px;
+		    }
+		    @supports (-ms-ime-align:auto) { /**  Microsoft Edge **/
+		    	padding: 0 30px 0 0px;
+		    }
 			@media screen and (max-width: $breakpoint--large){
 				margin-bottom: 0;
 			}
