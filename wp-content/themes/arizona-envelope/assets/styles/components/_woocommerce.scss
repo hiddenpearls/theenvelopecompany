@@ -280,6 +280,9 @@
 			}
 			@media screen and (max-width: $breakpoint--small){
 				max-width: 100%;
+				tr{
+					margin-bottom: 20px;
+				}
 				tr td{
 					&:nth-child(4), &:nth-child(5), &:nth-child(6){
 						display: block;
