@@ -236,5 +236,25 @@ jQuery(document).ready(function( $ ) {
 	    });
 	}
 	
+	//$(".woocommerce-checkout p.form-row").addClass("validate-required"); 
+	/** Filter the datepicker of Gravity Forms - Only allow future dates.
+ * Dcumentation: https://www.gravityhelp.com/documentation/article/gform_datepicker_options_pre_init/
+ **/
+ 
+	if ($('.gform_wrapper').length) { // check if a Gravity Form is present on the page
+		gform.addFilter('gform_datepicker_options_pre_init', function (optionsObj, formId, fieldId) {
+			if (formId == 12 && fieldId == 51) {
+				optionsObj.minDate = 0;
+			}
+
+			return optionsObj;
+		});
+	}
+
+	/* Make GF inputs readonly if a gf_readonly class is present */
+
+	if ($("li.gf_readonly")) {
+		$("li.gf_readonly input").attr("readonly", "readonly");
+	}
 
 });
