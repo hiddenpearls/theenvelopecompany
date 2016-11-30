@@ -68,7 +68,7 @@
 }
 .button{
 	font-family: $copy-font!important;
-	padding: 14px 0!important;
+	padding: rem(14) 0!important;
 	font-weight: medium!important;
 	text-transform: uppercase!important;
 	border-radius: 0!important;
@@ -77,7 +77,7 @@
 	width: rem(200)!important;
 	height: rem(50)!important;
 	text-align: center!important;
-	&.woocommerce-Button, &.alt, &.gform_button, &input {
+	&.woocommerce-Button, &.alt, &.gform_button, &input, &.view{
 		background-color: $brand-orange!important;
 		color: #fff!important;
 		border-color: $brand-orange!important;
@@ -88,6 +88,11 @@
 		}
 	}
 	&.view{
+		width: rem(125)!important;
+		height: rem(50)!important;
+		line-height: 1.5;
+	}
+	/*&.view{
 		background-color: transparent!important;
 		border-color: $medium-gray!important;
 		color: $dark-gray;
@@ -98,5 +103,5 @@
 			color: #fff!important;
 			border-color: $brand-orange!important;
 		}
-	}
+	}*/
 }

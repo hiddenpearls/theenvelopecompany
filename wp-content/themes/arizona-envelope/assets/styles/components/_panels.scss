@@ -438,6 +438,11 @@ section{
 	.woocommerce-MyAccount-navigation{
 		width: 100%;
 		float: none;
+		padding: rem(10) 0;
+		ul li{
+			max-width: 24%;
+			min-width: 22%;
+		}
 	}
 }
 
