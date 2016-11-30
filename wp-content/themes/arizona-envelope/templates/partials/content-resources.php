@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8 col-md-offset-2 text-center">
             <h1 class="title-pages text-center"><?php the_field('title');?></h1>
             <p><?php the_field('description');?></p>
         </div>

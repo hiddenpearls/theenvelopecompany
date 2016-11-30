@@ -121,6 +121,9 @@
 								&:first-child{
 									margin-right: 16px;
 								}
+								&:nth-child(3){
+									max-width: 100%!important;
+								}
 							}
 							@media screen and (max-width: $breakpoint--medium){
 								display: block!important;
