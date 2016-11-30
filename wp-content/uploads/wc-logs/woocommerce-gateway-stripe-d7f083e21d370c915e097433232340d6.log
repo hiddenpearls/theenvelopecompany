@@ -22,3 +22,146 @@
 )
 
 11-01-2016 @ 16:21:36 - Error: stripe_error: Stripe no longer supports API requests made with TLS 1.0. Please initiate HTTPS connections with TLS 1.2 or later. You can learn more about this at https://stripe.com/blog/upgrading-tls.
+11-29-2016 @ 19:05:06 - Info: Begin processing payment for order 1493 for the amount of 201.35
+11-29-2016 @ 19:05:06 - charges request: Array
+(
+    [currency] => usd
+    [amount] => 20135
+    [description] => Arizona Envelope - Order 500119
+    [capture] => true
+    [expand[]] => balance_transaction
+    [source] => tok_19LGuVFwUvpeJGwfogHtsWFg
+)
+
+11-29-2016 @ 19:05:07 - Processing response: stdClass Object
+(
+    [id] => ch_19LGubFwUvpeJGwfn6Dc9FjP
+    [object] => charge
+    [amount] => 20135
+    [amount_refunded] => 0
+    [application] => 
+    [application_fee] => 
+    [balance_transaction] => stdClass Object
+        (
+            [id] => txn_19LGucFwUvpeJGwfE0ZubKqq
+            [object] => balance_transaction
+            [amount] => 20135
+            [available_on] => 1480550400
+            [created] => 1480446305
+            [currency] => usd
+            [description] => Arizona Envelope - Order 500119
+            [fee] => 614
+            [fee_details] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [amount] => 614
+                            [application] => 
+                            [currency] => usd
+                            [description] => Stripe processing fees
+                            [type] => stripe_fee
+                        )
+
+                )
+
+            [net] => 19521
+            [source] => ch_19LGubFwUvpeJGwfn6Dc9FjP
+            [sourced_transfers] => stdClass Object
+                (
+                    [object] => list
+                    [data] => Array
+                        (
+                        )
+
+                    [has_more] => 
+                    [total_count] => 0
+                    [url] => /v1/transfers?source_transaction=ch_19LGubFwUvpeJGwfn6Dc9FjP
+                )
+
+            [status] => pending
+            [type] => charge
+        )
+
+    [captured] => 1
+    [created] => 1480446305
+    [currency] => usd
+    [customer] => 
+    [description] => Arizona Envelope - Order 500119
+    [destination] => 
+    [dispute] => 
+    [failure_code] => 
+    [failure_message] => 
+    [fraud_details] => stdClass Object
+        (
+        )
+
+    [invoice] => 
+    [livemode] => 
+    [metadata] => stdClass Object
+        (
+        )
+
+    [order] => 
+    [outcome] => stdClass Object
+        (
+            [network_status] => approved_by_network
+            [reason] => 
+            [risk_level] => normal
+            [seller_message] => Payment complete.
+            [type] => authorized
+        )
+
+    [paid] => 1
+    [receipt_email] => 
+    [receipt_number] => 
+    [refunded] => 
+    [refunds] => stdClass Object
+        (
+            [object] => list
+            [data] => Array
+                (
+                )
+
+            [has_more] => 
+            [total_count] => 0
+            [url] => /v1/charges/ch_19LGubFwUvpeJGwfn6Dc9FjP/refunds
+        )
+
+    [review] => 
+    [shipping] => 
+    [source] => stdClass Object
+        (
+            [id] => card_19LGuVFwUvpeJGwfTNg5EALZ
+            [object] => card
+            [address_city] => Phoenix
+            [address_country] => US
+            [address_line1] => 1414 Not Real St
+            [address_line1_check] => pass
+            [address_line2] => 
+            [address_state] => AZ
+            [address_zip] => 85007
+            [address_zip_check] => pass
+            [brand] => Visa
+            [country] => US
+            [customer] => 
+            [cvc_check] => pass
+            [dynamic_last4] => 
+            [exp_month] => 9
+            [exp_year] => 2019
+            [fingerprint] => xKsh6KlnsnNU083p
+            [funding] => credit
+            [last4] => 4242
+            [metadata] => stdClass Object
+                (
+                )
+
+            [name] => LTQATest Test Order
+            [tokenization_method] => 
+        )
+
+    [source_transfer] => 
+    [statement_descriptor] => 
+    [status] => succeeded
+)
+
+11-29-2016 @ 19:05:21 - Success: Stripe charge complete (Charge ID: ch_19LGubFwUvpeJGwfn6Dc9FjP)
