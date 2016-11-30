@@ -402,3 +402,16 @@ mark{
 .collapseme_zip-div,.collapseme_zip2-div{
 	//display: none;
 }
+
+.woocommerce-thankyou-order-details{
+	padding-left: 0;
+	@media screen and (max-width: $breakpoint--medium){
+		li{
+			float: none;
+			width: 100%;
+			border: none;
+			text-align: left;
+			margin-bottom: rem(12);
+		}
+	}
+}

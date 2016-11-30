@@ -31,15 +31,25 @@ p, address{
             background-color: transparent;
             text-decoration: underline;
     	}
+    	&:visited{
+			color: $dark-gray;
+			text-decoration: underline;
+		}
 	}
 }
 small, li, span{
 	color: $medium-gray;
 }
 a{
-	color: $dark-gray;
+	color: $brand-orange;
 	&:hover{
-		color: $brand-orange;
+        color: $brand-orange;
+        background-color: transparent;
+        text-decoration: underline;
+	}
+	&:visited{
+		color: $dark-gray;
+		text-decoration: underline;
 	}
 }
 img{
