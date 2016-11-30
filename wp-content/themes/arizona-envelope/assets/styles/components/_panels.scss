@@ -58,7 +58,7 @@ section{
 			}
 		}
 		&.search-result{
-			height: rem(450);
+			min-height: 19rem;
 			margin-bottom: rem(80);
 			.entry-summary{
 				margin-bottom: rem(20);
