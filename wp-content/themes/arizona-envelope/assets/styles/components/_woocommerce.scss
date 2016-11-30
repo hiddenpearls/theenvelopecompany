@@ -187,7 +187,7 @@
 			}
 		}
 	}
-	//move this lines to a new file during cleanups
+	
 	form.checkout_coupon, form.login, form.register, table.shop_table{
 		border: none!important;
 		padding-left: 0!important;
@@ -288,8 +288,29 @@
 				}
 			}	
 		}
+		&.woocommerce-checkout-review-order-table{
+			thead, tfoot{
+				th{
+					text-transform: uppercase;
+				}
+			}
+		}
+		&.order_details, &.my_account_orders{
+			.order_item, .order-number{
+				a{
+					color: $brand-orange;
+					&:hover{
+						text-decoration: underline;
+					}
+				}
+			}
+		}
 	}
 	.woocommerce-checkout{
+		h3{
+			text-transform: uppercase;
+			color: $dark-gray;
+		}
 		#payment{
 			background: transparent;
 			div.payment_box{

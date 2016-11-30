@@ -432,36 +432,6 @@ section{
 	}
 }
 
-
-.cart-shop-header{
-	padding: rem(12) 0;
-	background-color: $sand;
-	width: 100%;
-	text-transform: uppercase;
-	margin-bottom: rem(20);
-	a{
-		color: $medium-gray;
-		display: inline-block;
-		vertical-align: middle;
-		&.cart-btn{
-			padding-top: rem(8);
-			margin-right: rem(30);
-			display: inline-block;
-			i{
-				margin-right: rem(20);
-				color: $brand-orange;
-			}
-		}
-		&.cart-contents{
-		    padding-top: rem(8);
-		}
-		&.white-btn{
-			float: right;
-			padding: rem(8) rem(25);
-		}
-	}
-}
-
 /*
 	Contact Section
 */
@@ -521,10 +491,10 @@ section{
 				&:hover{
 					text-decoration: underline;
 				}
-				&:visited{
+				/*&:visited{
 					color: $dark-gray;
 					text-decoration: underline;
-				}
+				}*/
 			}
 		}
 	}
