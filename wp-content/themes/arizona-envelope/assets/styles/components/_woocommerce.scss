@@ -307,6 +307,13 @@
 					}
 				}
 			}
+			&.account-orders-table{
+				@media screen and (max-width: $breakpoint--medium){
+					tr{
+						margin-bottom: rem(20);
+					}
+				}
+			}
 		}
 	}
 	.woocommerce-checkout{
