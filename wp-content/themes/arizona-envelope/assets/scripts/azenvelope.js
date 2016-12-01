@@ -163,7 +163,8 @@ jQuery(document).ready(function( $ ) {
 			}
 		});
 	}
-	/*if (window.location.href.indexOf('my-account') > -1) {
+	//my account
+	if (window.location.href.indexOf('my-account') > -1) {
     	$('#menu-top-navigation li a').each(function(){
     		//console.log($(this));
 			if($(this).attr('href').indexOf('my-account') > -1){
@@ -171,7 +172,25 @@ jQuery(document).ready(function( $ ) {
 				
 			}
 		});
-	}*/
+	}
+	//resources
+	if (window.location.href.indexOf('resources') > -1) {
+    	$('#menu-site-navigation li a').each(function(){
+    		//console.log($(this));
+			if($(this).attr('href').indexOf('resources') > -1){
+				$(this).parent('.menu-item').addClass('current-page-ancestor');
+			}
+		});
+	}
+	//company
+	if (window.location.href.indexOf('company') > -1) {
+    	$('#menu-site-navigation li a').each(function(){
+    		//console.log($(this));
+			if($(this).attr('href').indexOf('company') > -1){
+				$(this).parent('.menu-item').addClass('current-page-ancestor');
+			}
+		});
+	}
 	//set active nav state when viewing single orders
 	if (window.location.href.indexOf('view-order') > -1) {
     	$('.woocommerce-MyAccount-navigation .orange-navigation-bar li a').each(function(){
