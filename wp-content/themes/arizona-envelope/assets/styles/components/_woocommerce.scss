@@ -94,6 +94,12 @@
 					border-color: $dark-gray;
 					color: #fff;
 				}
+				@media screen and (max-width: $breakpoint--small){
+					width: calc(100% - 4px)!important;
+					z-index: 2;
+					border: none!important;
+					margin: 2px;
+				}
 			}
 			#yahm-quantity{
 				width: 100%;
@@ -101,9 +107,16 @@
 			.filename{
 				border: 2px solid #c7c8ca;
     			position: relative;
-    		    height: 50px;
+    		    height: rem(50);
     		    width: 100%;
     		    padding: 14px;
+    		    @media screen and (max-width: $breakpoint--small){
+					height: rem(90);
+					span{
+						padding-top: rem(8);
+						display: inline-block;
+					}
+    		    }
 			}
 		}
 		h1{
@@ -140,6 +153,9 @@
 						width: calc(100% - 100px);
 						@media screen and (max-width: $breakpoint--large){
 							margin: 0;
+						}
+						@media screen and (max-width: $breakpoint--medium){
+							width: 100%;
 						}
 					}
 					h1{
