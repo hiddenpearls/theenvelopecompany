@@ -306,7 +306,11 @@
 						text-decoration: underline;
 					}
 				}
+				p{
+					margin-bottom: 0;
+				}
 			}
+
 			&.account-orders-table{
 				@media screen and (max-width: $breakpoint--medium){
 					tr{

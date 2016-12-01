@@ -163,7 +163,7 @@ jQuery(document).ready(function( $ ) {
 			}
 		});
 	}
-	if (window.location.href.indexOf('my-account') > -1) {
+	/*if (window.location.href.indexOf('my-account') > -1) {
     	$('#menu-top-navigation li a').each(function(){
     		//console.log($(this));
 			if($(this).attr('href').indexOf('my-account') > -1){
@@ -171,8 +171,17 @@ jQuery(document).ready(function( $ ) {
 				
 			}
 		});
+	}*/
+	//set active nav state when viewing single orders
+	if (window.location.href.indexOf('view-order') > -1) {
+    	$('.woocommerce-MyAccount-navigation .orange-navigation-bar li a').each(function(){
+    		//console.log($(this));
+    		console.log($(this));
+    		if($(this).attr('href').indexOf('orders') > -1){
+				$(this).parent('.woocommerce-MyAccount-navigation-link').addClass("current-page-ancestor");
+			}
+		});
 	}
-	
 	
 	$(".tc-label.tm-epo-style").each(function (i) { 
 		$(this).attr("tabindex", 0);
