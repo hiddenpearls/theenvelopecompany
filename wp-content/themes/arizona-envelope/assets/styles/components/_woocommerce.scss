@@ -445,3 +445,11 @@ mark{
 		}
 	}
 }
+
+.form-row{
+	&.woocommerce-invalid{
+		.input-text{
+			border-color: #a00!important;
+		}
+	}
+}
