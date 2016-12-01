@@ -144,6 +144,9 @@
 					@media screen and (max-width: $breakpoint--large){
 						margin: rem(5) 0;
 					}
+					@media screen and (max-width: $breakpoint--medium){
+						border-right: none;
+					}
 				}
 				&:last-child{
 					> div{
