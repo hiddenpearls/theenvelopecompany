@@ -24,6 +24,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 <div class="container">
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2 text-center">
+			<h1 class="title-pages"><?php the_field('title');?></h1>
+		</div>
+	</div>
 	
 	<?php wc_print_notices(); ?>
 
