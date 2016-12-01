@@ -100,7 +100,7 @@ if( is_front_page() ){
  ?>
 
 <?php //print resources menu for the resources template pages
-if(is_page('layouts-die-lines') || is_page('resources') || is_page('helpful-information') | is_page('equipment')){?>
+if(is_page('layouts-die-lines') || is_page('samples') || is_page('helpful-information') | is_page('equipment')){?>
     <div class="category-shop-header">
         <div class="container menu-shop-navigation-container">
             <ul class="shop-navigation-bar">
@@ -119,7 +119,7 @@ if(is_page('layouts-die-lines') || is_page('resources') || is_page('helpful-info
     </div>
 <?php }?>
 <?php //print about menu for the about template pages
-if(is_page('company') || is_page('privacy-policy') || is_page('terms-conditions') || is_home() || is_singular("post") ){?>
+if(is_page('about-us') || is_page('privacy-policy') || is_page('terms-conditions') || is_home() || is_singular("post") ){?>
     <div class="category-shop-header">
         <div class="container menu-shop-navigation-container">
             <ul class="shop-navigation-bar">
