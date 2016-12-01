@@ -534,3 +534,12 @@ function woocommerce_template_loop_product_thumbnail() {
 
 remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
 add_action('woocommerce_before_shop_loop_item_title', 'Roots\Sage\Extras\woocommerce_template_loop_product_thumbnail', 10);
+
+//show all search results in 1 page in search results page
+function change_wp_search_size($query) {
+    if ( $query->is_search ) // Make sure it is a search page
+        $query->query_vars['posts_per_page'] = -1; // Change 10 to the number of posts you would like to show
+
+    return $query; // Return our modified query variables
+}
+add_filter('pre_get_posts', 'Roots\Sage\Extras\change_wp_search_size'); // Hook our custom function onto the request filter

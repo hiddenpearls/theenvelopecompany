@@ -26,5 +26,5 @@
 			<?php if($counter%4==0){echo '</div><div class="row-eq-height">';} ?>
 		<?php endwhile; ?>
 	</div>
-	<?php the_posts_navigation(); ?>
+	<?php //the_posts_navigation(); ?>
 </div>

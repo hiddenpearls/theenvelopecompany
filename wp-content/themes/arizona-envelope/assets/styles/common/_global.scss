@@ -31,10 +31,10 @@ p, address{
             background-color: transparent;
             text-decoration: underline;
     	}
-    	&:visited{
+    	/*&:visited{
 			color: $dark-gray;
 			text-decoration: underline;
-		}
+		}*/
 	}
 }
 small, li, span{
@@ -47,10 +47,10 @@ a{
         background-color: transparent;
         text-decoration: underline;
 	}
-	&:visited{
+	/*&:visited{
 		color: $dark-gray;
 		text-decoration: underline;
-	}
+	}*/
 }
 img{
 	max-width: 100%;
