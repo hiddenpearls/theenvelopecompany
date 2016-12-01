@@ -516,6 +516,17 @@ section{
 		list-style-type: none;
 	}
 }
-.samples h3{
-	text-transform: capitalize;
+.samples{
+	h3{
+		text-transform: capitalize;
+	}
+	@media screen and (max-width: $breakpoint--medium){
+		.col-xs-6{
+			text-align: center;
+			margin-bottom: rem(20);
+			img{
+				margin: 0 auto;
+			}
+		}
+	}
 }

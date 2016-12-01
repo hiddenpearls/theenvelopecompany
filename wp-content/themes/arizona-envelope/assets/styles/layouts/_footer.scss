@@ -171,9 +171,25 @@
 					}
 				}
 				&.gform_validation_error{
-					form .gform_footer{
-						bottom: rem(29);
+					.gform_body{
+						.gfield{
+							position: relative;
+							.ginput_container{
+								//padding-bottom: rem(22);
+							}
+							.validation_message{
+								position: absolute;
+								left: 0;
+								bottom: -20px;
+							}
+							&.gfield_error{
+								margin-bottom: rem(22)!important;
+							}
+						}
 					}
+					/*form .gform_footer{
+						bottom: rem(29);
+					}*/
 				}
 			}
 			@media screen and (max-width: $breakpoint--large){
