@@ -266,13 +266,13 @@ jQuery(document).ready(function( $ ) {
 		$("li.gf_readonly input").attr("readonly", "readonly");
 	}
 
-	if ($('#checkout-form').length) { 
+	if ($('#checkout-form').length) { /* Checkout form validation */
 		$('#stripe-card-number').attr('name','stripe_card_number');
 		$('#stripe-card-expiry').attr('name', 'stripe_card_expiry');
 		$('#stripe-card-cvc').attr('name', 'stripe_card_cvc');
 		
 		$.validator.messages.required = '';
-		$('#checkout-form').validate({ /* Checkout form validation */
+		$('#checkout-form').validate({ 
 			rules: {
 	            billing_first_name: {
 	            	required: true,
@@ -332,5 +332,9 @@ jQuery(document).ready(function( $ ) {
 			$('#billing_state_field label').append(' <abbr class="required" title="required" aria-required="true">*</abbr>');
 			$('#billing_postcode_field label').append(' <abbr class="required" title="required" aria-required="true">*</abbr>');
 		});
+	}
+
+	if($('.gform_confirmation_wrapper').length){
+		$('.online-quote-description').css('display','none');
 	}
 });
