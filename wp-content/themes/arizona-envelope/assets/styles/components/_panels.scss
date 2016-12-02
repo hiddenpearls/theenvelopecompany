@@ -559,7 +559,7 @@ section{
 	
 	.button-down{
 		a.orange-btn{
-			@media screen and (max-width: $breakpoint--medium) and (min-width: $breakpoint--small){
+			@media only screen and (min-device-width : $breakpoint--medium) and (max-device-width : 1024px) { 
 				top: 80%;
 			}
 		}
