@@ -556,6 +556,14 @@ section{
 }
 
 .search-results{
+	
+	.button-down{
+		a.orange-btn{
+			@media screen and (max-width: $breakpoint--medium) and (min-width: $breakpoint--small){
+				top: 80%;
+			}
+		}
+	}
 	.search-form{
 		label{
 			width:96%;
