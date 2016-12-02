@@ -133,6 +133,10 @@
 		.product-block{
 			@include clearfix;
 			border: 4px solid $light-gray;
+			display: flex;
+			@media screen and (max-width: $breakpoint--medium){
+				display: block;
+			}
 			> div{
 				&:first-child{
 					border-right: 1px solid $light-gray;
@@ -181,6 +185,7 @@
 						}
 					}
 					form.cart{
+						position: relative;
 						h5{
 							text-transform: uppercase;
 							color: $brand-orange;
@@ -210,6 +215,10 @@
 	form.checkout_coupon, form.login, form.register, table.shop_table{
 		border: none!important;
 		padding-left: 0!important;
+	}
+	form.register, form.login{
+		margin-top: 0;
+		padding-top: 0;
 	}
 	.col2-set{
 		.col-1{

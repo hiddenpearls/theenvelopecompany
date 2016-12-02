@@ -543,3 +543,10 @@ function change_wp_search_size($query) {
     return $query; // Return our modified query variables
 }
 add_filter('pre_get_posts', 'Roots\Sage\Extras\change_wp_search_size'); // Hook our custom function onto the request filter
+
+//Add SVG's to WP media
+function cc_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'Roots\Sage\Extras\cc_mime_types');
