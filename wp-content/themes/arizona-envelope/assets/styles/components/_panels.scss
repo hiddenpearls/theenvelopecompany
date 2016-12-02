@@ -558,7 +558,7 @@ section{
 .search-results{
 	.search-form{
 		label{
-			width:97%;
+			width:96%;
 			@media screen and (max-width: $breakpoint--medium){
 				width:94%;
 			}
@@ -570,7 +570,7 @@ section{
 			}
 		}
 		.search-submit{
-			width: 3%;
+			width: 4%;
 			float: right;
 	        margin-top: 4px;
 	        @media screen and (max-width: $breakpoint--large){
