@@ -557,9 +557,31 @@ section{
 
 .search-results{
 	.search-form{
+		label{
+			width:97%;
+			@media screen and (max-width: $breakpoint--medium){
+				width:94%;
+			}
+			@media screen and (max-width: $breakpoint--small){
+				width:90%;
+			}
+			input{
+				width:100%;
+			}
+		}
 		.search-submit{
+			width: 3%;
 			float: right;
-        	margin-top: 4px;
+	        margin-top: 4px;
+	        @media screen and (max-width: $breakpoint--large){
+	        	position: inherit;
+	        }
+	        @media screen and (max-width: $breakpoint--medium){
+				width: 6%;
+	        }
+	        @media screen and (max-width: $breakpoint--small){
+				width: 10%;
+	        }
 		}
 	}
 }
