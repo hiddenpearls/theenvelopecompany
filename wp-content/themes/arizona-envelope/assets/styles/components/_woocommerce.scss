@@ -463,5 +463,13 @@ mark{
 		.input-text{
 			border-color: #a00!important;
 		}
+		a{
+			border-color: #a00!important;
+		}
+	}
+	&.woocommerce-validated{
+		a{
+	    	border-color: #69bf29;
+	    }
 	}
 }
