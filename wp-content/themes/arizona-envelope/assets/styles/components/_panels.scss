@@ -596,3 +596,11 @@ section{
 		}
 	}
 }
+
+.ui-datepicker{
+	.ui-datepicker-title{
+		select{
+			color: $medium-gray;
+		}
+	}
+}
