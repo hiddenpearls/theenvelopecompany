@@ -28,8 +28,10 @@ section{
 		}
 		a.orange-btn, a.shop-btn{
 			font-size: 100%;
+			font-weight: 700;
+			line-height: 1;
 			position: absolute;
-			bottom: rem(20);
+			bottom: 0;
 			left: 50%;
 			-webkit-transform: translateX(-50%);
 			transform: translateX(-50%);
@@ -64,7 +66,7 @@ section{
 		}
 		&.search-result{
 			min-height: 19rem;
-			margin-bottom: rem(80);
+			margin-bottom: rem(60);
 			.entry-summary{
 				margin-bottom: 0;
 				p{
@@ -73,6 +75,8 @@ section{
 			}
 			.entry-title{
 				font-size: rem(16);
+			    padding: rem(8) 0 0;
+    			margin: 0 0 .625rem;
 				a{
 
 				}
@@ -560,7 +564,16 @@ section{
 }
 
 .search-results{
-	
+	.row-eq-height{
+		.col-md-3{
+			padding: 0;
+			width: 22.05%;
+		    margin: 0 3.8% rem(40) 0;
+		    &:last-child{
+		    	margin-right: 0;
+		    }
+		}
+	}
 	.button-down{
 		a.orange-btn{
 			@media only screen and (min-device-width : $breakpoint--medium) and (max-device-width : 1024px) { 
@@ -576,7 +589,7 @@ section{
 			}
 			@media screen and (max-width: $breakpoint--small){
 				width:90%;
-			}
+			}	
 			input{
 				width:100%;
 			}
@@ -598,10 +611,3 @@ section{
 	}
 }
 
-.ui-datepicker{
-	.ui-datepicker-title{
-		select{
-			color: $medium-gray;
-		}
-	}
-}

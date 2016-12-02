@@ -89,6 +89,7 @@ a:hover{
   display: -webkit-flex;
   display: -ms-flexbox;
   display:         flex;
+  margin: 0 -15px;
   @media screen and (max-width: $breakpoint--large){
   	display: block;
   	@include clearfix;
@@ -112,12 +113,10 @@ a:hover{
             max-width: rem(220);
         }
         .regular-logo{
-            
             display: none;
         }
     }
 }
-
 
 ul.menu{
 	padding: 0;

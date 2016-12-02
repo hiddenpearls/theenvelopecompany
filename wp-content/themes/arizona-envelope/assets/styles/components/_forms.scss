@@ -139,6 +139,13 @@ body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html.envelop
 	}
 }
 
+.ui-datepicker{
+	.ui-datepicker-title{
+		select{
+			color: $medium-gray;
+		}
+	}
+}
 .ui-datepicker-month, .ui-datepicker-year{
 	color: $dark-gray;
 }
