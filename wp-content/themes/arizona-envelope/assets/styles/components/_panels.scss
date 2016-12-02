@@ -567,7 +567,7 @@ section{
 			}
 		}
 	}
-	.search-form{
+	> .search-form{
 		label{
 			width:96%;
 			@media screen and (max-width: $breakpoint--medium){
