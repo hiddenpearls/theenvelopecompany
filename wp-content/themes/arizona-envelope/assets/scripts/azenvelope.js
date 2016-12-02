@@ -285,11 +285,26 @@ jQuery(document).ready(function( $ ) {
 		$("li.gf_readonly input").attr("readonly", "readonly");
 	}
 
-	if ($('#checkout-form').length) { /* Checkout form validation */
+
+	/* Checkout form validation */
+
+	if ($('#checkout-form').length) { 
 		$('#stripe-card-number').attr('name','stripe_card_number');
 		$('#stripe-card-expiry').attr('name', 'stripe_card_expiry');
 		$('#stripe-card-cvc').attr('name', 'stripe_card_cvc');
-		
+
+		$('#place_order').on('click', function() {
+			if($('#billing_state').val()==''){
+				$('#billing_state_field').removeClass('woocommerce-validated');
+				$('#billing_state_field').addClass('woocommerce-invalid-required-field');
+				$('#billing_state_field').addClass('woocommerce-invalid');
+			}else{
+				$('#billing_state_field').removeClass('woocommerce-invalid-required-field');
+				$('#billing_state_field').removeClass('woocommerce-invalid');
+				$('#billing_state_field').addClass('woocommerce-validated');
+			}
+		});
+
 		$.validator.messages.required = '';
 		$('#checkout-form').validate({ 
 			rules: {
@@ -335,7 +350,7 @@ jQuery(document).ready(function( $ ) {
 	            },
 	            stripe_card_cvc: {
 	            	required: true,
-	            }
+	            },
 	        },
 	        errorClass: 'woocommerce-invalid-required-field woocommerce-invalid',
 	        validClass: 'woocommerce-validated',
