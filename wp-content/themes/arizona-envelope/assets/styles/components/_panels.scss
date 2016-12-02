@@ -32,6 +32,8 @@ section{
 			left: 50%;
 			-webkit-transform: translateX(-50%);
 			transform: translateX(-50%);
+			font-size: 100%;
+    		font-weight: 700;
 			@media screen and (max-width: $breakpoint--medium){
 				bottom: auto;
 				top: 102%;
