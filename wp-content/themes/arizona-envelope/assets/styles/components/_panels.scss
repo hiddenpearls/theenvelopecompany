@@ -572,6 +572,16 @@ section{
 		    &:last-child{
 		    	margin-right: 0;
 		    }
+		    @media screen and (max-width: $breakpoint--large){
+	    	    width: 48%!important;
+    			margin: 1.25rem 1% 2.5rem!important;
+		    }
+		    @media screen and (max-width: $breakpoint--medium){
+			    width: 98%!important;
+			    float: none!important;
+			
+			    margin: 1.25rem 1% 5rem!important;
+		    }
 		}
 	}
 	.button-down{
