@@ -352,6 +352,10 @@
 		h3{
 			text-transform: uppercase;
 			color: $dark-gray;
+			margin-top: rem(20);
+			label{
+				margin: 0;
+			}
 		}
 		#payment{
 			background: transparent;

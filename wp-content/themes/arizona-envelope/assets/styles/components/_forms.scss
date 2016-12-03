@@ -149,3 +149,9 @@ body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html.envelop
 .ui-datepicker-month, .ui-datepicker-year{
 	color: $dark-gray;
 }
+.woocommerce form .form-row.woocommerce-validated .select2-container{
+	border-color: $light-gray;
+	a{
+		border-color: $light-gray;	
+	}
+}
