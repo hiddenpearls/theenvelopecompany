@@ -433,6 +433,9 @@ jQuery(document).ready(function( $ ) {
 			$('#billing_city_field label').append(' <abbr class="required" title="required" aria-required="true">*</abbr>');
 			$('#billing_state_field label').append(' <abbr class="required" title="required" aria-required="true">*</abbr>');
 			$('#billing_postcode_field label').append(' <abbr class="required" title="required" aria-required="true">*</abbr>');
+			$('#shipping_state_field label').append(' <abbr class="required" title="required" aria-required="true">*</abbr>');
+			$('#shipping_city_field  label').append(' <abbr class="required" title="required" aria-required="true">*</abbr>');
+			$('#shipping_postcode_field  label').append(' <abbr class="required" title="required" aria-required="true">*</abbr>');
 		});
 	}
 
