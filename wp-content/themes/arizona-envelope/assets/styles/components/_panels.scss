@@ -283,7 +283,12 @@ section{
 		p{
 			font-size: rem(18);
 		}
+		form{
+			position: relative;
+
+		}
 		.gform_body{
+			width: 100%!important;
 			.gform_fields#gform_fields_10{
 				list-style-type: none;
 				padding: 0;
@@ -311,6 +316,7 @@ section{
 						top: 0;
 						right: 0;
 						margin-top: 0;
+						padding: 0;
 						.ginput_container{
 							margin-top: 0;
 						}
@@ -330,8 +336,9 @@ section{
 			position: absolute;
 			right: 0;
 			bottom: 0;
-			padding: 0 15px 0 8px;
-			margin: 0 0 16px;
+			padding: 0;
+			//padding: 0 0 0 8px;
+			margin: 0;
 			.gform_button{
 				width: 100%!important;
 				background-color: transparent;
