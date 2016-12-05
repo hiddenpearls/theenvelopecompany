@@ -288,6 +288,18 @@ jQuery(document).ready(function( $ ) {
 
 	/* Checkout form validation */
 
+	function add_classes(class_element){
+		$(class_element).removeClass('woocommerce-validated');
+		$(class_element).addClass('woocommerce-invalid-required-field');
+		$(class_element).addClass('woocommerce-invalid');
+	}
+
+	function deleteclasses(class_element){
+		$(class_element).removeClass('woocommerce-invalid-required-field');
+		$(class_element).removeClass('woocommerce-invalid');
+		$(class_element).addClass('woocommerce-validated');
+	}
+
 	if ($('#checkout-form').length) { 
 		$('#stripe-card-number').attr('name','stripe_card_number');
 		$('#stripe-card-expiry').attr('name', 'stripe_card_expiry');
@@ -295,13 +307,23 @@ jQuery(document).ready(function( $ ) {
 
 		$('#place_order').on('click', function() {
 			if($('#billing_state').val()==''){
-				$('#billing_state_field').removeClass('woocommerce-validated');
-				$('#billing_state_field').addClass('woocommerce-invalid-required-field');
-				$('#billing_state_field').addClass('woocommerce-invalid');
+				add_classes('#billing_state_field');
 			}else{
-				$('#billing_state_field').removeClass('woocommerce-invalid-required-field');
-				$('#billing_state_field').removeClass('woocommerce-invalid');
-				$('#billing_state_field').addClass('woocommerce-validated');
+				deleteclasses('#billing_state_field');
+			}
+
+			if($('#ship-to-different-address-checkbox').is(":checked")){
+				if($('#shipping_state').val()==''){
+					add_classes('#shipping_state_field');
+				}else{
+					deleteclasses('#shipping_state_field');
+				}
+			}
+
+			if(!$('#ship-to-different-address-checkbox').is(":checked")){
+				$('#checkout-form p').removeClass('woocommerce-invalid-required-field');
+				$('#checkout-form p').removeClass('woocommerce-invalid');
+				$('#checkout-form p').removeClass('woocommerce-validated');
 			}
 		});
 
@@ -325,13 +347,59 @@ jQuery(document).ready(function( $ ) {
 	            	required: true,
 	            },
 	            shipping_first_name: {
-	            	required: true,
+	            	required: function(){
+				        if($('#ship-to-different-address-checkbox').is(":checked")){
+				            return true;
+				        }
+				        else
+				        {
+				            return false;
+				        }
+				    }
 	            },
 	            shipping_last_name: {
-	            	required: true,
+	            	required: function(){
+				        if($('#ship-to-different-address-checkbox').is(":checked")){
+				            return true;
+				        }
+				        else
+				        {
+				            return false;
+				        }
+				    }
 	            },
 	            shipping_address_1: {
-	            	required: true,
+	            	required: function(){
+				        if($('#ship-to-different-address-checkbox').is(":checked")){
+				            return true;
+				        }
+				        else
+				        {
+				            return false;
+				        }
+				    }
+	            },
+	            shipping_city: {
+	            	required: function(){
+				        if($('#ship-to-different-address-checkbox').is(":checked")){
+				            return true;
+				        }
+				        else
+				        {
+				            return false;
+				        }
+				    }
+	            },
+	            shipping_postcode: {
+	            	required: function(){
+				        if($('#ship-to-different-address-checkbox').is(":checked")){
+				            return true;
+				        }
+				        else
+				        {
+				            return false;
+				        }
+				    }
 	            },
 	            po_reference_number: {
 	            	required: true,
