@@ -157,7 +157,7 @@ body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html.envelop
 }
 
 .cart{
-	@media screen and (min-width: $breakpoint--small){
+	@media screen and (min-width: $breakpoint--medium){
 		.cpf-type-textfield {
 			position: relative;
 		    display: block;
@@ -167,6 +167,7 @@ body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html.envelop
 				float: left;
 				width: auto;
 				margin: 10px 10px 0 0;
+				max-width: calc(100% - 170px);
 			}
 			
 			.tm-extra-product-options-container{
@@ -183,4 +184,8 @@ body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html.envelop
 			}
 		}
 	}
+}
+
+.tm-extra-product-options .tm-cell.col-9.cpf-type-upload{
+	width: 100%;
 }
