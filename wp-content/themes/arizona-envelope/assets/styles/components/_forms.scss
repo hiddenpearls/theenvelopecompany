@@ -155,3 +155,32 @@ body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html.envelop
 		border-color: $light-gray;	
 	}
 }
+
+.cart{
+	@media screen and (min-width: $breakpoint--small){
+		.cpf-type-textfield {
+			position: relative;
+		    display: block;
+		    padding-bottom: 22px !important;
+			@include clearfix;
+			> label{
+				float: left;
+				width: auto;
+				margin: 10px 10px 0 0;
+			}
+			
+			.tm-extra-product-options-container{
+				max-width: 160px;
+				#tmcp_textfield_10, #tmcp_textfield_9{
+					float: right;
+				}
+			}
+
+			.tm-description{
+				position: absolute;
+			    bottom: 0;
+			    left: 0;
+			}
+		}
+	}
+}
