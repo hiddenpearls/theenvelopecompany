@@ -165,3 +165,289 @@
 )
 
 11-29-2016 @ 19:05:21 - Success: Stripe charge complete (Charge ID: ch_19LGubFwUvpeJGwfn6Dc9FjP)
+12-01-2016 @ 15:12:33 - Info: Begin processing payment for order 1507 for the amount of 46.28
+12-01-2016 @ 15:12:33 - charges request: Array
+(
+    [currency] => usd
+    [amount] => 4628
+    [description] => Arizona Envelope - Order 500120
+    [capture] => true
+    [expand[]] => balance_transaction
+    [source] => tok_19LwEeFwUvpeJGwfWFn8xOVP
+)
+
+12-01-2016 @ 15:12:34 - Processing response: stdClass Object
+(
+    [id] => ch_19LwEeFwUvpeJGwfL1cXoJxD
+    [object] => charge
+    [amount] => 4628
+    [amount_refunded] => 0
+    [application] => 
+    [application_fee] => 
+    [balance_transaction] => stdClass Object
+        (
+            [id] => txn_19LwEfFwUvpeJGwfQeMpi0He
+            [object] => balance_transaction
+            [amount] => 4628
+            [available_on] => 1480896000
+            [created] => 1480605152
+            [currency] => usd
+            [description] => Arizona Envelope - Order 500120
+            [fee] => 164
+            [fee_details] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [amount] => 164
+                            [application] => 
+                            [currency] => usd
+                            [description] => Stripe processing fees
+                            [type] => stripe_fee
+                        )
+
+                )
+
+            [net] => 4464
+            [source] => ch_19LwEeFwUvpeJGwfL1cXoJxD
+            [sourced_transfers] => stdClass Object
+                (
+                    [object] => list
+                    [data] => Array
+                        (
+                        )
+
+                    [has_more] => 
+                    [total_count] => 0
+                    [url] => /v1/transfers?source_transaction=ch_19LwEeFwUvpeJGwfL1cXoJxD
+                )
+
+            [status] => pending
+            [type] => charge
+        )
+
+    [captured] => 1
+    [created] => 1480605152
+    [currency] => usd
+    [customer] => 
+    [description] => Arizona Envelope - Order 500120
+    [destination] => 
+    [dispute] => 
+    [failure_code] => 
+    [failure_message] => 
+    [fraud_details] => stdClass Object
+        (
+        )
+
+    [invoice] => 
+    [livemode] => 
+    [metadata] => stdClass Object
+        (
+        )
+
+    [order] => 
+    [outcome] => stdClass Object
+        (
+            [network_status] => approved_by_network
+            [reason] => 
+            [risk_level] => normal
+            [seller_message] => Payment complete.
+            [type] => authorized
+        )
+
+    [paid] => 1
+    [receipt_email] => 
+    [receipt_number] => 
+    [refunded] => 
+    [refunds] => stdClass Object
+        (
+            [object] => list
+            [data] => Array
+                (
+                )
+
+            [has_more] => 
+            [total_count] => 0
+            [url] => /v1/charges/ch_19LwEeFwUvpeJGwfL1cXoJxD/refunds
+        )
+
+    [review] => 
+    [shipping] => 
+    [source] => stdClass Object
+        (
+            [id] => card_19LwEeFwUvpeJGwf8zWOWDlt
+            [object] => card
+            [address_city] => Phoenix
+            [address_country] => US
+            [address_line1] => 1701 E Meadowbrook Ave, Apt # 130
+            [address_line1_check] => pass
+            [address_line2] => 
+            [address_state] => AZ
+            [address_zip] => 85016
+            [address_zip_check] => pass
+            [brand] => Visa
+            [country] => US
+            [customer] => 
+            [cvc_check] => pass
+            [dynamic_last4] => 
+            [exp_month] => 12
+            [exp_year] => 2023
+            [fingerprint] => xKsh6KlnsnNU083p
+            [funding] => credit
+            [last4] => 4242
+            [metadata] => stdClass Object
+                (
+                )
+
+            [name] => Raj Dubey The First
+            [tokenization_method] => 
+        )
+
+    [source_transfer] => 
+    [statement_descriptor] => 
+    [status] => succeeded
+)
+
+12-01-2016 @ 15:12:42 - Success: Stripe charge complete (Charge ID: ch_19LwEeFwUvpeJGwfL1cXoJxD)
+12-05-2016 @ 22:26:02 - Info: Begin processing payment for order 1530 for the amount of 165.34
+12-05-2016 @ 22:26:02 - charges request: Array
+(
+    [currency] => usd
+    [amount] => 16534
+    [description] => Arizona Envelope - Order 500123
+    [capture] => true
+    [expand[]] => balance_transaction
+    [source] => tok_19NUuKFwUvpeJGwfGX4Qdrji
+)
+
+12-05-2016 @ 22:26:02 - Processing response: stdClass Object
+(
+    [id] => ch_19NUuLFwUvpeJGwfhP2Z4iLn
+    [object] => charge
+    [amount] => 16534
+    [amount_refunded] => 0
+    [application] => 
+    [application_fee] => 
+    [balance_transaction] => stdClass Object
+        (
+            [id] => txn_19NUuLFwUvpeJGwfIHwgjTIC
+            [object] => balance_transaction
+            [amount] => 16534
+            [available_on] => 1481068800
+            [created] => 1480976761
+            [currency] => usd
+            [description] => Arizona Envelope - Order 500123
+            [fee] => 509
+            [fee_details] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [amount] => 509
+                            [application] => 
+                            [currency] => usd
+                            [description] => Stripe processing fees
+                            [type] => stripe_fee
+                        )
+
+                )
+
+            [net] => 16025
+            [source] => ch_19NUuLFwUvpeJGwfhP2Z4iLn
+            [sourced_transfers] => stdClass Object
+                (
+                    [object] => list
+                    [data] => Array
+                        (
+                        )
+
+                    [has_more] => 
+                    [total_count] => 0
+                    [url] => /v1/transfers?source_transaction=ch_19NUuLFwUvpeJGwfhP2Z4iLn
+                )
+
+            [status] => pending
+            [type] => charge
+        )
+
+    [captured] => 1
+    [created] => 1480976761
+    [currency] => usd
+    [customer] => 
+    [description] => Arizona Envelope - Order 500123
+    [destination] => 
+    [dispute] => 
+    [failure_code] => 
+    [failure_message] => 
+    [fraud_details] => stdClass Object
+        (
+        )
+
+    [invoice] => 
+    [livemode] => 
+    [metadata] => stdClass Object
+        (
+        )
+
+    [order] => 
+    [outcome] => stdClass Object
+        (
+            [network_status] => approved_by_network
+            [reason] => 
+            [risk_level] => normal
+            [seller_message] => Payment complete.
+            [type] => authorized
+        )
+
+    [paid] => 1
+    [receipt_email] => 
+    [receipt_number] => 
+    [refunded] => 
+    [refunds] => stdClass Object
+        (
+            [object] => list
+            [data] => Array
+                (
+                )
+
+            [has_more] => 
+            [total_count] => 0
+            [url] => /v1/charges/ch_19NUuLFwUvpeJGwfhP2Z4iLn/refunds
+        )
+
+    [review] => 
+    [shipping] => 
+    [source] => stdClass Object
+        (
+            [id] => card_19NUuKFwUvpeJGwfyZNh6UEX
+            [object] => card
+            [address_city] => Phoenix
+            [address_country] => US
+            [address_line1] => 1701 E Meadowbrook Ave, Apt # 130
+            [address_line1_check] => pass
+            [address_line2] => 
+            [address_state] => AZ
+            [address_zip] => 85016
+            [address_zip_check] => pass
+            [brand] => Visa
+            [country] => US
+            [customer] => 
+            [cvc_check] => pass
+            [dynamic_last4] => 
+            [exp_month] => 12
+            [exp_year] => 2016
+            [fingerprint] => xKsh6KlnsnNU083p
+            [funding] => credit
+            [last4] => 4242
+            [metadata] => stdClass Object
+                (
+                )
+
+            [name] => Raj Dubey The First
+            [tokenization_method] => 
+        )
+
+    [source_transfer] => 
+    [statement_descriptor] => 
+    [status] => succeeded
+)
+
+12-05-2016 @ 22:26:12 - Success: Stripe charge complete (Charge ID: ch_19NUuLFwUvpeJGwfhP2Z4iLn)
