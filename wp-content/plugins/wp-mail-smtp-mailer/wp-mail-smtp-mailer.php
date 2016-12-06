@@ -4,7 +4,7 @@ Plugin Name: WP Mail Smtp Mailer
 Plugin URI: http://www.htmlcontactform.net/
 Description: Reconfigures the wp_mail() function to use SMTP instead of mail() function and add password encryption.
 Text Domain: wp-mail-smtp-mailer
-Version: 1.0.0
+Version: 1.0.1
 Author: Arshid
 Author URI: http://www.htmlcontactform.net/
 */

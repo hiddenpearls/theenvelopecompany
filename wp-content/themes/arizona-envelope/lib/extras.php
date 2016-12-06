@@ -332,24 +332,40 @@ add_action( 'woocommerce_created_customer', 'Roots\Sage\Extras\wooc_save_extra_r
 //old functions from old theme
 // Price Dropdown
 function yahm_cart_sel($product, $attr){
-  if (check_user_role(array('discount-customer-10'))) {
-    $j = 1.8; }
-  elseif (check_user_role(array('discount-customer-20'))) {
-    $j = 1.6; }
-  else { $j = $attr; }
-  if ($product && is_object($product) && method_exists($product, "get_price") ){
-      $_price=$product->get_price();
-  $price=$_price*$j;
-  $price = number_format($price, 2, '.', '');
-  $price = '$'.$price;
-  //print_r($price);
-  }
-  $x=500; $yahm_arr = array();
+    if (check_user_role(array('discount-customer-10'))) {
+        $j = 1.8; 
+    }
+    elseif (check_user_role(array('discount-customer-20'))) {
+        $j = 1.6; }
+    else { 
+        $j = $attr; 
+    }
+    if ($product && is_object($product) && method_exists($product, "get_price") ){
+        $_price=$product->get_price();
+        $price=$_price*$j;
+        $price = number_format($price, 2, '.', '');
+
+        //var k = '#yahm-tm-price-tmcp_radio_'+j; 
+        //alert(k);
+        //var kk = $(k).text(); // 
+
+
+        //$price = '$'.$price;
+        //print_r($price);
+    }
+    $x=500; $yahm_arr = array();
     for($i=0; $i<60; $i++) {
-      $j = number_format($x); 
-      echo '<option '. ($i != 1 ? '' : 'selected=selected') . ' value="' . $j.'_'.$i.'">' . $j.'</option>';
-      $x=$x+500;
-  }
+        $j = number_format($x); 
+        //this total price matches the price of the product with the correct per lot quantity, use if client requests again. Taken out by request.
+        if( $i == 0){
+            $totalPrice = $price*0.5;
+        } else {
+            $totalPrice = $price*(($i/2)+0.5);
+        }
+        
+        echo '<option '. ($i != 1 ? '' : 'selected=selected') . ' value="' . $j.'_'.$i.'">' . $j.'</option>';
+        $x=$x+500;
+    }
 }
 // check role
 function check_user_role($roles, $user_id = NULL) {
@@ -497,241 +513,40 @@ function get_product_options_email($item){
   return implode(" ", $selected_options);
 }
 
-/**
- * Gravity Wiz // Gravity Forms // Rename Uploaded Files
- *
- * Rename uploaded files for Gravity Forms. You can create a static naming template or using merge tags to base names on user input.
- *
- * Features:
- *  + supports single and multi-file upload fields
- *  + flexible naming template with support for static and dynamic values via GF merge tags
- *
- * Uses:
- *  + add a prefix or suffix to file uploads
- *  + include identifying submitted data in the file name like the user's first and last name
- *
- * @version   1.4
- * @author    David Smith <david@gravitywiz.com>
- * @license   GPL-2.0+
- * @link      http://gravitywiz.com/...
- */
-class GW_Rename_Uploaded_Files {
-
-    public function __construct( $args = array() ) {
-
-        // set our default arguments, parse against the provided arguments, and store for use throughout the class
-        $this->_args = wp_parse_args( $args, array(
-            'form_id'  => false,
-            'field_id' => false,
-            'template' => ''
-        ) );
-
-        // do version check in the init to make sure if GF is going to be loaded, it is already loaded
-        add_action( 'init', array( $this, 'init' ) );
-
-    }
-
-    public function init() {
-
-        // make sure we're running the required minimum version of Gravity Forms
-        if( ! is_callable( array( 'GFFormsModel', 'get_phsyical_file_path' ) ) ) {
-            return;
-        }
-
-        //add_action( 'gform_pre_submission', array( $this, 'rename_uploaded_files' ) );
-        add_filter( 'gform_entry_post_save', array( $this, 'rename_uploaded_files' ), 10, 2 );
-
-    }
-
-    function rename_uploaded_files( $entry, $form ) {
-
-        if( ! $this->is_applicable_form( $form ) ) {
-            return $entry;
-        }
-
-        foreach( $form['fields'] as &$field ) {
-
-            if( ! $this->is_applicable_field( $field ) ) {
-                continue;
-            }
-
-            $uploaded_files = rgar( $entry, $field->id );
-
-            if( empty( $uploaded_files ) ) {
-                continue;
-            }
-
-            if( $field->get_input_type() == 'post_image' ) {
-                $file_bits = explode( '|:|', $uploaded_files );
-                $uploaded_files = array( $file_bits[0] );
-            } else if( $field->multipleFiles ) {
-                $uploaded_files = json_decode( $uploaded_files );
-            } else {
-                $uploaded_files = array( $uploaded_files );
-            }
-
-            $renamed_files = array();
-
-            foreach( $uploaded_files as $file ) {
-
-                $orig_file_name = basename( $file );
-                $new_file_name  = $this->rename_file( $orig_file_name, $entry );
-                $new_file       = $this->increment_file_name( str_replace( $orig_file_name, $new_file_name, $file ) );
-
-                if( ! file_exists( GFFormsModel::get_phsyical_file_path( $file ) ) ) {
-                    continue;
-                }
-
-                rename( GFFormsModel::get_phsyical_file_path( $file ), GFFormsModel::get_phsyical_file_path( $new_file ) );
-
-                $renamed_files[] = $new_file;
-
-            }
-
-            if( $field->get_input_type() == 'post_image' ) {
-                $value = str_replace( $uploaded_files[0], $renamed_files[0], rgar( $entry, $field->id ) );
-            } else if( $field->multipleFiles ) {
-                $value = json_encode( $renamed_files );
-            } else {
-                $value = $renamed_files[0];
-            }
-
-            GFAPI::update_entry_field( $entry['id'], $field->id, $value );
-
-            $entry[ $field->id ] = $value;
-
-        }
-
-        return $entry;
-    }
-
-    function increment_file_name( $file ) {
-
-        $file_path = GFFormsModel::get_phsyical_file_path( $file );
-        $pathinfo  = pathinfo( $file_path );
-        $counter   = 1;
-
-        // increment the filename if it already exists (i.e. balloons.jpg, balloons1.jpg, balloons2.jpg)
-        while ( file_exists( $file_path ) ) {
-            $file_path = str_replace( ".{$pathinfo['extension']}", "{$counter}.{$pathinfo['extension']}", GFFormsModel::get_phsyical_file_path( $file ) );
-            $counter++;
-        }
-
-        $file = str_replace( basename( $file ), basename( $file_path ), $file );
-
-        return $file;
-    }
-
-    function _rename_uploaded_files( $form ) {
-
-        if( ! $this->is_applicable_form( $form ) ) {
-            return;
-        }
-
-        foreach( $form['fields'] as &$field ) {
-
-            if( ! $this->is_applicable_field( $field ) ) {
-                continue;
-            }
-
-            $is_multi_file  = rgar( $field, 'multipleFiles' ) == true;
-            $input_name     = sprintf( 'input_%s', $field['id'] );
-            $uploaded_files = rgars( GFFormsModel::$uploaded_files, "{$form['id']}/{$input_name}" );
-
-            if( $is_multi_file && ! empty( $uploaded_files ) && is_array( $uploaded_files ) ) {
-
-                foreach( $uploaded_files as &$file ) {
-                    $file['uploaded_filename'] = $this->rename_file( $file['uploaded_filename'] );
-                }
-
-                GFFormsModel::$uploaded_files[ $form['id'] ][ $input_name ] = $uploaded_files;
-
-            } else {
-
-                if( empty( $uploaded_files ) ) {
-
-                    $uploaded_files = rgar( $_FILES, $input_name );
-                    if( empty( $uploaded_files ) || empty( $uploaded_files['name'] ) ) {
-                        continue;
-                    }
-
-                    $uploaded_files['name'] = $this->rename_file( $uploaded_files['name'] );
-                    $_FILES[ $input_name ] = $uploaded_files;
-
-                } else {
-
-                    $uploaded_files = $this->rename_file( $uploaded_files );
-                    GFFormsModel::$uploaded_files[ $form['id'] ][ $input_name ] = $uploaded_files;
-
-                }
-
-            }
-
-        }
-
-    }
-
-    function rename_file( $filename, $entry ) {
-
-        $file_info = pathinfo( $filename );
-        $new_filename = $this->remove_slashes( $this->get_template_value( $this->_args['template'], $entry, $file_info['filename'] ) );
-
-        return sprintf( '%s.%s', $new_filename, rgar( $file_info, 'extension' ) );
-    }
-
-    function get_template_value( $template, $entry, $filename ) {
-
-        // replace our custom "{filename}" psuedo-merge-tag
-        $template = str_replace( '{filename}', $filename, $template );
-
-        $form = GFAPI::get_form( $entry['form_id'] );
-        $template = $this->clean( GFCommon::replace_variables( $template, $form, $entry, false, true, false, 'text' ) );
-
-        return $template;
-    }
-
-    function remove_slashes( $value ) {
-        return stripslashes( str_replace( '/', '', $value ) );
-    }
-
-    function is_applicable_form( $form ) {
-
-        $form_id = isset( $form['id'] ) ? $form['id'] : $form;
-
-        return $form_id == $this->_args['form_id'];
-    }
-
-    function is_applicable_field( $field ) {
-
-        $is_file_upload_field   = in_array( GFFormsModel::get_input_type( $field ), array( 'fileupload', 'post_image' ) );
-        $is_applicable_field_id = $this->_args['field_id'] ? $field['id'] == $this->_args['field_id'] : true;
-
-        return $is_file_upload_field && $is_applicable_field_id;
-    }
-
-    function clean( $str ) {
-        return sanitize_title_with_dashes( strtr(
-            utf8_decode( $str ), 
-            utf8_decode( 'ŠŒŽšœžŸ¥µÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ'),
-            'SOZsozYYuAAAAAAACEEEEIIIIDNOOOOOOUUUUYsaaaaaaaceeeeiiiionoooooouuuuyy'
-        ), 'save' );
-    }
-
+//product thumbnail alt text the same as the product title
+function woocommerce_get_product_thumbnail( $size = 'shop_catalog', $deprecated1 = 0, $deprecated2 = 0 ) {
+  global $post;
+  $image_size = apply_filters( 'single_product_archive_thumbnail_size', $size );
+
+  if ( has_post_thumbnail() ) {
+      $props = wc_get_product_attachment_props( get_post_thumbnail_id(), $post );
+      return get_the_post_thumbnail( $post->ID, $image_size, array(
+          'title'  => $props['title'],
+          'alt'    => get_the_title()." image."
+      ) );
+  } elseif ( wc_placeholder_img_src() ) {
+      return wc_placeholder_img( $image_size );
+  }
+}
+function woocommerce_template_loop_product_thumbnail() {
+  echo woocommerce_get_product_thumbnail();
 }
 
-# Configuration
-//Original Template: Name (First):1.3}-{Name (Last):1.6}
-new GW_Rename_Uploaded_Files( array(
-    'form_id' => 12,
-    'field_id' => 47,
-    'template' => '{user:user_email}-{filename}' // most merge tags are supported, original file extension is preserved
-) );
-new GW_Rename_Uploaded_Files( array(
-    'form_id' => 12,
-    'field_id' => 70,
-    'template' => '{user:user_email}-{filename}' // most merge tags are supported, original file extension is preserved
-) );
+remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
+add_action('woocommerce_before_shop_loop_item_title', 'Roots\Sage\Extras\woocommerce_template_loop_product_thumbnail', 10);
 
-/*
- *  
- */
+//show all search results in 1 page in search results page
+function change_wp_search_size($query) {
+    if ( $query->is_search ) // Make sure it is a search page
+        $query->query_vars['posts_per_page'] = -1; // Change 10 to the number of posts you would like to show
+
+    return $query; // Return our modified query variables
+}
+add_filter('pre_get_posts', 'Roots\Sage\Extras\change_wp_search_size'); // Hook our custom function onto the request filter
+
+//Add SVG's to WP media
+/*function cc_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'Roots\Sage\Extras\cc_mime_types');*/

@@ -104,6 +104,7 @@ class WC_Gateway_Stripe extends WC_Payment_Gateway_CC {
 			'multiple_subscriptions',
 			'pre-orders',
 			'tokenization',
+			'add_payment_method'
 		);
 
 		// Load the form fields.
@@ -164,8 +165,8 @@ class WC_Gateway_Stripe extends WC_Payment_Gateway_CC {
 			$icon .= '<img src="' . WC_HTTPS::force_https_url( WC()->plugin_url() . '/assets/images/icons/credit-cards/diners' . $ext ) . '" alt="Diners" width="32" ' . $style . ' />';
 		}
 
-		if ( 'yes' === $this->bitcoin && 'yes' === $this->stripe_checkout ) {
-			$icon .= '<img src="' . WC_HTTPS::force_https_url( plugins_url( '/assets/images/bitcoin' . $ext, WC_STRIPE_MAIN_FILE ) ) . '" alt="Bitcoin" width="32" ' . $style . ' />';
+		if ( $this->bitcoin && $this->stripe_checkout ) {
+			$icon .= '<img src="' . WC_HTTPS::force_https_url( plugins_url( '/assets/images/bitcoin' . $ext, WC_STRIPE_MAIN_FILE ) ) . '" alt="Bitcoin" width="24" ' . $style . ' />';
 		}
 
 		return apply_filters( 'woocommerce_gateway_icon', $icon, $this->id );
@@ -306,7 +307,7 @@ class WC_Gateway_Stripe extends WC_Payment_Gateway_CC {
 			data-description=""
 			data-email="' . esc_attr( $user_email ) . '"
 			data-amount="' . esc_attr( $this->get_stripe_amount( WC()->cart->total ) ) . '"
-			data-name="' . esc_attr( sprintf( __( '%s', 'woocommerce-gateway-stripe' ), get_bloginfo( 'name', 'display' ) ) ) . '"
+			data-name="' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '"
 			data-currency="' . esc_attr( strtolower( get_woocommerce_currency() ) ) . '"
 			data-image="' . esc_attr( $this->stripe_checkout_image ) . '"
 			data-bitcoin="' . esc_attr( $this->bitcoin ? 'true' : 'false' ) . '"
@@ -330,6 +331,30 @@ class WC_Gateway_Stripe extends WC_Payment_Gateway_CC {
 		}
 
 		echo '</div>';
+	}
+
+	/**
+	 * Localize Stripe messages based on code
+	 *
+	 * @since 3.0.6
+	 * @version 3.0.6
+	 * @return array
+	 */
+	public function get_localized_messages() {
+		return apply_filters( 'wc_stripe_localized_messages', array(
+			'invalid_number'        => __( 'The card number is not a valid credit card number.', 'woocommerce-gateway-stripe' ),
+			'invalid_expiry_month'  => __( 'The card\'s expiration month is invalid.', 'woocommerce-gateway-stripe' ),
+			'invalid_expiry_year'   => __( 'The card\'s expiration year is invalid.', 'woocommerce-gateway-stripe' ),
+			'invalid_cvc'           => __( 'The card\'s security code is invalid.', 'woocommerce-gateway-stripe' ),
+			'incorrect_number'      => __( 'The card number is incorrect.', 'woocommerce-gateway-stripe' ),
+			'expired_card'          => __( 'The card has expired.', 'woocommerce-gateway-stripe' ),
+			'incorrect_cvc'         => __( 'The card\'s security code is incorrect.', 'woocommerce-gateway-stripe' ),
+			'incorrect_zip'         => __( 'The card\'s zip code failed validation.', 'woocommerce-gateway-stripe' ),
+			'card_declined'         => __( 'The card was declined.', 'woocommerce-gateway-stripe' ),
+			'missing'               => __( 'There is no card on a customer that is being charged.', 'woocommerce-gateway-stripe' ),
+			'processing_error'      => __( 'An error occurred while processing the card.', 'woocommerce-gateway-stripe' ),
+			'invalid_request_error' => __( 'Could not find payment information.', 'woocommerce-gateway-stripe' ),
+			) );
 	}
 
 	/**
@@ -357,40 +382,26 @@ class WC_Gateway_Stripe extends WC_Payment_Gateway_CC {
 		);
 
 		// If we're on the pay page we need to pass stripe.js the address of the order.
-		if ( is_checkout_pay_page() && isset( $_GET['order'] ) && isset( $_GET['order_id'] ) ) {
-			$order_key = urldecode( $_GET['order'] );
-			$order_id  = absint( $_GET['order_id'] );
-			$order     = wc_get_order( $order_id );
+		if ( isset( $_GET['pay_for_order'] ) && 'true' === $_GET['pay_for_order'] ) {
+			$order_id = wc_get_order_id_by_order_key( urldecode( $_GET['key'] ) );
+			$order    = wc_get_order( $order_id );
 
-			if ( $order->id === $order_id && $order->order_key === $order_key ) {
-				$stripe_params['billing_first_name'] = $order->billing_first_name;
-				$stripe_params['billing_last_name']  = $order->billing_last_name;
-				$stripe_params['billing_address_1']  = $order->billing_address_1;
-				$stripe_params['billing_address_2']  = $order->billing_address_2;
-				$stripe_params['billing_state']      = $order->billing_state;
-				$stripe_params['billing_city']       = $order->billing_city;
-				$stripe_params['billing_postcode']   = $order->billing_postcode;
-				$stripe_params['billing_country']    = $order->billing_country;
-			}
+			$stripe_params['billing_first_name'] = $order->billing_first_name;
+			$stripe_params['billing_last_name']  = $order->billing_last_name;
+			$stripe_params['billing_address_1']  = $order->billing_address_1;
+			$stripe_params['billing_address_2']  = $order->billing_address_2;
+			$stripe_params['billing_state']      = $order->billing_state;
+			$stripe_params['billing_city']       = $order->billing_city;
+			$stripe_params['billing_postcode']   = $order->billing_postcode;
+			$stripe_params['billing_country']    = $order->billing_country;
 		}
 
 		$stripe_params['no_prepaid_card_msg']                     = __( 'Sorry, we\'re not accepting prepaid cards at this time.', 'woocommerce-gateway-stripe' );
 		$stripe_params['allow_prepaid_card']                      = apply_filters( 'wc_stripe_allow_prepaid_card', true ) ? 'yes' : 'no';
 		$stripe_params['stripe_checkout_require_billing_address'] = apply_filters( 'wc_stripe_checkout_require_billing_address', false ) ? 'yes' : 'no';
 
-		// localize error messages from Stripe
-		$stripe_params['invalid_number']        = __( 'The card number is not a valid credit card number.', 'woocommerce-gateway-stripe' );
-		$stripe_params['invalid_expiry_month']  = __( 'The card\'s expiration month is invalid.', 'woocommerce-gateway-stripe' );
-		$stripe_params['invalid_expiry_year']   = __( 'The card\'s expiration year is invalid.', 'woocommerce-gateway-stripe' );
-		$stripe_params['invalid_cvc']           = __( 'The card\'s security code is invalid.', 'woocommerce-gateway-stripe' );
-		$stripe_params['incorrect_number']      = __( 'The card number is incorrect.', 'woocommerce-gateway-stripe' );
-		$stripe_params['expired_card']          = __( 'The card has expired.', 'woocommerce-gateway-stripe' );
-		$stripe_params['incorrect_cvc']         = __( 'The card\'s security code is incorrect.', 'woocommerce-gateway-stripe' );
-		$stripe_params['incorrect_zip']         = __( 'The card\'s zip code failed validation.', 'woocommerce-gateway-stripe' );
-		$stripe_params['card_declined']         = __( 'The card was declined.', 'woocommerce-gateway-stripe' );
-		$stripe_params['missing']               = __( 'There is no card on a customer that is being charged.', 'woocommerce-gateway-stripe' );
-		$stripe_params['processing_error']      = __( 'An error occurred while processing the card.', 'woocommerce-gateway-stripe' );
-		$stripe_params['invalid_request_error'] = __( 'Could not find payment information.', 'woocommerce-gateway-stripe' );
+		// merge localized messages to be use in JS
+		$stripe_params = array_merge( $stripe_params, $this->get_localized_messages() );
 
 		wp_localize_script( 'woocommerce_stripe', 'wc_stripe_params', apply_filters( 'wc_stripe_params', $stripe_params ) );
 	}
@@ -421,7 +432,7 @@ class WC_Gateway_Stripe extends WC_Payment_Gateway_CC {
 		if ( $source->source ) {
 			$post_data['source'] = $source->source;
 		}
-
+		
 		/**
 		 * Filter the return value of the WC_Payment_Gateway_CC::generate_payment_request.
 		 *
@@ -567,7 +578,9 @@ class WC_Gateway_Stripe extends WC_Payment_Gateway_CC {
 						$token->delete();
 						throw new Exception( __( 'This card is no longer available and has been removed.', 'woocommerce-gateway-stripe' ) );
 					}
-					throw new Exception( $response->get_error_code() . ': ' . $response->get_error_message() );
+					$localized_messages = $this->get_localized_messages();
+
+					throw new Exception( ( isset( $localized_messages[ $response->get_error_code() ] ) ? $localized_messages[ $response->get_error_code() ] : $response->get_error_message() ) );
 				}
 
 				// Process valid response.
@@ -579,6 +592,8 @@ class WC_Gateway_Stripe extends WC_Payment_Gateway_CC {
 			// Remove cart.
 			WC()->cart->empty_cart();
 
+			do_action( 'wc_gateway_stripe_process_payment', $response, $order );
+
 			// Return thank you page redirect.
 			return array(
 				'result'   => 'success',
@@ -587,14 +602,18 @@ class WC_Gateway_Stripe extends WC_Payment_Gateway_CC {
 
 		} catch ( Exception $e ) {
 			wc_add_notice( $e->getMessage(), 'error' );
-			WC()->session->set( 'refresh_totals', true );
 			WC_Stripe::log( sprintf( __( 'Error: %s', 'woocommerce-gateway-stripe' ), $e->getMessage() ) );
 
 			if ( $order->has_status( array( 'pending', 'failed' ) ) ) {
 				$this->send_failed_order_email( $order_id );
 			}
 
-			return;
+			do_action( 'wc_gateway_stripe_process_payment_error', $e, $order );
+
+			return array(
+				'result'   => 'fail',
+				'redirect' => ''
+			);
 		}
 	}
 
@@ -626,9 +645,12 @@ class WC_Gateway_Stripe extends WC_Payment_Gateway_CC {
 
 		// Store other data such as fees
 		if ( isset( $response->balance_transaction ) && isset( $response->balance_transaction->fee ) ) {
-			$fee = number_format( $response->balance_transaction->fee / 100, 2, '.', '' );
+			// Fees and Net needs to both come from Stripe to be accurate as the returned
+			// values are in the local currency of the Stripe account, not from WC.
+			$fee = ! empty( $response->balance_transaction->fee ) ? number_format( $response->balance_transaction->fee / 100, 2, '.', '' ) : 0;
+			$net = ! empty( $response->balance_transaction->net ) ? number_format( $response->balance_transaction->net / 100, 2, '.', '' ) : 0;
 			update_post_meta( $order->id, 'Stripe Fee', $fee );
-			update_post_meta( $order->id, 'Net Revenue From Stripe', $order->get_total() - $fee );
+			update_post_meta( $order->id, 'Net Revenue From Stripe', $net );
 		}
 
 		if ( $response->captured ) {
@@ -667,7 +689,18 @@ class WC_Gateway_Stripe extends WC_Payment_Gateway_CC {
 		$card            = $stripe_customer->add_card( wc_clean( $_POST['stripe_token'] ) );
 
 		if ( is_wp_error( $card ) ) {
-			throw new Exception( $card->get_error_message() );
+			$localized_messages = $this->get_localized_messages();
+			$error_msg = __( 'There was a problem adding the card.', 'woocommerce-gateway-stripe' );
+
+			// loop through the errors to find matching localized message
+			foreach ( $card->errors as $error => $msg ) {
+				if ( isset( $localized_messages[ $error ] ) ) {
+					$error_msg = $localized_messages[ $error ];
+				}
+			}
+
+			wc_add_notice( $error_msg, 'error' );
+			return;
 		}
 
 		return array(

@@ -34,13 +34,14 @@ if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 			echo apply_filters( 'woocommerce_order_item_quantity_html', ' <strong class="product-quantity">' . sprintf( '&times; %s', $item['qty']*500 ) . '</strong>', $item );
 
 			do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order );
-
 			//display variations selected. Looks broken now. Needs some custom overriding to make it look like comp.
 			//$order->display_item_meta( $item );
 			//$order->display_item_downloads( $item );
-
 			//do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order );
-			echo '<p>'.Roots\Sage\Extras\get_product_options_order($item).'</p>';
+			if( Roots\Sage\Extras\get_product_options_order($item) ){
+				echo '<p>'.Roots\Sage\Extras\get_product_options_order($item).'</p>';	
+			}
+			
 		?>
 
 	</td>

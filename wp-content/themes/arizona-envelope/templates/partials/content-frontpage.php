@@ -1,7 +1,7 @@
 <section class="products-section" id="products-section">
     <div class="container">
         <div class="row">
-          <h1 class="text-center">Our Products</h1>
+          <h2 class="text-center heading-text">Our Products</h2>
             <?php
 
               $taxonomy     = 'product_cat';
@@ -62,12 +62,27 @@
             <div class="col-md-4 contact-information">
                 <h2><?php the_field('contact_us_title'); ?></h2>
                 <h3><?php the_field('contact_us_subtitle'); ?></h3>
-                <p><?php the_field('contact_address_information') ?></p>
+                <p class="address"><?php the_field('contact_address_information') ?></p>
                 <p class="heading-text italic">Customer Service</p>
                 <ul>
-                    <li><i class="fa fa-phone"></i><strong>Toll Free: </strong><?php the_field('toll_free_phone', 'options'); ?></li>
-                    <li><i class="fa fa-phone-square"></i><strong>Phone: </strong><?php the_field('regular_phone_number', 'options'); ?></li>
-                    <li><i class="fa fa-fax"></i><strong>Fax: </strong><?php the_field('fax_number', 'options'); ?></li>
+                    <?php 
+                        $phone = get_field('toll_free_phone', 'options'); 
+                        $cleaned_phone = $phone;
+                        $cleaned_phone = str_replace(array('(', ')', '-', ' '), "", $cleaned_phone);
+                    ?>
+                    <li><a href="tel:<?php echo $cleaned_phone; ?>"><i class="fa fa-phone"></i><strong>Toll Free: </strong><?php echo $phone; ?></a></li>
+                    <?php 
+                        $phone = get_field('regular_phone_number', 'options');; 
+                        $cleaned_phone = $phone;
+                        $cleaned_phone = str_replace(array('(', ')', '-', ' '), "", $cleaned_phone);
+                    ?>
+                    <li><a href="tel:<?php echo $cleaned_phone; ?>"><i class="fa fa-phone-square"></i><strong>Phone: </strong><?php echo $phone; ?></a></li>
+                    <?php 
+                        $phone = get_field('fax_number', 'options'); 
+                        $cleaned_phone = $phone;
+                        $cleaned_phone = str_replace(array('(', ')', '-', ' '), "", $cleaned_phone);
+                    ?>
+                    <li><a href="tel:<?php echo $cleaned_phone; ?>"><i class="fa fa-fax"></i><strong>Fax: </strong><?php echo $phone; ?></a></li>
                 </ul>
             </div>
             <div class="col-md-8 contact-form">

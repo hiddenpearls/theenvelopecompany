@@ -52,7 +52,7 @@ function load_301_redirect_assets($adminpage)
 
 add_action( 'admin_enqueue_scripts', 'load_301_redirect_assets' );
 
-$siteurl = get_bloginfo('siteurl');
+$siteurl = get_bloginfo('url');
 
 function getUrl() {
   $url  = @( $_SERVER["HTTPS"] != 'on' ) ? 'http://'.$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] :  'https://'. $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];

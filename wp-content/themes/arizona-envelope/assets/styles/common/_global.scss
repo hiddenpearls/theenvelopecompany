@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Roboto|Playfair+Display';
+@import 'https://fonts.googleapis.com/css?family=Roboto|Playfair+Display:400,400i';
 html {
 	font-size: 100%;
 	font-family: $copy-font;
@@ -19,17 +19,38 @@ h2{
 h3{
 	font: 400 rem(20) $copy-font;
 }
-p{
-	font: 400 rem(13) $copy-font;
+p, address{
+	font: 400 rem(16) $copy-font;
+	margin-bottom: rem(20);
+	color: $dark-gray;
+	line-height: rem(28);
+	a{
+		color: $brand-orange;
+		&:hover{
+            color: $brand-orange;
+            background-color: transparent;
+            text-decoration: underline;
+    	}
+    	/*&:visited{
+			color: $dark-gray;
+			text-decoration: underline;
+		}*/
+	}
 }
-p, small, li, span{
+small, li, span{
 	color: $medium-gray;
 }
 a{
-	color: $dark-gray;
+	color: $brand-orange;
 	&:hover{
-		color: $brand-orange;
+        color: $brand-orange;
+        background-color: transparent;
+        text-decoration: underline;
 	}
+	/*&:visited{
+		color: $dark-gray;
+		text-decoration: underline;
+	}*/
 }
 img{
 	max-width: 100%;
@@ -68,6 +89,7 @@ a:hover{
   display: -webkit-flex;
   display: -ms-flexbox;
   display:         flex;
+  margin: 0 -15px;
   @media screen and (max-width: $breakpoint--large){
   	display: block;
   	@include clearfix;
@@ -91,12 +113,10 @@ a:hover{
             max-width: rem(220);
         }
         .regular-logo{
-            
             display: none;
         }
     }
 }
-
 
 ul.menu{
 	padding: 0;
@@ -107,4 +127,13 @@ ul.menu{
 	@media screen and (max-width: $breakpoint--large){
 		margin-top: 0;
 	}
+}
+.margin-top-sm{
+	margin-top: rem(20);
+}
+@mixin font-style{
+	font: 400 rem(16) $copy-font;
+	margin-bottom: rem(20);
+	color: $dark-gray;
+	line-height: rem(28);
 }

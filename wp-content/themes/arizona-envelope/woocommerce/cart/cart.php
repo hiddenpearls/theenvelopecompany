@@ -35,6 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<th class="product-subtotal"><?php //_e( 'Total', 'woocommerce' ); ?></th>
 			</tr>
 		</thead>-->
+
 		<tbody>
 			<?php do_action( 'woocommerce_before_cart_contents' ); ?>
 
@@ -44,6 +45,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 				$product_id   = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
 
 				if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
+
+					//echo "<pre>";
+					//var_dump($cart_item);
+					//echo "</pre>";
+
 					?>
 					<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
 						
@@ -87,10 +93,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 								if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
 									echo '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'woocommerce' ) . '</p>';
 								}
+								$cart_selected_options = Roots\Sage\Extras\get_product_options_cart($cart_item);
 								//do_action('woocommerce_tm_custom_price_fields_only');
-								echo "<p>";
-								echo Roots\Sage\Extras\get_product_options_cart($cart_item);
-								echo "</p>";
+								if (!empty($cart_selected_options)){
+									echo "<p>";
+									echo $cart_selected_options;
+									echo "</p>";
+								}
 							?>
 							 
 						</td>

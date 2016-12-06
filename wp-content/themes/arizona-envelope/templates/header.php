@@ -32,13 +32,20 @@ if( is_front_page() ){
                         $cleaned_phone = $phone;
                         $cleaned_phone = str_replace(array('(', ')', '-', ' '), "", $cleaned_phone);
                     ?>
-                    <span class="d-block"><?php echo $phone; ?></span>
+                    <a href="tel:<?php echo $cleaned_phone; ?>">
+                        <?php echo $phone; ?>
+                    </a>
                 </div>
                 <?php
                     if (has_nav_menu('top_navigation')) :
                         wp_nav_menu(['theme_location' => 'top_navigation', 'menu_class' => 'nav top-nav']);
                     endif;
                 ?>
+                <div class="responsive-search">
+                    <?php 
+                        get_search_form();
+                    ?>
+                </div>
             </div>
             <nav class="nav-primary clearfix">
                 <?php
@@ -60,30 +67,30 @@ if( is_front_page() ){
         if( have_rows('hero_banner') ):
 ?>
 <div class="hero-panel">
-        <?php while( have_rows('hero_banner') ) : the_row(); ?>
-            <img src="<?php the_sub_field('background_image'); ?>" alt="">
-            <div class="container">
-                <div class="slider-caption">
-                    <h1><?php the_sub_field('hero_title'); ?></h1>
-                    <p><?php the_sub_field('hero_subtitle'); ?></p>
-                    <?php 
-                    if( get_sub_field('first_hero_button_label') ):
-                    ?>
-                    <a class="btn orange-btn big" href="<?php the_sub_field('first_hero_button_url'); ?>"><?php the_sub_field('first_hero_button_label'); ?></a>
-                    <?php
-                    endif;
-                     ?>
-                     <?php 
-                    if( get_sub_field('second_hero_button_label') ):
-                    ?>
-                    <a class="btn white-btn big" href="<?php the_sub_field('second_hero_button_url'); ?>"><?php the_sub_field('second_hero_button_label'); ?></a>
-                    <?php
-                    endif;
-                     ?>
+    <?php while( have_rows('hero_banner') ) : the_row(); ?>
+        <img src="<?php the_sub_field('background_image'); ?>" alt="">
+        <div class="container">
+            <div class="slider-caption">
+                <h1><?php the_sub_field('hero_title'); ?></h1>
+                <p><?php the_sub_field('hero_subtitle'); ?></p>
+                <?php 
+                if( get_sub_field('first_hero_button_label') ):
+                ?>
+                <a class="btn orange-btn big" href="<?php the_sub_field('first_hero_button_url'); ?>"><?php the_sub_field('first_hero_button_label'); ?></a>
+                <?php
+                endif;
+                 ?>
+                 <?php 
+                if( get_sub_field('second_hero_button_label') ):
+                ?>
+                <a class="btn white-btn big" href="<?php the_sub_field('second_hero_button_url'); ?>"><?php the_sub_field('second_hero_button_label'); ?></a>
+                <?php
+                endif;
+                 ?>
 
-                </div>
             </div>
-        <?php endwhile; ?>
+        </div>
+    <?php endwhile; ?>
 </div>
 
 <?php
@@ -93,7 +100,7 @@ if( is_front_page() ){
  ?>
 
 <?php //print resources menu for the resources template pages
-if(is_page('layouts-die-lines') || is_page('resources') || is_page('helpful-information') | is_page('equipment')){?>
+if(is_page('layouts-die-lines') || is_page('samples') || is_page('helpful-information') | is_page('equipment')){?>
     <div class="category-shop-header">
         <div class="container menu-shop-navigation-container">
             <ul class="shop-navigation-bar">
@@ -111,7 +118,6 @@ if(is_page('layouts-die-lines') || is_page('resources') || is_page('helpful-info
         </div>
     </div>
 <?php }?>
-
 <?php //print about menu for the about template pages
 if(is_page('about-us') || is_page('privacy-policy') || is_page('terms-conditions') || is_home() || is_singular("post") ){?>
     <div class="category-shop-header">
@@ -163,7 +169,7 @@ if(is_cart()||is_product()||$status==="account-out"||is_page("checkout")||is_pag
         /*global $woocommerce;
         $cart_url = $woocommerce->cart->get_cart_url(); */
       ?>
-      <!--<a class="cart-btn" href="<?php echo $cart_url; ?>"><i class="fa fa-shopping-cart"></i>My Cart</a>
+      <!--<a class="cart-btn" href="<?php //echo $cart_url; ?>"><i class="fa fa-shopping-cart"></i>My Cart</a>
       <a class="cart-contents" href="<?php //echo wc_get_cart_url(); ?>" title="<?php //_e( 'View your shopping cart' ); ?>"><?php //echo sprintf ( _n( 'item: (%d)', 'items: (%d)', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?>  <?php //echo WC()->cart->get_cart_total(); ?></a>-->
       <?php 
       /*global $woocommerce;

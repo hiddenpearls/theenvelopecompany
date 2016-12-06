@@ -26,6 +26,9 @@
 		        float: none;
 		        display: block;
 		    }
+		    @media screen and (max-width: $breakpoint--medium){
+		    	margin-bottom: rem(16);
+		    }
 		}
 		/*.widget-footer{
 			width: 70%;
@@ -106,6 +109,9 @@
 								margin: 0;
 								border: none;
 								background-color: transparent;
+								&.gfield_error.gfield_contains_required div.ginput_container{
+									margin-top: rem(8);	
+								}
 								.validation_message{
 									color: $brand-orange;
 									padding-top: rem(4);
@@ -118,6 +124,9 @@
 								&:first-child{
 									margin-right: 16px;
 								}
+								&:nth-child(3){
+									max-width: 100%!important;
+								}
 							}
 							@media screen and (max-width: $breakpoint--medium){
 								display: block!important;
@@ -127,12 +136,16 @@
 					}
 					.gform_footer{
 						position: absolute;
-						height: rem(32);
-					    bottom: 4px;
+						height: rem(30);
+					    bottom: rem(6);
 					    right: 0;
-					    padding: 0 0 0 12px;
+					    padding: 0 0 0 8px;
 					    margin: 0;
+					    max-width: rem(40);
 					    border-left: 2px solid $light-gray;
+					    input[type=image]{
+					    	float: right;
+					    }
 						input{
 							font-family: $copy-font;
 							font-weight: medium;
@@ -144,7 +157,7 @@
 							color: $dark-gray;
 						    height: 26px;
 						    padding: 4px!important;
-						    margin: 3px 12px 0 0!important;
+						    margin: 3px 8px 0 0!important;
 							&:hover{
 								background-color: $light-gray;
 								color: $dark-gray;
@@ -161,15 +174,40 @@
 					}
 				}
 				&.gform_validation_error{
-					form .gform_footer{
-						bottom: rem(28);
+					.gform_body{
+						.gfield{
+							position: relative;
+							.ginput_container{
+								//padding-bottom: rem(22);
+							}
+							.validation_message{
+								position: absolute;
+								left: 0;
+								bottom: -20px;
+							}
+							&.gfield_error{
+								margin-bottom: rem(22)!important;
+							}
+						}
 					}
+					/*form .gform_footer{
+						bottom: rem(29);
+					}*/
 				}
 			}
 			@media screen and (max-width: $breakpoint--large){
 				width: 96%;
 				padding: 0 2%;
 				float: none;
+				.gforms_confirmation_message{
+					padding: rem(20) 0;
+					text-align: left;
+				}
+			}
+			@media screen and (max-width: $breakpoint--medium){
+				.gforms_confirmation_message{
+					padding: rem(12) 0 rem(20);
+				}
 			}
 		}
 	}
@@ -195,8 +233,10 @@
 							padding-left: 0;
 						}
 						&:hover{
-							background-color: transparent;
-						}
+	                        color: $dark-gray;
+	                        background-color: transparent;
+	                        text-decoration: underline;
+                    	}
 					}
 					&.white-btn{
 						a{
@@ -234,14 +274,44 @@
 				width: 100%;
 			}
 		}
-		small{
+		.right-footer-section{
 			float: right;
-			font-size: rem(12);
-			@media screen and (max-width: $breakpoint--medium){
-				float: none;
-				text-align: center;
+			.menu-footer-menu-right-container{
+	    		font-size: .75rem;
+				ul{
+					list-style-type: none;
+					float: right;
+
+					li{
+						display: inline-block;
+						a{
+							color: $medium-gray;
+							padding: 0 6px 0 6px;
+						}
+						&:after{
+							position: absolute;
+							content: " | ";
+							display: inline-block;
+							vertical-align: middle;
+						}
+						&:last-child{
+							&:after{
+								content: "";
+							}
+						}
+					}
+				}
 			}
+			small{
+				font-size: rem(12);
+				float: right;
+				@media screen and (max-width: $breakpoint--medium){
+					float: none;
+					text-align: center;
+				}
+			}	
 		}
+		
 		@media screen and (max-width: $breakpoint--medium){
 			text-align: center;
 			small{

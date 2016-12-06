@@ -26,11 +26,12 @@
                 endif;
 				if( get_field('copyright_information', 'options') ) :
 				?>
-					<small><?php the_field('copyright_information', 'options'); ?></small>
-				<?php
-				endif;
-				?>
-
+				<div class="right-footer-section">
+						<small><?php the_field('copyright_information', 'options'); ?></small>
+					<?php
+					endif;
+					?>
+				</div>
 			</div>
 		</div>
   	</div>

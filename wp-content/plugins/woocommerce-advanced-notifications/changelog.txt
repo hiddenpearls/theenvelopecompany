@@ -1,5 +1,8 @@
 *** Advanced Notifications Changelog ***
 
+2016.10.28 - version 1.2.2
+* Fix - Missing email templates.
+
 2016.10.25 - version 1.2.1
 * Fix - Emails not conforming to WC 2.5+ action filter parameters.
 

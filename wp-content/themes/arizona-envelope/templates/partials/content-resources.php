@@ -1,12 +1,12 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8 col-md-offset-2 text-center">
             <h1 class="title-pages text-center"><?php the_field('title');?></h1>
             <p><?php the_field('description');?></p>
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container samples">
 	<?php 
 		$args = array(
 			'post_type'		=>	'sample',
@@ -24,8 +24,8 @@
 	    <?php 
 	    	while( $samples_query->have_posts() ) : $samples_query->the_post(); ?>
 				<div class="col-sm-3 col-xs-6"><!--  product-category-extract title-down -->
-					<img class="img-responsive" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>" alt="">
-					<h3><?php the_title(); ?></h3>
+					<img class="img-responsive" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id() ); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true);?>">
+					<h3><?php echo ucwords(get_the_title()); ?></h3>
 					<p><?php the_content(); ?></p>
 				</div>
 		<?php $count++;
