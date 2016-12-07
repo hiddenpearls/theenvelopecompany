@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<?php if( get_field('404_page_title', 'options') ) : ?>
-					<h1><?php the_field('404_page_title', 'options'); ?></h1>
+					<h1 class="text-center title-pages"><?php the_field('404_page_title', 'options'); ?></h1>
 				<?php endif; ?>
 				<?php if( get_field('404_page_text', 'options') ) : ?>
 					<p class="text-center"><?php the_field('404_page_text', 'options'); ?></p>
