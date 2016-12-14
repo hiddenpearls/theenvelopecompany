@@ -145,7 +145,7 @@ jQuery(document).ready(function( $ ) {
 		
 	}
 	//set active on products category nav when on single product page.
-	if ( window.location.href.indexOf('products') > -1 ){
+	if ( window.location.href.indexOf('shop') > -1 ){
 		$('#menu-shop-navigation li a').each(function(){
 			if($(this).attr('href').indexOf('product-category') > -1){
 				//console.log($(this).attr('href'));
