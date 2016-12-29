@@ -560,9 +560,10 @@ add_filter( 'woocommerce_min_password_strength', 'reduce_woocommerce_min_strengt
  */
 function custom_password_message($vars) {
     $new_vars = array(
-        'i18n_password_error' => esc_attr__( 'Test', 'woocommerce' ),
+        'i18n_password_error' => esc_attr__( '', 'woocommerce' ),
+        'i18n_password_hint' => esc_attr__( 'The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ &amp; ).', 'woocommerce' )
     );
     return array_merge($vars, $new_vars);
 }
 
-add_filter('wc_password_strength_meter_params', 'custom_password_message');
+add_filter('wc_password_strength_meter_params', 'Roots\Sage\Extras\custom_password_message');
