@@ -553,3 +553,16 @@ function reduce_woocommerce_min_strength_requirement( $strength ) {
     return 1;
 }
 add_filter( 'woocommerce_min_password_strength', 'reduce_woocommerce_min_strength_requirement' );
+
+/** 
+ * Change WooCommerce's password srength message labels
+ * By Ryan Lanese
+ */
+function custom_password_message($vars) {
+    $new_vars = array(
+        'i18n_password_error' => esc_attr__( 'Test', 'woocommerce' ),
+    );
+    return array_merge($vars, $new_vars);
+}
+
+add_filter('wc_password_strength_meter_params', 'custom_password_message');
