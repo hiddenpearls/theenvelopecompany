@@ -12,5 +12,6 @@
    require_once ('custom-post-types-by-oktara.php');
    require_once ('utilities.php');
    require_once ('custom-shortcodes.php');
+   require_once ('woocommerce.php');
 
 ?>
