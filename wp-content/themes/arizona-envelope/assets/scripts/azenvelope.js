@@ -206,6 +206,14 @@ jQuery(document).ready(function( $ ) {
 		$(this).attr("tabindex", 0);
 	});
 	$("#yahm-quantity").attr("tabindex", 0);
+	$('input, textarea').attr("tabindex", 0);
+
+	$(document).on("keypress", ":input:not(textarea):not([type=submit]):not(select)", function(event) {
+	    if (event.keyCode == 13) {
+	        event.preventDefault();
+	    }
+	});
+
 
 	//run this function only if in single product page
 	var wq = $("input[name='tc_cart_edit_key']");

@@ -62,7 +62,7 @@
                     <li><a href="tel:<?php echo $cleaned_phone; ?>"><i class="fa fa-phone-square"></i><strong>Phone: </strong><?php echo $phone; ?></a></li>
                     <?php 
                         $phone = get_field('fax_number', 'options'); 
-                        $cleaned_phone = $phone;
+                        $cleaned_phone = $phone;        
                         $cleaned_phone = str_replace(array('(', ')', '-', ' '), "", $cleaned_phone);
                     ?>
                     <li><a href="tel:<?php echo $cleaned_phone; ?>"><i class="fa fa-fax"></i><strong>Fax: </strong><?php echo $phone; ?></a></li>
@@ -72,7 +72,8 @@
                 <p><?php the_field('contact_us_form_title'); ?></p>
                 <p class="orange heading-text"><?php the_field('contact_us_form_subtitle'); ?></p>
                 <?php
-                gravity_form( 10, false, false, false, '', false );
+                //gravity_form( 10, false, false, false, '', false );
+                echo do_shortcode('[gravityform id=10 title=false description=true ajax=true tabindex=1]');
                 //echo do_shortcode(get_field('contact_form_shortcode'));
                 ?>
             </div>
