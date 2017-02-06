@@ -451,3 +451,148 @@
 )
 
 12-05-2016 @ 22:26:12 - Success: Stripe charge complete (Charge ID: ch_19NUuLFwUvpeJGwfhP2Z4iLn)
+02-06-2017 @ 01:45:00 - Info: Begin processing payment for order 1556 for the amount of 116.7
+02-06-2017 @ 01:45:00 - charges request: Array
+(
+    [currency] => usd
+    [amount] => 11670
+    [description] => Arizona Envelope - Order 500128
+    [capture] => true
+    [expand[]] => balance_transaction
+    [source] => tok_19k1YtFwUvpeJGwf7OgXyGH9
+)
+
+02-06-2017 @ 01:45:01 - Processing response: stdClass Object
+(
+    [id] => ch_19k1YuFwUvpeJGwf0hTPsXMX
+    [object] => charge
+    [amount] => 11670
+    [amount_refunded] => 0
+    [application] => 
+    [application_fee] => 
+    [balance_transaction] => stdClass Object
+        (
+            [id] => txn_19k1YvFwUvpeJGwfeP96jLxH
+            [object] => balance_transaction
+            [amount] => 11670
+            [available_on] => 1486512000
+            [created] => 1486345500
+            [currency] => usd
+            [description] => Arizona Envelope - Order 500128
+            [fee] => 368
+            [fee_details] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [amount] => 368
+                            [application] => 
+                            [currency] => usd
+                            [description] => Stripe processing fees
+                            [type] => stripe_fee
+                        )
+
+                )
+
+            [net] => 11302
+            [source] => ch_19k1YuFwUvpeJGwf0hTPsXMX
+            [sourced_transfers] => stdClass Object
+                (
+                    [object] => list
+                    [data] => Array
+                        (
+                        )
+
+                    [has_more] => 
+                    [total_count] => 0
+                    [url] => /v1/transfers?source_transaction=ch_19k1YuFwUvpeJGwf0hTPsXMX
+                )
+
+            [status] => pending
+            [type] => charge
+        )
+
+    [captured] => 1
+    [created] => 1486345500
+    [currency] => usd
+    [customer] => 
+    [description] => Arizona Envelope - Order 500128
+    [destination] => 
+    [dispute] => 
+    [failure_code] => 
+    [failure_message] => 
+    [fraud_details] => stdClass Object
+        (
+        )
+
+    [invoice] => 
+    [livemode] => 1
+    [metadata] => stdClass Object
+        (
+        )
+
+    [on_behalf_of] => 
+    [order] => 
+    [outcome] => stdClass Object
+        (
+            [network_status] => approved_by_network
+            [reason] => 
+            [risk_level] => normal
+            [seller_message] => Payment complete.
+            [type] => authorized
+        )
+
+    [paid] => 1
+    [receipt_email] => 
+    [receipt_number] => 
+    [refunded] => 
+    [refunds] => stdClass Object
+        (
+            [object] => list
+            [data] => Array
+                (
+                )
+
+            [has_more] => 
+            [total_count] => 0
+            [url] => /v1/charges/ch_19k1YuFwUvpeJGwf0hTPsXMX/refunds
+        )
+
+    [review] => 
+    [shipping] => 
+    [source] => stdClass Object
+        (
+            [id] => card_19k1YtFwUvpeJGwfRSSpczz8
+            [object] => card
+            [address_city] => Phoenix
+            [address_country] => US
+            [address_line1] => 420 E. Clarendon Ave
+            [address_line1_check] => pass
+            [address_line2] => Suite  A
+            [address_state] => AZ
+            [address_zip] => 85012
+            [address_zip_check] => pass
+            [brand] => Visa
+            [country] => US
+            [customer] => 
+            [cvc_check] => pass
+            [dynamic_last4] => 
+            [exp_month] => 3
+            [exp_year] => 2020
+            [fingerprint] => MVkOfp32kKn347rd
+            [funding] => prepaid
+            [last4] => 8157
+            [metadata] => stdClass Object
+                (
+                )
+
+            [name] => Peter  Mckinn
+            [tokenization_method] => 
+        )
+
+    [source_transfer] => 
+    [statement_descriptor] => 
+    [status] => succeeded
+    [transfer_group] => 
+)
+
+02-06-2017 @ 01:45:10 - Success: Stripe charge complete (Charge ID: ch_19k1YuFwUvpeJGwf0hTPsXMX)

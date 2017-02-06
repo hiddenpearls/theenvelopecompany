@@ -3,13 +3,13 @@
  * Plugin Name: WooCommerce Stripe Gateway
  * Plugin URI: https://wordpress.org/plugins/woocommerce-gateway-stripe/
  * Description: Take credit card payments on your store using Stripe.
- * Author: Automattic
+ * Author: WooCommerce
  * Author URI: https://woocommerce.com/
- * Version: 3.0.6
+ * Version: 3.0.7
  * Text Domain: woocommerce-gateway-stripe
  * Domain Path: /languages
  *
- * Copyright (c) 2016 Automattic
+ * Copyright (c) 2017 WooCommerce
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Required minimums and constants
  */
-define( 'WC_STRIPE_VERSION', '3.0.6' );
+define( 'WC_STRIPE_VERSION', '3.0.7' );
 define( 'WC_STRIPE_MIN_PHP_VER', '5.3.0' );
 define( 'WC_STRIPE_MIN_WC_VER', '2.5.0' );
 define( 'WC_STRIPE_MAIN_FILE', __FILE__ );
@@ -224,7 +224,7 @@ class WC_Stripe {
 	 * @return string Setting link
 	 */
 	public function get_setting_link() {
-		$use_id_as_section = version_compare( WC()->version, '2.6', '>=' );
+		$use_id_as_section = function_exists( 'WC' ) ? version_compare( WC()->version, '2.6', '>=' ) : false;
 
 		$section_slug = $use_id_as_section ? 'stripe' : strtolower( 'WC_Gateway_Stripe' );
 
@@ -414,6 +414,49 @@ class WC_Stripe {
 			$stripe_customer = new WC_Stripe_Customer( get_current_user_id() );
 			$stripe_customer->set_default_card( $token->get_token() );
 		}
+	}
+	
+	/**
+	 * Checks Stripe minimum order value authorized per currency
+	 */
+	public static function get_minimum_amount() {
+	
+		// Check order amount
+		switch ( get_woocommerce_currency() ) {
+			case 'USD':
+			case 'CAD':
+			case 'EUR':
+			case 'CHF':
+			case 'AUD':
+			case 'SGD':
+				$minimum_amount = 50;
+				break;
+			case 'GBP':
+				$minimum_amount = 30;
+				break;
+			case 'DKK':
+				$minimum_amount = 250;
+				break;
+			case 'NOK':
+			case 'SEK':
+				$minimum_amount = 300;
+				break;
+			case 'JPY':
+				$minimum_amount = 5000;
+				break;
+			case 'MXN':
+				$minimum_amount = 1000;
+				break;
+			case 'HKD':
+				$minimum_amount = 400;
+				break;
+			default:
+				$minimum_amount = 50;
+				break;
+		}
+		
+		return $minimum_amount;
+		
 	}
 
 	/**

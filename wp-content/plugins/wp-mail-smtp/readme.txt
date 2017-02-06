@@ -3,10 +3,10 @@ Contributors: chmac
 Donate link: http://www.callum-macdonald.com/code/donate/
 Tags: mail, smtp, wp_mail, mailer, phpmailer
 Requires at least: 2.7
-Tested up to: 4.4.2
-Stable tag: 0.9.6
+Tested up to: 4.7
+Stable tag: 0.10.1
 
-Reconfigures the wp_mail() function to use SMTP instead of mail() and creates an options page to manage the settings.
+The most popular SMTP plugin on WordPress.org. Trusted by over 500'000 sites.
 
 == Description ==
 
@@ -21,6 +21,8 @@ You can set the following options:
 * Choose SSL / TLS encryption (not the same as STARTTLS).
 * Choose to use SMTP authentication or not (defaults to not).
 * Specify an SMTP username and password.
+
+The plugin includes integrated support for <a href="https://app1.pepipost.com/index.php/login/wp_mail_smtp?page=signup&utm_source=WordPress&utm_campaign=Plugins&utm_medium=wp_mail_smtp_webpage&utm_term=organic&code=WP-MAIL-SMTP">Pepipost</a>.
 
 == Installation ==
 
@@ -58,9 +60,18 @@ By all means please contact me to discuss features or options you'd like to see 
 
 == Screenshots ==
 
-1. Screenshot of the Options > Email panel.
+1. Advanced Email Options
+2. SMTP Options
+3. Pepipost SMTP Options
+4. Send a Test Email
 
 == Changelog ==
+
+= 0.10.1 =
+* Addition of Pepipost and cleanup of admin page.
+
+= 0.10.0 =
+* Addition of Pepipost and cleanup of admin page.
 
 = 0.9.6 =
 * Minor security fix, sanitize test email address.
@@ -151,6 +162,12 @@ By all means please contact me to discuss features or options you'd like to see 
 * Initial approach, copying the wp_mail function and replacing it
 
 == Upgrade Notice ==
+
+= 0.10.1 =
+Addition of Pepipost and cleanup of admin page.
+
+= 0.10.0 =
+Addition of Pepipost and cleanup of admin page.
 
 = 0.9.6 =
 Minor security fix, sanitize test email address.
