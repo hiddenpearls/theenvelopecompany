@@ -9,6 +9,7 @@ class acf_local {
 	// vars
 	var $groups = array(),
 		$fields = array(),
+		$reference = array(),
 		$parents = array();
 		
 		
@@ -42,6 +43,35 @@ class acf_local {
 	
 	
 	/*
+	*  get_key
+	*
+	*  This function will check for references and modify the key
+	*
+	*  @type	function
+	*  @date	30/06/2016
+	*  @since	5.4.0
+	*
+	*  @param	$key (string)
+	*  @return	$key
+	*/
+	
+	function get_key( $key = '' ) {
+		
+		// check for reference
+		if( isset($this->reference[ $key ]) ) {
+			
+			$key = $this->reference[ $key ];
+				
+		}
+		
+		
+		// return
+		return $key;
+		
+	}
+	
+	
+	/*
 	*  reset
 	*
 	*  This function will remove (reset) all field group and fields
@@ -59,6 +89,7 @@ class acf_local {
 		// vars
 		$this->groups = array();
 		$this->fields = array();
+		$this->reference = array();
 		$this->parents = array();
 		
 	}
@@ -176,6 +207,10 @@ class acf_local {
 		// add field
 		$this->fields[ $key ] = $field;
 		
+		
+		// add reference for field name
+		$this->reference[ $field['name'] ] = $key;
+		
 	}
 	
 	
@@ -194,6 +229,10 @@ class acf_local {
 	
 	function is_field( $key = '' ) {
 		
+		// vars
+		$key = $this->get_key($key);
+		
+		
 		// bail early if not enabled
 		if( !$this->is_enabled() ) return false;
 		
@@ -201,6 +240,28 @@ class acf_local {
 		// return
 		return isset( $this->fields[ $key ] );
 				
+	}
+	
+	function is_field_key( $key ) {
+		
+		// bail early if not enabled
+		if( !$this->is_enabled() ) return false;
+		
+		
+		// return
+		return isset( $this->fields[ $key ] );
+		
+	}
+	
+	function is_field_name( $name ) {
+		
+		// bail early if not enabled
+		if( !$this->is_enabled() ) return false;
+		
+		
+		// return
+		return isset( $this->reference[ $name ] );
+		
 	}
 	
 	
@@ -218,6 +279,10 @@ class acf_local {
 	*/
 	
 	function get_field( $key = '' ) {
+		
+		// vars
+		$key = $this->get_key($key);
+		
 		
 		// bail early if no group
 		if( !$this->is_field($key) ) return false;
@@ -253,11 +318,12 @@ class acf_local {
 		
 		
 		// remove parent reference
-		$this->remove_parent_reference( $field['parent'], $field['key'] );
+		$this->remove_parent_reference( $field['parent'], $key );
 		
 		
 		// remove field
 		unset( $this->fields[ $key ] );
+		unset( $this->reference[ $field['name'] ] );
 		
 		
 		// remove children
@@ -779,6 +845,18 @@ function acf_remove_local_field( $key = '' ) {
 function acf_is_local_field( $key = '' ) {
 	
 	return acf_local()->is_field( $key );
+	
+}
+
+function acf_is_local_field_key( $key = '' ) {
+	
+	return acf_local()->is_field_key( $key );
+	
+}
+
+function acf_is_local_field_name( $name = '' ) {
+	
+	return acf_local()->is_field_name( $name );
 	
 }
 

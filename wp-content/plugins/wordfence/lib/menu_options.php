@@ -56,11 +56,11 @@ $w = new wfConfig();
 					<div class="wf-form-group">
 						<?php if (wfConfig::get('hasKeyConflict')): ?>
 						<div class="wf-col-sm-9 wf-col-sm-offset-3">
-							<a href="https://www.wordfence.com/gnl1optMngKysReset/manage-wordfence-api-keys/" target="_blank"><input type="button" value="Reset your premium license"/></a> <input type="button" value="Downgrade to a free license" onclick="WFAD.downgradeLicense();"/>
+							<a href="https://www.wordfence.com/gnl1optMngKysReset/manage-wordfence-api-keys/" target="_blank"><input type="button" class="wf-btn wf-btn-default wf-btn-sm" value="Reset your premium license"/></a> <input type="button" class="wf-btn wf-btn-default wf-btn-sm" value="Downgrade to a free license" onclick="WFAD.downgradeLicense();"/>
 						</div>
 						<?php elseif (wfConfig::get('isPaid')): ?>
 						<div class="wf-col-sm-9 wf-col-sm-offset-3">
-							<a href="https://www.wordfence.com/gnl1optMngKys/manage-wordfence-api-keys/" target="_blank"><input type="button" value="Renew your premium license"/></a> <input type="button" value="Downgrade to a free license"  onclick="WFAD.downgradeLicense();"/>
+							<a href="https://www.wordfence.com/gnl1optMngKys/manage-wordfence-api-keys/" target="_blank"><input type="button" class="wf-btn wf-btn-default wf-btn-sm" value="Renew your premium license"/></a> <input type="button" class="wf-btn wf-btn-default wf-btn-sm" value="Downgrade to a free license"  onclick="WFAD.downgradeLicense();"/>
 						</div>
 						<?php else: ?>
 						<div class="wf-col-xs-12">
@@ -83,7 +83,7 @@ $w = new wfConfig();
 					<div class="wf-form-group">
 						<label for="firewallEnabled" class="wf-col-sm-5 wf-control-label">Enable Rate Limiting and Advanced Blocking <a href="https://docs.wordfence.com/en/Wordfence_options#Enable_Rate_Limiting_and_Advanced_Blocking" target="_blank" class="wfhelp"></a></label>
 						<div class="wf-col-sm-7">
-							<div class="wf-checkbox"><input type="checkbox" id="firewallEnabled" class="wf-form-control wfConfigElem" name="firewallEnabled" value="1" <?php $w->cb( 'firewallEnabled' ); ?>></div>
+							<div class="wf-checkbox"><input type="checkbox" id="firewallEnabled" class="wfConfigElem" name="firewallEnabled" value="1" <?php $w->cb( 'firewallEnabled' ); ?>></div>
 							<span class="wf-help-block"><span style="color: #F00;">NOTE:</span> This checkbox enables ALL blocking/throttling functions including IP, country and advanced blocking, and the "Rate Limiting Rules" below.</span>
 						</div>
 					</div>

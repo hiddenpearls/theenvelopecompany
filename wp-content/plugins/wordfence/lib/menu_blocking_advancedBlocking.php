@@ -23,7 +23,7 @@
 			<tr><th>Enter a reason you're blocking this visitor pattern:</th><td><input id="wfReason" type="text" size="30" maxlength="255"></td></tr>
 			<tr><td></td><td style="padding-bottom: 15px;"><strong>Why a reason:</strong> The reason you specify above is for your own record keeping.</td></tr>
 			<tr><td colspan="2" style="padding-top: 15px;">
-				<input type="button" name="but3" class="button-primary" value="Block Visitors Matching this Pattern" onclick="WFAD.blockIPUARange(jQuery('#ipRange').val(), jQuery('#hostname').val(), jQuery('#uaRange').val(), jQuery('#wfreferer').val(), jQuery('#wfReason').val()); return false;" />
+				<input type="button" name="but3" class="wf-btn wf-btn-primary" value="Block Visitors Matching this Pattern" onclick="WFAD.blockIPUARange(jQuery('#ipRange').val(), jQuery('#hostname').val(), jQuery('#uaRange').val(), jQuery('#wfreferer').val(), jQuery('#wfReason').val()); return false;" />
 			</td></tr>
 		</table>
 	</p>

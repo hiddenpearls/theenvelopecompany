@@ -40,7 +40,7 @@
 			</div>
 			<div class="wf-form-group">
 				<div class="wf-col-sm-9 wf-col-sm-offset-3">
-					<input type="button" name="but4" class="wf-btn wf-btn-primary wf-btn-callout" value="Start Password Audit" onclick="WFAD.startPasswdAudit(jQuery('#auditType').val(), jQuery('#emailAddr').val());">
+					<input type="button" name="but4" class="wf-btn wf-btn-primary" value="Start Password Audit" onclick="WFAD.startPasswdAudit(jQuery('#auditType').val(), jQuery('#emailAddr').val());">
 				</div>
 			</div>
 		</div>
@@ -57,7 +57,7 @@
 	<select id="wfPasswdFixAction">
 		<option value="email">Action: Email selected users and ask them to change their weak password.</option>
 		<option value="fix">Action: Change weak passwords to a strong password and email users the new password.</option>
-	</select><input type="button" value="Fix Weak Passwords" onclick="WFAD.doFixWeakPasswords(); return false;" class="button-primary"/>
+	</select><input type="button" value="Fix Weak Passwords" onclick="WFAD.doFixWeakPasswords(); return false;" class="wf-btn wf-btn-primary"/>
 </div>
 <table class="wf-striped-table">
 	<thead>

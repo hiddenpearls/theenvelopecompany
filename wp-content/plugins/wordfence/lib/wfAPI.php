@@ -48,9 +48,18 @@ class wfAPI {
 		if (isset($dat['_hasKeyConflict'])) {
 			$hasKeyConflict = ($dat['_hasKeyConflict'] == 1);
 			if ($hasKeyConflict) {
-				//new wfNotification(null, wfNotification::PRIORITY_DEFAULT, '<a href="' . network_admin_url('admin.php?page=WordfenceSecOpt') . '">The Wordfence API key you\'re using does not match this site\'s address. Premium features are disabled.</a>', 'wfplugin_keyconflict', null, array(array('link' => 'https://www.wordfence.com/manage-wordfence-api-keys/', 'label' => 'Manage Keys')));
+				new wfNotification(null, wfNotification::PRIORITY_DEFAULT, '<a href="' . network_admin_url('admin.php?page=WordfenceSecOpt') . '">The Wordfence API key you\'re using does not match this site\'s address. Premium features are disabled.</a>', 'wfplugin_keyconflict', null, array(array('link' => 'https://www.wordfence.com/manage-wordfence-api-keys/', 'label' => 'Manage Keys')));
 			}
 		}
+		
+		if (!$hasKeyConflict) {
+			$n = wfNotification::getNotificationForCategory('wfplugin_keyconflict');
+			if ($n !== null) {
+				wordfence::status(1, 'info', 'Idle');
+				$n->markAsRead();
+			}
+		}
+		
 		wfConfig::set('hasKeyConflict', $hasKeyConflict);
 
 		if (!is_array($dat)) {
@@ -117,18 +126,10 @@ class wfAPI {
 	}
 
 	public function makeAPIQueryString() {
-		$siteurl = '';
-		if (function_exists('get_bloginfo')) {
-			if (is_multisite()) {
-				$siteurl = network_home_url();
-				$siteurl = rtrim($siteurl, '/'); //Because previously we used get_bloginfo and it returns http://example.com without a '/' char.
-			} else {
-				$siteurl = home_url();
-			}
-		}
+		$homeurl = wfUtils::wpHomeURL();
 		return self::buildQuery(array(
 			'v'         => $this->wordpressVersion,
-			's'         => $siteurl,
+			's'         => $homeurl,
 			'k'         => $this->APIKey,
 			'openssl'   => function_exists('openssl_verify') && defined('OPENSSL_VERSION_NUMBER') ? OPENSSL_VERSION_NUMBER : '0.0.0',
 			'phpv'      => phpversion(),

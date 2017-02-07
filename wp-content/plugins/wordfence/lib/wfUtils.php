@@ -1087,14 +1087,13 @@ class wfUtils {
 		return $URL;
 	}
 	public static function IP2Country($IP){
-		if(! (function_exists('geoip_open') && function_exists('geoip_country_code_by_addr') && function_exists('geoip_country_code_by_addr_v6'))){
-			require_once('wfGeoIP.php');
-		}
+		require_once('wfGeoIP.php');
+		
 		if (filter_var($IP, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false) {
-			$gi = geoip_open(dirname(__FILE__) . "/GeoIPv6.dat", GEOIP_STANDARD);
+			$gi = geoip_open(dirname(__FILE__) . "/GeoIPv6.dat", WF_GEOIP_STANDARD);
 			$country = geoip_country_code_by_addr_v6($gi, $IP);
 		} else {
-			$gi = geoip_open(dirname(__FILE__) . "/GeoIP.dat", GEOIP_STANDARD);
+			$gi = geoip_open(dirname(__FILE__) . "/GeoIP.dat", WF_GEOIP_STANDARD);
 			$country = geoip_country_code_by_addr($gi, $IP);
 		}
 		geoip_close($gi);
@@ -1499,20 +1498,14 @@ class wfUtils {
 			'callback' => $callback,
 		);
 		
-		$siteurl = '';
-		if (function_exists('get_bloginfo')) {
-			if (is_multisite()) {
-				$siteurl = network_home_url();
-				$siteurl = rtrim($siteurl, '/'); //Because previously we used get_bloginfo and it returns http://example.com without a '/' char.
-			} else {
-				$siteurl = home_url();
-			}
-		}
+		$homeurl = wfUtils::wpHomeURL();
+		$siteurl = wfUtils::wpSiteURL();
 		
 		wp_remote_post(WFWAF_API_URL_SEC . "?" . http_build_query(array(
 				'action' => 'detect_proxy',
 				'k'      => wfConfig::get('apiKey'),
 				's'      => $siteurl,
+				'h'		 => $homeurl,
 				't'		 => microtime(true),
 			), null, '&'),
 			array(
@@ -1642,6 +1635,59 @@ class wfUtils {
 		}
 		
 		return $encodedString;
+	}
+	
+	public static function wpHomeURL($path = '', $scheme = null) {
+		$homeurl = wfConfig::get('wp_home_url', '');
+		if (function_exists('get_bloginfo')) {
+			if (is_multisite()) {
+				if (empty($homeurl)) {
+					$homeurl = network_home_url($path, $scheme);
+					$homeurl = rtrim($homeurl, '/'); //Because previously we used get_bloginfo and it returns http://example.com without a '/' char.
+				}
+			}
+			else {
+				if (empty($homeurl)) {
+					$homeurl = home_url($path, $scheme);
+				}
+			}
+		}
+		return $homeurl;
+	}
+	
+	public static function wpSiteURL($path = '', $scheme = null) {
+		$siteurl = '';
+		if (function_exists('get_bloginfo')) {
+			if (is_multisite()) {
+				$siteurl = network_site_url($path, $scheme);
+			}
+			else {
+				$siteurl = site_url($path, $scheme);
+			}
+		}
+		return $siteurl;
+	}
+	
+	public static function wafInstallationType() {
+		try {
+			$status = (defined('WFWAF_ENABLED') && !WFWAF_ENABLED) ? 'disabled' : wfWaf::getInstance()->getStorageEngine()->getConfig('wafStatus');
+			if (defined('WFWAF_ENABLED') && !WFWAF_ENABLED) {
+				return "{$status}|const";
+			}
+			else if (defined('WFWAF_SUBDIRECTORY_INSTALL') && WFWAF_SUBDIRECTORY_INSTALL) {
+				return "{$status}|subdir";
+			}
+			else if (defined('WFWAF_AUTO_PREPEND') && WFWAF_AUTO_PREPEND) {
+				return "{$status}|extended";
+			}
+			
+			return "{$status}|basic";
+		}
+		catch (Exception $e) {
+			//Do nothing
+		}
+		
+		return 'unknown';
 	}
 }
 

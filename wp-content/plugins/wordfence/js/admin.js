@@ -43,12 +43,14 @@
 			serverMicrotime: 0,
 			wfLiveTraffic: null,
 			loadingBlockedIPs: false,
+			basePageName: '',
 
 			init: function() {
 				this.nonce = WordfenceAdminVars.firstNonce;
 				this.debugOn = WordfenceAdminVars.debugOn == '1' ? true : false;
 				this.tourClosed = WordfenceAdminVars.tourClosed == '1' ? true : false;
 				this.welcomeClosed = WordfenceAdminVars.welcomeClosed == '1' ? true : false;
+				this.basePageName = document.title;
 				var startTicker = false;
 				var self = this;
 
@@ -99,6 +101,7 @@
 						var tab = jQuery('#' + jQuery(this).attr('id').replace('-tab', ''));
 						tab.addClass('active');
 						jQuery('#wfHeading').html(tab.data('title'));
+						document.title = tab.data('title') + " \u2039 " + self.basePageName;
 						self.sectionInit();
 					});
 					if (window.location.hash) {
@@ -235,7 +238,7 @@
 					startTicker = true;
 					if (this.needTour()) {
 						this.tour('wfWelcomeContent3', 'wfHeading', 'top', 'left', "Learn about IP Blocking", function() {
-							self.tourRedir('WordfenceWAF#top#blockedips');
+							self.tourRedir('WordfenceBlocking#top#blockedips');
 						});
 					}
 				} else if (jQuery('#wordfenceMode_options:visible').length > 0) {
@@ -290,7 +293,7 @@
 					this.doPasswdAuditUpdate();
 					if (this.needTour()) {
 						this.tour('wfWelcomePasswd', 'wfHeading', 'top', 'left', "Learn about Cellphone Sign-in", function() {
-							self.tourRedir('WordfenceWAF#top#twofactor');
+							self.tourRedir('WordfenceTools#top#twofactor');
 						});
 					}
 				} else if (jQuery('#wordfenceMode_twoFactor:visible').length > 0) {
@@ -298,7 +301,7 @@
 					startTicker = true;
 					if (this.needTour()) {
 						this.tour('wfWelcomeTwoFactor', 'wfHeading', 'top', 'left', "Learn how to Block Countries", function() {
-							self.tourRedir('WordfenceWAF#top#countryblocking');
+							self.tourRedir('WordfenceBlocking#top#countryblocking');
 						});
 					}
 					this.loadTwoFactor();
@@ -326,7 +329,7 @@
 					startTicker = true;
 					if (this.needTour()) {
 						this.tour('wfWelcomeContentWhois', 'wfHeading', 'top', 'left', "Learn how to use Advanced Blocking", function() {
-							self.tourRedir('WordfenceWAF#top#advancedblocking');
+							self.tourRedir('WordfenceBlocking#top#advancedblocking');
 						});
 					}
 					this.calcRangeTotal();
@@ -424,7 +427,7 @@
 				});
 			},
 			downgradeLicense: function() {
-				this.colorbox('400px', "Confirm Downgrade", "Are you sure you want to downgrade your Wordfence Premium License? This will disable all Premium features and return you to the free version of Wordfence. <a href=\"https://www.wordfence.com/manage-wordfence-api-keys/\" target=\"_blank\">Click here to renew your paid membership</a> or click the button below to confirm you want to downgrade.<br /><br /><input type=\"button\" value=\"Downgrade and disable Premium features\" onclick=\"WFAD.downgradeLicenseConfirm();\" /><br />");
+				this.colorbox('400px', "Confirm Downgrade", "Are you sure you want to downgrade your Wordfence Premium License? This will disable all Premium features and return you to the free version of Wordfence. <a href=\"https://www.wordfence.com/manage-wordfence-api-keys/\" target=\"_blank\">Click here to renew your paid membership</a> or click the button below to confirm you want to downgrade.<br /><br /><input class=\"wf-btn wf-btn-default\" type=\"button\" value=\"Downgrade and disable Premium features\" onclick=\"WFAD.downgradeLicenseConfirm();\" /><br />");
 			},
 			downgradeLicenseConfirm: function() {
 				jQuery.colorbox.close();
@@ -440,7 +443,7 @@
 				}
 				var options = {
 					buttons: function(event, t) {
-						var buttonElem = jQuery('<div id="wfTourButCont"><a id="pointer-close" style="margin-left:5px" class="button-secondary">End the Tour</a></div><div><a id="wfRateLink" href="http://wordpress.org/extend/plugins/wordfence/" target="_blank" style="font-size: 10px; font-family: Verdana;">Help spread the word by rating us 5&#9733; on WordPress.org</a></div>');
+						var buttonElem = jQuery('<div id="wfTourButCont"><a id="pointer-close" style="margin-left:5px" class="wf-btn wf-btn-default">End the Tour</a></div><div><a id="wfRateLink" href="http://wordpress.org/extend/plugins/wordfence/" target="_blank" style="font-size: 10px; font-family: Verdana;">Help spread the word by rating us 5&#9733; on WordPress.org</a></div>');
 						buttonElem.find('#pointer-close').bind('click.pointer', function(evtObj) {
 							var evtSourceElem = evtObj.srcElement ? evtObj.srcElement : evtObj.target;
 							if (evtSourceElem.id == 'wfRateLink') {
@@ -463,7 +466,7 @@
 				};
 				this.currentPointer = jQuery('#' + elemID).pointer(options).pointer('open');
 				if (buttonLabel && buttonCallback) {
-					jQuery('#pointer-close').after('<a id="pointer-primary" class="button-primary">' + buttonLabel + '</a>');
+					jQuery('#pointer-close').after('<a id="pointer-primary" class="wf-btn wf-btn-primary">' + buttonLabel + '</a>');
 					jQuery('#pointer-primary').click(buttonCallback);
 				}
 
@@ -939,7 +942,7 @@
 					if (res.issuesLists[issueStatus].length < 1) {
 						if (issueStatus == 'new') {
 							if (res.lastScanCompleted == 'ok') {
-								jQuery('#' + containerID).html('<p style="font-size: 20px; color: #0A0;">Congratulations! No security problems were detected by Wordfence.</p>');
+								jQuery('#' + containerID).html('<p class="wf-scan-no-issues">Congratulations! No security problems were detected by Wordfence.</p>');
 							} else if (res['lastScanCompleted']) {
 								//jQuery('#' + containerID).html('<p style="font-size: 12px; color: #A00;">The latest scan failed: ' + res.lastScanCompleted + '</p>');
 							} else {
@@ -1135,9 +1138,9 @@
 						return;
 					}
 					if (op == 'del') {
-						this.colorbox('400px', "Are you sure you want to delete?", "Are you sure you want to delete a total of " + ids.length + " files? Do not delete files on your system unless you're ABSOLUTELY sure you know what you're doing. If you delete the wrong file it could cause your WordPress website to stop functioning and you will probably have to restore from backups. If you're unsure, Cancel and work with your hosting provider to clean your system of infected files.<br /><br /><input type=\"button\" value=\"Delete Files\" onclick=\"WFAD.bulkOperationConfirmed('" + op + "');\" />&nbsp;&nbsp;<input type=\"button\" value=\"Cancel\" onclick=\"jQuery.colorbox.close();\" /><br />");
+						this.colorbox('400px', "Are you sure you want to delete?", "Are you sure you want to delete a total of " + ids.length + " files? Do not delete files on your system unless you're ABSOLUTELY sure you know what you're doing. If you delete the wrong file it could cause your WordPress website to stop functioning and you will probably have to restore from backups. If you're unsure, Cancel and work with your hosting provider to clean your system of infected files.<br /><br /><input class=\"wf-btn wf-btn-default\" type=\"button\" value=\"Delete Files\" onclick=\"WFAD.bulkOperationConfirmed('" + op + "');\" />&nbsp;&nbsp;<input class=\"wf-btn wf-btn-default\" type=\"button\" value=\"Cancel\" onclick=\"jQuery.colorbox.close();\" /><br />");
 					} else if (op == 'repair') {
-						this.colorbox('400px', "Are you sure you want to repair?", "Are you sure you want to repair a total of " + ids.length + " files? Do not repair files on your system unless you're sure you have reviewed the differences between the original file and your version of the file in the files you are repairing. If you repair a file that has been customized for your system by a developer or your hosting provider it may leave your system unusable. If you're unsure, Cancel and work with your hosting provider to clean your system of infected files.<br /><br /><input type=\"button\" value=\"Repair Files\" onclick=\"WFAD.bulkOperationConfirmed('" + op + "');\" />&nbsp;&nbsp;<input type=\"button\" value=\"Cancel\" onclick=\"jQuery.colorbox.close();\" /><br />");
+						this.colorbox('400px', "Are you sure you want to repair?", "Are you sure you want to repair a total of " + ids.length + " files? Do not repair files on your system unless you're sure you have reviewed the differences between the original file and your version of the file in the files you are repairing. If you repair a file that has been customized for your system by a developer or your hosting provider it may leave your system unusable. If you're unsure, Cancel and work with your hosting provider to clean your system of infected files.<br /><br /><input class=\"wf-btn wf-btn-default\" type=\"button\" value=\"Repair Files\" onclick=\"WFAD.bulkOperationConfirmed('" + op + "');\" />&nbsp;&nbsp;<input class=\"wf-btn wf-btn-default\" type=\"button\" value=\"Cancel\" onclick=\"jQuery.colorbox.close();\" /><br />");
 					}
 				} else {
 					return;
@@ -1241,7 +1244,7 @@
 					if (res.ok) {
 						self.colorbox("400px", title, 'We are about to change your <em>.htaccess</em> file. Please make a backup of this file proceeding'
 							+ '<br/>'
-							+ '<a href="' + WordfenceAdminVars.ajaxURL + '?action=wordfence_downloadHtaccess&nonce=' + self.nonce + '" onclick="jQuery(\'#wfFPDNextBut\').prop(\'disabled\', false); return true;">Click here to download a backup copy of your .htaccess file now</a><br /><br /><input type="button" name="but1" id="wfFPDNextBut" value="Click to fix .htaccess" disabled="disabled" onclick="WFAD.fixFPD_WriteHtAccess(' + issueID + ');" />');
+							+ '<a href="' + WordfenceAdminVars.ajaxURL + '?action=wordfence_downloadHtaccess&nonce=' + self.nonce + '" onclick="jQuery(\'#wfFPDNextBut\').prop(\'disabled\', false); return true;">Click here to download a backup copy of your .htaccess file now</a><br /><br /><input type="button" class="wf-btn wf-btn-default" name="but1" id="wfFPDNextBut" value="Click to fix .htaccess" disabled="disabled" onclick="WFAD.fixFPD_WriteHtAccess(' + issueID + ');" />');
 					} else if (res.nginx) {
 						self.colorbox("400px", title, 'You are using an Nginx web server and using a FastCGI processor like PHP5-FPM. You will need to manually modify your php.ini to disable <em>display_error</em>');
 					} else if (res.err) {
@@ -1274,7 +1277,7 @@
 						self.colorbox("400px", title, 'We are about to change your <em>.htaccess</em> file. Please make a backup of this file proceeding'
 							+ '<br/>'
 							+ '<a id="dlButton" href="' + WordfenceAdminVars.ajaxURL + '?action=wordfence_downloadHtaccess&nonce=' + self.nonce + '">Click here to download a backup copy of your .htaccess file now</a>'
-							+ '<br /><br /><input type="button" name="but1" id="wfFPDNextBut" value="Click to fix .htaccess" disabled="disabled" />'
+							+ '<br /><br /><input type="button" class="wf-btn wf-btn-default" name="but1" id="wfFPDNextBut" value="Click to fix .htaccess" disabled="disabled" />'
 						);
 						jQuery('#dlButton').click('click', function() {
 							jQuery('#wfFPDNextBut').prop('disabled', false);
@@ -1350,7 +1353,7 @@
 							+ '<br/>'
 							+ '<a href="' + WordfenceAdminVars.ajaxURL + '?action=wordfence_downloadHtaccess&nonce=' + self.nonce + '" onclick="jQuery(\'#wf-htaccess-confirm\').prop(\'disabled\', false); return true;">Click here to download a backup copy of your .htaccess file now</a>' +
 							'<br /><br />' +
-							'<button class="button" type="button" id="wf-htaccess-confirm" disabled="disabled" onclick="WFAD.confirmDisableDirectoryListing(' + issueID + ');">Add code to .htaccess</button>');
+							'<button class="wf-btn wf-btn-default" type="button" id="wf-htaccess-confirm" disabled="disabled" onclick="WFAD.confirmDisableDirectoryListing(' + issueID + ');">Add code to .htaccess</button>');
 					} else if (res.nginx) {
 						self.colorbox('400px', "You are using Nginx as your web server. " +
 							"You'll need to disable autoindexing in your nginx.conf. " +
@@ -1404,7 +1407,7 @@
 				} else {
 					return;
 				}
-				this.colorbox('450px', head, body + '<br /><br /><center><input type="button" name="but1" value="Cancel" onclick="jQuery.colorbox.close();" />&nbsp;&nbsp;&nbsp;<input type="button" name="but2" value="Yes I\'m sure" onclick="jQuery.colorbox.close(); WFAD.confirmUpdateAllIssues(\'' + op + '\');" /><br />');
+				this.colorbox('450px', head, body + '<br /><br /><center><input class="wf-btn wf-btn-default" type="button" name="but1" value="Cancel" onclick="jQuery.colorbox.close();" />&nbsp;&nbsp;&nbsp;<input class="wf-btn wf-btn-default" type="button" name="but2" value="Yes I\'m sure" onclick="jQuery.colorbox.close(); WFAD.confirmUpdateAllIssues(\'' + op + '\');" /><br />');
 			},
 			confirmUpdateAllIssues: function(op) {
 				var self = this;
@@ -1457,7 +1460,7 @@
 				});
 			},
 			emailActivityLog: function() {
-				this.colorbox('400px', 'Email Wordfence Activity Log', "Enter the email address you would like to send the Wordfence activity log to. Note that the activity log may contain thousands of lines of data. This log is usually only sent to a member of the Wordfence support team. It also contains your PHP configuration from the phpinfo() function for diagnostic data.<br /><br /><input type='text' value='wftest@wordfence.com' size='20' id='wfALogRecip' /><input type='button' value='Send' onclick=\"WFAD.completeEmailActivityLog();\" /><input type='button' value='Cancel' onclick='jQuery.colorbox.close();' /><br /><br />");
+				this.colorbox('400px', 'Email Wordfence Activity Log', "Enter the email address you would like to send the Wordfence activity log to. Note that the activity log may contain thousands of lines of data. This log is usually only sent to a member of the Wordfence support team. It also contains your PHP configuration from the phpinfo() function for diagnostic data.<br /><br /><input type='text' value='wftest@wordfence.com' size='20' id='wfALogRecip' /><input class='wf-btn wf-btn-default' type='button' value='Send' onclick=\"WFAD.completeEmailActivityLog();\" /><input class='wf-btn wf-btn-default' type='button' value='Cancel' onclick='jQuery.colorbox.close();' /><br /><br />");
 			},
 			completeEmailActivityLog: function() {
 				jQuery.colorbox.close();
@@ -1469,7 +1472,7 @@
 				var self = this;
 				this.ajax('wordfence_sendActivityLog', {email: jQuery('#wfALogRecip').val()}, function(res) {
 					if (res.ok) {
-						self.colorbox('400px', 'Activity Log Sent', "Your Wordfence activity log was sent to " + email + "<br /><br /><input type='button' value='Close' onclick='jQuery.colorbox.close();' /><br /><br />");
+						self.colorbox('400px', 'Activity Log Sent', "Your Wordfence activity log was sent to " + email + "<br /><br /><input class='wf-btn wf-btn-default' type='button' value='Close' onclick='jQuery.colorbox.close();' /><br /><br />");
 					}
 				});
 			},
@@ -1855,7 +1858,7 @@
 								var ip2num = self.inet_aton(ips[1]);
 								totalIPs = ip2num - ip1num + 1;
 							}
-							return "<a href=\"admin.php?page=WordfenceWAF&wfBlockRange=" + ipRange + "#top#advancedblocking\"" + redStyle + ">" + ipRange + " [" + (!isNaN(totalIPs) ? "<strong>" + totalIPs + "</strong> addresses in this network. " : "") + "Click to block this network]<\/a>";
+							return "<a href=\"admin.php?page=WordfenceBlocking&wfBlockRange=" + ipRange + "#top#advancedblocking\"" + redStyle + ">" + ipRange + " [" + (!isNaN(totalIPs) ? "<strong>" + totalIPs + "</strong> addresses in this network. " : "") + "Click to block this network]<\/a>";
 						}
 
 						function buildRangeLink2(str, octet1, octet2, octet3, octet4, cidrRange) {
@@ -1874,7 +1877,7 @@
 								rangeEndNum = rangeEndNum >>> 0;
 								var ipRange = self.inet_ntoa(rangeStartNum) + '-' + self.inet_ntoa(rangeEndNum);
 								var totalIPs = rangeEndNum - rangeStartNum;
-								return "<a href=\"admin.php?page=WordfenceWAF&wfBlockRange=" + ipRange + "#top#advancedblocking\"" + redStyle + ">" + ipRange + " [" + (!isNaN(totalIPs) ? "<strong>" + totalIPs + "</strong> addresses in this network. " : "") + "Click to block this network]<\/a>";
+								return "<a href=\"admin.php?page=WordfenceBlocking&wfBlockRange=" + ipRange + "#top#advancedblocking\"" + redStyle + ">" + ipRange + " [" + (!isNaN(totalIPs) ? "<strong>" + totalIPs + "</strong> addresses in this network. " : "") + "Click to block this network]<\/a>";
 							}
 							return str;
 						}
@@ -2028,10 +2031,10 @@
 					jQuery('.wfAjax24').hide();
 					if (res.ok) {
 						if (res['paidKeyMsg']) {
-							self.colorbox('400px', "Congratulations! You have been upgraded to Premium Scanning.", "You have upgraded to a Premium API key. Once this page reloads, you can choose which premium scanning options you would like to enable and then click save. Click the button below to reload this page now.<br /><br /><center><input type='button' name='wfReload' value='Reload page and enable Premium options' onclick='window.location.reload(true);' /></center>");
+							self.colorbox('400px', "Congratulations! You have been upgraded to Premium Scanning.", "You have upgraded to a Premium API key. Once this page reloads, you can choose which premium scanning options you would like to enable and then click save. Click the button below to reload this page now.<br /><br /><center><input class='wf-btn wf-btn-default' type='button' name='wfReload' value='Reload page and enable Premium options' onclick='window.location.reload(true);' /></center>");
 							return;
 						} else if (res['reload'] == 'reload' || WFAD.reloadConfigPage) {
-							self.colorbox('400px', "Please reload this page", "You selected a config option that requires a page reload. Click the button below to reload this page to update the menu.<br /><br /><center><input type='button' name='wfReload' value='Reload page' onclick='window.location.reload(true);' /></center>");
+							self.colorbox('400px', "Please reload this page", "You selected a config option that requires a page reload. Click the button below to reload this page to update the menu.<br /><br /><center><input class='wf-btn wf-btn-default' type='button' name='wfReload' value='Reload page' onclick='window.location.reload(true);' /></center>");
 							return;
 						} else {
 							self.pulse('.wfSavedMsg');
@@ -2101,8 +2104,8 @@
 					return;
 				}
 				this.colorbox('450px', "Please confirm", body +
-					'<br /><br /><center><input type="button" name="but1" value="Cancel" onclick="jQuery.colorbox.close();" />&nbsp;&nbsp;&nbsp;' +
-					'<input type="button" name="but2" value="Yes I\'m sure" onclick="jQuery.colorbox.close(); WFAD.confirmClearAllBlocked(\'' + op + '\');"><br />');
+					'<br /><br /><center><input class="wf-btn wf-btn-default" type="button" name="but1" value="Cancel" onclick="jQuery.colorbox.close();" />&nbsp;&nbsp;&nbsp;' +
+					'<input class="wf-btn wf-btn-default" type="button" name="but2" value="Yes I\'m sure" onclick="jQuery.colorbox.close(); WFAD.confirmClearAllBlocked(\'' + op + '\');"><br />');
 			},
 			confirmClearAllBlocked: function(op) {
 				var self = this;
@@ -2168,7 +2171,7 @@
 				this.countryCodesToSave = codesArr.join(',');
 				if (ownCountryBlocked) {
 					this.colorbox('400px', "Please confirm blocking yourself", "You are about to block your own country. This could lead to you being locked out. Please make sure that your user profile on this machine has a current and valid email address and make sure you know what it is. That way if you are locked out, you can send yourself an unlock email. If you're sure you want to block your own country, click 'Confirm' below, otherwise click 'Cancel'.<br />" +
-						'<input type="button" name="but1" value="Confirm" onclick="jQuery.colorbox.close(); WFAD.confirmSaveCountryBlocking();" />&nbsp;<input type="button" name="but1" value="Cancel" onclick="jQuery.colorbox.close();" />');
+						'<input class="wf-btn wf-btn-default" type="button" name="but1" value="Confirm" onclick="jQuery.colorbox.close(); WFAD.confirmSaveCountryBlocking();" />&nbsp;<input class="wf-btn wf-btn-default" type="button" name="but1" value="Cancel" onclick="jQuery.colorbox.close();" />');
 				} else {
 					this.confirmSaveCountryBlocking();
 				}
@@ -2327,7 +2330,7 @@
 								
 								message = message + "</ul>";
 								
-								message = message + "<p class=\"wf-center\"><a href=\"#\" class=\"button\" id=\"wfTwoFactorDownload\" target=\"_blank\"><i class=\"dashicons dashicons-download\"></i> Download</a></p>";
+								message = message + "<p class=\"wf-center\"><a href=\"#\" class=\"wf-btn wf-btn-default\" id=\"wfTwoFactorDownload\" target=\"_blank\"><i class=\"dashicons dashicons-download\"></i> Download</a></p>";
 							}
 
 							message = message + "<p><em>This will be shown only once. Keep these codes somewhere safe.</em></p>";
@@ -2357,7 +2360,7 @@
 									recoveryCodeFileContents = recoveryCodeFileContents + chunks[0] + " " + chunks[1] + " " + chunks[2] + " " + chunks[3] + "\r\n";
 								}
 
-								message = message + "<p class=\"wf-center\"><a href=\"#\" class=\"button\" id=\"wfTwoFactorDownload\" target=\"_blank\"><i class=\"dashicons dashicons-download\"></i> Download</a></p>";
+								message = message + "<p class=\"wf-center\"><a href=\"#\" class=\"wf-btn wf-btn-default\" id=\"wfTwoFactorDownload\" target=\"_blank\"><i class=\"dashicons dashicons-download\"></i> Download</a></p>";
 
 								message = message + "</ul><p><em>This will be shown only once. Keep these codes somewhere safe.</em></p>";
 
@@ -2539,7 +2542,7 @@
 				var self = this;
 				this.ajax('wordfence_importSettings', {token: token}, function(res) {
 					if (res.ok) {
-						self.colorbox('400px', "Import Successful", "You successfully imported " + res.totalSet + " options. Your import is complete. Please reload this page or click the button below to reload it:<br /><br /><input type=\"button\" value=\"Reload Page\" onclick=\"window.location.reload(true);\" />");
+						self.colorbox('400px', "Import Successful", "You successfully imported " + res.totalSet + " options. Your import is complete. Please reload this page or click the button below to reload it:<br /><br /><input class=\"wf-btn wf-btn-default\" type=\"button\" value=\"Reload Page\" onclick=\"window.location.reload(true);\" />");
 					} else if (res.err) {
 						self.colorbox('400px', "Error during Import", res.err);
 					} else {
@@ -2810,7 +2813,7 @@
 					+ '<br/>'
 					+ '<a href="' + WordfenceAdminVars.ajaxURL + '?action=wordfence_downloadHtaccess&nonce=' + self.nonce + '" onclick="jQuery(\'#wf-htaccess-confirm\').prop(\'disabled\', false); return true;">Click here to download a backup copy of your .htaccess file now</a>' +
 					'<br /><br />' +
-					'<button class="button" type="button" id="wf-htaccess-confirm" disabled="disabled" onclick="WFAD.confirmWAFConfigureAutoPrepend();">Add code to .htaccess</button>');
+					'<button class="wf-btn wf-btn-default" type="button" id="wf-htaccess-confirm" disabled="disabled" onclick="WFAD.confirmWAFConfigureAutoPrepend();">Add code to .htaccess</button>');
 			},
 
 			confirmWAFConfigureAutoPrepend: function() {

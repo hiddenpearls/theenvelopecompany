@@ -133,10 +133,7 @@ $wafRemoveURL = network_admin_url('admin.php?page=WordfenceWAF&wafAction=removeA
 						</div>
 					</div>
 					<div class="wf-form-group">
-						<div class="wf-col-sm-5 wf-col-md-3 wf-center">
-							<button type="submit" class="wf-btn wf-btn-primary"<?php echo !WFWAF_ENABLED ? ' disabled' : '' ?>>Save</button>
-						</div>
-						<div class="wf-col-sm-7">
+						<div class="wf-col-sm-7 wf-col-sm-offset-5 wf-col-md-offset-3">
 							<div class="wafStatus-description" id="wafStatus-enabled-description">
 								In this mode, the Wordfence Web Application Firewall is actively blocking requests
 								matching known attack patterns, and is actively protecting your site from attackers.
@@ -155,6 +152,11 @@ $wafRemoveURL = network_admin_url('admin.php?page=WordfenceWAF&wafAction=removeA
 								In this mode, the Wordfence Web Application Firewall is functionally turned off and
 								does not run any of its rules or analyze the request in any way.
 							</div>
+						</div>
+					</div>
+					<div class="wf-form-group">
+						<div class="wf-col-sm-7 wf-col-sm-offset-5 wf-col-md-offset-3">
+							<button type="submit" class="wf-btn wf-btn-primary wf-btn-callout"<?php echo !WFWAF_ENABLED ? ' disabled' : '' ?>>Save</button>
 						</div>
 					</div>
 
@@ -183,30 +185,30 @@ $wafRemoveURL = network_admin_url('admin.php?page=WordfenceWAF&wafAction=removeA
 						while the firewall is in Learning Mode or by an admin who identifies a particular action/request
 						is a false positive.</em></p>
 
-				<p id="whitelist-form">
-					<strong>Add Whitelisted URL/Param:</strong><br>
-					<label>
-						URL:
-						<input type="text" name="whitelistURL">
-					</label>
-					&nbsp;
-					<label>
-						Param:
-						<select name="whitelistParam">
-							<option value="request.body">POST Body</option>
-							<option value="request.cookies">Cookie</option>
-							<option value="request.fileNames">File Name</option>
-							<option value="request.headers">Header</option>
-							<option value="request.queryString">Query String</option>
-						</select>
-					</label>
-					&nbsp;
-					<label>
-						Param Name:
-						<input type="text" name="whitelistParamName">
-					</label>
-					<button type="button" class="button button-small" id="waf-whitelisted-urls-add">Add</button>
-				</p>
+				<div id="whitelist-form">
+					<p><strong>Add Whitelisted URL/Param:</strong></p>
+					<div class="wf-form-inline">
+						<div class="wf-form-group">
+							<label for="whitelistURL">URL:</label>
+							<input class="wf-form-control" type="text" name="whitelistURL" id="whitelistURL">
+						</div>
+						<div class="wf-form-group">
+							<label for="whitelistParam">Param:</label>
+							<select class="wf-form-control" name="whitelistParam" id="whitelistParam">
+								<option value="request.body">POST Body</option>
+								<option value="request.cookies">Cookie</option>
+								<option value="request.fileNames">File Name</option>
+								<option value="request.headers">Header</option>
+								<option value="request.queryString">Query String</option>
+							</select>
+						</div>
+						<div class="wf-form-group">
+							<label for="whitelistParamName">Param Name:</label>
+							<input class="wf-form-control" type="text" name="whitelistParamName" id="whitelistParamName">
+						</div>
+						<button type="button" class="wf-btn wf-btn-default" id="waf-whitelisted-urls-add">Add</button>
+					</div>
+				</div>
 
 				<div id="waf-whitelisted-urls-wrapper"></div>
 				
@@ -249,7 +251,7 @@ $wafRemoveURL = network_admin_url('admin.php?page=WordfenceWAF&wafAction=removeA
 					</div>
 					<div class="wf-form-group">
 						<div class="wf-col-xs-12">
-							<a href="<?php echo $wafRemoveURL; ?>" class="button button-small" id="waf-remove-extended">Remove Extended Protection</a>
+							<a href="<?php echo $wafRemoveURL; ?>" class="wf-btn wf-btn-default wf-btn-sm" id="waf-remove-extended">Remove Extended Protection</a> 
 						</div>
 					</div>
 				</div>
@@ -291,14 +293,14 @@ $wafRemoveURL = network_admin_url('admin.php?page=WordfenceWAF&wafAction=removeA
 </script>
 <script type="text/x-jquery-template" id="waf-whitelisted-urls-tmpl">
 	<?php ob_start() ?>
-	<form action="javascript:void(0)" class="wf-bulk-action wf-whitelist-actions">
-		<select name="wf-bulk-action">
+	<form action="javascript:void(0)" class="wf-bulk-action wf-whitelist-actions wf-form-inline">
+		<select class="wf-form-control" name="wf-bulk-action">
 			<option value="">Bulk Actions</option>
 			<option value="delete">Delete</option>
 			<option value="enable">Enable</option>
 			<option value="disable">Disable</option>
 		</select>
-		<button type="submit" class="button">Apply</button>
+		<button type="submit" class="wf-btn wf-btn-default">Apply</button>
 	</form>
 	<?php
 	$bulkActionForm = ob_get_clean();
@@ -398,12 +400,12 @@ $wafRemoveURL = network_admin_url('admin.php?page=WordfenceWAF&wafAction=removeA
 			</td>
 			<td>
 				<span class="whitelist-display" style="white-space: nowrap">
-					<button type="button" class="button button-small whitelist-url-edit">Edit</button>
-					<button type="button" class="button button-small whitelist-url-delete">Delete</button>
+					<button type="button" class="wf-btn wf-btn-default wf-btn-sm whitelist-url-edit">Edit</button>
+					<button type="button" class="wf-btn wf-btn-default wf-btn-sm whitelist-url-delete">Delete</button>
 				</span>
 				<span class="whitelist-edit" style="white-space: nowrap">
-					<button type="button" class="button button-small whitelist-url-save">Save</button>
-					<button type="button" class="button button-small whitelist-url-cancel">Cancel</button>
+					<button type="button" class="wf-btn wf-btn-default wf-btn-sm whitelist-url-save">Save</button>
+					<button type="button" class="wf-btn wf-btn-default wf-btn-sm whitelist-url-cancel">Cancel</button>
 				</span>
 			</td>
 		</tr>

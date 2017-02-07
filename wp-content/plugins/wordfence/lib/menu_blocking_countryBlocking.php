@@ -73,7 +73,7 @@ WFAD.countryMap = <?php echo json_encode($wfBulkCountries); ?>;
 		</table>
 	</div>
 	<table border="0" cellpadding="0" cellspacing="0"><tr>
-		<td><input type="button" name="but4" class="button-primary" value="Save blocking options and country list" onclick="WFAD.saveCountryBlocking();" /></td>
+		<td><input type="button" name="but4" class="wf-btn wf-btn-primary" value="Save blocking options and country list" onclick="WFAD.saveCountryBlocking();" /></td>
 		<td style="height: 24px;"><div class="wfAjax24"></div><span class="wfSavedMsg">&nbsp;Your changes have been saved!</span></td></tr>
 	</table>
 	<span style="font-size: 10px;">Note that we use an IP to country database that is 99.5% accurate to identify which country a visitor is from.</span>

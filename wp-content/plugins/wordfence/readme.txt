@@ -2,8 +2,8 @@
 Contributors: mmaunder 
 Tags: security, secure, security plugin, wordpress security, login security, firewall, malware, antivirus, web application firewall, block hackers, country blocking
 Requires at least: 3.9
-Tested up to: 4.7.1
-Stable tag: 6.3.0
+Tested up to: 4.7.2
+Stable tag: 6.3.1
 
 Secure your website with the most comprehensive WordPress security plugin. Firewall, malware scan, blocking, live traffic, login security & more.
 
@@ -99,74 +99,79 @@ To install the Wordfence WordPress security plugin on WordPress Multi-Site insta
 
 Secure your website with Wordfence. 
 
-[Visit our support website which contains a FAQ and knowledgebase which is more comprehensive and updated frequently.](http://support.wordfence.com/)
+[Visit our documentation website which includes feature descriptions, common solutions and comprehensive help.](http://support.wordfence.com/)
 
-= What does Wordfence Security do that other WordPress security plugins don't do? =
+= How does Wordfence Security protect sites from attackers? =
  
-* Wordfence Security actually verifies your website source code integrity against the official WordPress repository and shows you the changes. We are the only plugin to do this.
-* Wordfence Security fully supports IPv6 including giving you the ability to look up the location of IPv6 addresses, block IPv6 ranges, detect IPv6 country and do a whois lookup on IPv6 addresses and more.
-* Wordfence Security includes protection against DDoS attacks by giving you a performance boost up to 50X. 
-* Wordfence Security scans check all your files, comments and posts for URL's in Google's Safe Browsing list. We are the only plugin to offer this very important security enhancement.
-* Wordfence Security scans do not consume large amounts of your precious bandwidth because all security scans happen on your web server which makes them very fast.
-* Wordfence Security fully supports WordPress Multi-Site which means you can security scan every blog in your Multi-Site installation with one click.
-* Wordfence Security includes Two-Factor authentication, the most secure way to stop brute force attackers in their tracks. 
-* Wordfence security provides a WordPress Firewall developed specifically for WordPress and is kept up to date by our Threat Defense Feed. Premium customers receive updates in real-time.
+The WordPress security plugin provides the best protection available for your website. Powered by the constantly updated Threat Defense Feed, WordFence Firewall stops you from getting hacked. Wordfence Scan leverages the same proprietary feed, alerting you quickly in the event your site is compromised. The Live Traffic view gives you real-time visibility into traffic and hack attempts on your website. A deep set of additional tools round out the most comprehensive WordPress security solution available.
 
-= Does Wordfence Security support Multi-Site installations? =
-
-Yes. WordPress MU or Multi-Site as it's called now is fully supported. Using Wordfence Security you can security scan every blog in your network with one click. If one of your customers posts a page or post with a known malware URL that threatens your whole domain with being blacklisted by Google, we will tell you within a maximum of one hour which is how often scans occur. 
-
-= Will Wordfence Security slow my site down? =
-
-No. Wordfence is extremely fast and uses techniques like caching its own configuration data to avoid database lookups and blocking malicious attacks that would slow down your site. Older versions of Wordfence did incur a slight performance penalty, but we have not only fixed this issue but knocked it out of the park.
-
-= How often is Wordfence Security updated? =
-
-The Wordfence Security plugin is frequently updated and we update the code on our security scanning servers more frequently. Our cloud servers are continually updated with the latest known security threats and vulnerabilities so that we can blog any security threat as soon as it emerges in the wild.
-
-= What if I need support? =
-
-All our paid customers receive priority support. Excellent customer service is a key part of being a Wordfence Security member. As free or Premium member can visit [support.wordfence.com](http://support.wordfence.com/) and where you will find out knowledgebase. If you're a Premium member you can also open a support ticket.
-
-= Can I disable certain security features of Wordfence Security? =
-
-Yes! Simply visit the Options page, click on advanced options and enable or disable the security features you want.
-
-= What if my site security has already been compromised by a hacker? =
-
-Wordfence Security is the only WordPress security plugin that is able to repair core files, themes and plugins on sites where security is already compromised. However, please note that site security can not be assured unless you do a full reinstall if your site has been hacked. We recommend you only use Wordfence Security to get your site into a running state in order to recover the data you need to do a full reinstall. A full reinstall is the only way to ensure site security once you have been hacked. 
-
-= How will I be alerted that my site has a security problem? =
+= How will I be alerted if my site has a security problem? =
 
 Wordfence Security sends security alerts via email. Once you install Wordfence Security, you will configure a list of email addresses where security alerts will be sent. When you receive a security alert, make sure you deal with it promptly to ensure your site stays secure.
 
-= My WordPress site is behind a firewall. Doesn't that make it secure? =
+= Do I need a security plugin like Wordfence if I’m using a cloud based firewall (WAF)? =
 
-If your site is accessible from the web, it means that people you don't know can execute PHP code on your site. They have to be able to execute PHP code, like the core WordPress code, in order for your site to work. Most WordPress security threats allow a hacker to execute PHP code on your website. The challenge hackers face is how to get their malicious PHP code onto your site to compromise your security. There are many upload mechanisms that WordPress itself, themes and plugins offer and the vast majority of these are secure. However, every now and then a hacker discovers an upload mechanism that is not secure or a way of fooling your site into allowing an upload. That is usually when security is compromised. Even though your site is behind a commercial firewall, it still accepts web requests that include uploads and executes PHP code and as long as it does that, it may face a security vulnerability at some point.
+Wordfence provides true endpoint security for your WordPress website. Unlike cloud based firewalls, Wordfence executes within the WordPress environment, giving it knowledge like whether the user is signed in, their identity and what access level they have. Wordfence uses the user’s access level in more than 80% of the firewall rules it uses to protect WordPress websites. Learn more about the [Cloud WAF identity problem here](https://www.wordfence.com/blog/2016/10/endpoint-vs-cloud-security-cloud-waf-user-identity-problem/). Additionally, cloud based firewalls can be bypassed, leaving your site exposed to attackers. Because Wordfence is an integral part of the endpoint (your WordPress website), it can’t be bypassed. Learn more about the [Cloud WAF bypass problem here](https://www.wordfence.com/blog/2016/10/endpoint-vs-cloud-security-cloud-waf-bypass-problem/). To fully protect the investment you’ve made in your website you need to employ a defense in depth approach to security. Wordfence takes this approach.
 
-= Will Wordfence Security protect me against the Timthumb security problem? =
+= What differentiates Wordfence from other WordPress Security plugins? =
 
-The timthumb security exploit occurred in 2011 and all good plugins and themes now use an updated version of timthumb (which the creator of Wordfence Security wrote and donated to the timthumb author) which closes the security hole that caused the problem. However we do scan for old version of timthumb for good measure to make sure they don't cause a security hole on your site. 
+* Wordfence security provides a WordPress Firewall developed specifically for WordPress and blocks attackers looking for vulnerabilities on your site.  The Firewall is powered by our Threat Defense Feed which is continually updated as new threats emerge.  Premium customers receive updates in real-time.
+* Wordfence Security verifies your website source code integrity against the official	WordPress repository and shows you the changes. 
+* Wordfence Security scans check all your files, comments and posts for URLs in Google's Safe Browsing list. We are the only plugin to offer this very important security enhancement.
+* Wordfence Security scans do not consume large amounts of your bandwidth because all security scans happen on your web server which makes them very fast.
+* Wordfence Security fully supports WordPress Multi-Site which means you can security scan every blog in your Multi-Site installation with one click.
+* Wordfence Security includes Two-Factor authentication, the most secure way to stop brute force attackers in their tracks.
+* Wordfence Security fully supports IPv6 including giving you the ability to look up the location of IPv6 addresses, block IPv6 ranges, detect IPv6 country and do a whois lookup on IPv6 addresses and more.
+
+= Will Wordfence slow down my website? =
+
+No. Wordfence Security is extremely fast and uses techniques like caching its own configuration data to avoid database lookups and blocking malicious attacks that would slow down your site.
+
+= What if my site has already been hacked? =
+
+Wordfence Security is able to repair core files, themes and plugins on sites where security is already compromised. You can follow this guide on [how to clean a hacked website](https://www.wordfence.com/docs/how-to-clean-a-hacked-wordpress-site-using-wordfence/) using Wordfence. However, please note that site security can not be assured unless you do a full reinstall if your site has been hacked. We recommend you only use Wordfence Security to get your site into a running state in order to recover the data you need to do a full reinstall. If you need help repairing a hacked site, we offer an affordable, high-quality [site cleaning service](https://www.wordfence.com/wordfence-site-cleanings/) that includes a Premium key for a year.
 
 = Does Wordfence Security support IPv6? =
 
-Most definitely! As of Wordfence version 6.0.1 we fully support IPv6 with all security functions including country blocking, range blocking, city lookup, whois lookup and all other security functions. If you are not running IPv6 Wordfence will work great on your site too. We are fully compatible with both IPv4 and IPv6 whether you run both or only one addressing scheme. 
+Yes. We fully support IPv6 with all security functions including country blocking, range blocking, city lookup, whois lookup and all other security functions. If you are not running IPv6, Wordfence will work great on your site too. We are fully compatible with both IPv4 and IPv6 whether you run both or only one addressing scheme.
+
+= Does Wordfence Security support Multi-Site installations? =
+
+Yes. WordPress Multi-Site is fully supported. Using Wordfence Security you can scan every blog in your network for malware with one click. If one of your customers posts a page or post with a known malware URL that threatens your whole domain with being blacklisted by Google, we will alert you in the next scan.
+
+= What support options are available for Wordfence users? =
+
+Providing excellent customer service is very important to us.  We offer help to all our customers whether you are using the Premium or free version of Wordfence Security.  For help with the free version, you can post in our [forum](https://wordpress.org/support/plugin/wordfence) where we have dedicated staff responding to questions. If you need faster or more in-depth help, Premium customers can submit a [support ticket](https://support.wordfence.com/support/home) to our Premium support team.
 
 = Where can I learn more about WordPress security? =
 
-Designed for every skill level, [The WordPress Security Learning Center](https://www.wordfence.com/learn/) is dedicated to deepening user's understanding of security best practices by having access to in-depth articles, videos, industry survey results, graphics and more. 
+Designed for every skill level, [The WordPress Security Learning Center](https://www.wordfence.com/learn/) is dedicated to deepening users’ understanding of security best practices by providing free access to entry-level articles, in-depth articles, videos, industry survey results, graphics and more.
 
 == Screenshots ==
 
 Secure your website with Wordfence. 
 
-1. The home screen of Wordfence Security where you can see a summary, manage security issues and do a manual security scan. 
-2. The Live Traffic view of Wordfence Security where you can see real-time activity on your site.
-3. The "Blocked IPs" page where you can manage blocked IP's, locked out IP's and see recently throttled IPs that violated security rules.
-4. The basic view of Wordfence Security options. There is very little to configure other than your alert email address and security level.
-5. If you're technically minded, this is the under-the-hood view of Wordfence Security options where you can fine-tune your security settings.
+1. The dashboard of Wordfene Security where you can get a quick overview of any important notifications and attacks your site has been protected from.
+2. The Web Application Firewall of Wordfence Security where you can configure your protection level and view which vulnerabilities you're protected from.
+3. The scan page of Wordfence Security where you can see a summary, manage security issues and do a manual security scan.  
+4. The Live Traffic view of Wordfence Security where you can see real-time activity on your site.
+5. The "Blocked IPs" page where you can manage blocked IPs, locked out IPs and see recently throttled IPs that violated security rules.
+6. The basic view of Wordfence Security options. There is very little to configure other than your alert email address and security level.
+7. If you're technically minded, this is the under-the-hood view of Wordfence Security options where you can fine-tune your security settings.
 
 == Changelog ==
+
+= 6.3.1 =
+* Improvement: Locked out IPs are now enforced at the WAF level to reduce server load.
+* Improvement: Added a "Show more" link to the IP block list and login attempts list.
+* Improvement: Added network data for the top countries blocked list.
+* Improvement: Added a notification when a premium key is installed on one site but registered for another URL.
+* Improvement: Switching tabs in the various pages now updates the page title as well.
+* Improvement: Various styling consistency improvements.
+* Change: Separated the various blocking-related pages out from the Firewall top-level menu into "Blocking".
+* Fix: Improved compatibility with our GeoIP interface.
+* Fix: The updates available notification is refreshed after updates are installed.
+* Fix: The scan notification is refreshed when issues are resolved or ignored.
 
 = 6.3.0 =
 * Enhancement: Added Wordfence Dashboard for quick overview of security activity.
@@ -1553,4 +1558,3 @@ Wordfence Security to zero (we simply reuse the WordPress DB handle), reduces th
 about 1% of the previous version by removing unneeded status messages and fixes a bug that 
 could cause Wordfence Security to launch multiple concurrent scans that can put high load on your system.
 This is a critical release. Upgrade immediately.
-

@@ -42,7 +42,7 @@
 					<tr><td><input type="radio" name="wf2faMode" value="phone"></td><td>Send code to a phone number: <input type="text" id="wfPhone" value="" size="20" disabled><br><em>Format: +1-123-555-5034</em></td></tr>
 				</table>
 		</td></tr>
-		<tr><td colspan="2"><input type="button" class="wf-btn wf-btn-primary wf-btn-callout" value="Enable Cellphone Sign-in" onclick="WFAD.addTwoFactor(jQuery('#wfUsername').val(), jQuery('#wfPhone').val(), jQuery('input[name=wf2faMode]:checked').val());" /></td></tr>
+		<tr><td colspan="2"><input type="button" class="wf-btn wf-btn-primary" value="Enable Cellphone Sign-in" onclick="WFAD.addTwoFactor(jQuery('#wfUsername').val(), jQuery('#wfPhone').val(), jQuery('input[name=wf2faMode]:checked').val());" /></td></tr>
 	</table>
 	<div style="height: 20px;">
 		<div id="wfTwoFacMsg" style="color: #F00;">
@@ -98,7 +98,7 @@
 		<tbody>
 		{{each(idx, user) users}}
 			<tr id="twoFactorUser-${user.userID}">
-				<td style="white-space: nowrap; text-align: center;"><a href="#" class="button" onclick="WFAD.delTwoFac('${user.userID}'); return false;">Delete</a></td>
+				<td style="white-space: nowrap; text-align: center;"><a href="#" class="wf-btn wf-btn-default" onclick="WFAD.delTwoFac('${user.userID}'); return false;">Delete</a></td>
 				<td style="white-space: nowrap;">${user.username}</td>
 				{{if user.mode == 'phone'}}
 				<td style="white-space: nowrap;">Phone (${user.phone})</td>
@@ -109,7 +109,12 @@
 					{{if user.status == 'activated'}}
 						<span style="color: #0A0;">Cellphone Sign-in Enabled</span>
 					{{else}}
-						Enter activation code: <input type="text" id="wfActivate-${user.userID}" size="6" /><input type="button" value="Activate" onclick="WFAD.twoFacActivate('${user.userID}', jQuery('#wfActivate-${user.userID}').val());" />
+					<div class="wf-form-inline">
+						<div class="wf-form-group">
+							<label class="wf-plain" style="margin: 0;" for="wfActivate-${user.userID}">Enter activation code:</label> <input class="wf-form-control" type="text" id="wfActivate-${user.userID}" size="6">
+						</div>
+						<input class="wf-btn wf-btn-default" type="button" value="Activate" onclick="WFAD.twoFacActivate('${user.userID}', jQuery('#wfActivate-${user.userID}').val());">
+					</div>
 					{{/if}}
 				</td>
 			</tr>

@@ -254,15 +254,21 @@ SQL
 	 * @param int $limit
 	 * @return array
 	 */
-	public function getTopCountriesBlocked($limit = 10) {
-		$interval = 'FLOOR(UNIX_TIMESTAMP(DATE_SUB(NOW(), interval 7 day)) / 86400)';
-		switch (wfConfig::get('email_summary_interval', 'weekly')) {
-			case 'daily':
-				$interval = 'FLOOR(UNIX_TIMESTAMP(DATE_SUB(NOW(), interval 1 day)) / 86400)';
-				break;
-			case 'monthly':
-				$interval = 'FLOOR(UNIX_TIMESTAMP(DATE_SUB(NOW(), interval 1 month)) / 86400)';
-				break;
+	public function getTopCountriesBlocked($limit = 10, $maxAgeDays = null) {
+		$maxAgeDays = (int) $maxAgeDays;
+		if ($maxAgeDays <= 0) {
+			$interval = 'FLOOR(UNIX_TIMESTAMP(DATE_SUB(NOW(), interval 7 day)) / 86400)';
+			switch (wfConfig::get('email_summary_interval', 'weekly')) {
+				case 'daily':
+					$interval = 'FLOOR(UNIX_TIMESTAMP(DATE_SUB(NOW(), interval 1 day)) / 86400)';
+					break;
+				case 'monthly':
+					$interval = 'FLOOR(UNIX_TIMESTAMP(DATE_SUB(NOW(), interval 1 month)) / 86400)';
+					break;
+			}
+		}
+		else {
+			$interval = 'FLOOR(UNIX_TIMESTAMP(DATE_SUB(NOW(), interval ' . $maxAgeDays . ' day)) / 86400)';
 		}
 		
 		$results = $this->db->get_results($this->db->prepare(<<<SQL
@@ -357,9 +363,9 @@ SQL
 	 *
 	 * @return array|bool
 	 */
-	public function getUpdatesNeeded() {
+	public function getUpdatesNeeded($useCachedValued = true) {
 		$update_check = new wfUpdateCheck();
-		$needs_update = $update_check->checkAllUpdates()
+		$needs_update = $update_check->checkAllUpdates($useCachedValued)
 			->needsAnyUpdates();
 		if ($needs_update) {
 			return array(

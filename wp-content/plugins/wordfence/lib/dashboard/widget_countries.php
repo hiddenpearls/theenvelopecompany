@@ -5,7 +5,7 @@
 			<div class="wf-dashboard-item-inner">
 				<div class="wf-dashboard-item-content">
 					<div class="wf-dashboard-item-title">
-						<strong>Top Countries by Number of Attacks</strong>
+						<strong>Top Countries by Number of Attacks - Last 7 Days</strong>
 					</div>
 					<div class="wf-dashboard-item-action"><div class="wf-dashboard-item-action-disclosure"></div></div>
 				</div>
@@ -33,7 +33,7 @@
 								<?php if (count($d->countriesNetwork) == 0): ?>
 									<div class="wf-dashboard-item-list-text"><p><em>No blocks have been recorded.</em></p></div>
 								<?php else: ?>
-									<?php //$data = array_slice($d->loginsFail, 0, min(10, count($d->loginsFail)), true); include(dirname(__FILE__) . '/widget_content_logins.php'); ?>
+									<?php $data = array_slice($d->countriesNetwork, 0, min(10, count($d->countriesNetwork)), true); include(dirname(__FILE__) . '/widget_content_countries.php'); ?>
 								<?php endif; ?>
 							</div>
 							<script type="application/javascript">

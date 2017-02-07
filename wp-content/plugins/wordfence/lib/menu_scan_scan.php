@@ -40,9 +40,7 @@
 			<p>As new threats emerge, the Threat Defense Feed is updated to detect these new hacks. The Premium
 				version of the Threat Defense Feed is updated in real-time protecting you immediately. As a free
 				user <strong>you are receiving the community version</strong> of the feed which is updated 30 days later.</p>
-			<p class="center"><a class="wf-btn wf-btn-primary wf-btn-callout"
-								 href="https://www.wordfence.com/gnl1scanUpgrade/wordfence-signup/" target="_blank">
-					Get Premium</a></p>
+			<p class="center"><a class="wf-btn wf-btn-primary wf-btn-callout" href="https://www.wordfence.com/gnl1scanUpgrade/wordfence-signup/" target="_blank">Get Premium</a></p>
 		</div>
 	
 	<?php } ?>

@@ -118,16 +118,16 @@ class wfDashboard {
 		// Top IPs Blocked
 		$activityReport = new wfActivityReport();
 		$this->ips24h = (array) $activityReport->getTopIPsBlocked(100, 1);
-		foreach ($this->ips24h as &$r) {
-			$r = (array) $r;
+		foreach ($this->ips24h as &$r24h) {
+			$r24h = (array) $r24h;
 		}
 		$this->ips7d = (array) $activityReport->getTopIPsBlocked(100, 7);
-		foreach ($this->ips7d as &$r) {
-			$r = (array) $r;
+		foreach ($this->ips7d as &$r7d) {
+			$r7d = (array) $r7d;
 		}
 		$this->ips30d = (array) $activityReport->getTopIPsBlocked(100, 30);
-		foreach ($this->ips30d as &$r) {
-			$r = (array) $r;
+		foreach ($this->ips30d as &$r30d) {
+			$r30d = (array) $r30d;
 		}
 		
 		// Recent Logins
@@ -156,10 +156,20 @@ class wfDashboard {
 		}
 		
 		// Blocked Countries
-		$this->countriesLocal = (array) $activityReport->getTopCountriesBlocked(10);
-		foreach ($this->countriesLocal as &$r) {
-			$r = (array) $r;
+		$this->countriesLocal = (array) $activityReport->getTopCountriesBlocked(10, 7);
+		foreach ($this->countriesLocal as &$rLocal) {
+			$rLocal = (array) $rLocal;
 		}
-		//TODO: countries network
+		
+		if (is_array($data) && isset($data['countries']) && isset($data['countries']['7d'])) {
+			$networkCountries = array();
+			foreach ($data['countries']['7d'] as $rNetwork) {
+				$countryCode = $rNetwork['cd'];
+				$countryName = $activityReport->getCountryNameByCode($countryCode);
+				$totalBlockCount = $rNetwork['ct'];
+				$networkCountries[] = array('countryCode' => $countryCode, 'countryName' => $countryName, 'totalBlockCount' => $totalBlockCount);
+			}
+			$this->countriesNetwork = $networkCountries;
+		}
 	}
 }

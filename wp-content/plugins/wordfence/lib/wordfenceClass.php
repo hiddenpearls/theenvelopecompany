@@ -288,8 +288,28 @@ class wordfence {
 
 		$report = new wfActivityReport();
 		$report->rotateIPLog();
+		self::_refreshUpdateNotification($report, true);
+	}
+	public static function _scheduleRefreshUpdateNotification($upgrader, $options) {
+		$defer = false;
+		if (is_array($options) && isset($options['type']) && $options['type'] == 'core') {
+			$defer = true;
+			set_site_transient('wordfence_updating_notifications', true, 600);
+		}
 		
-		$updatesNeeded = $report->getUpdatesNeeded();
+		if ($defer) {
+			wp_schedule_single_event(time(), 'wordfence_refreshUpdateNotification');
+		}
+		else {
+			self::_refreshUpdateNotification();
+		}
+	}
+	public static function _refreshUpdateNotification($report = null, $useCachedValued = false) {
+		if ($report === null) {
+			$report = new wfActivityReport();
+		}
+		
+		$updatesNeeded = $report->getUpdatesNeeded($useCachedValued);
 		if ($updatesNeeded) {
 			$items = array();
 			$plural = false;
@@ -330,6 +350,18 @@ class wordfence {
 			
 			new wfNotification(null, wfNotification::PRIORITY_DEFAULT, '<a href="' . network_admin_url('update-core.php') . '">' . $message . '</a>', 'wfplugin_updates');
 		}
+		else {
+			$n = wfNotification::getNotificationForCategory('wfplugin_updates');
+			if ($n !== null) {
+				$n->markAsRead();
+			}
+		}
+		
+		wp_schedule_single_event(time(), 'wordfence_completeCoreUpdateNotification');
+	}
+	public static function _completeCoreUpdateNotification() {
+		//This approach is here because WP Core updates run in a different sequence than plugin/theme updates, so we have to defer the running of the notification update sequence by an extra page load
+		delete_site_transient('wordfence_updating_notifications');
 	}
 	public static function runInstall(){
 		if(self::$runInstallCalled){ return; }
@@ -784,6 +816,9 @@ SQL
 		}
 		
 		add_action('upgrader_process_complete', 'wordfence::_refreshVulnerabilityCache');
+		add_action('upgrader_process_complete', 'wordfence::_scheduleRefreshUpdateNotification', 99, 2);
+		add_action('wordfence_refreshUpdateNotification', 'wordfence::_refreshUpdateNotification', 99, 0);
+		add_action('wordfence_completeCoreUpdateNotification', 'wordfence::_completeCoreUpdateNotification', 99, 0);
 
 		if(is_admin()){
 			add_action('admin_init', 'wordfence::admin_init');
@@ -1200,12 +1235,14 @@ SQL
 
 		// Sync the WAF data with the database.
 		if (!WFWAF_SUBDIRECTORY_INSTALL && $waf = wfWAF::getInstance()) {
+			$homeurl = wfUtils::wpHomeURL();
+			
 			try {
 				$configDefaults = array(
 					'apiKey'         => wfConfig::get('apiKey'),
 					'isPaid'         => wfConfig::get('isPaid'),
 					'siteURL'        => site_url(),
-					'homeURL'        => home_url(),
+					'homeURL'        => $homeurl,
 					'whitelistedIPs' => (string) wfConfig::get('whitelisted'),
 					'howGetIPs'      => (string) wfConfig::get('howGetIPs'),
 					'other_WFNet'    => wfConfig::get('other_WFNet', true), 
@@ -1846,6 +1883,7 @@ SQL
 		if(is_wp_error($authUser) && ($authUser->get_error_code() == 'invalid_username' || $authUser->get_error_code() == 'invalid_email' || $authUser->get_error_code() == 'incorrect_password') && wfConfig::get('loginSec_maskLoginErrors')){
 			return new WP_Error( 'incorrect_password', sprintf( __( '<strong>ERROR</strong>: The username or password you entered is incorrect. <a href="%2$s" title="Password Lost and Found">Lost your password</a>?' ), $username, wp_lostpassword_url() ) );
 		}
+		
 		return $authUser;
 	}
 	public static function wfsnBatchReportBlockedAttempts() {
@@ -2633,6 +2671,7 @@ SQL
 				$issueID = intval($_POST['issueID']);
 				$wfIssues = new wfIssues();
 				$wfIssues->updateIssue($issueID, 'delete');
+				wfScanEngine::refreshScanNotification($wfIssues);
 			}
 		}
 		else {
@@ -3181,6 +3220,7 @@ HTACCESS;
 			return array('cerrorMsg' => "You don't have permission to repair .htaccess. You need to either fix the file manually using FTP or change the file permissions and ownership so that your web server has write access to repair the file.");
 		}
 		$issues->updateIssue($_POST['issueID'], 'delete');
+		wfScanEngine::refreshScanNotification($issues);
 		return array('ok' => 1);
 	}
 	public static function ajax_clearAllBlocked_callback(){
@@ -3329,6 +3369,7 @@ HTACCESS;
 		$wfIssues = new wfIssues();
 		$issueID = $_POST['id'];
 		$wfIssues->deleteIssue($issueID);
+		wfScanEngine::refreshScanNotification($wfIssues);
 		return array('ok' => 1);
 	}
 	public static function ajax_updateAllIssues_callback(){
@@ -3343,6 +3384,7 @@ HTACCESS;
 		} else {
 			return array('errorMsg' => "An invalid operation was called.");
 		}
+		wfScanEngine::refreshScanNotification($i);
 		return array('ok' => 1);
 	}
 	public static function ajax_updateIssueStatus_callback(){
@@ -3353,6 +3395,7 @@ HTACCESS;
 			return array('errorMsg' => "An invalid status was specified when trying to update that issue.");
 		}
 		$wfIssues->updateIssue($issueID, $status);
+		wfScanEngine::refreshScanNotification($wfIssues);
 		return array('ok' => 1);
 	}
 	public static function ajax_killScan_callback(){
@@ -3522,7 +3565,8 @@ HTACCESS;
 				$headMsg = "Nothing done";
 				$bodyMsg = "We didn't $verb2 anything and no errors were found.";
 			}
-
+			
+			wfScanEngine::refreshScanNotification($issues);
 			return array('ok' => 1, 'bulkHeading' => $headMsg, 'bulkBody' => $bodyMsg);
 		} else {
 			return array('errorMsg' => "Invalid bulk operation selected");
@@ -3552,8 +3596,8 @@ HTACCESS;
 				The <code>wp-config.php</code> file contains your database credentials which you will need to restore normal site operations.
 				Your site will <b>NOT</b> function once the <code>wp-config.php</code> has been deleted.
 				<p>
-					<a class='button' href='/?_wfsf=download&nonce=" . wp_create_nonce('wp-ajax') . "&file=". rawurlencode($file) ."' target='_blank' onclick=\"jQuery('#wp-config-force-delete').show();\">Download a backup copy</a>
-					<a style='display:none' id='wp-config-force-delete' class='button' href='#' target='_blank' onclick='WFAD.deleteFile($issueID, true); return false;'>Delete wp-config.php</a>
+					<a class='wf-btn wf-btn-default' href='/?_wfsf=download&nonce=" . wp_create_nonce('wp-ajax') . "&file=". rawurlencode($file) ."' target='_blank' onclick=\"jQuery('#wp-config-force-delete').show();\">Download a backup copy</a>
+					<a style='display:none' id='wp-config-force-delete' class='wf-btn wf-btn-default' href='#' target='_blank' onclick='WFAD.deleteFile($issueID, true); return false;'>Delete wp-config.php</a>
 				</p>",
 			);
 		}
@@ -3579,6 +3623,7 @@ HTACCESS;
 
 		if($wp_filesystem->delete($localFile)){
 			$wfIssues->updateIssue($issueID, 'delete');
+			wfScanEngine::refreshScanNotification($wfIssues);
 			return array(
 				'ok' => 1,
 				'localFile' => $localFile,
@@ -3604,6 +3649,7 @@ HTACCESS;
 		$prefix = $wpdb->get_blog_prefix($issue['data']['site_id']);
 		if ($wpdb->query($wpdb->prepare("DELETE FROM {$prefix}options WHERE option_name = %s", $issue['data']['option_name']))) {
 			$wfIssues->updateIssue($issueID, 'delete');
+			wfScanEngine::refreshScanNotification($wfIssues);
 			return array(
 				'ok'          => 1,
 				'option_name' => $issue['data']['option_name'],
@@ -3640,6 +3686,7 @@ HTACCESS;
 			);
 		}
 		$issues->updateIssue($_POST['issueID'], 'delete');
+		wfScanEngine::refreshScanNotification($issues);
 		return array('ok' => 1);
 	}
 	public static function ajax_restoreFile_callback($issueID = null){
@@ -3686,6 +3733,7 @@ HTACCESS;
 		$localFile = rtrim(ABSPATH, '/') . '/' . preg_replace('/^[\.\/]+/', '', $file);
 		if ($wp_filesystem->put_contents($localFile, $result['fileContent'])) {
 			$wfIssues->updateIssue($issueID, 'delete');
+			wfScanEngine::refreshScanNotification($wfIssues);
 			return array(
 				'ok'   => 1,
 				'file' => $localFile,
@@ -4032,6 +4080,49 @@ HTACCESS;
 			}
 		}
 		return array('ok' => 1);
+	}
+	public static function ajax_dashboardShowMore_callback() {
+		$grouping = $_POST['grouping'];
+		$period = $_POST['period'];
+		
+		$dashboard = new wfDashboard();
+		if ($grouping == 'ips') {
+			$data = null;
+			if ($period == '24h') { $data = $dashboard->ips24h; }
+			else if ($period == '7d') { $data = $dashboard->ips7d; }
+			else if ($period == '30d') { $data = $dashboard->ips30d; }
+			
+			if ($data !== null) {
+				foreach ($data as &$d) {
+					$d['IP'] = esc_html(wfUtils::inet_ntop($d['IP']));
+					$d['blockCount'] = esc_html(number_format_i18n($d['blockCount']));
+					$d['countryFlag'] = esc_attr(wfUtils::getBaseURL() . 'images/flags/' . esc_attr(strtolower($d['countryCode'])) . '.png');
+					$d['countryName'] = esc_html($d['countryName']);
+				}
+				return array('ok' => 1, 'data' => $data);
+			}
+		}
+		else if ($grouping == 'logins') {
+			$data = null;
+			if ($period == 'success') { $data = $dashboard->loginsSuccess; }
+			else if ($period == 'fail') { $data = $dashboard->loginsFail; }
+			
+			if ($data !== null) {
+				foreach ($data as &$d) {
+					$d['ip'] = esc_html($d['ip']);
+					$d['name'] = esc_html($d['name']);
+					if (time() - $d['t'] < 86400) {
+						$d['t'] = esc_html(wfUtils::makeTimeAgo(time() - $d['t']) . ' ago');
+					}
+					else {
+						$d['t'] = esc_html(date_i18n(get_option('date_format') . ' ' . get_option('time_format'), (int) $d['t']));
+					}
+				}
+				return array('ok' => 1, 'data' => $data);
+			}
+		}
+		
+		return array('error' => 'Unknown dashboard data set.');
 	}
 	public static function startScan(){
 		wfScanEngine::startScan();
@@ -4468,7 +4559,7 @@ HTML;
 			'disableDirectoryListing', 'fixFPD', 'deleteAdminUser', 'revokeAdminUser',
 			'hideFileHtaccess', 'saveDebuggingConfig', 'wafConfigureAutoPrepend',
 			'whitelistBulkDelete', 'whitelistBulkEnable', 'whitelistBulkDisable',
-			'dismissNotification', 'utilityScanForBlacklisted',
+			'dismissNotification', 'utilityScanForBlacklisted', 'dashboardShowMore',
 		) as $func){
 			add_action('wp_ajax_wordfence_' . $func, 'wordfence::ajaxReceiver');
 		}
@@ -4494,6 +4585,23 @@ HTML;
 			wp_enqueue_script('wp-pointer');
 			wp_enqueue_script('wordfenceAdminExtjs', wfUtils::getBaseURL() . 'js/tourTip.js', array('jquery'), WORDFENCE_VERSION);
 			self::setupAdminVars();
+		}
+		
+		if (is_admin()) { //Back end only
+			$homeurl = '';
+			if (function_exists('get_bloginfo') && empty($homeurl)) {
+				if (is_multisite()) {
+					$homeurl = network_home_url();
+					$homeurl = rtrim($homeurl, '/'); //Because previously we used get_bloginfo and it returns http://example.com without a '/' char.
+				}
+				else {
+					$homeurl = home_url();
+				}
+				
+				if (wfConfig::get('wp_home_url') !== $homeurl) {
+					wfConfig::set('wp_home_url', $homeurl);
+				}
+			}
 		}
 
 		if (!WFWAF_AUTO_PREPEND || WFWAF_SUBDIRECTORY_INSTALL) {
@@ -4616,8 +4724,8 @@ HTML;
 		$url = network_admin_url('admin.php?page=WordfenceSecOpt&wafAction=useMineForAdminEmailAlerts');
 		$dismissURL = network_admin_url('admin.php?page=WordfenceSecOpt&wafAction=dismissAdminEmailNotice&nonce=' .
 			rawurlencode(wp_create_nonce('wfDismissAdminEmailWarning')));
-		echo '<div id="wordfenceAdminEmailWarning" class="fade error inline wf-admin-notice"><p><strong>You have not set an administrator email address to receive alerts for Wordfence.</strong> Please <a href="' . self::getMyOptionsURL() . '">click here to go to the Wordfence Options Page</a> and set an email address where you will receive security alerts from this site.</p><p><a class="button button-small" href="#" onclick="wordfenceExt.adminEmailChoice(\'mine\'); return false;"">Use My Email Address</a>
-		<a class="button button-small wf-dismiss-link" href="#" onclick="wordfenceExt.adminEmailChoice(\'no\'); return false;">Dismiss</a></p></div>';
+		echo '<div id="wordfenceAdminEmailWarning" class="fade error inline wf-admin-notice"><p><strong>You have not set an administrator email address to receive alerts for Wordfence.</strong> Please <a href="' . self::getMyOptionsURL() . '">click here to go to the Wordfence Options Page</a> and set an email address where you will receive security alerts from this site.</p><p><a class="wf-btn wf-btn-default wf-btn-sm" href="#" onclick="wordfenceExt.adminEmailChoice(\'mine\'); return false;"">Use My Email Address</a>
+		<a class="wf-btn wf-btn-default wf-btn-sm wf-dismiss-link" href="#" onclick="wordfenceExt.adminEmailChoice(\'no\'); return false;">Dismiss</a></p></div>';
 	}
 	public static function misconfiguredHowGetIPsNotice() {
 		$url = network_admin_url('admin.php?page=WordfenceSecOpt');
@@ -4654,7 +4762,7 @@ HTML;
 			$recommendationMsg = 'This site appears to be behind Cloudflare, so using the Cloudflare "CF-Connecting-IP" HTTP header will resolve to the correct IPs.';
 		}
 		echo '<div id="wordfenceMisconfiguredHowGetIPsNotice" class="fade error"><p><strong>Your \'How does Wordfence get IPs\' setting is misconfigured.</strong> ' . $existingMsg . ' ' . $recommendationMsg . ' <a href="#" onclick="wordfenceExt.misconfiguredHowGetIPsChoice(\'yes\'); return false;">Click here to use the recommended setting</a> or <a href="' . $url . '">visit the options page</a> to manually update it.</p><p>
-		<a class="button button-small wf-dismiss-link" href="#" onclick="wordfenceExt.misconfiguredHowGetIPsChoice(\'no\'); return false;">Dismiss</a> <a class="wfhelp" target="_blank" href="https://docs.wordfence.com/en/Misconfigured_how_get_IPs_notice"></a></p></div>'; 
+		<a class="wf-btn wf-btn-default wf-btn-sm wf-dismiss-link" href="#" onclick="wordfenceExt.misconfiguredHowGetIPsChoice(\'no\'); return false;">Dismiss</a> <a class="wfhelp" target="_blank" href="https://docs.wordfence.com/en/Misconfigured_how_get_IPs_notice"></a></p></div>'; 
 	}
 	public static function autoUpdateNotice(){
 		echo '<div id="wordfenceAutoUpdateChoice" class="fade error"><p><strong>Do you want Wordfence to stay up-to-date automatically?</strong>&nbsp;&nbsp;&nbsp;<a href="#" onclick="wordfenceExt.autoUpdateChoice(\'yes\'); return false;">Yes, enable auto-update.</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" onclick="wordfenceExt.autoUpdateChoice(\'no\'); return false;">No thanks.</a></p></div>';
@@ -4727,7 +4835,8 @@ HTML;
 		}
 		
 		$notificationCount = count(wfNotification::notifications());
-		$hidden = ($notificationCount == 0 ? ' wf-hidden' : '');
+		$updatingNotifications = get_site_transient('wordfence_updating_notifications');
+		$hidden = ($notificationCount == 0 || $updatingNotifications ? ' wf-hidden' : '');
 		$formattedCount = number_format_i18n($notificationCount);
 		$dashboardExtra = " <span class='update-plugins wf-menu-badge wf-notification-count-container{$hidden}' title='{$notificationCount}'><span class='update-count wf-notification-count-value'>{$formattedCount}</span></span>";
 
@@ -4735,6 +4844,7 @@ HTML;
 		add_submenu_page("Wordfence", "Dashboard", "Dashboard", "activate_plugins", "Wordfence", 'wordfence::menu_dashboard');
 		add_submenu_page("Wordfence", "Scan", "Scan", "activate_plugins", "WordfenceScan", 'wordfence::menu_scan'); 
 		add_submenu_page("Wordfence", "Firewall", "Firewall", "activate_plugins", "WordfenceWAF", 'wordfence::menu_firewall');
+		add_submenu_page("Wordfence", "Blocking", "Blocking", "activate_plugins", "WordfenceBlocking", 'wordfence::menu_blocking');
 		add_submenu_page("Wordfence", "Live Traffic", "Live Traffic", "activate_plugins", "WordfenceActivity", 'wordfence::menu_activity');
 
 		add_submenu_page('Wordfence', 'Tools', 'Tools', 'activate_plugins', 'WordfenceTools', 'wordfence::menu_tools');
@@ -4818,6 +4928,10 @@ JQUERY;
 		$emailForm = true;
 		require 'menu_tools.php';
 	}
+	
+	public static function menu_blocking() {
+		require 'menu_blocking.php';
+	}
 
 	public static function menu_firewall() {
 		global $wp_filesystem;
@@ -4854,6 +4968,7 @@ JQUERY;
 			update permissions on the parent directory so the web server can write to it.';
 		}
 
+		$hideBar = false;
 		if (!empty($_GET['wafAction'])) {
 			switch ($_GET['wafAction']) {
 				case 'dismissAutoPrependNotice':
@@ -4863,6 +4978,7 @@ JQUERY;
 					break;
 				
 				case 'updateSuPHPConfig':
+					$hideBar = true;
 					if (!isset($_REQUEST['updateComplete']) || !$_REQUEST['updateComplete']) {
 						$wfnonce = wp_create_nonce('wfWAFUpdateSuPHPConfig');
 						$adminURL = network_admin_url('admin.php?page=WordfenceWAF&wafAction=updateSuPHPConfig');
@@ -4874,7 +4990,7 @@ JQUERY;
 	<p>The Wordfence Web Application Firewall for Apache suPHP servers has been improved, and your configuration needs to be updated to continue receiving the best protection. Please download a backup copy of the following files before we make the necessary changes:</p>';
 								$wafActionContent .= '<ul>';
 								foreach ($backups as $index => $backup) {
-									$wafActionContent .= '<li><a class="button" onclick="wfWAFConfirmBackup(' . $index . ');" href="' .
+									$wafActionContent .= '<li><a class="wf-btn wf-btn-default" onclick="wfWAFConfirmBackup(' . $index . ');" href="' .
 										esc_url(add_query_arg(array(
 											'downloadBackup'      => 1,
 											'updateReady'		  => 1,
@@ -4888,7 +5004,7 @@ JQUERY;
 	<form action='$adminURL' method='post'>
 	<input type='hidden' name='wfnonce' value='$wfnonce'>
 	<input type='hidden' value='1' name='confirmedBackup'>
-	<button id='confirmed-backups' disabled class='button button-primary' type='submit'>Continue</button>
+	<button id='confirmed-backups' disabled class='wf-btn wf-btn-primary' type='submit'>Continue</button>
 	</form>
 	<script>
 	var wfWAFBackups = $jsonBackups;
@@ -4982,6 +5098,7 @@ JQUERY;
 					if (WFWAF_AUTO_PREPEND && !WFWAF_SUBDIRECTORY_INSTALL) {
 						break;
 					}
+					$hideBar = true;
 					$wfnonce = wp_create_nonce('wfWAFAutoPrepend');
 
 					$currentAutoPrependFile = ini_get('auto_prepend_file');
@@ -5005,8 +5122,8 @@ WordPress support forums</a> before proceeding.</p>
 which should maintain compatibility with your site, or you can opt to override the existing PHP setting.</p>
 
 <p>
-<a class='button button-primary' href='%s'>Include this file (Recommended)</a>
-<a class='button' href='%s'>Override this value</a>
+<a class='wf-btn wf-btn-primary' href='%s'>Include this file (Recommended)</a>
+<a class='wf-btn wf-btn-default' href='%s'>Override this value</a>
 </p>
 ",
 							esc_html($currentAutoPrependFile),
@@ -5023,7 +5140,7 @@ which should maintain compatibility with your site, or you can opt to override t
 							$wafActionContent = '<p>Please download a backup copy of the following files before we make the necessary changes:</p>';
 							$wafActionContent .= '<ul>';
 							foreach ($backups as $index => $backup) {
-								$wafActionContent .= '<li><a class="button" onclick="wfWAFConfirmBackup(' . $index . ');" href="' .
+								$wafActionContent .= '<li><a class="wf-btn wf-btn-default" onclick="wfWAFConfirmBackup(' . $index . ');" href="' .
 									esc_url(add_query_arg(array(
 										'downloadBackup'      => 1,
 										'backupIndex'         => $index,
@@ -5039,7 +5156,7 @@ which should maintain compatibility with your site, or you can opt to override t
 <input type='hidden' name='wfnonce' value='$wfnonce'>
 <input type='hidden' value='$serverConfig' name='serverConfiguration'>
 <input type='hidden' value='1' name='confirmedBackup'>
-<button id='confirmed-backups' disabled class='button button-primary' type='submit'>Continue</button>
+<button id='confirmed-backups' disabled class='wf-btn wf-btn-primary' type='submit'>Continue</button>
 </form>
 <script>
 var wfWAFBackups = $jsonBackups;
@@ -5156,12 +5273,14 @@ directives to put in your nginx.conf to fix this.
 
 					$adminURL = esc_url($adminURL);
 					$wafActionContent .= "
-<form action='$adminURL' method='post'>
+<form action='$adminURL' method='post' class='wf-form-inline'>
+<div class='wf-form-group'>
 <input type='hidden' name='wfnonce' value='$wfnonce'>
-<select name='serverConfiguration' id='wf-waf-server-config'>
+<select class='wf-form-control' name='serverConfiguration' id='wf-waf-server-config'>
 $wafPrependOptions
 </select>
-<button class='button button-primary' type='submit'>Continue</button>
+</div>
+<button class='wf-btn wf-btn-primary' type='submit'>Continue</button>
 </form>
 $nginxIniWarning
 </div>
@@ -5201,6 +5320,7 @@ $nginxIniWarning
 					break;
 				
 				case 'removeAutoPrepend':
+					$hideBar = true;
 					$installedHere = !(!WFWAF_AUTO_PREPEND && !WFWAF_SUBDIRECTORY_INSTALL);
 					$wfnonce = wp_create_nonce('wfWAFRemoveAutoPrepend');
 					
@@ -5270,12 +5390,14 @@ you know your web server's configuration, please select it now.</p>";
 							
 							$adminURL = esc_url($adminURL);
 							$wafActionContent .= "
-<form action='$adminURL' method='post'>
+<form action='$adminURL' method='post' class='wf-form-inline'>
+<div class='wf-form-group'>
 <input type='hidden' name='wfnonce' value='$wfnonce'>
-<select name='serverConfiguration' id='wf-waf-server-config'>
+<select class='wf-form-control' name='serverConfiguration' id='wf-waf-server-config'>
 $wafPrependOptions
 </select>
-<button class='button button-primary' type='submit'>Continue</button>
+</div>
+<button class='wf-btn wf-btn-primary' type='submit'>Continue</button>
 </form>
 ";
 						}
@@ -5303,7 +5425,7 @@ vulnerable code runs. This PHP setting currently refers to an unknown file at:</
 							$wafActionContent = '<p>Please download a backup copy of the following files before we make the necessary changes:</p>';
 							$wafActionContent .= '<ul>';
 							foreach ($backups as $index => $backup) {
-								$wafActionContent .= '<li><a class="button" onclick="wfWAFConfirmBackup(' . $index . ');" href="' .
+								$wafActionContent .= '<li><a class="wf-btn wf-btn-default" onclick="wfWAFConfirmBackup(' . $index . ');" href="' .
 									esc_url(add_query_arg(array(
 										'downloadBackup'      => 1,
 										'backupIndex'         => $index,
@@ -5318,7 +5440,7 @@ vulnerable code runs. This PHP setting currently refers to an unknown file at:</
 <input type='hidden' name='wfnonce' value='$wfnonce'>
 <input type='hidden' value='$serverConfig' name='serverConfiguration'>
 <input type='hidden' value='1' name='confirmedBackup'>
-<button id='confirmed-backups' disabled class='button button-primary' type='submit'>Continue</button>
+<button id='confirmed-backups' disabled class='wf-btn wf-btn-primary' type='submit'>Continue</button>
 </form>
 <script>
 var wfWAFBackups = $jsonBackups;
@@ -5514,7 +5636,7 @@ HTML
 			$result,
 			esc_url(network_admin_url('admin.php?page=WordfenceScan'))
 		);
-
+		wfScanEngine::refreshScanNotification();
 	}
 
 	public static function fsActionDeleteFileCallback() {
@@ -5536,6 +5658,7 @@ HTML
 			$result,
 			esc_url(network_admin_url('admin.php?page=WordfenceScan'))
 		);
+		wfScanEngine::refreshScanNotification();
 	}
 
 	public static function status($level /* 1 has highest visibility */, $type /* info|error */, $msg){
@@ -5932,6 +6055,7 @@ HTML
 			$wpdb->delete($wpdb->users, array('ID' => $data['userID']));
 		}
 		$wfIssues->deleteIssue($issueID);
+		wfScanEngine::refreshScanNotification($wfIssues);
 
 		return array(
 			'ok'         => 1,
@@ -5958,6 +6082,7 @@ HTML
 		}
 
 		$wfIssues->deleteIssue($issueID);
+		wfScanEngine::refreshScanNotification($wfIssues);
 
 		return array(
 			'ok'         => 1,
@@ -6584,13 +6709,17 @@ LIMIT %d", $lastSendTime, $limit));
 							$lastSendTime = $attackDataRow->attackLogTime;
 						}
 					}
-
+					
+					$homeurl = wfUtils::wpHomeURL();
+					$siteurl = wfUtils::wpSiteURL();
+					$installType = wfUtils::wafInstallationType();
 					$response = wp_remote_post(WFWAF_API_URL_SEC . "?" . http_build_query(array(
 							'action' => 'send_waf_attack_data',
 							'k'      => $waf->getStorageEngine()->getConfig('apiKey'),
-							's'      => $waf->getStorageEngine()->getConfig('siteURL') ? $waf->getStorageEngine()->getConfig('siteURL') :
-								sprintf('%s://%s/', $waf->getRequest()->getProtocol(), rawurlencode($waf->getRequest()->getHost())),
+							's'      => $siteurl,
+							'h'		 => $homeurl,
 							't'		 => microtime(true),
+							'c'		 => $installType,
 						), null, '&'),
 						array(
 							'body'    => json_encode($dataToSend),
@@ -6733,7 +6862,14 @@ LIMIT %d", $lastSendTime, $limit));
 							if (class_exists('wfWAFIPBlocksController')) {
 								if ($action == wfWAFIPBlocksController::WFWAF_BLOCK_WFSN) {
 									$hit->action = 'blocked:wfsnrepeat';
-									wordfence::wfsnReportBlockedAttempt($hit->IP, 'waf');
+									wordfence::wfsnReportBlockedAttempt($ip, 'waf');
+								}
+								else if (isset($metadata['finalAction']['lockout'])) {
+									$wpdb->query($wpdb->prepare("UPDATE {$wpdb->base_prefix}wfLockedOut SET blockedHits = blockedHits + 1, lastAttempt = unix_timestamp() where IP=%s", wfUtils::inet_pton($ip)));
+									$hit->action = 'lockedOut';
+								}
+								else if (isset($metadata['finalAction']['block'])) {
+									//Do nothing
 								}
 							}
 							$hit->actionDescription = $actionDescription;
@@ -6828,8 +6964,8 @@ LIMIT %d", $lastSendTime, $limit));
 		$dismissURL = network_admin_url('admin.php?page=WordfenceWAF&wafAction=dismissAutoPrependNotice&nonce=' .
 			rawurlencode(wp_create_nonce('wfDismissAutoPrependNotice')));
 		echo '<div class="update-nag" id="wf-extended-protection-notice">To make your site as secure as possible, take a moment to optimize the Wordfence Web
-		Application Firewall: &nbsp;<a class="button button-small" href="' . esc_url($url) . '">Click here to configure.</a>
-		<a class="button button-small wf-dismiss-link" href="' . esc_url($dismissURL) . '">Dismiss</a>
+		Application Firewall: &nbsp;<a class="wf-btn wf-btn-default wf-btn-sm" href="' . esc_url($url) . '">Click here to configure.</a>
+		<a class="wf-btn wf-btn-default wf-btn-sm wf-dismiss-link" href="' . esc_url($dismissURL) . '">Dismiss</a>
 		<br>
 		<em style="font-size: 85%;">If you cannot complete the setup process,
 		<a target="_blank" href="https://docs.wordfence.com/en/Web_Application_Firewall_Setup">click here for help</a>.</em>
@@ -6869,7 +7005,7 @@ complete this step, but wait for a few minutes before trying. You can try refres
 			$wafSection = $matches[1];
 			if (preg_match('#<IfModule\s+mod_suphp\.c>\s+suPHP_ConfigPath\s+\S+\s+</IfModule>#i', $wafSection)) {
 				$url= network_admin_url('admin.php?page=WordfenceWAF&wafAction=updateSuPHPConfig');
-				echo '<div class="notice notice-warning" id="wordfenceSuPHPUpdateWarning"><p>Your configuration for the Wordfence Firewall needs an update to continue operating optimally:&nbsp;<a class="button button-small" href="' . esc_url($url) . '">Click here to update</a> <a class="button button-small wf-dismiss-link" href="#" onclick="wordfenceExt.suPHPWAFUpdateChoice(\'no\'); return false;">Dismiss</a></p></div>';
+				echo '<div class="notice notice-warning" id="wordfenceSuPHPUpdateWarning"><p>Your configuration for the Wordfence Firewall needs an update to continue operating optimally:&nbsp;<a class="wf-btn wf-btn-default wf-btn-sm" href="' . esc_url($url) . '">Click here to update</a> <a class="wf-btn wf-btn-default wf-btn-sm wf-dismiss-link" href="#" onclick="wordfenceExt.suPHPWAFUpdateChoice(\'no\'); return false;">Dismiss</a></p></div>';
 			}
 		}
 	}

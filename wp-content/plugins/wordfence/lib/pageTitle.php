@@ -5,7 +5,7 @@
 	<?php if (isset($wantsLiveActivity) && $wantsLiveActivity): ?><div class="wf-col-xs-12"><?php include('live_activity.php'); ?></div><?php endif; ?>
 	<div class="wf-col-xs-12">
 		<?php if (isset($options)): ?>
-		<h2 class="nav-tab-wrapper" id="wordfenceTopTabs">
+		<h2 class="nav-tab-wrapper<?php if (count($options) <= 1 || (isset($hideBar) && $hideBar)) { echo ' wf-hidden'; } ?>" id="wordfenceTopTabs">
 			<?php foreach ($options as $info): ?>
 				<a class="nav-tab" id="<?php echo esc_html($info['a']); ?>-tab" href="#top#<?php echo esc_html($info['a']); ?>"><?php echo esc_html($info['t']); ?></a>
 			<?php endforeach; ?>

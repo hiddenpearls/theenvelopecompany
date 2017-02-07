@@ -789,7 +789,7 @@ HTML
 	 * @param wfWAFBlockException $e
 	 * @param int $httpCode
 	 */
-	public function blockAction($e, $httpCode = 403, $redirect = false) {
+	public function blockAction($e, $httpCode = 403, $redirect = false, $template = null) {
 		$this->getStorageEngine()->logAttack($e->getFailedRules(), $e->getParamKey(), $e->getParamValue(), $e->getRequest(), $e->getRequest()->getMetadata());
 		$this->getStorageEngine()->blockIP($this->getRequest()->getTimestamp(), $this->getRequest()->getIP());
 		
@@ -802,7 +802,7 @@ HTML
 			if ($secsToGo = $e->getRequest()->getMetadata('503Time')) {
 				header('Retry-After: ' . $secsToGo);
 			}
-			exit($this->getUnavailableMessage($e->getRequest()->getMetadata('503Reason')));
+			exit($this->getUnavailableMessage($e->getRequest()->getMetadata('503Reason'), $template));
 		}
 		
 		header('HTTP/1.0 403 Forbidden');
@@ -854,7 +854,8 @@ HTML
 	/**
 	 * @return string
 	 */
-	public function getUnavailableMessage($reason = '') {
+	public function getUnavailableMessage($reason = '', $template = null) {
+		if ($template === null) { $template = '503'; }
 		try {
 			$homeURL = wfWAF::getInstance()->getStorageEngine()->getConfig('homeURL');
 		}
@@ -862,7 +863,7 @@ HTML
 			//Do nothing
 		}
 		
-		return wfWAFView::create('503', array(
+		return wfWAFView::create($template, array(
 			'waf' => $this,
 			'reason' => $reason,
 			'homeURL' => $homeURL,
@@ -1004,6 +1005,8 @@ HTML
 							'action' => 'send_waf_attack_data',
 							'k'      => $this->getStorageEngine()->getConfig('apiKey'),
 							's'      => $this->getStorageEngine()->getConfig('siteURL') ? $this->getStorageEngine()->getConfig('siteURL') :
+								sprintf('%s://%s/', $this->getRequest()->getProtocol(), rawurlencode($this->getRequest()->getHost())),
+							'h'      => $this->getStorageEngine()->getConfig('homeURL') ? $this->getStorageEngine()->getConfig('homeURL') :
 								sprintf('%s://%s/', $this->getRequest()->getProtocol(), rawurlencode($this->getRequest()->getHost())),
 							't'		 => microtime(true),
 						), null, '&'), $this->getStorageEngine()->getAttackData(), $request);
@@ -1559,6 +1562,7 @@ class wfWAFCronFetchIPListEvent extends wfWAFCronEvent {
 					'action' => 'send_waf_attack_data',
 					'k'      => $waf->getStorageEngine()->getConfig('apiKey'),
 					's'      => $waf->getStorageEngine()->getConfig('siteURL') ? $waf->getStorageEngine()->getConfig('siteURL') : $guessSiteURL,
+					'h'      => $waf->getStorageEngine()->getConfig('homeURL') ? $waf->getStorageEngine()->getConfig('homeURL') : $guessSiteURL,
 					't'		 => microtime(true),
 				), null, '&'), '[]', $request);
 			
