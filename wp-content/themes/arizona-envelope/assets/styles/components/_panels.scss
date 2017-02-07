@@ -1,0 +1,630 @@
+main.main{
+	padding: 0;
+}
+section{
+	padding: rem(40) 0;
+}
+.page-template-template-online-quote .main section{
+	padding-top: rem(10);
+}
+.panel-wbgd{
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.sand-bgd{
+	background-color: $sand;
+}
+
+//refactor this shyte.
+.products-section, .products{
+	h2{
+		color: $medium-gray;
+		font-size: rem(42);
+	}
+	.button-down{
+		position: relative;
+		p:last-child, .entry-summary{
+			margin-bottom: rem(60);
+		}
+		a.orange-btn, a.shop-btn{
+			font-size: 100%;
+			font-weight: 700;
+			line-height: 1;
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			-webkit-transform: translateX(-50%);
+			transform: translateX(-50%);
+			font-size: 100%;
+    		font-weight: 700;
+			@media screen and (max-width: $breakpoint--medium){
+				bottom: auto;
+				top: 102%;
+			}
+		}
+	}
+	.product-category-extract, li.type-product{
+		a.woocommerce-LoopProduct-link, &.col-md-4, &.search-result{
+			//&.col-md-3
+			display: block;
+			border: 2px solid $medium-gray;
+			text-align: center;
+			min-height: rem(280);
+			margin-bottom: rem(60);
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f2f2f2+91,eeeeee+100 */
+			background: #ffffff; /* Old browsers */
+			background: -moz-radial-gradient(center, ellipse cover,  #ffffff 0%, #f2f2f2 91%, #eeeeee 100%); /* FF3.6-15 */
+			background: -webkit-radial-gradient(center, ellipse cover,  #ffffff 0%,#f2f2f2 91%,#eeeeee 100%); /* Chrome10-25,Safari5.1-6 */
+			background: radial-gradient(ellipse at center,  #ffffff 0%,#f2f2f2 91%,#eeeeee 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+			padding: rem(12);
+			@media screen and (max-width: $breakpoint--large){
+				margin: rem(20) 0 rem(12);
+				min-height: rem(320);
+			}
+			@media screen and (max-width: $breakpoint--small){
+				
+			}
+		}
+		&.search-result{
+			min-height: 19rem;
+			margin-bottom: rem(60);
+			.entry-summary{
+				margin-bottom: 0;
+				p{
+					margin-bottom: rem(10);
+				}
+			}
+			.entry-title{
+				font-size: rem(16);
+			    padding: rem(8) 0 0;
+    			margin: 0 0 .625rem;
+				a{
+
+				}
+			}
+			article{
+				margin-bottom: 0;
+			}
+		}
+		a.woocommerce-LoopProduct-link{
+			min-height: rem(365);
+		}
+		&.col-md-4{
+			width: 29.3333333333%;
+			padding-left: 15px;
+    		padding-right: 15px;
+    		margin: 2%;
+		}
+		&.col-md-3{
+		    margin: 0 2% 2.992rem 0;
+		    width: 25%;
+		    &:last-child{
+		    	margin-right: 0;
+		    }
+		}
+		a.button.add_to_cart_button{
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			-webkit-transform: translateX(-50%);
+			transform: translateX(-50%);
+			background-color: $brand-orange;
+			font-family: $copy-font;
+			padding: rem(14) rem(15);
+			font-weight: medium;
+			text-transform: uppercase;
+			border-radius: 0;
+			border: 2px solid;
+			color: #fff;
+			border-color: $brand-orange;
+			width: rem(200);
+			height: rem(50);
+			text-align: center;
+			&:hover{
+				background-color: $dark-gray;
+				border-color: $dark-gray;
+				color: #fff;
+			}
+			@media screen and (max-width: $breakpoint--large){
+				bottom: auto;
+				top: 98%;
+			}
+		}
+		&.button-down{
+			position: relative;
+			p, .entry-summary{
+				margin-bottom: rem(40);
+			}
+			a.orange-btn, a.shop-btn{
+				position: absolute;
+				bottom: rem(20);
+				left: 50%;
+				-webkit-transform: translateX(-50%);
+				transform: translateX(-50%);
+			}
+		}
+		&.title-down{
+			position: relative;
+			img{
+				margin-bottom: rem(50);
+			}
+			h3{
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 100%;
+			}
+		}	
+		img{
+			margin: 0 auto;
+			max-width: rem(140);
+		}
+		img, span{
+			display: block;
+		}
+		span{
+			font-size: 24px;
+			text-transform: uppercase;
+			max-width: 95%;
+			margin: 0 auto 12px;
+			color: $dark-gray;
+
+		}
+		&.home{
+			&:nth-child(5), &:nth-child(6), &:nth-child(7){
+				span{
+					max-width: 70%;
+					@media screen and (max-width: $breakpoint--xlarge){
+						max-width: 90%;
+					}
+				}
+			}
+		}
+		@media screen and (max-width: $breakpoint--large){
+			width: 48%!important;
+			margin: rem(20) 1% rem(40)!important;
+			min-height: auto;
+			float: left;
+			img{
+				max-width: 80%;
+				margin: 0 auto!important;
+			}
+			span{
+				max-width: 90%;
+			}
+			&.search-result{
+				float: none;
+				width: 100%!important;
+				margin-bottom: rem(80)!important;
+			}
+		}
+		@media screen and (max-width: $breakpoint--medium){
+			width: 98%!important;
+			//padding: 1%;
+			float: none!important;
+			min-height: rem(140);
+			margin: rem(20) 1% rem(80)!important;
+			img{
+				max-width: 50%;
+				margin: 0 auto!important;
+			}
+			&.search-result{
+				min-height: rem(140);
+				width: 80%!important;
+				margin: 0 auto rem(80)!important;
+			}
+		}
+		@media screen and (max-width: $breakpoint--small){
+			img{
+				max-width: 60%;
+				margin: 0 auto!important;
+			}
+			&.search-result{
+				width: 90%!important;
+			}
+		}
+	}	
+}
+
+.submit-file-section{
+	color: #fff;
+	margin-bottom: rem(40);
+	h2{
+		font-family: $copy-font;
+	}
+	p{
+		color: #fff;
+	}
+	.white-btn{
+		color: #fff;
+	}
+}
+
+.contact-section{
+	.contact-information{
+		h2{
+			margin-top: 0;
+		}
+		h2, h3{
+			font-family: $copy-font;
+			color: $brand-orange;
+		}
+		p{
+			font-size: rem(20);
+			&.address{
+				font-weight: lighter;
+				line-height: rem(22);
+			}
+		}
+		ul{
+			list-style-type: none;
+			padding: 0;
+			li{
+				font-weight: 300;
+				i{
+					margin-right: 16px;
+				}
+				strong{
+					font-weight: 700;
+				}
+				a{
+					color: $medium-gray;
+				}
+			}
+		}
+	}
+	.contact-form{
+		.validation_error{
+			color: $brand-orange;
+			border-color: $brand-orange;
+		}
+		p{
+			font-size: rem(18);
+		}
+		form{
+			position: relative;
+
+		}
+		.gform_body{
+			width: 100%!important;
+			.gform_fields#gform_fields_10{
+				list-style-type: none;
+				padding: 0;
+				position: relative;
+				.gfield_label{
+					display: none;
+				}
+				.gfield{
+					width: 48%;
+					input{
+						height: rem(40);
+					}
+					.validation_message{
+						color: $brand-orange;
+					}
+					input, textarea{
+						width: 100%;
+						
+					}
+					textarea{
+						max-height: rem(140);
+					}
+					&:last-child{
+						position: absolute;
+						top: 0;
+						right: 0;
+						margin-top: 0;
+						padding: 0;
+						.ginput_container{
+							margin-top: 0;
+						}
+						@media screen and (max-width: $breakpoint--medium){
+							position: static;
+							margin-top: 16px;
+						}
+					}
+					@media screen and (max-width: $breakpoint--medium){
+						width: 100%;
+					}
+				}
+			}
+		}
+		.gform_footer{
+			width: 48%;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			padding: 0;
+			//padding: 0 0 0 8px;
+			margin: 0;
+			.gform_button{
+				width: 100%!important;
+				background-color: transparent;
+				border-color: $light-gray;
+				color: $dark-gray;
+				font-family: $copy-font;
+				padding: 14px 0;
+				font-weight: medium;
+				text-transform: uppercase;
+				border-radius: 0;
+				border: 2px solid;
+				@include transition(0.2s all ease-in-out);
+				&:hover{
+					background-color: $light-gray;
+					color: $dark-gray;
+					border-color: $light-gray;
+				}	
+				@media screen and (max-width: $breakpoint--medium){
+					margin-bottom: 0;
+					max-width: 100%;;
+					margin-top: rem(20);
+				}
+			}
+			@-moz-document url-prefix() { /**  Mozilla **/
+	    		padding: 0 30px 0 0px;
+			}
+			@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { /**  IE **/
+		     	padding: 0 30px 0 0px;
+		    }
+		    @supports (-ms-ime-align:auto) { /**  Microsoft Edge **/
+		    	padding: 0 30px 0 0px;
+		    }
+
+			@media screen and (max-width: $breakpoint--large){
+				margin-bottom: 0;
+			}
+			@media screen and (max-width: $breakpoint--medium){
+				margin-bottom: 0;
+				position: static;
+				width: 100%;
+				padding: 0;
+			}
+		}
+	}
+}
+
+/*
+	Shop Section
+*/
+.category-shop-header{
+	background-color: $brand-orange;
+	width: 100%;
+	padding: rem(12) 0;
+	margin: rem(8) 0;
+	.menu-shop-navigation-container, .woocommerce-MyAccount-navigation{
+		.shop-navigation-bar, .orange-navigation-bar{
+			//padding-left: rem(26);
+			padding: 0;
+			margin: 0;
+			.menu-item, li{
+				display: inline-block;
+				vertical-align: middle;
+				max-width: 16.6666666%;
+				width: 16.2%;
+				padding: 0 rem(12);
+				text-align: center;
+				box-sizing: border-box;
+				a{
+					color: $dark-gray;
+					text-transform: uppercase;
+					padding: 0;
+					span{
+						color: $dark-gray;
+						display: block;
+					}
+					&:hover, &:active, &:focus{
+						color: #fff;
+						background-color: transparent;
+						span{
+							color: #fff;
+						}
+					}
+				}
+				&.current-menu-item, &.is-active, &.current_page_parent, &.current-page-ancestor{
+
+					a{
+						color: #fff;
+						span{
+							color: #fff;
+						}
+					}
+
+				}
+				@media screen and (max-width: $breakpoint--xlarge){
+					max-width: 33.333%;
+					width: 32%;
+					margin-bottom: rem(20);
+				}
+				@media screen and (max-width: $breakpoint--large){
+					max-width: 100%;
+					width: 100%;
+					display: block;
+					border-bottom: 1px solid #fff;
+					margin-bottom: 0;
+					padding: rem(12) 0;
+					a{
+						span{
+							display: inline-block;
+						}
+					}
+					&:last-child{
+						border: none;
+					}
+				}
+			}
+		}
+		.menu-about-us-menu-container{
+			.menu{
+				padding-left: 0;
+			}
+		}
+		.menu-resources-menu-container, .menu-about-us-menu-container{
+			padding: rem(10) 0;
+			.menu-item{
+				max-width: 24%;
+				min-width: 22%;
+				margin-bottom: 0;
+				@media screen and (max-width: $breakpoint--large){
+					min-width: 100%;
+					max-width: 100%;
+				}
+			}
+		}
+
+	}
+	.woocommerce-MyAccount-navigation{
+		width: 100%;
+		float: none;
+		padding: rem(10) 0;
+		ul li{
+			max-width: 24%;
+			min-width: 22%;
+		}
+	}
+}
+
+/*
+	Contact Section
+*/
+.newsletter-signup-section{
+	.gform_wrapper .top_label .gfield_label{
+		display: none;
+	}
+	.gform_wrapper .gform_footer input.button, .gform_wrapper .gform_footer input[type=submit]{
+		float: right;
+		margin-right: 0;
+		font-family: $copy-font;
+		padding: 14px 0;
+		font-weight: medium;
+		text-transform: uppercase;
+		border-radius: 0;
+		border: 2px solid;
+		@include transition(0.2s all ease-in-out);
+		background-color: transparent;
+		border-color: $light-gray;
+		color: $dark-gray;
+		width: rem(300);
+		height: rem(50);
+		&:hover{
+			background-color: $light-gray;
+			color: $dark-gray;
+			border-color: $light-gray;
+		}
+	}
+}
+
+/*
+	Account Section
+*/
+.woocommerce-account{
+	.woocommerce-MyAccount-content{
+		width: 80%;
+		margin: 0 auto;
+		text-align: center;
+		float: none;
+		address{
+			text-align: left;
+		}
+	}
+}
+
+
+.resources, .content-centered, .entry-content{ /* Content Pages Template */
+	ul, ol{
+		padding: 0;
+		li{
+			font: 400 rem(16) $copy-font;
+			margin-bottom: rem(20);
+			color: $dark-gray;
+			a{
+				color: $brand-orange;
+				&:hover{
+					text-decoration: underline;
+				}
+				&:visited{
+					color: $dark-gray;
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+
+	ul{
+		list-style-type: none;
+	}
+}
+.samples{
+	h3{
+		text-transform: capitalize;
+	}
+	@media screen and (max-width: $breakpoint--medium){
+		.col-xs-6{
+			text-align: center;
+			margin-bottom: rem(20);
+			img{
+				margin: 0 auto;
+			}
+		}
+	}
+}
+
+.search-results, .content-404{
+	.row-eq-height{
+		.col-md-3{
+			padding: 0;
+			width: 22.05%;
+		    margin: 0 3.8% 2.992rem 0;
+		    &:last-child{
+		    	margin-right: 0;
+		    }
+		    @media screen and (max-width: $breakpoint--large){
+	    	    width: 48%!important;
+    			margin: 1.25rem 1% 2.5rem!important;
+		    }
+		    @media screen and (max-width: $breakpoint--medium){
+			    width: 98%!important;
+			    float: none!important;
+			
+			    margin: 1.25rem 1% 5rem!important;
+		    }
+		}
+	}
+	.button-down{
+		a.orange-btn{
+			@media only screen and (min-device-width : $breakpoint--medium) and (max-device-width : 1024px) { 
+				top: 80%;
+			}
+		}
+	}
+	> .search-form{
+		label{
+			width:96%;
+			@media screen and (max-width: $breakpoint--medium){
+				width:94%;
+			}
+			@media screen and (max-width: $breakpoint--small){
+				width:90%;
+			}	
+			input{
+				width:100%;
+			}
+		}
+		.search-submit{
+			width: 4%;
+			float: right;
+	        margin-top: 4px;
+	        @media screen and (max-width: $breakpoint--large){
+	        	position: inherit;
+	        }
+	        @media screen and (max-width: $breakpoint--medium){
+				width: 6%;
+	        }
+	        @media screen and (max-width: $breakpoint--small){
+				width: 10%;
+	        }
+		}
+	}
+}
+

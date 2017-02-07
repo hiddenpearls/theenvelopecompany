@@ -108,12 +108,7 @@ if(is_page('layouts-die-lines') || is_page('samples') || is_page('helpful-inform
                 wp_nav_menu( array(
                     'menu' => 'resources-menu'
                 ) );
-                /*$menu = wp_get_nav_menu_items('resources-menu');
-                foreach ($menu as $key => $menu_item) {
-                    echo '<li class="menu-item">';    
-                    echo  '<a class="shop-nav-btn" href="'. $menu_item->url .'">'.$menu_item->title.'</a>';
-                    echo '</li>'; 
-                }*/?> 
+                ?> 
             </ul>
         </div>
     </div>
@@ -127,12 +122,7 @@ if(is_page('about-us') || is_page('privacy-policy') || is_page('terms-conditions
                 wp_nav_menu( array(
                     'menu' => 'about-us-menu'
                 ) );
-                /*$menu = wp_get_nav_menu_items('resources-menu');
-                foreach ($menu as $key => $menu_item) {
-                    echo '<li class="menu-item">';    
-                    echo  '<a class="shop-nav-btn" href="'. $menu_item->url .'">'.$menu_item->title.'</a>';
-                    echo '</li>'; 
-                }*/?> 
+                ?> 
             </ul>
         </div>
     </div>
@@ -162,23 +152,3 @@ if(is_cart()||is_product()||$status==="account-out"||is_page("checkout")||is_pag
     </div>
 </div>
 <?php } ?>
-<?php //if(is_product()||$status==="account-out" ){ ?>
-<!--<div class="cart-shop-header">
-    <div class="container">-->
-      <?php 
-        /*global $woocommerce;
-        $cart_url = $woocommerce->cart->get_cart_url(); */
-      ?>
-      <!--<a class="cart-btn" href="<?php //echo $cart_url; ?>"><i class="fa fa-shopping-cart"></i>My Cart</a>
-      <a class="cart-contents" href="<?php //echo wc_get_cart_url(); ?>" title="<?php //_e( 'View your shopping cart' ); ?>"><?php //echo sprintf ( _n( 'item: (%d)', 'items: (%d)', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?>  <?php //echo WC()->cart->get_cart_total(); ?></a>-->
-      <?php 
-      /*global $woocommerce;
-
-      if ( sizeof( $woocommerce->cart->cart_contents) > 0 ) :
-        echo '<a class="btn white-btn" href="' . $woocommerce->cart->get_checkout_url() . '" title="' . __( 'Checkout' ) . '">' . __( 'Check Out' ) . '</a>';
-      endif;
-        */
-      ?>
-    <!--</div>
-  </div>-->
-<?php //} ?>

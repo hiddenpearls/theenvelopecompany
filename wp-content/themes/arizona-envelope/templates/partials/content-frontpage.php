@@ -96,5 +96,52 @@
         </div>
     </div>
 </section>
+<?php  
+  //Get sale banner if enabled
+  if( get_field('sale_banner_enabled') ) {
+?>
+    <section class="panel-wbgd sale-banner-section" style="background-image: url('<?php the_field('sale_banner_background_image'); ?>');">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6 col-md-offset-4">
+                  <h2 class="heading-text"><?php the_field('sale_banner_title'); ?></h2>
+                  <p><?php the_field('sale_banner_text'); ?></p>
+                  <?php if( have_rows('sale_banner_calls_to_action') ) : ?>
+                    <?php while( have_rows('sale_banner_calls_to_action') ) : the_row(); ?>
+                      <a href="<?php the_sub_field('button_url'); ?>" class="white-btn btn big" title="<?php the_sub_field('button_label'); ?>">
+                        <?php the_sub_field('button_label'); ?>
+                      </a>
+                    <?php endwhile; ?>
+                  <?php endif; ?>
+              </div>
+          </div>
+      </div>
+      
+    </section>
+<?php
+  } else {
+    //Banner disabled. Do nothing
+  }
+?>
 
+<?php 
+    //show popup modal if enabled from the backend
+    if( get_field('enable_popup', 'option') ){
+        get_template_part('templates/partials/sale', 'popup');
+    }
+?>
 <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
+<script>
+  jQuery(document).ready(function( $ ) {
+    // Sale Popup show after time interval
+    var modalPresent = $('#salePopup').length;
+    if( modalPresent >= 1){
+      var openModal = function(){
+        $('#salePopup').modal('toggle');
+      }
+      setTimeout(function(){
+        openModal();
+      }, 3000);
+    }
+  });
+</script>
