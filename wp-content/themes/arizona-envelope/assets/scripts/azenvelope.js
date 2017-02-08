@@ -457,14 +457,8 @@ jQuery(document).ready(function( $ ) {
 	    var $inputs = $('.printing_options input:checkbox'); 
 	    if($(this).prop('checked')){  // <-- check if clicked box is currently checked
 	       	var id = $($inputs.not(this)).prop("id");
-	       	//$("#" + id).prop("disabled", true); <- somewhy not working.. plugin?
 	       	$("#" + id).prop("checked", false); // <-- uncheck all but checked checkbox
-	       	console.log(id);
-	       	
 	    }
-	    //else{  //<-- if checkbox was unchecked
-	       	//$inputs.prop('disabled',false); // <-- enable all checkboxes, not necessary with uncheck approach.
-	    //}
 	});
 
 });
