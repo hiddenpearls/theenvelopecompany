@@ -1,3 +1,30 @@
+<?php  
+  //Get sale banner if enabled
+  if( get_field('sale_banner_enabled') ) {
+?>
+    <section class="panel-wbgd sale-banner-section" style="background-image: url('<?php the_field('sale_banner_background_image'); ?>');">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6">
+                  <h2 class="heading-text"><?php the_field('sale_banner_title'); ?></h2>
+                  <p><?php the_field('sale_banner_text'); ?></p>
+                  <?php if( have_rows('sale_banner_calls_to_action') ) : ?>
+                    <?php while( have_rows('sale_banner_calls_to_action') ) : the_row(); ?>
+                      <a href="<?php the_sub_field('button_url'); ?>" class="white-btn btn big" title="<?php the_sub_field('button_label'); ?>">
+                        <?php the_sub_field('button_label'); ?>
+                      </a>
+                    <?php endwhile; ?>
+                  <?php endif; ?>
+              </div>
+          </div>
+      </div>
+      
+    </section>
+<?php
+  } else {
+    //Banner disabled. Do nothing
+  }
+?>
 <section class="products-section" id="products-section">
     <div class="container">
         <div class="row">
@@ -41,21 +68,6 @@
         </div>
     </div>
 </section>
-<?php if( get_field('panel_title') ): ?>
-<section class="panel-wbgd submit-file-section" style="background-image: url('<?php the_field('panel_background_image'); ?>');">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-4">
-                <h2><?php the_field('panel_title'); ?></h2>
-                <p><?php the_field('panel_text'); ?></p>
-                <a href="<?php the_field('panel_button_url'); ?>" class="white-btn btn big">
-                    <?php the_field('panel_button_label'); ?>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-<?php endif; ?>
 <section class="sand-bgd contact-section">
     <div class="container">
         <div class="row">
@@ -96,34 +108,21 @@
         </div>
     </div>
 </section>
-<?php  
-  //Get sale banner if enabled
-  if( get_field('sale_banner_enabled') ) {
-?>
-    <section class="panel-wbgd sale-banner-section" style="background-image: url('<?php the_field('sale_banner_background_image'); ?>');">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-6 col-md-offset-4">
-                  <h2 class="heading-text"><?php the_field('sale_banner_title'); ?></h2>
-                  <p><?php the_field('sale_banner_text'); ?></p>
-                  <?php if( have_rows('sale_banner_calls_to_action') ) : ?>
-                    <?php while( have_rows('sale_banner_calls_to_action') ) : the_row(); ?>
-                      <a href="<?php the_sub_field('button_url'); ?>" class="white-btn btn big" title="<?php the_sub_field('button_label'); ?>">
-                        <?php the_sub_field('button_label'); ?>
-                      </a>
-                    <?php endwhile; ?>
-                  <?php endif; ?>
-              </div>
-          </div>
-      </div>
-      
-    </section>
-<?php
-  } else {
-    //Banner disabled. Do nothing
-  }
-?>
-
+<?php if( get_field('panel_title') ): ?>
+<section class="panel-wbgd submit-file-section" style="background-image: url('<?php the_field('panel_background_image'); ?>');">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-4">
+                <h2><?php the_field('panel_title'); ?></h2>
+                <p><?php the_field('panel_text'); ?></p>
+                <a href="<?php the_field('panel_button_url'); ?>" class="white-btn btn big">
+                    <?php the_field('panel_button_label'); ?>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
 <?php 
     //show popup modal if enabled from the backend
     if( get_field('enable_popup', 'option') ){

@@ -44,13 +44,13 @@ if( function_exists('acf_add_options_page') ) {
     'capability'  => 'edit_posts',
     'redirect'    => false
   ));
-  acf_add_options_sub_page(array(
+  /*acf_add_options_sub_page(array(
     'page_title'  => 'Sale Popup',
     'menu_title'  => 'Sale Popup',
     'parent_slug' => 'theme-general-settings',
     'capability'  => 'edit_posts',
     'redirect'    => false
-  ));
+  ));*/
   acf_add_options_sub_page(array(
     'page_title'  => 'Analytics Settings',
     'menu_title'  => 'Analytics Settings',
@@ -131,20 +131,47 @@ function product_long_desc() {
       global $product;
       //echo $product->list_attributes();
       $sku = $product->get_sku();
-      echo '<p>SKU: '.$sku.'<br>';
+      if( $sku ) {
+        echo '<p>SKU: '.$sku.'<br>';  
+      }
       $style = $product->get_attribute( 'style' );
-      echo 'Style: '.$style.'<br>';
+      if( $style ) {
+        echo 'Style: '.$style.'<br>';
+      }
       $size = $product->get_attribute( 'size' ) ;
-      echo 'Size: '.$size.'<br>';
+      if( $size ) {
+        echo 'Size: '.$size.'<br>';
+      }
+      $flap_size = $product->get_attribute( 'flap size' );
+      if ( $flap_size ) {
+        echo 'Flap size: '.$flap_size.'<br>';
+      }
       $paper_color = $product->get_attribute( 'color' ) ;
-      echo 'Paper Color: '.$paper_color.'<br>';
+      if( $paper_color ) {
+        echo 'Paper Color: '.$paper_color.'<br>';
+      }
       $paper_weight = $product->get_attribute( 'paper weight' ) ;
-      echo 'Paper Weight: '.$paper_weight.'<br>';
+      if( $paper_weight ) {
+        echo 'Paper Weight: '.$paper_weight.'<br>';
+      }
       $sealing_method = $product->get_attribute( 'sealing method' ) ;
-      echo 'Sealing Method: '.$sealing_method.'<br>';
+      if( $sealing_method ) {
+        echo 'Sealing Method: '.$sealing_method.'<br>';
+      }
+      $security_tint = $product->get_attribute( 'security tint' );
+      if( $security_tint ) {
+        echo 'Security Tint: '.$security_tint.'<br>';
+      }
+      $window_size = $product->get_attribute( 'window size' );
+      if( $window_size ) {
+        echo 'Window size: '.$window_size.'<br>';
+      }
+      $window_position = $product->get_attribute( 'window position' );
+      if( $window_position ) {
+        echo "Window position: ".$window_position.'<br>';
+      }
       ?>
-      <?php the_content(); ?>
-
+      <?php echo "Description: ".get_the_content()."</p>"; ?>
     </div>
   <?php endif;
 }
