@@ -447,8 +447,24 @@ jQuery(document).ready(function( $ ) {
 		});
 	}
 
+	//
 	if($('.gform_confirmation_wrapper').length){
 		$('.online-quote-description').css('display','none');
 	}
+
+	//Disable front/back color checkbox if counter part is enabled.
+	$('.printing_options input:checkbox').click(function(){
+	    var $inputs = $('.printing_options input:checkbox'); 
+	    if($(this).prop('checked')){  // <-- check if clicked box is currently checked
+	       	var id = $($inputs.not(this)).prop("id");
+	       	//$("#" + id).prop("disabled", true); <- somewhy not working.. plugin?
+	       	$("#" + id).prop("checked", false); // <-- uncheck all but checked checkbox
+	       	console.log(id);
+	       	
+	    }
+	    //else{  //<-- if checkbox was unchecked
+	       	//$inputs.prop('disabled',false); // <-- enable all checkboxes, not necessary with uncheck approach.
+	    //}
+	});
 
 });
