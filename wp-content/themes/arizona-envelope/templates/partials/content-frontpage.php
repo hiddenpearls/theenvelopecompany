@@ -1,11 +1,21 @@
 <?php  
   //Get sale banner if enabled
   if( get_field('sale_banner_enabled') ) {
+    //get selected color/image background type
+    $background_type = get_field('image_or_color_background');
+    if( $background_type === 'color'){
+      $background = get_field('sale_banner_background_color');
+      $section_background = "background-color: ".$background.";";
+    } else {
+      $background = get_field('sale_banner_background_image');
+      $section_background = "background-image: url('".$background."');";
+    }
+
 ?>
-    <section class="panel-wbgd sale-banner-section" style="background-image: url('<?php the_field('sale_banner_background_image'); ?>');">
+    <section class="panel-wbgd sale-banner-section <?php echo $background_type; ?>" style="<?php echo $section_background; ?>">
       <div class="container">
           <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-7">
                   <h2 class="heading-text"><?php the_field('sale_banner_title'); ?></h2>
                   <p><?php the_field('sale_banner_text'); ?></p>
                   <?php if( have_rows('sale_banner_calls_to_action') ) : ?>
