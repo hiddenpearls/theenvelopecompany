@@ -8,11 +8,12 @@
       $section_background = "background-color: ".$background.";";
     } else {
       $background = get_field('sale_banner_background_image');
-      $section_background = "background-image: url('".$background."');";
+      $section_background = "background-image: url('".$background['url']."');";
+      $section_background_title = $background['alt'];
     }
 
 ?>
-    <section class="panel-wbgd sale-banner-section <?php echo $background_type; ?>" style="<?php echo $section_background; ?>">
+    <section class="panel-wbgd sale-banner-section <?php echo $background_type; ?>" style="<?php echo $section_background ?>" title="<?php echo $section_background_title; ?>">
       <div class="container">
           <div class="row">
               <div class="col-md-7">
@@ -68,7 +69,7 @@
                       // get the image URL for child category
                       $image = wp_get_attachment_url($thumbnail_id);
                       // print the IMG HTML for child category
-                      echo "<img src='".$image."' alt='' />";
+                      echo "<img src='".$image."' alt='".$cat->name." Category Image' />";
                       echo  '<span>'.$cat->name.'</span>';
                       echo '<a class="orange-btn btn small" href="'. get_term_link($cat->slug, 'product_cat') .'">Shop';
                       echo '</a></div>';

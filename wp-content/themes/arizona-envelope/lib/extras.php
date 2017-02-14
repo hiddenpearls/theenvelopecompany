@@ -124,56 +124,56 @@ add_action('woocommerce_after_add_to_cart_form', 'woocommerce_template_single_ex
 //get list of attributes from product info and the product description
 function product_long_desc() {
   global $woocommerce, $post;
-
-  if ( $post->post_content ) : ?>
-    <div itemprop="description">
-      <?php 
-      global $product;
-      //echo $product->list_attributes();
-      $sku = $product->get_sku();
-      if( $sku ) {
-        echo '<p>SKU: '.$sku.'<br>';  
-      }
-      $style = $product->get_attribute( 'style' );
-      if( $style ) {
-        echo 'Style: '.$style.'<br>';
-      }
-      $size = $product->get_attribute( 'size' ) ;
-      if( $size ) {
-        echo 'Size: '.$size.'<br>';
-      }
-      $flap_size = $product->get_attribute( 'flap size' );
-      if ( $flap_size ) {
-        echo 'Flap size: '.$flap_size.'<br>';
-      }
-      $paper_color = $product->get_attribute( 'color' ) ;
-      if( $paper_color ) {
-        echo 'Paper Color: '.$paper_color.'<br>';
-      }
-      $paper_weight = $product->get_attribute( 'paper weight' ) ;
-      if( $paper_weight ) {
-        echo 'Paper Weight: '.$paper_weight.'<br>';
-      }
-      $sealing_method = $product->get_attribute( 'sealing method' ) ;
-      if( $sealing_method ) {
-        echo 'Sealing Method: '.$sealing_method.'<br>';
-      }
-      $security_tint = $product->get_attribute( 'security tint' );
-      if( $security_tint ) {
-        echo 'Security Tint: '.$security_tint.'<br>';
-      }
-      $window_size = $product->get_attribute( 'window size' );
-      if( $window_size ) {
-        echo 'Window size: '.$window_size.'<br>';
-      }
-      $window_position = $product->get_attribute( 'window position' );
-      if( $window_position ) {
-        echo "Window position: ".$window_position.'<br>';
-      }
-      ?>
-      <?php echo "Description: ".get_the_content()."</p>"; ?>
-    </div>
-  <?php endif;
+ ?>
+  <div itemprop="description">
+    <?php 
+    global $product;
+    //echo $product->list_attributes();
+    $sku = $product->get_sku();
+    if( $sku ) {
+      echo '<p>SKU: '.$sku.'<br>';  
+    }
+    $style = $product->get_attribute( 'style' );
+    if( $style ) {
+      echo 'Style: '.$style.'<br>';
+    }
+    $size = $product->get_attribute( 'size' ) ;
+    if( $size ) {
+      echo 'Size: '.$size.'<br>';
+    }
+    $flap_size = $product->get_attribute( 'flap size' );
+    if ( $flap_size ) {
+      echo 'Flap size: '.$flap_size.'<br>';
+    }
+    $paper_color = $product->get_attribute( 'color' ) ;
+    if( $paper_color ) {
+      echo 'Paper Color: '.$paper_color.'<br>';
+    }
+    $paper_weight = $product->get_attribute( 'paper weight' ) ;
+    if( $paper_weight ) {
+      echo 'Paper Weight: '.$paper_weight.'<br>';
+    }
+    $sealing_method = $product->get_attribute( 'sealing method' ) ;
+    if( $sealing_method ) {
+      echo 'Sealing Method: '.$sealing_method.'<br>';
+    }
+    $security_tint = $product->get_attribute( 'security tint' );
+    if( $security_tint ) {
+      echo 'Security Tint: '.$security_tint.'<br>';
+    }
+    $window_size = $product->get_attribute( 'window size' );
+    if( $window_size ) {
+      echo 'Window size: '.$window_size.'<br>';
+    }
+    $window_position = $product->get_attribute( 'window position' );
+    if( $window_position ) {
+      echo "Window position: ".$window_position.'<br>';
+    }
+    if ( $post->post_content ) {
+      echo "Description: ".get_the_content()."</p>";
+    } ?>
+  </div>
+<?php
 }
 add_action( 'woocommerce_single_product_summary', 'Roots\Sage\Extras\product_long_desc', 20 );
 

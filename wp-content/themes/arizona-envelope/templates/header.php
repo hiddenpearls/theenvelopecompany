@@ -68,7 +68,14 @@ if( is_front_page() ){
 ?>
 <div class="hero-panel">
     <?php while( have_rows('hero_banner') ) : the_row(); ?>
-        <img src="<?php the_sub_field('background_image'); ?>" alt="">
+        <?php $image = get_sub_field('background_image'); 
+            if ( !empty($image) ){
+        ?>
+            <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+        <?php
+            }
+        ?>
+        
         <div class="container">
             <div class="slider-caption">
                 <h1><?php the_sub_field('hero_title'); ?></h1>
