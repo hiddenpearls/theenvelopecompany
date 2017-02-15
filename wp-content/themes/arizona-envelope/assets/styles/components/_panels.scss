@@ -20,15 +20,47 @@ section{
  *  Products Section
  */
 .sale-banner-section{
-	padding: rem(20) 0;
-	h2{
-		margin-top: 0;
-	}
-	&.color{
+	padding: rem(10) 0;
+	
+    &.color{
 		h2, p, a{
 			color: $sand;
 			border-color: #fff;
 		}
+	}
+	h2{
+		margin-top: 0;
+		text-align: center;
+	}
+	p{
+		margin-bottom: 0;
+		text-align: center;
+	}
+	a.btn{
+		margin: 0 auto;
+		display: block;
+		margin-top: rem(10);
+	}
+	@media screen and (min-width: $breakpoint--medium){
+		h2, p{
+			width: 78%;
+			float: left;
+			text-align: left;
+		}
+		a.btn{
+			float: right;
+			width: 20%;
+			margin: 0;
+		}
+	}
+	@media screen and (min-width: $breakpoint--large){
+		position: absolute;
+	    top: rem(120);
+	    left: 0;
+	    width: 100%;
+	    z-index: 2;
+	    top: rem(140);
+		
 	}
 }
 

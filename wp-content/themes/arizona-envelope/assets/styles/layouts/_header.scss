@@ -1,5 +1,5 @@
 .site-header{
-    z-index: 2;
+    z-index: 3;
     padding-bottom: rem(12);
     transition: all 0.2s ease;
     position: fixed;
@@ -317,16 +317,6 @@
                     }
                 }
             }
-            /*@media screen and (max-width: 706px){
-                label{
-                    width: 92%;
-                }
-            }
-            @media screen and (max-width: 558px){
-                label{
-                    width: 88%;
-                }
-            }*/
         }
         @media screen and (max-width: $breakpoint--large){
             display: flex!important;
@@ -451,23 +441,33 @@
 		width: 100%;
 	}
     .container{
-        position: absolute;
-        bottom: rem(120);
-        left: 50%;
-        transform: translateX(-50%);
-        @media screen and (max-width: 1300px){
-            bottom: rem(50);
-        }
-        @media screen and (max-width: $breakpoint--medium){
-            width: 90%;
-            bottom: 10px;
-        }
-        @media screen and (max-width: $breakpoint--small){
-             position: relative;
-        }
-        @media screen and (max-width: 380px){
+        position: relative;
+        
+        @media screen and (min-width: $breakpoint--small){
+            position: absolute;
+            bottom: rem(2);
+            left: 50%;
+            transform: translateX(-50%);
             width: 100%;
-            bottom: 2px;
+        }
+        @media screen and (min-width: $breakpoint--medium){
+            bottom: rem(20);
+        }
+        @media screen and (min-width: 830px){
+            bottom: rem(60);
+        }
+        @media screen and (min-width: $breakpoint--large){
+            bottom: rem(10);
+        }
+        @media screen and (min-width: $breakpoint--xlarge){
+            width: rem(1170);
+        }
+        @media screen and (min-width: 1250px){
+            bottom: rem(20);
+        }
+        @media screen and (min-width: 1350px){
+            bottom: auto;
+            top: rem(200);
         }
         .slider-caption{
             max-width: 40%;
@@ -475,6 +475,12 @@
                 color: $medium-gray;
                 max-width: 80%;
                 margin-bottom: rem(20);
+                @media screen and (min-width: $breakpoint--large){
+                    margin-bottom: rem(10);
+                }
+                @media screen and (min-width: 1250px){
+                    margin-bottom: rem(20);
+                }
             }
             h1{
                 font-size: rem(42);
@@ -482,6 +488,12 @@
             p{
                 margin-bottom: rem(64);
                 font-size: rem(20);
+                @media screen and (min-width: $breakpoint--large){
+                    margin-bottom: rem(10);
+                }
+                @media screen and (min-width: 1250px){
+                    margin-bottom: rem(20);
+                }
             }
             a{
                 width: 200px;

@@ -33,7 +33,7 @@ jQuery(document).ready(function( $ ) {
 		var sticky = $('.site-header');
 	  	var scroll = $(window).scrollTop();
 
-		if (scroll >=80){
+		if (scroll >=20){
 			sticky.addClass('fixed-header');
 		} 
 		else{
