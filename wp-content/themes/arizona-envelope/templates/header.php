@@ -61,6 +61,51 @@ if( is_front_page() ){
     </div>
 </header>
 
+<?php if( is_front_page() ) : ?>
+<?php  
+  //Get sale banner if enabled
+  if( get_field('sale_banner_enabled') ) {
+    //get selected color/image background type
+    $background_type = get_field('image_or_color_background');
+    if( $background_type === 'color'){
+      $background = get_field('sale_banner_background_color');
+      $section_background = "background-color: ".$background.";";
+    } else {
+      $background = get_field('sale_banner_background_image');
+      $section_background = "background-image: url('".$background['url']."');";
+      $section_background_title = $background['alt'];
+    }
+
+?>
+    <section class="panel-wbgd sale-banner-section <?php echo $background_type; ?>" style="<?php echo $section_background ?>" title="<?php echo $sale_banner_title; ?>">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 clearfix">
+                    <?php if( get_field('sale_banner_title') ) : ?>
+                        <h2 class="heading-text"><?php the_field('sale_banner_title'); ?></h2>
+                    <?php endif; ?>
+                    <?php if( get_field('sale_banner_text') ) : ?>
+                        <p><?php the_field('sale_banner_text'); ?></p>
+                    <?php endif; ?>
+                  <?php if( have_rows('sale_banner_calls_to_action') ) : ?>
+                    <?php while( have_rows('sale_banner_calls_to_action') ) : the_row(); ?>
+                      <a href="<?php the_sub_field('button_url'); ?>" class="white-btn btn big" title="<?php the_sub_field('button_label'); ?>">
+                        <?php the_sub_field('button_label'); ?>
+                      </a>
+                    <?php endwhile; ?>
+                  <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php
+  } else {
+    //Banner disabled. Do nothing
+  }
+?>
+
+<?php endif; ?>
+
 <!-- sidebar nav just for reference, remove when done -->
 <?php 
     if( is_front_page() ){
@@ -68,7 +113,14 @@ if( is_front_page() ){
 ?>
 <div class="hero-panel">
     <?php while( have_rows('hero_banner') ) : the_row(); ?>
-        <img src="<?php the_sub_field('background_image'); ?>" alt="">
+        <?php $image = get_sub_field('background_image'); 
+            if ( !empty($image) ){
+        ?>
+            <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+        <?php
+            }
+        ?>
+        
         <div class="container">
             <div class="slider-caption">
                 <h1><?php the_sub_field('hero_title'); ?></h1>
@@ -108,12 +160,7 @@ if(is_page('layouts-die-lines') || is_page('samples') || is_page('helpful-inform
                 wp_nav_menu( array(
                     'menu' => 'resources-menu'
                 ) );
-                /*$menu = wp_get_nav_menu_items('resources-menu');
-                foreach ($menu as $key => $menu_item) {
-                    echo '<li class="menu-item">';    
-                    echo  '<a class="shop-nav-btn" href="'. $menu_item->url .'">'.$menu_item->title.'</a>';
-                    echo '</li>'; 
-                }*/?> 
+                ?> 
             </ul>
         </div>
     </div>
@@ -127,12 +174,7 @@ if(is_page('about-us') || is_page('privacy-policy') || is_page('terms-conditions
                 wp_nav_menu( array(
                     'menu' => 'about-us-menu'
                 ) );
-                /*$menu = wp_get_nav_menu_items('resources-menu');
-                foreach ($menu as $key => $menu_item) {
-                    echo '<li class="menu-item">';    
-                    echo  '<a class="shop-nav-btn" href="'. $menu_item->url .'">'.$menu_item->title.'</a>';
-                    echo '</li>'; 
-                }*/?> 
+                ?> 
             </ul>
         </div>
     </div>
@@ -162,23 +204,3 @@ if(is_cart()||is_product()||$status==="account-out"||is_page("checkout")||is_pag
     </div>
 </div>
 <?php } ?>
-<?php //if(is_product()||$status==="account-out" ){ ?>
-<!--<div class="cart-shop-header">
-    <div class="container">-->
-      <?php 
-        /*global $woocommerce;
-        $cart_url = $woocommerce->cart->get_cart_url(); */
-      ?>
-      <!--<a class="cart-btn" href="<?php //echo $cart_url; ?>"><i class="fa fa-shopping-cart"></i>My Cart</a>
-      <a class="cart-contents" href="<?php //echo wc_get_cart_url(); ?>" title="<?php //_e( 'View your shopping cart' ); ?>"><?php //echo sprintf ( _n( 'item: (%d)', 'items: (%d)', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?>  <?php //echo WC()->cart->get_cart_total(); ?></a>-->
-      <?php 
-      /*global $woocommerce;
-
-      if ( sizeof( $woocommerce->cart->cart_contents) > 0 ) :
-        echo '<a class="btn white-btn" href="' . $woocommerce->cart->get_checkout_url() . '" title="' . __( 'Checkout' ) . '">' . __( 'Check Out' ) . '</a>';
-      endif;
-        */
-      ?>
-    <!--</div>
-  </div>-->
-<?php //} ?>

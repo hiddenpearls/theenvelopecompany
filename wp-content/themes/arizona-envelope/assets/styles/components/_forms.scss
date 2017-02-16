@@ -1,0 +1,191 @@
+// Search form
+.search-form {
+  @extend .form-inline;
+}
+.search-form label {
+  font-weight: normal;
+  @extend .form-group;
+}
+.search-form .search-field {
+  @extend .form-control;
+}
+.search-form .search-submit {
+  @extend .btn;
+  @extend .btn-default;
+}
+input, textarea, .select2-container .select2-choice, select{
+	border: 2px solid $light-gray;
+}
+.woocommerce form .form-row input.input-text{
+	height: rem(42);
+	text-indent: rem(6);
+	font-family: $heading-font!important;
+	font-style: italic;
+	&::-webkit-input-placeholder {
+		color: $light-gray;
+		font-style: italic;
+		font-family: 'PlayFair Display' !important;
+	}
+
+	&:-moz-placeholder { /* Firefox 18- */
+		color: $light-gray;
+		font-style: italic;
+		font-family: 'PlayFair Display' !important;
+	}
+
+	&::-moz-placeholder {  /* Firefox 19+ */
+		color: $light-gray;
+		font-style: italic;
+		font-family: 'PlayFair Display' !important;
+	}
+
+	&:-ms-input-placeholder {  
+		color: $light-gray;
+		font-style: italic;
+		font-family: 'PlayFair Display' !important;
+	}
+	&:focus{
+		outline:none; 
+		border:1px solid #4D90FE;
+		-webkit-box-shadow: 0px 0px 5px  #4D90FE;
+		box-shadow: 0px 0px 5px  #4D90FE;
+	}
+}
+.gform_wrapper{
+	input[type="text"], input[type="password"], input[type="email"], input[type="tel"], .select2-container .select2-choice, select{
+		height: rem(42);
+		text-indent: rem(6);
+		font-family: $heading-font!important;
+		font-style: italic;
+		&::-webkit-input-placeholder {
+			color: $light-gray;
+			font-style: italic;
+			font-family: 'PlayFair Display' !important;
+		}
+
+		&:-moz-placeholder { /* Firefox 18- */
+			color: $light-gray;
+			font-style: italic;
+			font-family: 'PlayFair Display' !important;
+		}
+
+		&::-moz-placeholder {  /* Firefox 19+ */
+			color: $light-gray;
+			font-style: italic;
+			font-family: 'PlayFair Display' !important;
+		}
+
+		&:-ms-input-placeholder {  
+			color: $light-gray;
+			font-style: italic;
+			font-family: 'PlayFair Display' !important;
+		}
+		&:focus{
+			outline:none; 
+			border:1px solid #4D90FE;
+			-webkit-box-shadow: 0px 0px 5px  #4D90FE;
+			box-shadow: 0px 0px 5px  #4D90FE;
+		}
+	}
+}
+textarea{
+	font-family: $heading-font!important;
+	font-style: italic;
+	&::-webkit-input-placeholder {
+		color: $light-gray;
+		font-style: italic;
+		font-family: 'PlayFair Display' !important;
+	}
+
+	&:-moz-placeholder { /* Firefox 18- */
+		color: $light-gray;
+		font-style: italic;
+		font-family: 'PlayFair Display' !important;
+	}
+
+	&::-moz-placeholder {  /* Firefox 19+ */
+		color: $light-gray;
+		font-style: italic;
+		font-family: 'PlayFair Display' !important;
+	}
+
+	&:-ms-input-placeholder {  
+		color: $light-gray;
+		font-style: italic;
+		font-family: 'PlayFair Display' !important;
+	}
+}
+.select2-container .select2-choice, select, .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select {
+	border-radius: 0;
+	//-webkit-appearance: none;
+	//-webkit-border-radius: 0px;
+}
+body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html.envelope-style-images{
+	> div{
+		max-width: rem(160);
+		display: inline-block;
+		vertical-align: top;
+	}
+}
+
+.contact-form{
+	.gform_confirmation_message{
+		text-align: right;
+		padding-right: rem(8);
+		@media screen and (max-width: $breakpoint--large){
+			text-align: left;
+			padding-top: rem(16);
+		}
+	}
+}
+
+.ui-datepicker{
+	.ui-datepicker-title{
+		select{
+			color: $medium-gray;
+		}
+	}
+}
+.ui-datepicker-month, .ui-datepicker-year{
+	color: $dark-gray;
+}
+.woocommerce form .form-row.woocommerce-validated .select2-container{
+	border-color: $light-gray;
+	a{
+		border-color: $light-gray;	
+	}
+}
+
+.cart{
+	@media screen and (min-width: $breakpoint--medium){
+		.cpf-type-textfield {
+			position: relative;
+		    display: block;
+		    padding-bottom: 22px !important;
+			@include clearfix;
+			> label{
+				float: left;
+				width: auto;
+				margin: 10px 10px 0 0;
+				max-width: calc(100% - 170px);
+			}
+			
+			.tm-extra-product-options-container{
+				max-width: 160px;
+				#tmcp_textfield_10, #tmcp_textfield_9{
+					float: right;
+				}
+			}
+
+			.tm-description{
+				position: absolute;
+			    bottom: 0;
+			    left: 0;
+			}
+		}
+	}
+}
+
+.tm-extra-product-options .tm-cell.col-9.cpf-type-upload{
+	width: 100%;
+}

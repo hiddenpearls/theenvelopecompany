@@ -1,0 +1,39 @@
+.modal{
+	&.in{
+		.modal-dialog{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+		}
+	}
+	&.fade{
+		.modal-dialog{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+		}
+	}
+	.modal-header{
+		border: none;
+		.close{
+			opacity: .4;
+			@include transition(0.2s all ease-in-out);
+			&:hover{
+				opacity: .8;
+			}
+			span{
+				color: $brand-rust;
+			}
+		}
+	}
+	.modal-content{
+		border-radius: 0;
+		background-color: $sand;
+	}
+	.modal-footer{
+		text-align: left;
+		border: none;
+	}		
+}

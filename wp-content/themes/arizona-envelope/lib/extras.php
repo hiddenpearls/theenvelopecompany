@@ -44,6 +44,13 @@ if( function_exists('acf_add_options_page') ) {
     'capability'  => 'edit_posts',
     'redirect'    => false
   ));
+  /*acf_add_options_sub_page(array(
+    'page_title'  => 'Sale Popup',
+    'menu_title'  => 'Sale Popup',
+    'parent_slug' => 'theme-general-settings',
+    'capability'  => 'edit_posts',
+    'redirect'    => false
+  ));*/
   acf_add_options_sub_page(array(
     'page_title'  => 'Analytics Settings',
     'menu_title'  => 'Analytics Settings',
@@ -106,24 +113,74 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
 add_action( 'woocommerce_single_product_title', 'woocommerce_template_single_title', 5 );
 
 /**
- * Change single product pages
+ * Change single product pages layouts
  */
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+//add excerpt to after add to cart form
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+add_action('woocommerce_after_add_to_cart_form', 'woocommerce_template_single_excerpt', 20);
+
+//get list of attributes from product info and the product description
 function product_long_desc() {
   global $woocommerce, $post;
-
-  if ( $post->post_content ) : ?>
-    <div itemprop="description">
-
-      <?php the_content(); ?>
-
-    </div>
-  <?php endif;
+ ?>
+  <div itemprop="description">
+    <?php 
+    global $product;
+    //echo $product->list_attributes();
+    $sku = $product->get_sku();
+    if( $sku ) {
+      echo '<p>SKU: '.$sku.'<br>';  
+    }
+    $style = $product->get_attribute( 'style' );
+    if( $style ) {
+      echo 'Style: '.$style.'<br>';
+    }
+    $size = $product->get_attribute( 'size' ) ;
+    if( $size ) {
+      echo 'Size: '.$size.'<br>';
+    }
+    $flap_size = $product->get_attribute( 'flap size' );
+    if ( $flap_size ) {
+      echo 'Flap size: '.$flap_size.'<br>';
+    }
+    $paper_color = $product->get_attribute( 'color' ) ;
+    if( $paper_color ) {
+      echo 'Paper Color: '.$paper_color.'<br>';
+    }
+    $paper_weight = $product->get_attribute( 'paper weight' ) ;
+    if( $paper_weight ) {
+      echo 'Paper Weight: '.$paper_weight.'<br>';
+    }
+    $sealing_method = $product->get_attribute( 'sealing method' ) ;
+    if( $sealing_method ) {
+      echo 'Sealing Method: '.$sealing_method.'<br>';
+    }
+    $security_tint = $product->get_attribute( 'security tint' );
+    if( $security_tint ) {
+      echo 'Security Tint: '.$security_tint.'<br>';
+    }
+    $window_size = $product->get_attribute( 'window size' );
+    if( $window_size ) {
+      echo 'Window size: '.$window_size.'<br>';
+    }
+    $window_position = $product->get_attribute( 'window position' );
+    if( $window_position ) {
+      echo "Window position: ".$window_position.'<br>';
+    }
+    if ( $post->post_content ) {
+      echo "Description: ".get_the_content()."</p>";
+    } ?>
+  </div>
+<?php
 }
 add_action( 'woocommerce_single_product_summary', 'Roots\Sage\Extras\product_long_desc', 20 );
 
+/**
+ * Show attributes within product loop and print size, color and paper weight along with product name and image and view more link
+ * INSIDE the loop
+ */
 remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
 add_action( 'woocommerce_after_shop_loop_item_title', 'Roots\Sage\Extras\woocommerce_template_loop_attributes', 10 );
 function woocommerce_template_loop_attributes(){
@@ -176,6 +233,7 @@ function get_cart_count(){
   return sizeof(WC()->cart->cart_contents);
 
 }
+//add login/logout links 
 add_filter( 'wp_nav_menu_items', 'Roots\Sage\Extras\wti_loginout_menu_link', 10, 2 );
 function wti_loginout_menu_link( $items, $args ) {
    if (($args->theme_location == 'top_navigation')) {

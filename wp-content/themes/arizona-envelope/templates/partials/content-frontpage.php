@@ -31,7 +31,7 @@
                       // get the image URL for child category
                       $image = wp_get_attachment_url($thumbnail_id);
                       // print the IMG HTML for child category
-                      echo "<img src='".$image."' alt='' />";
+                      echo "<img src='".$image."' alt='".$cat->name." Category Image' />";
                       echo  '<span>'.$cat->name.'</span>';
                       echo '<a class="orange-btn btn small" href="'. get_term_link($cat->slug, 'product_cat') .'">Shop';
                       echo '</a></div>';
@@ -41,21 +41,6 @@
         </div>
     </div>
 </section>
-<?php if( get_field('panel_title') ): ?>
-<section class="panel-wbgd submit-file-section" style="background-image: url('<?php the_field('panel_background_image'); ?>');">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-4">
-                <h2><?php the_field('panel_title'); ?></h2>
-                <p><?php the_field('panel_text'); ?></p>
-                <a href="<?php the_field('panel_button_url'); ?>" class="white-btn btn big">
-                    <?php the_field('panel_button_label'); ?>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-<?php endif; ?>
 <section class="sand-bgd contact-section">
     <div class="container">
         <div class="row">
@@ -96,5 +81,39 @@
         </div>
     </div>
 </section>
-
+<?php if( get_field('panel_title') ): ?>
+<section class="panel-wbgd submit-file-section" style="background-image: url('<?php the_field('panel_background_image'); ?>');">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-4">
+                <h2><?php the_field('panel_title'); ?></h2>
+                <p><?php the_field('panel_text'); ?></p>
+                <a href="<?php the_field('panel_button_url'); ?>" class="white-btn btn big">
+                    <?php the_field('panel_button_label'); ?>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
+<?php 
+    //show popup modal if enabled from the backend
+    if( get_field('enable_popup', 'option') ){
+        get_template_part('templates/partials/sale', 'popup');
+    }
+?>
 <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
+<script>
+  jQuery(document).ready(function( $ ) {
+    // Sale Popup show after time interval
+    var modalPresent = $('#salePopup').length;
+    if( modalPresent >= 1){
+      var openModal = function(){
+        $('#salePopup').modal('toggle');
+      }
+      setTimeout(function(){
+        openModal();
+      }, 3000);
+    }
+  });
+</script>

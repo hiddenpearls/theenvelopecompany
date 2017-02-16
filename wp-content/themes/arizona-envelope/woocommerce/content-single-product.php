@@ -65,6 +65,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 							 * @hooked woocommerce_template_single_add_to_cart - 30
 							 * @hooked woocommerce_template_single_meta - 40
 							 * @hooked woocommerce_template_single_sharing - 50
+							 *
+							 * @Custom hooked product_long_desc lib/extras.php - 20
 							 */
 							do_action( 'woocommerce_single_product_summary' );
 						?>
