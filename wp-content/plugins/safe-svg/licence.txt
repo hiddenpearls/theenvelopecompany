@@ -1,4 +1,4 @@
-Safe SVG - Upload and sanitize SVGs within Wordpress
+Safe SVG - Upload and sanitize SVGs within WordPress
 
 Copyright 2015 Daryll Doyle
 

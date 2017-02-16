@@ -7,7 +7,8 @@ if( ! class_exists('acf_local') ) :
 class acf_local {
 	
 	// vars
-	var $groups = array(),
+	var $temp = array(),
+		$groups = array(),
 		$fields = array(),
 		$reference = array(),
 		$parents = array();
@@ -34,6 +35,7 @@ class acf_local {
 		
 		// actions
 		add_action('acf/delete_field',		array($this, 'acf_delete_field'), 20, 1);
+		add_action('acf/include_fields', 	array($this, 'acf_include_fields'), 10, 4);
 		
 		
 		// filters
@@ -87,6 +89,7 @@ class acf_local {
 	function reset() {
 		
 		// vars
+		$this->temp = array();
 		$this->groups = array();
 		$this->fields = array();
 		$this->reference = array();
@@ -337,6 +340,40 @@ class acf_local {
 	
 	
 	/*
+	*  acf_include_fields
+	*
+	*  description
+	*
+	*  @type	function
+	*  @date	8/2/17
+	*  @since	5.5.6
+	*
+	*  @param	$post_id (int)
+	*  @return	$post_id (int)
+	*/
+	
+	function acf_include_fields() {
+		
+		// bail ealry if no temp
+		if( empty($this->temp) ) return;
+		
+		
+		// loop
+		foreach( $this->temp as $i => $temp ) {
+			
+			// add
+			$this->add_field_group($temp);
+			
+			
+			// unset
+			unset($this->temp[ $i ]);
+			
+		}
+		
+	}
+	
+	
+	/*
 	*  add_field_group
 	*
 	*  This function will add a $field group to the local placeholder
@@ -350,6 +387,16 @@ class acf_local {
 	*/
 	
 	function add_field_group( $field_group ) {
+		
+		// add field group to temp for import later during 'acf/include_fields'
+		if( !did_action('acf/include_fields') ) {
+			
+			$this->temp[] = $field_group;
+			
+			return;
+			
+		}
+		
 		
 		// validate
 		$field_group = acf_get_valid_field_group($field_group);

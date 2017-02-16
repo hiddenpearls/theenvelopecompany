@@ -106,6 +106,9 @@ http://support.advancedcustomfields.com/
 
 == Changelog ==
 
+= 5.5.7 =
+* Core: Fixed bug causing `get_field()` to return incorrect data for sub fields registered via PHP code.
+
 = 5.5.6 =
 * Core: Fixed bug causing license key to be ignored after changing url from http to https
 * Core: Fixed Select2 (v4) bug where 'allow null' setting would not correctly save empty value
