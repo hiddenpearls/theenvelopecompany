@@ -4,8 +4,8 @@
 			<div class="widget-footer">
 				<?php //dynamic_sidebar('sidebar-footer'); ?>
 				<a class="brand" href="<?= esc_url(home_url('/')); ?>">
-	                <img class="regular-logo" src="<?php the_field('site_logo', 'option'); ?>" alt="<?php echo get_bloginfo(); ?> logo">
-	                <img class="retina-logo" src="<?php the_field('retina_site_logo', 'option'); ?>" alt="<?php echo get_bloginfo(); ?> logo">
+	                <img class="regular-logo" src="<?php the_field('iso_logo', 'option'); ?>" alt="<?php echo get_bloginfo(); ?> logo">
+	                <img class="retina-logo" src="<?php the_field('retina_iso_logo', 'option'); ?>" alt="<?php echo get_bloginfo(); ?> logo">
 	            </a>
 				<?php
                     /*if (has_nav_menu('footer_navigation')) :

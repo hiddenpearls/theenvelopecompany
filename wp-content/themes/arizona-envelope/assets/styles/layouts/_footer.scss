@@ -13,12 +13,12 @@
 			}
 		}
 		.brand{
-			max-width: rem(130);
-			margin-top: rem(70);
+			max-width: rem(120);
+			margin-top: rem(20);
 			float: left;
 		    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
 		        .retina-logo{
-		            max-width: rem(130);
+		            max-width: rem(120);
 		        }
 		    }
 		    @media screen and (max-width: $breakpoint--large) { 
