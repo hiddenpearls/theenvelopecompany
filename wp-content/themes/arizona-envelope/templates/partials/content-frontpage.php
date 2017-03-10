@@ -57,17 +57,17 @@
                     ?>
                     <li><a href="tel:<?php echo $cleaned_phone; ?>"><i class="fa fa-phone"></i><strong>Toll Free: </strong><?php echo $phone; ?></a></li>
                     <?php 
-                        $phone = get_field('regular_phone_number', 'options');; 
+                        /*$phone = get_field('regular_phone_number', 'options');; 
                         $cleaned_phone = $phone;
-                        $cleaned_phone = str_replace(array('(', ')', '-', ' '), "", $cleaned_phone);
+                        $cleaned_phone = str_replace(array('(', ')', '-', ' '), "", $cleaned_phone);*/
                     ?>
-                    <li><a href="tel:<?php echo $cleaned_phone; ?>"><i class="fa fa-phone-square"></i><strong>Phone: </strong><?php echo $phone; ?></a></li>
+                    <!--<li><a href="tel:<?php echo $cleaned_phone; ?>"><i class="fa fa-phone-square"></i><strong>Phone: </strong><?php echo $phone; ?></a></li>-->
                     <?php 
-                        $phone = get_field('fax_number', 'options'); 
+                        /*$phone = get_field('fax_number', 'options'); 
                         $cleaned_phone = $phone;
-                        $cleaned_phone = str_replace(array('(', ')', '-', ' '), "", $cleaned_phone);
+                        $cleaned_phone = str_replace(array('(', ')', '-', ' '), "", $cleaned_phone);*/
                     ?>
-                    <li><a href="tel:<?php echo $cleaned_phone; ?>"><i class="fa fa-fax"></i><strong>Fax: </strong><?php echo $phone; ?></a></li>
+                    <!--<li><a href="tel:<?php echo $cleaned_phone; ?>"><i class="fa fa-fax"></i><strong>Fax: </strong><?php echo $phone; ?></a></li>-->
                 </ul>
             </div>
             <div class="col-md-8 contact-form">

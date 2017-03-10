@@ -53,13 +53,22 @@
         padding-left: 0;
         margin: rem(35) 0;
         display: block; 
-        max-width: rem(300);
+        //max-width: rem(300);
+        width: rem(280);
+        img{
+            width: 100%;
+        }
+        @media screen and (max-width: $breakpoint--xlarge){
+            width: rem(220);
+        }
         @media screen and (max-width: $breakpoint--large){
-            max-width: rem(185);
-            margin: 20px 0 10px;
-            img{
-                max-width: 100%;
-            }
+            width: rem(260);
+        }
+        @media screen and (max-width: $breakpoint--medium){
+            margin-left: 2%;
+        }
+        @media screen and (max-width: $breakpoint--small){
+            width: rem(180);
         }
     }
     .main-site-nav{
