@@ -455,29 +455,32 @@
         
         @media screen and (min-width: $breakpoint--small){
             position: absolute;
-            bottom: rem(2);
+            //bottom: rem(2);
+            //bottom: auto;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-50%) translateY(-50%);
             width: 100%;
         }
-        @media screen and (min-width: $breakpoint--medium){
+        /*@media screen and (min-width: $breakpoint--medium){
             bottom: rem(20);
-        }
-        @media screen and (min-width: 830px){
+        }*/
+        /*@media screen and (min-width: 830px){
             bottom: rem(60);
-        }
-        @media screen and (min-width: $breakpoint--large){
+        }*/
+        /*@media screen and (min-width: $breakpoint--large){
             bottom: rem(10);
-        }
+        }*/
         @media screen and (min-width: $breakpoint--xlarge){
             width: rem(1170);
         }
-        @media screen and (min-width: 1250px){
+        /*@media screen and (min-width: 1250px){
             bottom: rem(20);
-        }
+        }*/
         @media screen and (min-width: 1350px){
             bottom: auto;
-            top: rem(200);
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
         }
         .slider-caption{
             max-width: 40%;

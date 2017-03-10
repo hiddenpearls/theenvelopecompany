@@ -4,7 +4,7 @@
             <div class="col-md-4 contact-information">
                 <h2><?php the_field('company');?></h2>
                 <p class="address"><?php the_field('address_1');?><br/><?php echo get_field('city').', '.get_field('state_province_region')." ".get_field('zip');?></p>
-                <p class="heading-text italic">Customer Service</p>
+                <!--<p class="heading-text italic">Customer Service</p>-->
                 <ul>
                     <?php 
                         $phone = get_field('toll_free_phone', 'options'); 
