@@ -51,14 +51,24 @@
     }
     .brand{
         padding-left: 0;
-        margin: rem(12) 0 rem(12);
+        margin: rem(35) 0;
         display: block; 
+        //max-width: rem(300);
+        width: rem(280);
+        img{
+            width: 100%;
+        }
+        @media screen and (max-width: $breakpoint--xlarge){
+            width: rem(220);
+        }
         @media screen and (max-width: $breakpoint--large){
-            max-width: rem(185);
-            margin: 20px 0 10px;
-            img{
-                max-width: 100%;
-            }
+            width: rem(260);
+        }
+        @media screen and (max-width: $breakpoint--medium){
+            margin-left: 2%;
+        }
+        @media screen and (max-width: $breakpoint--small){
+            width: rem(180);
         }
     }
     .main-site-nav{
@@ -445,29 +455,32 @@
         
         @media screen and (min-width: $breakpoint--small){
             position: absolute;
-            bottom: rem(2);
+            //bottom: rem(2);
+            //bottom: auto;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-50%) translateY(-50%);
             width: 100%;
         }
-        @media screen and (min-width: $breakpoint--medium){
+        /*@media screen and (min-width: $breakpoint--medium){
             bottom: rem(20);
-        }
-        @media screen and (min-width: 830px){
+        }*/
+        /*@media screen and (min-width: 830px){
             bottom: rem(60);
-        }
-        @media screen and (min-width: $breakpoint--large){
+        }*/
+        /*@media screen and (min-width: $breakpoint--large){
             bottom: rem(10);
-        }
+        }*/
         @media screen and (min-width: $breakpoint--xlarge){
             width: rem(1170);
         }
-        @media screen and (min-width: 1250px){
+        /*@media screen and (min-width: 1250px){
             bottom: rem(20);
-        }
+        }*/
         @media screen and (min-width: 1350px){
             bottom: auto;
-            top: rem(200);
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
         }
         .slider-caption{
             max-width: 40%;
