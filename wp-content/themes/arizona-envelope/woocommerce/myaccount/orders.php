@@ -40,9 +40,9 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 		<tbody>
 			<?php foreach ( $customer_orders->orders as $customer_order ) :
 				$order      = wc_get_order( $customer_order );
-				echo "<pre>";
-				print_r($order);
-				echo "</pre>";
+				//echo "<pre>";
+				//print_r($order);
+				//echo "</pre>";
 				$item_count = $order->get_item_count();
 				?>
 				<tr class="order">
