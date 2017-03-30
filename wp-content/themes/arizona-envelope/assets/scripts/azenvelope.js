@@ -124,7 +124,7 @@ jQuery(document).ready(function( $ ) {
 	});
 
 	//set active nav state when viewing single posts
-	/*if (window.location.href.indexOf('news') > -1) {
+	if (window.location.href.indexOf('news') > -1) {
     	$('#menu-site-navigation li a').each(function(){
     		//console.log($(this));
 			if($(this).attr('href').indexOf('about-us') > -1){
@@ -200,7 +200,7 @@ jQuery(document).ready(function( $ ) {
 				$(this).parent('.woocommerce-MyAccount-navigation-link').addClass("current-page-ancestor");
 			}
 		});
-	}*/
+	}
 	
 	$(".tc-label.tm-epo-style").each(function (i) { 
 		$(this).attr("tabindex", 0);
