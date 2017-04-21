@@ -20,6 +20,10 @@ function wooc_extra_register_fields() {
         <label for="reg_password2"><?php _e( 'Password Repeat', 'woocommerce' ); ?> <span class="required">*</span></label>
         <input type="password" class="input-text" name="password2" id="reg_password2" value="<?php //if ( ! empty( $_POST['password2'] ) ) echo esc_attr( $_POST['password2'] ); ?>" />
       </p>-->
+      <p class="form-row form-row-wide">
+        <label for="reg_billing_company"><?php _e( 'Company', 'woocommerce' ); ?></label>
+        <input type="text" class="input-text" name="billing_company" id="reg_billing_company" value="<?php if ( ! empty( $_POST['billing_company'] ) ) esc_attr_e( $_POST['billing_company'] ); ?>" />
+      </p>
        <?php
 }
 add_action( 'woocommerce_register_form_start', 'wooc_extra_register_fields' );
@@ -90,11 +94,33 @@ function wooc_save_extra_register_fields( $customer_id ) {
               // WooCommerce billing last name.
               update_user_meta( $customer_id, 'billing_last_name', sanitize_text_field( $_POST['billing_last_name'] ) );
        }
+       if ( isset( $_POST['billing_company'] ) ) {
+              // WordPress default last name field.
+              update_user_meta( $customer_id, 'company', sanitize_text_field( $_POST['billing_company'] ) );
+              // WooCommerce billing last name.
+              update_user_meta( $customer_id, 'billing_company', sanitize_text_field( $_POST['billing_company'] ) );
+       }
        /*if ( isset( $_POST['billing_phone'] ) ) {
               // WooCommerce billing phone
               update_user_meta( $customer_id, 'billing_phone', sanitize_text_field( $_POST['billing_phone'] ) );
        }*/
 }
 add_action( 'woocommerce_created_customer', 'wooc_save_extra_register_fields' );
+
+/**
+ *  Add a custom email to the list of emails WooCommerce should load
+ *
+ * @since 0.1
+ * @param array $email_classes available email classes
+ * @return array filtered available email classes
+ */
+function add_azenv_order_woocommerce_email( $email_classes ) {
+	// include our custom email class
+	require_once( 'includes/class-wc-custom-order-email.php' );
+	// add the email class to the list of email classes that WooCommerce loads
+	$email_classes['WC_Custom_Order_Email'] = new WC_Custom_Order_Email();
+	return $email_classes;
+}
+add_filter( 'woocommerce_email_classes', 'add_azenv_order_woocommerce_email' );
 
 ?>
