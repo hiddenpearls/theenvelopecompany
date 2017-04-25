@@ -7,7 +7,9 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<?php gravity_form( 12, false, false, false, '', false ); ?>
+				<?php
+				the_field('gravity_form_shortcode');
+				?>
 			</div>
 		</div>
 	</div>

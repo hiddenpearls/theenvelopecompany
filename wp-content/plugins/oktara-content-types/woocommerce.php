@@ -95,10 +95,14 @@ function wooc_save_extra_register_fields( $customer_id ) {
               update_user_meta( $customer_id, 'billing_last_name', sanitize_text_field( $_POST['billing_last_name'] ) );
        }
        if ( isset( $_POST['billing_company'] ) ) {
-              // WordPress default last name field.
-              update_user_meta( $customer_id, 'company', sanitize_text_field( $_POST['billing_company'] ) );
-              // WooCommerce billing last name.
-              update_user_meta( $customer_id, 'billing_company', sanitize_text_field( $_POST['billing_company'] ) );
+              // WordPress default billing company field.
+              //update_user_meta( $customer_id, 'company', sanitize_text_field( $_POST['billing_company'] ) );
+              //update_user_meta( $customer_id, 'user_company', esc_attr( $_POST['billing_company'] ) );
+              // WooCommerce billing company.
+              update_user_meta( $customer_id, 'user_company', sanitize_text_field( $_POST['billing_company'] ) );
+              
+              //update_user_meta( $customer_id, 'user_company', sanitize_text_field( $_POST['billing_company'] ) );
+              
        }
        /*if ( isset( $_POST['billing_phone'] ) ) {
               // WooCommerce billing phone
@@ -122,5 +126,58 @@ function add_azenv_order_woocommerce_email( $email_classes ) {
 	return $email_classes;
 }
 add_filter( 'woocommerce_email_classes', 'add_azenv_order_woocommerce_email' );
+
+
+/**
+ *  Add a custom field to the contact information form in Wordpress
+ *
+ */
+function modify_contact_methods($profile_fields) {
+	// Add new fields
+	$profile_fields['user_company'] = 'Company';
+	return $profile_fields;
+}
+add_filter('user_contactmethods', 'modify_contact_methods');
+
+/**
+ *  Add company field to account details form and save to user profile
+ *
+ */
+//add_action( 'woocommerce_edit_account_form', 'my_woocommerce_edit_account_form' );
+add_action( 'woocommerce_save_account_details', 'my_woocommerce_save_account_details' );
+ 
+/*function my_woocommerce_edit_account_form() {
+ 
+  $user_id = get_current_user_id();
+  $user = get_userdata( $user_id );
+ 
+  if ( !$user )
+    return;
+ 
+  //$twitter = get_user_meta( $user_id, 'twitter', true );
+  //$url = $user->user_url;
+  $company = $user->user_company;
+  
+ 
+  ?>
+ 
+  <p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+		<label for="user_company"><?php _e( 'Company', 'woocommerce' ); ?> </label>
+		<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="user_company" id="user_company" value="<?php echo esc_attr( $user->user_company ); ?>" />
+	</p>
+ 
+  <?php
+ 
+}*/
+ 
+function my_woocommerce_save_account_details( $user_id ) {
+  $user_id = get_current_user_id();
+  $user = get_userdata( $user_id );
+  //update_user_meta( $user_id, 'twitter', htmlentities( $_POST[ 'twitter' ] ) );
+ 
+  //$user = wp_update_user( array( 'ID' => $user_id, 'user_url' => esc_url( $_POST[ 'url' ] ) ) );
+   update_user_meta( $user_id, 'user_company', sanitize_text_field( $_POST['user_company'] ) );
+ 
+}
 
 ?>
