@@ -29,19 +29,6 @@ class WC_Custom_Order_Email extends WC_Email {
 		add_action( 'woocommerce_order_status_failed_to_processing_notification',  array( $this, 'trigger' ) );
 		// Call parent constructor to load any other defaults not explicity defined here
 		parent::__construct();
-		// this sets the recipient to the settings defined below in init_form_fields()
-		//$this->recipient = $this->get_option( 'recipient' );
-		// if none was entered, just use the WP admin email as a fallback
-		//if ( ! $this->recipient ){
-			//$this->recipient = get_option( 'admin_email' );
-		//}
-		
-		//$this->recipient = apply_filters( 'woocommerce_email_recipient_{$id}', $this->recipient, $this->object );
-		
-		/*global $woocommerce;
-		$this->object = new WC_Order( $order_id );
-		$customer = get_userdata($this->object->customer_user);
-		var_dump($customer);*/
 	}
 	
 	/**
@@ -62,9 +49,6 @@ class WC_Custom_Order_Email extends WC_Email {
 		$this->find[] = '{order_number}';
 		$this->replace[] = $this->object->get_order_number();
 		$this->recipient    = $this->object->billing_email;
-		error_log($this->recipient);
-		//$customer = get_userdata($this->object->customer_user);
-		//var_dump($customer);
 
 		if ( ! $this->is_enabled() || ! $this->get_recipient() )
 			return;
@@ -143,18 +127,3 @@ class WC_Custom_Order_Email extends WC_Email {
 	}
 
 }// end \WC_Custom_Order_Email class
-
-
-
-
-
-/*
-,
-'recipient'  => array(
-	'title'       => 'Recipient(s)',
-	'type'        => 'text',
-	'description' => sprintf( 'Enter recipients (comma separated) for this email. Defaults to <code>%s</code>.', esc_attr( get_option( 'admin_email' ) ) ),
-	'placeholder' => '',
-	'default'     => ''
-)
-*/
