@@ -1,0 +1,712 @@
+0000.000 (0) Opened log file at time: Mon, 17 Jul 2017 16:31:29 +0000 on https://theenvelopecompany.com
+0000.001 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.12.35 WP: 4.7.2 PHP: 7.0.15-0ubuntu0.16.04.4 (apache2handler, Linux ip-172-31-6-8 4.4.0-59-generic #80-Ubuntu SMP Fri Jan 6 17:47:47 UTC 2017 x86_64) MySQL: 5.7.18 WPLANG: en_US Server: Apache/2.4.18 (Ubuntu) safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 10.3M | 2M) multisite: N openssl: OpenSSL 1.0.2g  1 Mar 2016 mcrypt: Y LANG: C ZipArchive::addFile: Y
+0000.001 (0) Free space on disk containing Updraft's temporary directory: 23229.5 MB
+0000.002 (0) Tasks: Backup files: 1 (schedule: weekly) Backup DB:  (schedule: daily)
+0000.003 (0) Processed schedules. Combining jobs from co-inciding events. Tasks now: Backup files: 1 Backup DB: 1
+0000.006 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1499704698, seconds_ago=604391)
+0000.007 (0) Set semaphore last lock (fd) time to 2017-07-17 16:31:29
+0000.007 (0) Semaphore lock (fd) complete
+0000.009 (0) Backup run: resumption=0, nonce=a81ee882389f, begun at=1500309089 (0s ago), job type=backup
+0000.010 (0) Scheduling a resumption (1) after 300 seconds (1500309389) in case this run gets aborted
+0000.019 (0) Checking if we have a zip executable available
+0000.020 (0) Creation of backups of directories: beginning
+0000.021 (0) Beginning creation of dump of plugins (split every: 500 MB)
+0000.058 (0) Total entities for the zip file: 697 directories, 4635 files (0 skipped as non-modified), 77.3 MB
+0000.073 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.079 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.087 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.093 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.101 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.102 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (13.1 MB, 4635 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0001.717 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 600 files added (on-disk size: 5122 KB)
+0001.724 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 700 files added (on-disk size: 5122 KB)
+0001.732 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 800 files added (on-disk size: 5122 KB)
+0001.741 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 900 files added (on-disk size: 5122 KB)
+0001.750 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 1000 files added (on-disk size: 5122 KB)
+0001.750 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (9.3 MB, 4635 files batched, 501 (1002) added so far); re-opening (prior size: 5122 KB)
+0002.602 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 1100 files added (on-disk size: 8983.7 KB)
+0002.611 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 1200 files added (on-disk size: 8983.7 KB)
+0002.621 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 1300 files added (on-disk size: 8983.7 KB)
+0002.631 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 1400 files added (on-disk size: 8983.7 KB)
+0002.644 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 1500 files added (on-disk size: 8983.7 KB)
+0002.644 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (21.1 MB, 4635 files batched, 501 (1503) added so far); re-opening (prior size: 8983.7 KB)
+0004.691 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 1600 files added (on-disk size: 15292.5 KB)
+0004.703 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 1700 files added (on-disk size: 15292.5 KB)
+0004.715 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 1800 files added (on-disk size: 15292.5 KB)
+0004.728 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 1900 files added (on-disk size: 15292.5 KB)
+0004.741 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 2000 files added (on-disk size: 15292.5 KB)
+0004.742 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (4.5 MB, 4635 files batched, 501 (2004) added so far); re-opening (prior size: 15292.5 KB)
+0005.173 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 2100 files added (on-disk size: 16701 KB)
+0005.186 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 2200 files added (on-disk size: 16701 KB)
+0005.201 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 2300 files added (on-disk size: 16701 KB)
+0005.215 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 2400 files added (on-disk size: 16701 KB)
+0005.230 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 2500 files added (on-disk size: 16701 KB)
+0005.231 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (3.4 MB, 4635 files batched, 501 (2505) added so far); re-opening (prior size: 16701 KB)
+0005.525 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 2600 files added (on-disk size: 17600.6 KB)
+0005.539 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 2700 files added (on-disk size: 17600.6 KB)
+0005.555 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 2800 files added (on-disk size: 17600.6 KB)
+0005.570 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 2900 files added (on-disk size: 17600.6 KB)
+0005.586 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 3000 files added (on-disk size: 17600.6 KB)
+0005.587 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (4.9 MB, 4635 files batched, 501 (3006) added so far); re-opening (prior size: 17600.6 KB)
+0005.968 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 3100 files added (on-disk size: 18909.1 KB)
+0005.984 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 3200 files added (on-disk size: 18909.1 KB)
+0006.000 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 3300 files added (on-disk size: 18909.1 KB)
+0006.017 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 3400 files added (on-disk size: 18909.1 KB)
+0006.035 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 3500 files added (on-disk size: 18909.1 KB)
+0006.037 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (4.5 MB, 4635 files batched, 501 (3507) added so far); re-opening (prior size: 18909.1 KB)
+0006.597 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 3600 files added (on-disk size: 20531.5 KB)
+0006.619 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 3700 files added (on-disk size: 20531.5 KB)
+0006.644 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 3800 files added (on-disk size: 20531.5 KB)
+0006.670 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 3900 files added (on-disk size: 20531.5 KB)
+0006.692 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 4000 files added (on-disk size: 20531.5 KB)
+0006.694 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (4.2 MB, 4635 files batched, 501 (4008) added so far); re-opening (prior size: 20531.5 KB)
+0007.287 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 4100 files added (on-disk size: 22377.7 KB)
+0007.306 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 4200 files added (on-disk size: 22377.7 KB)
+0007.326 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 4300 files added (on-disk size: 22377.7 KB)
+0007.345 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 4400 files added (on-disk size: 22377.7 KB)
+0007.365 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 4500 files added (on-disk size: 22377.7 KB)
+0007.367 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (9.3 MB, 4635 files batched, 501 (4509) added so far); re-opening (prior size: 22377.7 KB)
+0009.376 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip.tmp: 4600 files added (on-disk size: 26024.9 KB)
+0009.716 (0) Created plugins zip (0) - 28343.4 KB in 9.7 s (2923.8 KB/s) (SHA1 checksum: 3fda6e1cb40e00e51942a110fd2edfe105a88069)
+0009.717 (0) Beginning creation of dump of themes (split every: 500 MB)
+0009.719 (0) Total entities for the zip file: 31 directories, 162 files (0 skipped as non-modified), 3.7 MB
+0009.722 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0010.139 (0) Created themes zip (0) - 1388.6 KB in 0.4 s (3295.6 KB/s) (SHA1 checksum: d544745eebb31bfa0b0153c59b06d8c04b120b33)
+0010.140 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone
+0010.140 (0) Looking for candidates to back up in: /var/www/azenvelope/wp-content/uploads
+0010.141 (0) finding files: woocommerce_uploads: adding to list (1)
+0010.141 (0) finding files: WOOEXIM_Import: adding to list (2)
+0010.141 (0) finding files: wpallexport: adding to list (3)
+0010.142 (0) finding files: fpd_fonts: adding to list (4)
+0010.142 (0) finding files: 2017: adding to list (5)
+0010.142 (0) finding files: pb_backupbuddy: adding to list (6)
+0010.142 (0) finding files: GeoIP.dat: adding to list (7)
+0010.143 (0) finding files: wpallimport: adding to list (8)
+0010.143 (0) finding files: backupbuddy_backups: skipping: excluded by options (glob)
+0010.143 (0) finding files: backupbuddy_backups: skipping: excluded by options (glob)
+0010.143 (0) finding files: sucuri: adding to list (9)
+0010.144 (0) finding files: 2015: adding to list (10)
+0010.144 (0) finding files: extra_product_options_aze: adding to list (11)
+0010.144 (0) finding files: artwork: adding to list (12)
+0010.144 (0) finding files: 2016: adding to list (13)
+0010.145 (0) finding files: GeoIPv6.dat: adding to list (14)
+0010.145 (0) finding files: .htaccess: adding to list (15)
+0010.145 (0) finding files: wp-migrate-db: adding to list (16)
+0010.146 (0) finding files: WOOEXIM_EXPORT: adding to list (17)
+0010.146 (0) finding files: extra_product_options: adding to list (18)
+0010.146 (0) finding files: gravity_forms: adding to list (19)
+0010.146 (0) finding files: wc-logs: adding to list (20)
+0010.147 (0) Beginning creation of dump of uploads (split every: 500 MB)
+0010.159 (0) Total entities for the zip file: 109 directories, 1840 files (0 skipped as non-modified), 146.2 MB
+0010.162 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0010.165 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip.tmp: 200 files added (on-disk size: 0 KB)
+0010.168 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip.tmp: 300 files added (on-disk size: 0 KB)
+0010.172 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip.tmp: 400 files added (on-disk size: 0 KB)
+0010.177 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip.tmp: 500 files added (on-disk size: 0 KB)
+0010.178 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (17.1 MB, 1840 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0011.447 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip.tmp: 600 files added (on-disk size: 8334.4 KB)
+0011.454 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip.tmp: 700 files added (on-disk size: 8334.4 KB)
+0011.460 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip.tmp: 800 files added (on-disk size: 8334.4 KB)
+0011.466 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 25 MB added on this batch (25.2 MB, 1840 files batched, 376 (877) added so far); re-opening (prior size: 8334.4 KB)
+0012.084 (0) A useful amount of data was added after this amount of zip processing: 1.3 s (normalised: 1.3 s, rate: 19903 KB/s)
+0012.085 (0) Performance is good - will increase the amount of data we attempt to batch (time=1.2967619895935, normalised_time=1.2862401911609, max_time=-1, data points known=0, old_max_bytes=26214400, new_max_bytes=122283847)
+0012.089 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip.tmp: 900 files added (on-disk size: 34195.6 KB)
+0012.098 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip.tmp: 1000 files added (on-disk size: 34195.6 KB)
+0012.107 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip.tmp: 1100 files added (on-disk size: 34195.6 KB)
+0012.117 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip.tmp: 1200 files added (on-disk size: 34195.6 KB)
+0012.128 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip.tmp: 1300 files added (on-disk size: 34195.6 KB)
+0012.137 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (47.6 MB, 1840 files batched, 501 (1378) added so far); re-opening (prior size: 34195.6 KB)
+0013.391 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip.tmp: 1400 files added (on-disk size: 83009.7 KB)
+0013.402 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip.tmp: 1500 files added (on-disk size: 83009.7 KB)
+0013.412 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip.tmp: 1600 files added (on-disk size: 83009.7 KB)
+0013.423 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip.tmp: 1700 files added (on-disk size: 83009.7 KB)
+0013.435 (0) Zip: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip.tmp: 1800 files added (on-disk size: 83009.7 KB)
+0017.595 (0) Created uploads zip (0) - 136778 KB in 7.4 s (18366.2 KB/s) (SHA1 checksum: 84060ab71a66a8677d6752645d33c1a9ab0c18fe)
+0017.596 (0) Beginning backup of other directories found in the content directory (index: 0)
+0017.596 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql
+0017.597 (0) Looking for candidates to back up in: /var/www/azenvelope/wp-content
+0017.597 (0) finding files: plugins: skipping: this is the plugins directory
+0017.598 (0) finding files: upgrade: skipping: excluded by options
+0017.598 (0) finding files: uploads: skipping: this is the uploads directory
+0017.598 (0) finding files: .htaccess: adding to list (1)
+0017.598 (0) finding files: themes: skipping: this is the themes directory
+0017.599 (0) finding files: wflogs: adding to list (2)
+0017.599 (0) finding files: index.php: adding to list (3)
+0017.599 (0) finding files: updraft: skipping: this is the updraft directory
+0017.601 (0) Total entities for the zip file: 1 directories, 8 files (0 skipped as non-modified), 0.2 MB
+0017.609 (0) Created others zip (0) - 30.8 KB in 0 s (3572.5 KB/s) (SHA1 checksum: 5f805c1f0d0907ad4c6e915b5e460291a4eb9ede)
+0017.610 (0) Saving backup status to database (elements: 8)
+0017.612 (0) Beginning creation of database dump (WordPress DB)
+0017.612 (0) Testing: /usr/bin/mysqldump
+0017.645 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\nCRE (truncated - 1194 bytes total)
+0017.647 (0) Binary mysqldump: error (code: 5)
+0017.703 (0) Table wp_options: Total expected rows (approximate): 5259
+0017.795 (0) Table wp_options: Total rows added: 5255 in 0.09 seconds
+0017.796 (0) Table wp_options: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_options.table.gz - 351.1 KB)
+0017.797 (0) Table wp_users: Total expected rows (approximate): 74
+0017.799 (0) Table wp_users: Total rows added: 74 in 0.00 seconds
+0017.800 (0) Table wp_users: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_users.table.gz - 5 KB)
+0017.801 (0) Table wp_usermeta: Total expected rows (approximate): 8771
+0017.849 (0) Table wp_usermeta: Total rows added: 8771 in 0.05 seconds
+0017.850 (0) Table wp_usermeta: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_usermeta.table.gz - 77.5 KB)
+0017.852 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0017.852 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0017.853 (0) Table wp_commentmeta: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0017.855 (0) Table wp_comments: Total expected rows (approximate): 45
+0017.856 (0) Table wp_comments: Total rows added: 45 in 0.00 seconds
+0017.857 (0) Table wp_comments: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_comments.table.gz - 1.8 KB)
+0017.859 (0) Table wp_links: Total expected rows (approximate): 0
+0017.860 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0017.860 (0) Table wp_links: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_links.table.gz - 0.4 KB)
+0017.862 (0) Table wp_postmeta: Total expected rows (approximate): 17332
+0017.987 (0) Table wp_postmeta: Total rows added: 17332 in 0.13 seconds
+0017.988 (0) Table wp_postmeta: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_postmeta.table.gz - 195.5 KB)
+0017.990 (0) Table wp_posts: Total expected rows (approximate): 781
+0018.023 (0) Table wp_posts: Total rows added: 781 in 0.03 seconds
+0018.024 (0) Table wp_posts: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_posts.table.gz - 109.3 KB)
+0018.025 (0) Table wp_term_relationships: Total expected rows (approximate): 321
+0018.027 (0) Table wp_term_relationships: Total rows added: 321 in 0.00 seconds
+0018.027 (0) Table wp_term_relationships: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_term_relationships.table.gz - 1.2 KB)
+0018.029 (0) Table wp_term_taxonomy: Total expected rows (approximate): 44
+0018.030 (0) Table wp_term_taxonomy: Total rows added: 44 in 0.00 seconds
+0018.030 (0) Table wp_term_taxonomy: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_term_taxonomy.table.gz - 0.8 KB)
+0018.032 (0) Table wp_termmeta: Total expected rows (approximate): 32
+0018.033 (0) Table wp_termmeta: Total rows added: 32 in 0.00 seconds
+0018.033 (0) Table wp_termmeta: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_termmeta.table.gz - 0.6 KB)
+0018.035 (0) Table wp_terms: Total expected rows (approximate): 44
+0018.036 (0) Table wp_terms: Total rows added: 44 in 0.00 seconds
+0018.037 (0) Table wp_terms: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_terms.table.gz - 1 KB)
+0018.039 (0) Table wp_woocommerce_order_itemmeta: Total expected rows (approximate): 1411
+0018.050 (0) Table wp_woocommerce_order_itemmeta: Total rows added: 1411 in 0.01 seconds
+0018.051 (0) Table wp_woocommerce_order_itemmeta: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_order_itemmeta.table.gz - 15.8 KB)
+0018.053 (0) Table wp_woocommerce_payment_tokenmeta: Total expected rows (approximate): 0
+0018.053 (0) Table wp_woocommerce_payment_tokenmeta: Total rows added: 0 in 0.00 seconds
+0018.054 (0) Table wp_woocommerce_payment_tokenmeta: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_payment_tokenmeta.table.gz - 0.4 KB)
+0018.055 (0) Skipping table (lacks our prefix (wp_)): ts_redirects
+0018.056 (0) Table wp_advanced_notification_triggers: Total expected rows (approximate): 1
+0018.058 (0) Table wp_advanced_notification_triggers: Total rows added: 1 in 0.00 seconds
+0018.058 (0) Table wp_advanced_notification_triggers: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_advanced_notification_triggers.table.gz - 0.3 KB)
+0018.061 (0) Table wp_advanced_notifications: Total expected rows (approximate): 1
+0018.062 (0) Table wp_advanced_notifications: Total rows added: 1 in 0.00 seconds
+0018.062 (0) Table wp_advanced_notifications: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_advanced_notifications.table.gz - 0.5 KB)
+0018.065 (0) Table wp_fpd_products: Total expected rows (approximate): 1
+0018.066 (0) Table wp_fpd_products: Total rows added: 1 in 0.00 seconds
+0018.066 (0) Table wp_fpd_products: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_fpd_products.table.gz - 0.4 KB)
+0018.069 (0) Table wp_fpd_views: Total expected rows (approximate): 1
+0018.070 (0) Table wp_fpd_views: Total rows added: 1 in 0.00 seconds
+0018.070 (0) Table wp_fpd_views: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_fpd_views.table.gz - 0.8 KB)
+0018.072 (0) Table wp_gf_addon_feed: Total expected rows (approximate): 2
+0018.073 (0) Table wp_gf_addon_feed: Total rows added: 2 in 0.00 seconds
+0018.073 (0) Table wp_gf_addon_feed: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_gf_addon_feed.table.gz - 0.6 KB)
+0018.076 (0) Table wp_groups_capability: Total expected rows (approximate): 144
+0018.078 (0) Table wp_groups_capability: Total rows added: 144 in 0.00 seconds
+0018.078 (0) Table wp_groups_capability: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_groups_capability.table.gz - 1.4 KB)
+0018.081 (0) Table wp_groups_group: Total expected rows (approximate): 3
+0018.082 (0) Table wp_groups_group: Total rows added: 3 in 0.00 seconds
+0018.082 (0) Table wp_groups_group: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_groups_group.table.gz - 0.5 KB)
+0018.085 (0) Table wp_groups_group_capability: Total expected rows (approximate): 0
+0018.085 (0) Table wp_groups_group_capability: Total rows added: 0 in 0.00 seconds
+0018.086 (0) Table wp_groups_group_capability: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_groups_group_capability.table.gz - 0.3 KB)
+0018.088 (0) Table wp_groups_user_capability: Total expected rows (approximate): 0
+0018.089 (0) Table wp_groups_user_capability: Total rows added: 0 in 0.00 seconds
+0018.089 (0) Table wp_groups_user_capability: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_groups_user_capability.table.gz - 0.3 KB)
+0018.091 (0) Table wp_groups_user_group: Total expected rows (approximate): 14
+0018.092 (0) Table wp_groups_user_group: Total rows added: 14 in 0.00 seconds
+0018.093 (0) Table wp_groups_user_group: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_groups_user_group.table.gz - 0.4 KB)
+0018.094 (0) Table wp_pmlca_links: Total expected rows (approximate): 0
+0018.095 (0) Table wp_pmlca_links: Total rows added: 0 in 0.00 seconds
+0018.096 (0) Table wp_pmlca_links: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_pmlca_links.table.gz - 0.3 KB)
+0018.097 (0) Table wp_pmxi_files: Total expected rows (approximate): 9
+0018.098 (0) Table wp_pmxi_files: Total rows added: 9 in 0.00 seconds
+0018.099 (0) Table wp_pmxi_files: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_pmxi_files.table.gz - 0.8 KB)
+0018.100 (0) Table wp_pmxi_history: Total expected rows (approximate): 12
+0018.101 (0) Table wp_pmxi_history: Total rows added: 12 in 0.00 seconds
+0018.102 (0) Table wp_pmxi_history: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_pmxi_history.table.gz - 0.7 KB)
+0018.104 (0) Table wp_pmxi_imports: Total expected rows (approximate): 9
+0018.107 (0) Table wp_pmxi_imports: Total rows added: 9 in 0.00 seconds
+0018.108 (0) Table wp_pmxi_imports: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_pmxi_imports.table.gz - 8.6 KB)
+0018.110 (0) Table wp_pmxi_posts: Total expected rows (approximate): 431
+0018.113 (0) Table wp_pmxi_posts: Total rows added: 407 in 0.00 seconds
+0018.114 (0) Table wp_pmxi_posts: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_pmxi_posts.table.gz - 4.8 KB)
+0018.115 (0) Table wp_pmxi_templates: Total expected rows (approximate): 0
+0018.117 (0) Table wp_pmxi_templates: Total rows added: 1 in 0.00 seconds
+0018.117 (0) Table wp_pmxi_templates: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_pmxi_templates.table.gz - 4.8 KB)
+0018.119 (0) Table wp_relevanssi: Total expected rows (approximate): 826
+0018.129 (0) Table wp_relevanssi: Total rows added: 833 in 0.01 seconds
+0018.129 (0) Table wp_relevanssi: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_relevanssi.table.gz - 5.1 KB)
+0018.131 (0) Table wp_relevanssi_log: Total expected rows (approximate): 0
+0018.132 (0) Table wp_relevanssi_log: Total rows added: 0 in 0.00 seconds
+0018.132 (0) Table wp_relevanssi_log: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_relevanssi_log.table.gz - 0.4 KB)
+0018.134 (0) Table wp_relevanssi_stopwords: Total expected rows (approximate): 317
+0018.135 (0) Table wp_relevanssi_stopwords: Total rows added: 317 in 0.00 seconds
+0018.136 (0) Table wp_relevanssi_stopwords: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_relevanssi_stopwords.table.gz - 1.3 KB)
+0018.137 (0) Table wp_rg_form: Total expected rows (approximate): 9
+0018.138 (0) Table wp_rg_form: Total rows added: 9 in 0.00 seconds
+0018.139 (0) Table wp_rg_form: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_rg_form.table.gz - 0.6 KB)
+0018.140 (0) Table wp_rg_form_meta: Total expected rows (approximate): 9
+0018.143 (0) Table wp_rg_form_meta: Total rows added: 9 in 0.00 seconds
+0018.144 (0) Table wp_rg_form_meta: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_rg_form_meta.table.gz - 9.5 KB)
+0018.145 (0) Table wp_rg_form_view: Total expected rows (approximate): 730
+0018.150 (0) Table wp_rg_form_view: Total rows added: 730 in 0.00 seconds
+0018.151 (0) Table wp_rg_form_view: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_rg_form_view.table.gz - 11.6 KB)
+0018.153 (0) Table wp_rg_incomplete_submissions: Total expected rows (approximate): 0
+0018.154 (0) Table wp_rg_incomplete_submissions: Total rows added: 0 in 0.00 seconds
+0018.154 (0) Table wp_rg_incomplete_submissions: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_rg_incomplete_submissions.table.gz - 0.4 KB)
+0018.157 (0) Table wp_rg_lead: Total expected rows (approximate): 225
+0018.161 (0) Table wp_rg_lead: Total rows added: 225 in 0.00 seconds
+0018.162 (0) Table wp_rg_lead: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_rg_lead.table.gz - 5.9 KB)
+0018.164 (0) Table wp_rg_lead_detail: Total expected rows (approximate): 2108
+0018.177 (0) Table wp_rg_lead_detail: Total rows added: 2108 in 0.01 seconds
+0018.178 (0) Table wp_rg_lead_detail: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_rg_lead_detail.table.gz - 28.3 KB)
+0018.180 (0) Table wp_rg_lead_detail_long: Total expected rows (approximate): 0
+0018.181 (0) Table wp_rg_lead_detail_long: Total rows added: 0 in 0.00 seconds
+0018.181 (0) Table wp_rg_lead_detail_long: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_rg_lead_detail_long.table.gz - 0.3 KB)
+0018.184 (0) Table wp_rg_lead_meta: Total expected rows (approximate): 70
+0018.185 (0) Table wp_rg_lead_meta: Total rows added: 70 in 0.00 seconds
+0018.186 (0) Table wp_rg_lead_meta: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_rg_lead_meta.table.gz - 0.9 KB)
+0018.188 (0) Table wp_rg_lead_notes: Total expected rows (approximate): 0
+0018.189 (0) Table wp_rg_lead_notes: Total rows added: 0 in 0.00 seconds
+0018.189 (0) Table wp_rg_lead_notes: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_rg_lead_notes.table.gz - 0.4 KB)
+0018.191 (0) Table wp_wfBadLeechers: Total expected rows (approximate): 0
+0018.192 (0) Table wp_wfBadLeechers: Total rows added: 0 in 0.00 seconds
+0018.192 (0) Table wp_wfBadLeechers: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfBadLeechers.table.gz - 0.3 KB)
+0018.194 (0) Table wp_wfBlockedIPLog: Total expected rows (approximate): 552
+0018.197 (0) Table wp_wfBlockedIPLog: Total rows added: 541 in 0.00 seconds
+0018.197 (0) Table wp_wfBlockedIPLog: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfBlockedIPLog.table.gz - 3.6 KB)
+0018.199 (0) Table wp_wfBlocks: Total expected rows (approximate): 6
+0018.200 (0) Table wp_wfBlocks: Total rows added: 6 in 0.00 seconds
+0018.200 (0) Table wp_wfBlocks: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfBlocks.table.gz - 0.5 KB)
+0018.202 (0) Table wp_wfBlocksAdv: Total expected rows (approximate): 0
+0018.203 (0) Table wp_wfBlocksAdv: Total rows added: 0 in 0.00 seconds
+0018.203 (0) Table wp_wfBlocksAdv: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfBlocksAdv.table.gz - 0.3 KB)
+0018.205 (0) Table wp_wfConfig: Total expected rows (approximate): 163
+0018.207 (0) Table wp_wfConfig: Total rows added: 164 in 0.00 seconds
+0018.207 (0) Table wp_wfConfig: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfConfig.table.gz - 4.3 KB)
+0018.209 (0) Table wp_wfCrawlers: Total expected rows (approximate): 16
+0018.210 (0) Table wp_wfCrawlers: Total rows added: 16 in 0.00 seconds
+0018.210 (0) Table wp_wfCrawlers: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfCrawlers.table.gz - 0.7 KB)
+0018.212 (0) Table wp_wfFileMods: Total expected rows (approximate): 4258
+0018.254 (0) Table wp_wfFileMods: Total rows added: 4281 in 0.04 seconds
+0018.255 (0) Table wp_wfFileMods: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfFileMods.table.gz - 210 KB)
+0018.257 (0) Table wp_wfHits: Total expected rows (approximate): 1528
+0018.286 (0) Table wp_wfHits: Total rows added: 1664 in 0.03 seconds
+0018.287 (0) Table wp_wfHits: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfHits.table.gz - 45.3 KB)
+0018.289 (0) Table wp_wfHoover: Total expected rows (approximate): 0
+0018.289 (0) Table wp_wfHoover: Total rows added: 0 in 0.00 seconds
+0018.290 (0) Table wp_wfHoover: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfHoover.table.gz - 0.3 KB)
+0018.291 (0) Table wp_wfIssues: Total expected rows (approximate): 3
+0018.292 (0) Table wp_wfIssues: Total rows added: 3 in 0.00 seconds
+0018.293 (0) Table wp_wfIssues: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfIssues.table.gz - 1.5 KB)
+0018.295 (0) Table wp_wfKnownFileList: Total expected rows (approximate): 4342
+0018.320 (0) Table wp_wfKnownFileList: Total rows added: 4281 in 0.03 seconds
+0018.321 (0) Table wp_wfKnownFileList: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfKnownFileList.table.gz - 40.3 KB)
+0018.323 (0) Table wp_wfLeechers: Total expected rows (approximate): 656
+0018.326 (0) Table wp_wfLeechers: Total rows added: 656 in 0.00 seconds
+0018.327 (0) Table wp_wfLeechers: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfLeechers.table.gz - 5.3 KB)
+0018.328 (0) Table wp_wfLockedOut: Total expected rows (approximate): 0
+0018.329 (0) Table wp_wfLockedOut: Total rows added: 0 in 0.00 seconds
+0018.330 (0) Table wp_wfLockedOut: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfLockedOut.table.gz - 0.3 KB)
+0018.331 (0) Table wp_wfLocs: Total expected rows (approximate): 0
+0018.332 (0) Table wp_wfLocs: Total rows added: 0 in 0.00 seconds
+0018.333 (0) Table wp_wfLocs: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfLocs.table.gz - 0.3 KB)
+0018.334 (0) Table wp_wfLogins: Total expected rows (approximate): 100
+0018.337 (0) Table wp_wfLogins: Total rows added: 111 in 0.00 seconds
+0018.337 (0) Table wp_wfLogins: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfLogins.table.gz - 3.5 KB)
+0018.339 (0) Table wp_wfNet404s: Total expected rows (approximate): 0
+0018.340 (0) Table wp_wfNet404s: Total rows added: 0 in 0.00 seconds
+0018.340 (0) Table wp_wfNet404s: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfNet404s.table.gz - 0.3 KB)
+0018.342 (0) Table wp_wfNotifications: Total expected rows (approximate): 5
+0018.343 (0) Table wp_wfNotifications: Total rows added: 7 in 0.00 seconds
+0018.344 (0) Table wp_wfNotifications: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfNotifications.table.gz - 2.7 KB)
+0018.345 (0) Table wp_wfReverseCache: Total expected rows (approximate): 3
+0018.346 (0) Table wp_wfReverseCache: Total rows added: 4 in 0.00 seconds
+0018.347 (0) Table wp_wfReverseCache: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfReverseCache.table.gz - 0.4 KB)
+0018.348 (0) Table wp_wfSNIPCache: Total expected rows (approximate): 0
+0018.349 (0) Table wp_wfSNIPCache: Total rows added: 0 in 0.00 seconds
+0018.350 (0) Table wp_wfSNIPCache: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfSNIPCache.table.gz - 0.4 KB)
+0018.351 (0) Table wp_wfScanners: Total expected rows (approximate): 43
+0018.352 (0) Table wp_wfScanners: Total rows added: 43 in 0.00 seconds
+0018.353 (0) Table wp_wfScanners: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfScanners.table.gz - 0.7 KB)
+0018.355 (0) Table wp_wfStatus: Total expected rows (approximate): 376
+0018.358 (0) Table wp_wfStatus: Total rows added: 376 in 0.00 seconds
+0018.359 (0) Table wp_wfStatus: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfStatus.table.gz - 5.7 KB)
+0018.360 (0) Table wp_wfThrottleLog: Total expected rows (approximate): 1
+0018.361 (0) Table wp_wfThrottleLog: Total rows added: 1 in 0.00 seconds
+0018.362 (0) Table wp_wfThrottleLog: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfThrottleLog.table.gz - 0.4 KB)
+0018.363 (0) Table wp_wfVulnScanners: Total expected rows (approximate): 0
+0018.364 (0) Table wp_wfVulnScanners: Total rows added: 0 in 0.00 seconds
+0018.364 (0) Table wp_wfVulnScanners: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfVulnScanners.table.gz - 0.3 KB)
+0018.368 (0) Table wp_woocommerce_api_keys: Total expected rows (approximate): 0
+0018.369 (0) Table wp_woocommerce_api_keys: Total rows added: 0 in 0.00 seconds
+0018.370 (0) Table wp_woocommerce_api_keys: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_api_keys.table.gz - 0.4 KB)
+0018.372 (0) Table wp_woocommerce_attribute_taxonomies: Total expected rows (approximate): 4
+0018.374 (0) Table wp_woocommerce_attribute_taxonomies: Total rows added: 4 in 0.00 seconds
+0018.374 (0) Table wp_woocommerce_attribute_taxonomies: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_attribute_taxonomies.table.gz - 0.5 KB)
+0018.376 (0) Table wp_woocommerce_downloadable_product_permissions: Total expected rows (approximate): 0
+0018.377 (0) Table wp_woocommerce_downloadable_product_permissions: Total rows added: 0 in 0.00 seconds
+0018.377 (0) Table wp_woocommerce_downloadable_product_permissions: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_downloadable_product_permissions.table.gz - 0.5 KB)
+0018.380 (0) Table wp_woocommerce_order_items: Total expected rows (approximate): 178
+0018.382 (0) Table wp_woocommerce_order_items: Total rows added: 178 in 0.00 seconds
+0018.382 (0) Table wp_woocommerce_order_items: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_order_items.table.gz - 1.6 KB)
+0018.384 (0) Table wp_woocommerce_payment_tokens: Total expected rows (approximate): 0
+0018.385 (0) Table wp_woocommerce_payment_tokens: Total rows added: 0 in 0.00 seconds
+0018.385 (0) Table wp_woocommerce_payment_tokens: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_payment_tokens.table.gz - 0.4 KB)
+0018.387 (0) Table wp_woocommerce_sessions: Total expected rows (approximate): 1
+0018.388 (0) Table wp_woocommerce_sessions: Total rows added: 1 in 0.00 seconds
+0018.389 (0) Table wp_woocommerce_sessions: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_sessions.table.gz - 0.9 KB)
+0018.390 (0) Table wp_woocommerce_shipping_zone_locations: Total expected rows (approximate): 0
+0018.391 (0) Table wp_woocommerce_shipping_zone_locations: Total rows added: 1 in 0.00 seconds
+0018.392 (0) Table wp_woocommerce_shipping_zone_locations: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_shipping_zone_locations.table.gz - 0.4 KB)
+0018.393 (0) Table wp_woocommerce_shipping_zone_methods: Total expected rows (approximate): 2
+0018.394 (0) Table wp_woocommerce_shipping_zone_methods: Total rows added: 2 in 0.00 seconds
+0018.395 (0) Table wp_woocommerce_shipping_zone_methods: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_shipping_zone_methods.table.gz - 0.4 KB)
+0018.397 (0) Table wp_woocommerce_shipping_zones: Total expected rows (approximate): 0
+0018.398 (0) Table wp_woocommerce_shipping_zones: Total rows added: 1 in 0.00 seconds
+0018.398 (0) Table wp_woocommerce_shipping_zones: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_shipping_zones.table.gz - 0.4 KB)
+0018.400 (0) Table wp_woocommerce_tax_rate_locations: Total expected rows (approximate): 1
+0018.400 (0) Table wp_woocommerce_tax_rate_locations: Total rows added: 0 in 0.00 seconds
+0018.401 (0) Table wp_woocommerce_tax_rate_locations: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_tax_rate_locations.table.gz - 0.4 KB)
+0018.403 (0) Table wp_woocommerce_tax_rates: Total expected rows (approximate): 0
+0018.404 (0) Table wp_woocommerce_tax_rates: Total rows added: 1 in 0.00 seconds
+0018.404 (0) Table wp_woocommerce_tax_rates: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_tax_rates.table.gz - 0.5 KB)
+0018.406 (0) Table wp_wooexim_export_archive: Total expected rows (approximate): 1
+0018.407 (0) Table wp_wooexim_export_archive: Total rows added: 1 in 0.00 seconds
+0018.407 (0) Table wp_wooexim_export_archive: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wooexim_export_archive.table.gz - 0.4 KB)
+0018.409 (0) Table wp_wpml_mails: Total expected rows (approximate): 320
+0018.448 (0) Table wp_wpml_mails: Total rows added: 776 in 0.04 seconds
+0018.449 (0) Table wp_wpml_mails: finishing file (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wpml_mails.table.gz - 112.6 KB)
+0018.450 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_options.table.gz (1/79): adding to final database dump
+0018.520 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_users.table.gz (2/79): adding to final database dump
+0018.522 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_usermeta.table.gz (3/79): adding to final database dump
+0018.544 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_commentmeta.table.gz (4/79): adding to final database dump
+0018.544 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_comments.table.gz (5/79): adding to final database dump
+0018.545 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_links.table.gz (6/79): adding to final database dump
+0018.545 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_postmeta.table.gz (7/79): adding to final database dump
+0018.601 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_posts.table.gz (8/79): adding to final database dump
+0018.625 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_term_relationships.table.gz (9/79): adding to final database dump
+0018.625 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_term_taxonomy.table.gz (10/79): adding to final database dump
+0018.626 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_termmeta.table.gz (11/79): adding to final database dump
+0018.626 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_terms.table.gz (12/79): adding to final database dump
+0018.627 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_order_itemmeta.table.gz (13/79): adding to final database dump
+0018.632 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_payment_tokenmeta.table.gz (14/79): adding to final database dump
+0018.632 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_advanced_notification_triggers.table.gz (15/79): adding to final database dump
+0018.633 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_advanced_notifications.table.gz (16/79): adding to final database dump
+0018.633 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_fpd_products.table.gz (17/79): adding to final database dump
+0018.633 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_fpd_views.table.gz (18/79): adding to final database dump
+0018.634 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_gf_addon_feed.table.gz (19/79): adding to final database dump
+0018.634 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_groups_capability.table.gz (20/79): adding to final database dump
+0018.635 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_groups_group.table.gz (21/79): adding to final database dump
+0018.635 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_groups_group_capability.table.gz (22/79): adding to final database dump
+0018.636 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_groups_user_capability.table.gz (23/79): adding to final database dump
+0018.636 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_groups_user_group.table.gz (24/79): adding to final database dump
+0018.636 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_pmlca_links.table.gz (25/79): adding to final database dump
+0018.637 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_pmxi_files.table.gz (26/79): adding to final database dump
+0018.637 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_pmxi_history.table.gz (27/79): adding to final database dump
+0018.638 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_pmxi_imports.table.gz (28/79): adding to final database dump
+0018.641 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_pmxi_posts.table.gz (29/79): adding to final database dump
+0018.642 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_pmxi_templates.table.gz (30/79): adding to final database dump
+0018.643 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_relevanssi.table.gz (31/79): adding to final database dump
+0018.646 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_relevanssi_log.table.gz (32/79): adding to final database dump
+0018.646 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_relevanssi_stopwords.table.gz (33/79): adding to final database dump
+0018.647 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_rg_form.table.gz (34/79): adding to final database dump
+0018.647 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_rg_form_meta.table.gz (35/79): adding to final database dump
+0018.650 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_rg_form_view.table.gz (36/79): adding to final database dump
+0018.652 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_rg_incomplete_submissions.table.gz (37/79): adding to final database dump
+0018.653 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_rg_lead.table.gz (38/79): adding to final database dump
+0018.655 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_rg_lead_detail.table.gz (39/79): adding to final database dump
+0018.662 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_rg_lead_detail_long.table.gz (40/79): adding to final database dump
+0018.662 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_rg_lead_meta.table.gz (41/79): adding to final database dump
+0018.663 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_rg_lead_notes.table.gz (42/79): adding to final database dump
+0018.663 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfBadLeechers.table.gz (43/79): adding to final database dump
+0018.664 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfBlockedIPLog.table.gz (44/79): adding to final database dump
+0018.665 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfBlocks.table.gz (45/79): adding to final database dump
+0018.665 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfBlocksAdv.table.gz (46/79): adding to final database dump
+0018.666 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfConfig.table.gz (47/79): adding to final database dump
+0018.666 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfCrawlers.table.gz (48/79): adding to final database dump
+0018.667 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfFileMods.table.gz (49/79): adding to final database dump
+0018.691 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfHits.table.gz (50/79): adding to final database dump
+0018.703 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfHoover.table.gz (51/79): adding to final database dump
+0018.703 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfIssues.table.gz (52/79): adding to final database dump
+0018.704 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfKnownFileList.table.gz (53/79): adding to final database dump
+0018.713 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfLeechers.table.gz (54/79): adding to final database dump
+0018.715 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfLockedOut.table.gz (55/79): adding to final database dump
+0018.715 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfLocs.table.gz (56/79): adding to final database dump
+0018.715 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfLogins.table.gz (57/79): adding to final database dump
+0018.716 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfNet404s.table.gz (58/79): adding to final database dump
+0018.717 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfNotifications.table.gz (59/79): adding to final database dump
+0018.718 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfReverseCache.table.gz (60/79): adding to final database dump
+0018.718 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfSNIPCache.table.gz (61/79): adding to final database dump
+0018.719 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfScanners.table.gz (62/79): adding to final database dump
+0018.719 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfStatus.table.gz (63/79): adding to final database dump
+0018.721 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfThrottleLog.table.gz (64/79): adding to final database dump
+0018.721 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wfVulnScanners.table.gz (65/79): adding to final database dump
+0018.721 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_api_keys.table.gz (66/79): adding to final database dump
+0018.722 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_attribute_taxonomies.table.gz (67/79): adding to final database dump
+0018.722 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_downloadable_product_permissions.table.gz (68/79): adding to final database dump
+0018.723 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_order_items.table.gz (69/79): adding to final database dump
+0018.723 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_payment_tokens.table.gz (70/79): adding to final database dump
+0018.724 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_sessions.table.gz (71/79): adding to final database dump
+0018.724 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_shipping_zone_locations.table.gz (72/79): adding to final database dump
+0018.724 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_shipping_zone_methods.table.gz (73/79): adding to final database dump
+0018.725 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_shipping_zones.table.gz (74/79): adding to final database dump
+0018.725 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_tax_rate_locations.table.gz (75/79): adding to final database dump
+0018.725 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_woocommerce_tax_rates.table.gz (76/79): adding to final database dump
+0018.726 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wooexim_export_archive.table.gz (77/79): adding to final database dump
+0018.726 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db-table-wp_wpml_mails.table.gz (78/79): adding to final database dump
+0018.756 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db.gz: finished writing out complete database file (1280 KB)
+0018.762 (0) Total database tables backed up: 78 (backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db.gz, size: 1316564, checksum (SHA1): b32802a4dd298bcb28e4c0d3f05fe5e844c2f82e)
+0018.765 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0018.765 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0018.765 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0018.766 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-others.zip: others: This file has not yet been successfully uploaded: will queue
+0018.766 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db.gz: db: This file has not yet been successfully uploaded: will queue
+0018.766 (0) Saving backup history. Total backup size: 163.9 MB
+0018.767 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0018.769 (0) Cloud backup selection (1/1): googledrive (last)
+0018.769 (0) Beginning dispatch of backup to remote (googledrive)
+0018.771 (0) Google Drive: requesting access token: client_id=577192087075-0uapqqq4gb6otqv6csvatqficjct43n8.apps.googleusercontent.com
+0018.857 (0) Google Drive: successfully obtained access token
+0020.388 (0) Google Drive quota usage: used=15056.8 MB, total=19456 MB, available=4399.2 MB
+0020.389 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip: Attempting to upload to Google Drive (into folder id: 0B1XARcEM7prYVHlpdC1rVm0xbE0)
+0020.904 (0) Googledrive chunked upload: 3.6 % uploaded (1048576)
+0021.146 (0) Googledrive chunked upload: 7.2 % uploaded (2097152)
+0021.385 (0) Googledrive chunked upload: 10.8 % uploaded (3145728)
+0021.674 (0) Googledrive chunked upload: 14.5 % uploaded (4194304)
+0021.871 (0) Googledrive chunked upload: 18.1 % uploaded (5242880)
+0022.177 (0) Googledrive chunked upload: 21.7 % uploaded (6291456)
+0022.411 (0) Googledrive chunked upload: 25.3 % uploaded (7340032)
+0022.645 (0) Googledrive chunked upload: 28.9 % uploaded (8388608)
+0022.918 (0) Googledrive chunked upload: 32.5 % uploaded (9437184)
+0023.147 (0) Googledrive chunked upload: 36.1 % uploaded (10485760)
+0023.411 (0) Googledrive chunked upload: 39.7 % uploaded (11534336)
+0023.649 (0) Googledrive chunked upload: 43.4 % uploaded (12582912)
+0023.872 (0) Googledrive chunked upload: 47 % uploaded (13631488)
+0024.161 (0) Googledrive chunked upload: 50.6 % uploaded (14680064)
+0024.401 (0) Googledrive chunked upload: 54.2 % uploaded (15728640)
+0024.628 (0) Googledrive chunked upload: 57.8 % uploaded (16777216)
+0024.817 (0) Googledrive chunked upload: 61.4 % uploaded (17825792)
+0025.192 (0) Googledrive chunked upload: 65 % uploaded (18874368)
+0025.454 (0) Googledrive chunked upload: 68.6 % uploaded (19922944)
+0025.665 (0) Googledrive chunked upload: 72.3 % uploaded (20971520)
+0025.910 (0) Googledrive chunked upload: 75.9 % uploaded (22020096)
+0026.158 (0) Googledrive chunked upload: 79.5 % uploaded (23068672)
+0026.423 (0) Googledrive chunked upload: 83.1 % uploaded (24117248)
+0026.672 (0) Googledrive chunked upload: 86.7 % uploaded (25165824)
+0026.894 (0) Googledrive chunked upload: 90.3 % uploaded (26214400)
+0027.129 (0) Googledrive chunked upload: 93.9 % uploaded (27262976)
+0027.387 (0) Googledrive chunked upload: 97.5 % uploaded (28311552)
+0028.594 (0) Googledrive chunked upload: 100 % uploaded (28311552)
+0028.595 (0) OK: Archive backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip uploaded to Google Drive in 8.21 seconds
+0028.596 (0) Recording as successfully uploaded: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip (d301fbdf67b6c5d93f7584db21fb8213)
+0028.601 (0) Deleting local file: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-plugins.zip: OK
+0028.815 (0) Google Drive quota usage: used=15084.4 MB, total=19456 MB, available=4371.6 MB
+0028.815 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-themes.zip: Attempting to upload to Google Drive (into folder id: 0B1XARcEM7prYVHlpdC1rVm0xbE0)
+0029.426 (0) Googledrive chunked upload: 73.7 % uploaded (1048576)
+0030.651 (0) Googledrive chunked upload: 100 % uploaded (1048576)
+0030.653 (0) OK: Archive backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-themes.zip uploaded to Google Drive in 1.84 seconds
+0030.653 (0) Recording as successfully uploaded: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-themes.zip (a77ff0d920905b6d27f09b3986116bf2)
+0030.655 (0) Deleting local file: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-themes.zip: OK
+0030.834 (0) Google Drive quota usage: used=15085.8 MB, total=19456 MB, available=4370.2 MB
+0030.835 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip: Attempting to upload to Google Drive (into folder id: 0B1XARcEM7prYVHlpdC1rVm0xbE0)
+0031.368 (0) Googledrive chunked upload: 0.7 % uploaded (1048576)
+0031.628 (0) Googledrive chunked upload: 1.5 % uploaded (2097152)
+0031.866 (0) Googledrive chunked upload: 2.2 % uploaded (3145728)
+0032.097 (0) Googledrive chunked upload: 3 % uploaded (4194304)
+0032.353 (0) Googledrive chunked upload: 3.7 % uploaded (5242880)
+0032.565 (0) Googledrive chunked upload: 4.5 % uploaded (6291456)
+0032.851 (0) Googledrive chunked upload: 5.2 % uploaded (7340032)
+0033.099 (0) Googledrive chunked upload: 6 % uploaded (8388608)
+0033.327 (0) Googledrive chunked upload: 6.7 % uploaded (9437184)
+0033.585 (0) Googledrive chunked upload: 7.5 % uploaded (10485760)
+0033.867 (0) Googledrive chunked upload: 8.2 % uploaded (11534336)
+0034.154 (0) Googledrive chunked upload: 9 % uploaded (12582912)
+0034.411 (0) Googledrive chunked upload: 9.7 % uploaded (13631488)
+0034.857 (0) Googledrive chunked upload: 10.5 % uploaded (14680064)
+0035.147 (0) Googledrive chunked upload: 11.2 % uploaded (15728640)
+0035.364 (0) Googledrive chunked upload: 12 % uploaded (16777216)
+0035.618 (0) Googledrive chunked upload: 12.7 % uploaded (17825792)
+0035.890 (0) Googledrive chunked upload: 13.5 % uploaded (18874368)
+0036.086 (0) Googledrive chunked upload: 14.2 % uploaded (19922944)
+0036.346 (0) Googledrive chunked upload: 15 % uploaded (20971520)
+0036.590 (0) Googledrive chunked upload: 15.7 % uploaded (22020096)
+0036.811 (0) Googledrive chunked upload: 16.5 % uploaded (23068672)
+0037.060 (0) Googledrive chunked upload: 17.2 % uploaded (24117248)
+0037.286 (0) Googledrive chunked upload: 18 % uploaded (25165824)
+0037.531 (0) Googledrive chunked upload: 18.7 % uploaded (26214400)
+0037.854 (0) Googledrive chunked upload: 19.5 % uploaded (27262976)
+0038.072 (0) Googledrive chunked upload: 20.2 % uploaded (28311552)
+0038.310 (0) Googledrive chunked upload: 21 % uploaded (29360128)
+0038.574 (0) Googledrive chunked upload: 21.7 % uploaded (30408704)
+0038.843 (0) Googledrive chunked upload: 22.5 % uploaded (31457280)
+0039.113 (0) Googledrive chunked upload: 23.2 % uploaded (32505856)
+0039.418 (0) Googledrive chunked upload: 24 % uploaded (33554432)
+0039.674 (0) Googledrive chunked upload: 24.7 % uploaded (34603008)
+0040.000 (0) Googledrive chunked upload: 25.5 % uploaded (35651584)
+0040.249 (0) Googledrive chunked upload: 26.2 % uploaded (36700160)
+0040.504 (0) Googledrive chunked upload: 27 % uploaded (37748736)
+0040.754 (0) Googledrive chunked upload: 27.7 % uploaded (38797312)
+0041.020 (0) Googledrive chunked upload: 28.4 % uploaded (39845888)
+0041.372 (0) Googledrive chunked upload: 29.2 % uploaded (40894464)
+0041.629 (0) Googledrive chunked upload: 29.9 % uploaded (41943040)
+0041.871 (0) Googledrive chunked upload: 30.7 % uploaded (42991616)
+0042.095 (0) Googledrive chunked upload: 31.4 % uploaded (44040192)
+0042.322 (0) Googledrive chunked upload: 32.2 % uploaded (45088768)
+0042.556 (0) Googledrive chunked upload: 32.9 % uploaded (46137344)
+0042.847 (0) Googledrive chunked upload: 33.7 % uploaded (47185920)
+0043.120 (0) Googledrive chunked upload: 34.4 % uploaded (48234496)
+0043.394 (0) Googledrive chunked upload: 35.2 % uploaded (49283072)
+0043.590 (0) Googledrive chunked upload: 35.9 % uploaded (50331648)
+0043.792 (0) Googledrive chunked upload: 36.7 % uploaded (51380224)
+0044.044 (0) Googledrive chunked upload: 37.4 % uploaded (52428800)
+0044.313 (0) Googledrive chunked upload: 38.2 % uploaded (53477376)
+0044.540 (0) Googledrive chunked upload: 38.9 % uploaded (54525952)
+0044.850 (0) Googledrive chunked upload: 39.7 % uploaded (55574528)
+0045.097 (0) Googledrive chunked upload: 40.4 % uploaded (56623104)
+0045.329 (0) Googledrive chunked upload: 41.2 % uploaded (57671680)
+0045.576 (0) Googledrive chunked upload: 41.9 % uploaded (58720256)
+0045.832 (0) Googledrive chunked upload: 42.7 % uploaded (59768832)
+0046.108 (0) Googledrive chunked upload: 43.4 % uploaded (60817408)
+0046.348 (0) Googledrive chunked upload: 44.2 % uploaded (61865984)
+0046.659 (0) Googledrive chunked upload: 44.9 % uploaded (62914560)
+0046.881 (0) Googledrive chunked upload: 45.7 % uploaded (63963136)
+0047.116 (0) Googledrive chunked upload: 46.4 % uploaded (65011712)
+0047.397 (0) Googledrive chunked upload: 47.2 % uploaded (66060288)
+0047.659 (0) Googledrive chunked upload: 47.9 % uploaded (67108864)
+0047.971 (0) Googledrive chunked upload: 48.7 % uploaded (68157440)
+0048.201 (0) Googledrive chunked upload: 49.4 % uploaded (69206016)
+0048.419 (0) Googledrive chunked upload: 50.2 % uploaded (70254592)
+0048.679 (0) Googledrive chunked upload: 50.9 % uploaded (71303168)
+0048.930 (0) Googledrive chunked upload: 51.7 % uploaded (72351744)
+0049.211 (0) Googledrive chunked upload: 52.4 % uploaded (73400320)
+0049.436 (0) Googledrive chunked upload: 53.2 % uploaded (74448896)
+0049.719 (0) Googledrive chunked upload: 53.9 % uploaded (75497472)
+0049.985 (0) Googledrive chunked upload: 54.7 % uploaded (76546048)
+0050.248 (0) Googledrive chunked upload: 55.4 % uploaded (77594624)
+0050.484 (0) Googledrive chunked upload: 56.1 % uploaded (78643200)
+0050.748 (0) Googledrive chunked upload: 56.9 % uploaded (79691776)
+0051.084 (0) Googledrive chunked upload: 57.6 % uploaded (80740352)
+0051.421 (0) Googledrive chunked upload: 58.4 % uploaded (81788928)
+0051.631 (0) Googledrive chunked upload: 59.1 % uploaded (82837504)
+0051.848 (0) Googledrive chunked upload: 59.9 % uploaded (83886080)
+0052.059 (0) Googledrive chunked upload: 60.6 % uploaded (84934656)
+0052.297 (0) Googledrive chunked upload: 61.4 % uploaded (85983232)
+0052.511 (0) Googledrive chunked upload: 62.1 % uploaded (87031808)
+0052.813 (0) Googledrive chunked upload: 62.9 % uploaded (88080384)
+0053.031 (0) Googledrive chunked upload: 63.6 % uploaded (89128960)
+0053.255 (0) Googledrive chunked upload: 64.4 % uploaded (90177536)
+0053.544 (0) Googledrive chunked upload: 65.1 % uploaded (91226112)
+0053.766 (0) Googledrive chunked upload: 65.9 % uploaded (92274688)
+0054.080 (0) Googledrive chunked upload: 66.6 % uploaded (93323264)
+0054.372 (0) Googledrive chunked upload: 67.4 % uploaded (94371840)
+0054.652 (0) Googledrive chunked upload: 68.1 % uploaded (95420416)
+0054.901 (0) Googledrive chunked upload: 68.9 % uploaded (96468992)
+0055.144 (0) Googledrive chunked upload: 69.6 % uploaded (97517568)
+0055.400 (0) Googledrive chunked upload: 70.4 % uploaded (98566144)
+0055.682 (0) Googledrive chunked upload: 71.1 % uploaded (99614720)
+0056.021 (0) Googledrive chunked upload: 71.9 % uploaded (100663296)
+0056.270 (0) Googledrive chunked upload: 72.6 % uploaded (101711872)
+0056.464 (0) Googledrive chunked upload: 73.4 % uploaded (102760448)
+0056.712 (0) Googledrive chunked upload: 74.1 % uploaded (103809024)
+0056.947 (0) Googledrive chunked upload: 74.9 % uploaded (104857600)
+0057.160 (0) Googledrive chunked upload: 75.6 % uploaded (105906176)
+0057.416 (0) Googledrive chunked upload: 76.4 % uploaded (106954752)
+0057.778 (0) Googledrive chunked upload: 77.1 % uploaded (108003328)
+0058.064 (0) Googledrive chunked upload: 77.9 % uploaded (109051904)
+0058.296 (0) Googledrive chunked upload: 78.6 % uploaded (110100480)
+0058.632 (0) Googledrive chunked upload: 79.4 % uploaded (111149056)
+0058.890 (0) Googledrive chunked upload: 80.1 % uploaded (112197632)
+0059.151 (0) Googledrive chunked upload: 80.9 % uploaded (113246208)
+0059.391 (0) Googledrive chunked upload: 81.6 % uploaded (114294784)
+0059.617 (0) Googledrive chunked upload: 82.4 % uploaded (115343360)
+0059.945 (0) Googledrive chunked upload: 83.1 % uploaded (116391936)
+0060.198 (0) Googledrive chunked upload: 83.8 % uploaded (117440512)
+0060.480 (0) Googledrive chunked upload: 84.6 % uploaded (118489088)
+0060.673 (0) Googledrive chunked upload: 85.3 % uploaded (119537664)
+0060.915 (0) Googledrive chunked upload: 86.1 % uploaded (120586240)
+0061.168 (0) Googledrive chunked upload: 86.8 % uploaded (121634816)
+0061.503 (0) Googledrive chunked upload: 87.6 % uploaded (122683392)
+0061.756 (0) Googledrive chunked upload: 88.3 % uploaded (123731968)
+0062.021 (0) Googledrive chunked upload: 89.1 % uploaded (124780544)
+0062.293 (0) Googledrive chunked upload: 89.8 % uploaded (125829120)
+0062.645 (0) Googledrive chunked upload: 90.6 % uploaded (126877696)
+0062.980 (0) Googledrive chunked upload: 91.3 % uploaded (127926272)
+0063.208 (0) Googledrive chunked upload: 92.1 % uploaded (128974848)
+0063.470 (0) Googledrive chunked upload: 92.8 % uploaded (130023424)
+0063.675 (0) Googledrive chunked upload: 93.6 % uploaded (131072000)
+0063.912 (0) Googledrive chunked upload: 94.3 % uploaded (132120576)
+0064.133 (0) Googledrive chunked upload: 95.1 % uploaded (133169152)
+0064.352 (0) Googledrive chunked upload: 95.8 % uploaded (134217728)
+0064.720 (0) Googledrive chunked upload: 96.6 % uploaded (135266304)
+0065.003 (0) Googledrive chunked upload: 97.3 % uploaded (136314880)
+0065.231 (0) Googledrive chunked upload: 98.1 % uploaded (137363456)
+0065.471 (0) Googledrive chunked upload: 98.8 % uploaded (138412032)
+0065.705 (0) Googledrive chunked upload: 99.6 % uploaded (139460608)
+0066.902 (0) Googledrive chunked upload: 100 % uploaded (139460608)
+0066.904 (0) OK: Archive backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip uploaded to Google Drive in 36.07 seconds
+0066.905 (0) Recording as successfully uploaded: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip (f5250f73ce90737cdf3273ff459705c4)
+0066.918 (0) Deleting local file: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-uploads.zip: OK
+0067.103 (0) Google Drive quota usage: used=15219.4 MB, total=19456 MB, available=4236.6 MB
+0067.104 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-others.zip: Attempting to upload to Google Drive (into folder id: 0B1XARcEM7prYVHlpdC1rVm0xbE0)
+0068.878 (0) Googledrive chunked upload: 100 % uploaded
+0068.879 (0) OK: Archive backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-others.zip uploaded to Google Drive in 1.78 seconds
+0068.880 (0) Recording as successfully uploaded: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-others.zip (58dabd0cef3eab04e27748c4ebb19cbd)
+0068.881 (0) Deleting local file: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-others.zip: OK
+0069.149 (0) Google Drive quota usage: used=15219.4 MB, total=19456 MB, available=4236.6 MB
+0069.150 (0) backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db.gz: Attempting to upload to Google Drive (into folder id: 0B1XARcEM7prYVHlpdC1rVm0xbE0)
+0069.666 (0) Googledrive chunked upload: 79.6 % uploaded (1048576)
+0070.735 (0) Googledrive chunked upload: 100 % uploaded (1048576)
+0070.737 (0) OK: Archive backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db.gz uploaded to Google Drive in 1.59 seconds
+0070.737 (0) Recording as successfully uploaded: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db.gz (17a15f54fdf7c1e1cef3b8e2eeeb04e0)
+0070.739 (0) Deleting local file: backup_2017-07-17-0931_The_Envelope_Company_a81ee882389f-db.gz: OK
+0070.740 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=2, retain_db=3
+0070.740 (0) Number of backup sets in history: 6; groups (db): 1
+0070.741 (0) Examining (for databases) backup set with group_id=0, nonce=a81ee882389f, datestamp=1500309089 (Jul 17 2017 16:31:29)
+0070.741 (0) This backup set is the backup set just made, so will not be deleted.
+0070.741 (0) Examining (for databases) backup set with group_id=0, nonce=ff4047469b53, datestamp=1500222905 (Jul 16 2017 16:35:05)
+0070.741 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0070.742 (0) Examining (for databases) backup set with group_id=0, nonce=4e4531051f17, datestamp=1500136461 (Jul 15 2017 16:34:21)
+0070.742 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0070.742 (0) Examining (for databases) backup set with group_id=0, nonce=624586db02f8, datestamp=1500050234 (Jul 14 2017 16:37:14)
+0070.743 (0) 1500050234: db: this set includes a database (backup_2017-07-14-0937_The_Envelope_Company_624586db02f8-db.gz); db count is now 3
+0070.743 (0) 1500050234: db: over retain limit (3); will delete this database
+0070.743 (0) Delete file: backup_2017-07-14-0937_The_Envelope_Company_624586db02f8-db.gz, service=googledrive
+0072.572 (0) backup_2017-07-14-0937_The_Envelope_Company_624586db02f8-db.gz: Deletion successful
+0072.573 (0) This backup set is now empty; will remove from history
+0072.573 (0) Deleting log file (log.624586db02f8.txt)
+0072.574 (0) Examining (for databases) backup set with group_id=0, nonce=67d3736babe6, datestamp=1499704698 (Jul 10 2017 16:38:18)
+0072.574 (0) Examining (for databases) backup set with group_id=0, nonce=d38f4b9c7a16, datestamp=1499099677 (Jul 03 2017 16:34:37)
+0072.574 (0) Number of backup sets in history: 5; groups (files): 1
+0072.574 (0) Examining (for files) backup set with nonce=a81ee882389f, datestamp=1500309089 (Jul 17 2017 16:31:29)
+0072.575 (0) This backup set is the backup set just made, so will not be deleted.
+0072.575 (0) This backup set is the backup set just made, so will not be deleted.
+0072.575 (0) This backup set is the backup set just made, so will not be deleted.
+0072.575 (0) This backup set is the backup set just made, so will not be deleted.
+0072.575 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0072.575 (0) Examining (for files) backup set with nonce=ff4047469b53, datestamp=1500222905 (Jul 16 2017 16:35:05)
+0072.576 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0072.576 (0) Examining (for files) backup set with nonce=4e4531051f17, datestamp=1500136461 (Jul 15 2017 16:34:21)
+0072.576 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0072.577 (0) Examining (for files) backup set with nonce=67d3736babe6, datestamp=1499704698 (Jul 10 2017 16:38:18)
+0072.577 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0072.577 (0) Examining (for files) backup set with nonce=d38f4b9c7a16, datestamp=1499099677 (Jul 03 2017 16:34:37)
+0072.578 (0) plugins: over retain limit (2); will delete this file entity
+0072.578 (0) themes: over retain limit (2); will delete this file entity
+0072.578 (0) uploads: over retain limit (2); will delete this file entity
+0072.578 (0) others: over retain limit (2); will delete this file entity
+0072.579 (0) Delete file: backup_2017-07-03-0934_The_Envelope_Company_d38f4b9c7a16-plugins.zip, service=googledrive
+0072.579 (0) Delete file: backup_2017-07-03-0934_The_Envelope_Company_d38f4b9c7a16-themes.zip, service=googledrive
+0072.579 (0) Delete file: backup_2017-07-03-0934_The_Envelope_Company_d38f4b9c7a16-uploads.zip, service=googledrive
+0072.580 (0) Delete file: backup_2017-07-03-0934_The_Envelope_Company_d38f4b9c7a16-others.zip, service=googledrive
+0073.871 (0) backup_2017-07-03-0934_The_Envelope_Company_d38f4b9c7a16-others.zip: Deletion successful
+0074.725 (0) backup_2017-07-03-0934_The_Envelope_Company_d38f4b9c7a16-uploads.zip: Deletion successful
+0075.780 (0) backup_2017-07-03-0934_The_Envelope_Company_d38f4b9c7a16-themes.zip: Deletion successful
+0076.521 (0) backup_2017-07-03-0934_The_Envelope_Company_d38f4b9c7a16-plugins.zip: Deletion successful
+0076.522 (0) This backup set is now empty; will remove from history
+0076.523 (0) Deleting log file (log.d38f4b9c7a16.txt)
+0076.523 (0) Retain: saving new backup history (sets now: 4) and finishing retain operation
+0076.524 (0) Resume backup (a81ee882389f, 0): finish run
+0076.525 (0) Decremented the semaphore (fd) by 1
+0076.526 (0) Semaphore (fd) unlocked
+0076.526 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0076.527 (0) No email will/can be sent - the user has not configured an email address.
+0076.528 (0) The backup apparently succeeded and is now complete

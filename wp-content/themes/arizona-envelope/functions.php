@@ -285,3 +285,8 @@ function get_excerpt($count){
   return $excerpt;
 }
 
+$preview = get_stylesheet_directory() . '/woocommerce/emails/woo-preview-emails.php';
+
+if(file_exists($preview)) {
+    require $preview;
+}

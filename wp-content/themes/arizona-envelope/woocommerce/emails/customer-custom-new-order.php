@@ -1,9 +1,11 @@
 <?php
 /**
+ * Customer custom completed order email
  *
- *
- *
- *
+ * @see 	    
+ * @author 		Oktara
+ * @package 	1.0
+ * @version     1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
-<p><?php printf( __( "Hi there. Your recent order on %s has been completed.  You will receive a detailed order acknowledgment within 1 business day.", 'woocommerce' ), get_option( 'blogname' ) ); ?></p>
+<p><?php printf("Thank you for your order! You will receive a detailed order acknowledgment within 1 business day."); ?></p>
 
 <?php
 /**
