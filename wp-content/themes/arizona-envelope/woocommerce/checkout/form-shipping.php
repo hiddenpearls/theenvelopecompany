@@ -23,23 +23,35 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div class="woocommerce-shipping-fields">
 	<?php if ( true === WC()->cart->needs_shipping_address() ) : ?>
-		<div class="clearfix">
-			<h3 id="ship-to-different-address" class="pull-left">
-				<label for="ship-to-different-address-checkbox" class="checkbox"><?php _e( 'Ship to a different address?', 'woocommerce' ); ?></label>
-				<input id="ship-to-different-address-checkbox" class="input-checkbox" <?php checked( apply_filters( 'woocommerce_ship_to_different_address_checked', 'shipping' === get_option( 'woocommerce_ship_to_destination' ) ? 1 : 0 ), 1 ); ?> type="checkbox" name="ship_to_different_address" value="1" />
-			</h3>
-			<p class="pull-right italic heading-text margin-top-sm">*Required Fields</p>
-		</div>
+        
+        <div class="clearfix ship-to-same-address">
+            <h3 id="ship-to-same-address" class="pull-left">
+                <label for="ship-to-same-address-checkbox" class="checkbox">
+                    <?php _e( 'Ship to the same address?', 'woocommerce' ); ?>
+                </label>
+                <input id="ship-to-same-address-checkbox" class="input-checkbox checkout-ship" <?php //checked( apply_filters( 'woocommerce_ship_to_different_address_checked', 'shipping' === get_option( 'woocommerce_ship_to_destination' ) ? 1 : 0 ), 1 ); ?> type="checkbox" name="ship_to_same_address" value="2" />
+            </h3>
+        </div>
+        
+        
+        <div class="clearfix ship-to-different-address">
+            <h3 id="ship-to-different-address" class="pull-left">
+                <label for="ship-to-different-address-checkbox" class="checkbox"><?php _e( 'Ship to a different address?', 'woocommerce' ); ?></label>
+                <input id="ship-to-different-address-checkbox" class="input-checkbox checkout-ship" <?php checked( apply_filters( 'woocommerce_ship_to_different_address_checked', 'shipping' === get_option( 'woocommerce_ship_to_destination' ) ? 1 : 0 ), 1 ); ?> type="checkbox" name="ship_to_different_address" value="1" />
+            </h3>
+            <p class="pull-right italic heading-text margin-top-sm">*Required Fields</p>
+        </div>
+        
 			
 
-		<div class="shipping_address">
+		<div class="shipping_address form">
 
 			<?php do_action( 'woocommerce_before_checkout_shipping_form', $checkout ); ?>
 
 			<?php foreach ( $checkout->checkout_fields['shipping'] as $key => $field ) : ?>
 
 				<?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
-
+                
 			<?php endforeach; ?>
 
 			<?php do_action( 'woocommerce_after_checkout_shipping_form', $checkout ); ?>

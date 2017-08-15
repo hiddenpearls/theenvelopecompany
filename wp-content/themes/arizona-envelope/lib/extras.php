@@ -503,7 +503,7 @@ add_filter('pre_get_posts', 'Roots\Sage\Extras\change_wp_search_size'); // Hook 
 
 /** 
  *Reduce the strength requirement on the woocommerce password.
-    Taken from: https://gist.github.com/BurlesonBrad/c89a825a64732a46b87c
+   * Taken from: https://gist.github.com/BurlesonBrad/c89a825a64732a46b87c
  * 
  * Strength Settings
  * 3 = Strong (default)

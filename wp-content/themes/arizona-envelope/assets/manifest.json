@@ -1,37 +1,44 @@
 {
-  "dependencies": {
-    "main.js": {
-      "files": [
-        "scripts/main.js"
-      ],
-      "main": true
+    "dependencies": {
+        "main.js": {
+            "files": [
+                "scripts/main.js"
+            ],
+            "main": true
+        },
+        "main.css": {
+            "files": [
+                "styles/main.scss"
+            ],
+            "main": true
+        },
+        "customizer.js": {
+            "files": [
+                "scripts/customizer.js"
+            ]
+        },
+        "azenvelope.js": {
+            "files": [
+                "scripts/azenvelope.js"
+            ]
+        },
+        "plugin-custom-includes.js": {
+            "files": [
+                "scripts/checkout.js"
+            ]
+        },
+        "jquery.validate.js": {
+            "files": [
+                "scripts/jquery.validate.js"
+            ]
+        },
+        "jquery.js": {
+            "bower": [
+                "jquery"
+            ]
+        }
     },
-    "main.css": {
-      "files": [
-        "styles/main.scss"
-      ],
-      "main": true
-    },
-    "customizer.js": {
-      "files": [
-        "scripts/customizer.js"
-      ]
-    },
-    "azenvelope.js": {
-      "files": [
-        "scripts/azenvelope.js"
-      ]
-    },
-    "jquery.validate.js": {
-      "files": [
-        "scripts/jquery.validate.js"
-      ]
-    },
-    "jquery.js": {
-      "bower": ["jquery"]
+    "config": {
+        "devUrl": "https://theenvelopecompany.loc"
     }
-  },
-  "config": {
-    "devUrl": "https://azenvelope.loc"
-  }
 }
