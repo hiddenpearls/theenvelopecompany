@@ -432,14 +432,14 @@ jQuery(document).ready(function ($) {
                 $(element).parents('p.form-row').removeClass(errorClass).addClass(validClass);
             }
         });
-        
-            $('#billing_city_field label').append(' <abbr class="required" title="required" aria-required="true">*</abbr>');
-            $('#billing_state_field label').append(' <abbr class="required" title="required" aria-required="true">*</abbr>');
-            $('#billing_postcode_field label').append(' <abbr class="required" title="required" aria-required="true">*</abbr>');
-            $('#shipping_state_field label').append(' <abbr class="required" title="required" aria-required="true">*</abbr>');
-            $('#shipping_city_field  label').append(' <abbr class="required" title="required" aria-required="true">*</abbr>');
-            $('#shipping_postcode_field  label').append(' <abbr class="required" title="required" aria-required="true">*</abbr>');
-        
+
+        $('#billing_city_field label').append(' <abbr class="required" title="required" aria-required="true">*</abbr>');
+        $('#billing_state_field label').append(' <abbr class="required" title="required" aria-required="true">*</abbr>');
+        $('#billing_postcode_field label').append(' <abbr class="required" title="required" aria-required="true">*</abbr>');
+        $('#shipping_state_field label').append(' <abbr class="required" title="required" aria-required="true">*</abbr>');
+        $('#shipping_city_field  label').append(' <abbr class="required" title="required" aria-required="true">*</abbr>');
+        $('#shipping_postcode_field  label').append(' <abbr class="required" title="required" aria-required="true">*</abbr>');
+
     }
 
     //
@@ -456,14 +456,14 @@ jQuery(document).ready(function ($) {
         }
     });
 
-
+    
     // Checkout
     if ($('#checkout-form').length) {
         // Shipping form fields to be used to reassign the original values
         var billingForm = $('.woocommerce-billing-fields');
         var shippingForm = $('.shipping_address.form');
 
-        
+
         var initialShippingName = shippingForm.find('#shipping_first_name').val();
         var initialShippingLast = shippingForm.find('#shipping_last_name').val();
         var initialShippingCompany = shippingForm.find('#shipping_company').val();
@@ -474,7 +474,7 @@ jQuery(document).ready(function ($) {
         var initialShippingCity = shippingForm.find('#shipping_city').val();
         var initialShippingState = shippingForm.find('#shipping_state').val();
         var initialShippingZip = shippingForm.find('#shipping_postcode').val();
-        console.log(initialShippingName);
+        
 
         var shippingName = shippingForm.find('#shipping_first_name');
         var shippingLast = shippingForm.find('#shipping_last_name');
@@ -487,11 +487,11 @@ jQuery(document).ready(function ($) {
         var shippingState = shippingForm.find('#shipping_state');
         var shippingZip = shippingForm.find('#shipping_postcode');
 
-        
+
         // Store form field values on load
-        function getBillingFormValues(){
+        function getBillingFormValues() {
             // Billing form values
-            
+
             var billingName = billingForm.find('#billing_first_name').val();
             var billingLast = billingForm.find('#billing_last_name').val();
             var billingCompany = billingForm.find('#billing_company').val();
@@ -501,6 +501,8 @@ jQuery(document).ready(function ($) {
             var billingAddress2 = billingForm.find('#billing_address_2').val();
             var billingCity = billingForm.find('#billing_city').val();
             var billingState = billingForm.find('#billing_state').val();
+            // since the shipping form select is replaced with a div we need to do some magic here
+            var billingStateLabel = billingForm.find('#billing_state option:selected').text();
             var billingZip = billingForm.find('#billing_postcode').val();
 
             // auto populate fields here with the values from the billing form and disable fields
@@ -512,97 +514,92 @@ jQuery(document).ready(function ($) {
             shippingAddress1.attr("value", billingAddress1).prop("disabled", true);
             shippingAddress2.attr("value", billingAddress2).prop("disabled", true);
             shippingCity.attr("value", billingCity).prop("disabled", true);
+            // since the shipping form select is replaced with a div we need to do some magic here
             shippingState.attr("value", billingState).prop("disabled", true);
+            var targetField = $("#select2-chosen-2");
+            targetField.empty();
+            targetField.append(billingStateLabel);
             shippingZip.attr("value", billingZip).prop("disabled", true);
         }
-        
+
         function setInitialShippingValues() {
             // Initial Shipping form values stored to re-populate the field values with them in case user checks both options before completing order
-            
-            // $( 'div.shipping_address.form' ).slideDown(); taken care of by WooCommerce default
-                    // Re populate form fields with original values
-                    shippingName.attr("value", initialShippingName).prop("disabled", false);
-                    shippingLast.attr("value", initialShippingLast).prop("disabled", false);
-                    shippingCompany.attr("value", initialShippingCompany).prop("disabled", false);
-                    shippingEmail.attr("value", initialShippingEmail).prop("disabled", false);
-                    shippingPhone.attr("value", initialShippingPhone).prop("disabled", false);
-                    shippingAddress1.attr("value", initialShippingAddress1).prop("disabled", false);
-                    shippingAddress2.attr("value", initialShippingAddress2).prop("disabled", false);
-                    shippingCity.attr("value", initialShippingCity).prop("disabled", false);
-                    shippingState.attr("value", initialShippingState).prop("disabled", false);
-                    shippingZip.attr("value", initialShippingZip).prop("disabled", false);
+            shippingName.attr("value", initialShippingName).prop("disabled", false);
+            shippingLast.attr("value", initialShippingLast).prop("disabled", false);
+            shippingCompany.attr("value", initialShippingCompany).prop("disabled", false);
+            shippingEmail.attr("value", initialShippingEmail).prop("disabled", false);
+            shippingPhone.attr("value", initialShippingPhone).prop("disabled", false);
+            shippingAddress1.attr("value", initialShippingAddress1).prop("disabled", false);
+            shippingAddress2.attr("value", initialShippingAddress2).prop("disabled", false);
+            shippingCity.attr("value", initialShippingCity).prop("disabled", false);
+            shippingState.attr("value", initialShippingState).prop("disabled", false);
+            shippingZip.attr("value", initialShippingZip).prop("disabled", false);
         }
 
-        
+
 
         // Update "ship to same address" form when billing form is changed
         $('#checkout-form .woocommerce-billing-fields :input').change(function (e) {
             // Get DOM element that trigered the event
             var element = e.target;
-            console.log(e.target);
-
+            // get element type
+            var eType = e.target.type;
+            // get element ID
             var changedInput = e.target.id;
             // Get the ID of the input field that changed
-            changedInput = $("#"+changedInput).attr("id");
-            // Get new value
-            var input = $("#"+changedInput).val();
-            console.log(input);
-            changedInput = changedInput.toString();
-            console.log(changedInput);
-            changedInput = changedInput.replace("billing", "shipping");
-            // $("#"+changedInput);
-            
-            // changedInput = $(changedInput).text().replace("billing", "shipping");
-            console.log(changedInput);
-            if( $(".same-address.shipping_address").length >= 1 ){
-                var targetInput = $(".same-address.shipping_address").find("#"+changedInput);
-                targetInput.attr("value", input);
+            changedInput = $("#" + changedInput).attr("id");
+            // get the new value of the changed field
+            var input = $("#" + changedInput).val();
+            if ( eType === 'select-one' ){
+                var selected = element[element.selectedIndex].text;
+                
+                if ($(".same-address.shipping_address").length >= 1) {
+                    var targetInput = $(".same-address.shipping_address").find("#s2id_shipping_state");
+                    targetInput = targetInput.find("#select2-chosen-2");
+                    targetInput.empty();
+                    targetInput.append(selected);
+                }
+            } else {
+                // replace billing for shipping here, to update shipping form
+                changedInput = changedInput.replace("billing", "shipping");
+                if ($(".same-address.shipping_address").length >= 1) {
+                    var targetInput = $(".same-address.shipping_address").find("#" + changedInput);
+                    targetInput.attr("value", input);
+                }
             }
-            
-            //targetInput.hide();
         });
-
-       
 
         // When a checkbox is clicked on
         $('.input-checkbox.checkout-ship').click(function () {
-
             // Store form div container in a var for cache
             var form = $('div.shipping_address.form');
-
             // Store checkboxes in a variable for cache and ease of use
             var $inputs = $('.input-checkbox.checkout-ship');
-
             // validate if any of the fields are checked before continue'ing, if not checked only hide all forms
             if ($(this).prop('checked')) {  // <-- check if clicked box is currently checked
-
                 // Uncheck all other checkboxes
                 var id = $($inputs.not(this)).prop("id");
                 $("#" + id).prop("checked", false); // <-- uncheck all but checked checkbox
-
-                // Same as billing address option
-                // move the form in the DOM to be below the checked field
-                // hide the form for the unchecked option, show the checked one.
                 if (id === 'ship-to-different-address-checkbox') {
+                    // Same as billing address option (inversed)
+                    // move the form in the DOM to be below the checked field
+                    // hide the form for the unchecked option, show the checked one.
                     form.hide();
                     form.insertBefore(".ship-to-different-address");
                     form.addClass("same-address");
                     getBillingFormValues();
                     form.slideDown();
-                    
-
                 } else if (id === 'ship-to-same-address-checkbox') {
+                    // Same as shipping address option (inversed)
                     form.hide();
                     form.insertAfter(".ship-to-different-address");
                     setInitialShippingValues();
                     form.removeClass("same-address");
-                    
-                    
                 }
             } else {
-                // form.removeClass("same-address");
                 form.hide();
             }
         });
     }
+    
 });
