@@ -30,6 +30,7 @@ whitelistParam(url='/\/wp-admin\/admin-ajax\.php$/i', param=request.body['banned
 whitelistParam(url='/\/wp-admin\/admin-ajax\.php$/i', param=request.body['scan_include_extra'])
 whitelistParam(url='/\/wp-admin\/(?:network\/)?(?:plugin|theme)-editor\.php$/i', param=request.body['newcontent'])
 whitelistParam(url='/\/wp-admin\/admin-ajax\.php$/i', param=request.body['widget-text'])
+whitelistParam(url='/\/wp-admin\/admin-ajax\.php$/i', param=request.body['widget-custom_html'])
 whitelistParam(url='/.{0,1}/', param=request.queryString['_wp_http_referer'])
 whitelistParam(url='/\/wp-admin\/(?:network\/)?plugins\.php$/i', param=request.queryString['plugin'])
 whitelistParam(url='/\/wp-admin\/(?:network\/)?plugins\.php$/i', param=request.queryString['action'])
@@ -279,6 +280,12 @@ if (currentUserIsNot('administrator', server.empty) and match('/^aamc?$/i', requ
 if (notMatch('/\.(jpe?g|png|mpeg|mov|flv|pdf|docx?|txt|csv|avi|mp3|wma|wav)($|\.)/i', request.fileNames) and lengthGreaterThan('0', request.body.save_bepro_listing)):
 	block(id=78, category='file_upload', description='BePro Listings <= 2.2.0020 - Unauthenticated Arbitrary File Upload')
 
+if (match('#/wp\-admin/admin\.php$#i', server.script_filename) and equals('master-slider', request.queryString.page) and lengthGreaterThan('0', request.body.page) and notEquals('master-slider', request.body.page)):
+	block(id=80, category='xss', description='Master Slider <= 2.7.1 - Reflected XSS')
+
+if (equals('fancybox-for-wordpress', request.queryString.page) and match(xssRegex, request.body.mfbfw)):
+	block(id=81, category='xss', description='FancyBox for WordPress <= 3.0.2 - Persistent XSS')
+
 if ((match('#/delete\-all\-comments/delete\-all\-comments\.php$#i', server.script_filename) or (lengthGreaterThan('0', request.body.restorefromfileNAME) and lengthGreaterThan('0', request.body.restorefromfileURL))) and currentUserIsNot('administrator', server.empty)):
 	block(id=83, category='file_download', description='Delete All Comments <= 2.0.0 - Unauthenticated Remote File Download')
 
@@ -293,6 +300,18 @@ if (match('/iwp_action/i', base64decode(request.rawBody)) and match('/(^|;|{|})O
 
 if (match('#/nggallery/+tags/+.*?%25#i', request.path) and match('#/nggallery/+tags/+(?:[^\$]*\$|.*?%24)#i', request.path)):
 	block(id=87, category='sqli', description='NextGEN Gallery <= 2.1.77 - SQL Injection')
+
+if (match('/\/wp\-admin[\/]+admin\-ajax\.php/i', request.path) and currentUserIsNot('administrator', server.empty) and equals('showbiz_ajax_action', request.body.action) and equals('update_plugin', request.body.client_action)):
+	block(id=88, category='file_upload', description='Showbiz Pro 1.7.1 - Arbitrary File Upload')
+
+if (currentUserIsNot('administrator', server.empty) and match('#monetize[\/]+templatic\-custom_fields[\/]+single\-upload\.php#i', request.path)):
+	block(id=89, category='file_upload', description='Tevolution <= 2.3.6 - Arbitrary File Upload')
+
+if (currentUserIsNot('administrator', server.empty) and match('#/wp\-admin/admin\-ajax\.php$#i', server.script_filename) and match('/^(?:nopriv_)?td_ajax_update_panel$/i', request.body.action, request.queryString.action)):
+	block(id=91, category='auth-bypass', description='Newspaper Premium Theme <= 6.7.1 - Privilege Escalation', whitelist=0)
+
+if (match('/\/wp\-admin\/admin\-ajax\.php$/i', server.script_filename) and match('/parse\-media\-shortcode/i', request.body.action, request.queryString.action) and match('/\[\s*?wpstatistics/i', request.body.shortcode, request.queryString.shortcode) and contains('\'', request.body.shortcode, request.queryString.shortcode)):
+	block(id=92, category='sqli', description='WP Statistics <= 12.0.7 - Blind SQL Injection')
 
 if (matchCount(sqliRegex, request.body, request.queryString)):
 	failSQLi(id=3, category='sqli', score=40, description='SQL Injection')
